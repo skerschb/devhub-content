@@ -1,5 +1,0 @@
-.. highlighted::
-
-   /path/to/article
-   /path/to/nextArticle
-   /path/to/yet-another-article

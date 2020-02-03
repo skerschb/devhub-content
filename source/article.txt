@@ -1,8 +1,8 @@
 :devhub:article:
 
-.. meta::
+.. meta-description:: 
 
-   meta description (160 characters or fewer)
+meta description (160 characters or fewer)
 
 .. twitter::
    :site: @mongodb
@@ -20,6 +20,8 @@
 .. type:: article, quickstart, how-to, video, live
 
 .. level:: beginner, intermediate, advanced
+
+.. series:: seriesName
 
 .. tags:: 
 
@@ -82,6 +84,10 @@ h1 Article Title
    ---------
 
    Content for second h2.
+
+   .. codeblock:: javascript
+
+      // this is where you would put some lovely code!
 
    h3 Step 1: Do stuff
    ~~~~~~~~~~~~~~~~~~~
