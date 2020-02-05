@@ -1,4 +1,5 @@
-name = "devhub"
+name = "devhub-test"
+default_domain = "devhub"
 
 [constants]
 version = 4.0

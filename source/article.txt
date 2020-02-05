@@ -1,19 +1,26 @@
 :template: devhub-article
 
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
 .. meta-description:: 
 
-meta description (160 characters or fewer)
+   meta description (160 characters or fewer)
 
 .. twitter::
    :site: @mongodb
    :creator: @Lauren_Schaefer
-   :description: (max 200 characters)
    :title: Wordswordswords
    :image: </path/to/image>
 
-.. author:: Firstname Lastname
+   Description of max 200 characters
 
-.. author-image:: /img/firstname-lastname.png
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
+
+.. include:: /includes/authors/lastname-firstname.rst
 
 .. pubdate:: January 31, 2019
 
@@ -34,12 +41,22 @@ meta description (160 characters or fewer)
    * nodejs
    * java
 
-.. product::
+.. products::
 
    * Realm
    * MongoDB
 
-.. atf-img:: /img/heros/how-to-write-an-article.png
+.. atf-image:: /img/heros/how-to-write-an-article.png
+
+.. related::
+
+   * ``list of related articles``
+   * ``:doc:`/path/to/article```
+   * ``:doc:`/path/to/other/article```
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
 
 ================
 h1 Article Title
@@ -58,6 +75,9 @@ h1 Article Title
    Include target keyword in the first 100 words of content piece for SEO
 
 .. prerequisites::
+
+   H2 Prerequisites
+   ----------------
 
    If your content has prerequisites, specify them in this section.
    Indicating what type of content the content is can let us do more on
@@ -85,7 +105,7 @@ h1 Article Title
 
    Content for second h2.
 
-   .. codeblock:: javascript
+   .. code-block:: javascript
 
       // this is where you would put some lovely code!
 
@@ -112,11 +132,4 @@ h1 Article Title
 .. summary::
 
    Conclude or summarize your article.
-
-.. related::
-
-   * ``list of related articles``
-   * ``:doc:`/path/to/article```
-   * ``:doc:`/path/to/other/article```
-
 
