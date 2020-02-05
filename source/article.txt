@@ -1,5 +1,9 @@
 :template: devhub-article
 
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
 .. meta-description:: 
 
 meta description (160 characters or fewer)
@@ -11,9 +15,11 @@ meta description (160 characters or fewer)
    :title: Wordswordswords
    :image: </path/to/image>
 
-.. author:: Firstname Lastname
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
 
-.. author-image:: /img/firstname-lastname.png
+.. include:: /includes/authors/lastname-firstname.rst
 
 .. pubdate:: January 31, 2019
 
@@ -41,6 +47,16 @@ meta description (160 characters or fewer)
 
 .. atf-img:: /img/heros/how-to-write-an-article.png
 
+.. related::
+
+   * ``list of related articles``
+   * ``:doc:`/path/to/article```
+   * ``:doc:`/path/to/other/article```
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
+
 ================
 h1 Article Title
 ================
@@ -58,6 +74,9 @@ h1 Article Title
    Include target keyword in the first 100 words of content piece for SEO
 
 .. prerequisites::
+
+   H2 Prerequisites
+   ----------------
 
    If your content has prerequisites, specify them in this section.
    Indicating what type of content the content is can let us do more on
@@ -112,11 +131,4 @@ h1 Article Title
 .. summary::
 
    Conclude or summarize your article.
-
-.. related::
-
-   * ``list of related articles``
-   * ``:doc:`/path/to/article```
-   * ``:doc:`/path/to/other/article```
-
 

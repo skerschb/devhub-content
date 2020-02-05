@@ -1,3 +1,5 @@
-.. author:: Lauren Schaefer
+.. author:: 
+   :name: Lauren Schaefer
    :image: /path/to/image.jpg
-   :bio: Short bio here.
+   
+   Short author bio here.
