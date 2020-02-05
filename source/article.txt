@@ -11,9 +11,10 @@
 .. twitter::
    :site: @mongodb
    :creator: @Lauren_Schaefer
-   :description: (max 200 characters)
    :title: Wordswordswords
    :image: </path/to/image>
+
+   Description of max 200 characters
 
 .. ---------------------------------------------------------------
 .. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
@@ -40,12 +41,12 @@
    * nodejs
    * java
 
-.. product::
+.. products::
 
    * Realm
    * MongoDB
 
-.. atf-img:: /img/heros/how-to-write-an-article.png
+.. atf-image:: /img/heros/how-to-write-an-article.png
 
 .. related::
 
@@ -104,7 +105,7 @@ h1 Article Title
 
    Content for second h2.
 
-   .. codeblock:: javascript
+   .. code-block:: javascript
 
       // this is where you would put some lovely code!
 
