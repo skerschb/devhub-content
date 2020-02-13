@@ -108,6 +108,21 @@ h1 Article Title
    .. code-block:: javascript
 
       // this is where you would put some lovely code!
+      
+      
+   .. code-block:: javascript
+
+      Object.keys(colorMap).map(colorName => (
+          <Swatch
+              key={colorName}
+              colorName={colorName}
+              colorValue={colorMap[colorName]}
+          >
+              <P collapse>
+                  {colorMap[colorName]} - {colorName}
+              </P>
+          </Swatch>
+      ))
 
    h3 Step 1: Do stuff
    ~~~~~~~~~~~~~~~~~~~
