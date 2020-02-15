@@ -14,7 +14,7 @@
    :title: Wordswordswords
    :image: </path/to/image>
 
-   Description of max 200 characters
+   Sue's changes woo hoo! Description of max 200 characters
 
 .. ---------------------------------------------------------------
 .. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
