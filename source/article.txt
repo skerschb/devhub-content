@@ -14,7 +14,7 @@
    :title: Wordswordswords
    :image: </path/to/image>
 
-   Sue's changes woo hoo! Description of max 200 characters
+   TEST Sue's patch changes woo hoo! Description of max 200 characters
 
 .. ---------------------------------------------------------------
 .. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
