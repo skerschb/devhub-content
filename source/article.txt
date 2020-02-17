@@ -64,7 +64,7 @@ h1 Article Title
 
 .. introduction::
 
-   PATCH CHANGES WOO HOO Hi these are Sue's changes. Capture the reader’s attention. An interesting fact or data point,
+   Commit but not pushed these are Sue's changes. Capture the reader’s attention. An interesting fact or data point,
    empathy, engaging.
    
    Offer the reason for the post’s existence. What’s the purpose of the
