@@ -51,8 +51,6 @@
 .. related::
 
    * ``list of related articles``
-   * ``:doc:`/path/to/article```
-   * ``:doc:`/path/to/other/article```
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
@@ -64,7 +62,7 @@ h1 Article Title
 
 .. introduction::
 
-   Commit but not pushed these are Sue's changes. Capture the reader’s attention. An interesting fact or data point,
+   MASTER BUILD WOO HOO! Uncommitted changes but not pushed these are Sue's changes. Capture the reader’s attention. An interesting fact or data point,
    empathy, engaging.
    
    Offer the reason for the post’s existence. What’s the purpose of the
