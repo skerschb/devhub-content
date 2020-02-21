@@ -32,7 +32,7 @@
 
 .. level:: beginner
 
-.. series:: nodejs-quickstart
+.. series:: test-article-series
 
 .. tags:: 
 
@@ -54,8 +54,6 @@
 
    * How to connect to a MongoDB database using Node.js
    * How to create MongoDB documents using Node.js
-
-.. series:: test-article-series
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
