@@ -28,7 +28,7 @@
 
 .. level:: beginner, intermediate, advanced
 
-.. series:: seriesName
+.. series:: test-article-series
 
 .. tags:: 
 

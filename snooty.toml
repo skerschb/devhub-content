@@ -5,3 +5,6 @@ default_domain = "devhub"
 version = 4.0
 package-name-org = "mongodb-org"
 pgp-version = "{+version+}"
+
+[page_groups]
+"test-article-series": ["/article", "/quickstart/nodejs-how-to-connect-to-your-database"]
