@@ -65,7 +65,7 @@ Node.js & MongoDB - How to Get Connected to Your Database
 
 .. introduction::
 
-    TEST TEST TESTING CHANGES. Use Node.js? Want to learn MongoDB? This is the blog series for
+    TESET TEST TEST TEST TEST TESTING CHANGES. Use Node.js? Want to learn MongoDB? This is the blog series for
     you! In this Quick Start series, I'll walk you through the basics
     of how to get started using MongoDB with Node.js. In today's post,
     we'll work through connecting to a MongoDB database from a Node.js
