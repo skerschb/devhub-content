@@ -1,3 +1,4 @@
 .. toctree::
 
-   /article
+   /article/article
+   /quickstart/nodejs-how-to-connect-to-your-database
