@@ -170,7 +170,7 @@ Node.js & MongoDB - How to Get Connected to Your Database
    TEST TEST TEST Let’s create an asynchronous function named main() where we will
    connect to our MongoDB cluster, call functions that query our
    database, and disconnect from our cluster.
-   The first thing we need to do inside of main() is create a
+   TEST The first thing we need to do inside of main() is create a
    constant for our connection URI. The connection URI is the
    connection string you copied in Atlas in the previous section.
    When you paste the connection string, don’t forget to update
