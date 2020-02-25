@@ -1,0 +1,621 @@
+:template: devhub-article
+
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
+.. meta-description:: 
+
+   Discover how to get started with MongoDB using Java
+
+.. twitter::
+   :site: @mongodb
+   :title: Getting Started with MongoDB and Java: Part I
+
+   Discover how to get started with MongoDB using Java
+
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
+
+.. include:: /includes/authors/lastname-firstname.rst
+
+.. pubdate:: August 7, 2014
+
+.. updatedDate:: July 3, 2019
+
+.. type:: how-to
+
+.. level:: beginner
+
+.. tags:: 
+
+   * Releases
+   * Java
+
+.. languages::
+
+   * java
+
+.. products::
+
+   * MongoDB
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
+
+*By Trisha Gee, Java Engineer and Advocate at MongoDB*
+
+Java is one of the most popular programming languages in the MongoDB
+Community. For new users, it’s important to provide an overview of how
+to work with the MongoDB Java driver and how to use MongoDB as a Java
+developer.
+
+In this post, which is aimed at Java/JVM developers who are new to
+MongoDB, we’re going to give you a guide on how to get started,
+including:
+
+-  Installation
+-  Setting up your dependencies
+-  Connecting
+-  What are Collections and Documents?
+-  The basics of writing to and reading from the database
+-  An overview of some of the JVM libraries
+
+Installation
+~~~~~~~~~~~~
+
+The installation instructions for MongoDB are `extensively
+documented <http://docs.mongodb.org/manual/installation/>`__, so I’m not
+going to repeat any of that here. If you want to follow along with this
+“getting started” guide, you’ll want to download the appropriate version
+of MongoDB and unzip/install it. At the time of writing, the latest
+version of MongoDB is 2.6.3, which is the version I’ll be using.
+
+A note about security
+^^^^^^^^^^^^^^^^^^^^^
+
+In a real production environment, of course you’re going to want to
+consider authentication. This is something that MongoDB takes seriously
+and there’s a whole section of `documentation on
+security <http://docs.mongodb.org/manual/administration/security/>`__.
+But for the purpose of this demonstration, I’m going to assume you’ve
+either got that working or you’re running in “trusted mode” (i.e. that
+you’re in a development environment that isn’t open to the public).
+
+Take a look around
+^^^^^^^^^^^^^^^^^^
+
+Once you’ve got MongoDB installed and started (a process that should
+only take a few minutes), you can `connect to the MongoDB
+shell <http://docs.mongodb.org/manual/tutorial/getting-started/#connect-to-a-database>`__.
+Most of the MongoDB technical documentation is written for the shell, so
+it’s always useful to know how to access it, and how use it to
+troubleshoot problems or prototype solutions.
+
+When you’ve connected, you should see something like
+
+\```plaintext MongoDB shell version: 2.6.3 connecting to: test > \_
+\``\`
+
+Since you’re in the console, let’s take it for a spin. Firstly we’ll
+have a `look at all the
+databases <http://docs.mongodb.org/manual/tutorial/getting-started/#select-a-database>`__
+that are there right now:
+
+\```plaintext > show dbs \``\`
+
+Assuming this is a clean installation, there shouldn’t be much to see:
+
+\```plaintext > show dbs admin (empty) local 0.078GB \``\`
+
+That’s great, but `as you can see there’s loads of
+documentation <http://docs.mongodb.org/manual/tutorial/getting-started/>`__
+on how to play with MongoDB from the shell. The shell is a really great
+environment for trying out queries and looking at things from the
+point-of-view of the server. However, I promised you Java, so we’re
+going to step away from the shell and get on with connecting via Java.
+
+Getting started with Java
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+First, you’re going to want to set up your project/IDE to use the
+`MongoDB Java
+Driver <http://docs.mongodb.org/ecosystem/tutorial/getting-started-with-java-driver/#getting-started-with-java-driver>`__.
+These days IDEs tend to pick up the correct dependencies through your
+`Gradle <http://www.gradle.org/>`__ or
+`Maven <http://maven.apache.org/>`__ configuration, so I’m just going to
+cover configuring these.
+
+At the time of writing, the latest version of the Java driver is 2.12.3
+- this is designed to work with the MongoDB 2.6 series.
+
+Gradle
+^^^^^^
+
+You’ll need to add the following to your dependencies in build.gradle:
+
+::
+
+   compile 'org.mongodb:mongo-java-driver:2.12.3'
+
+Maven
+^^^^^
+
+For maven, you’ll want:
+
+::
+
+   <dependencies>
+       <dependency>
+           <groupId>org.mongodb</groupId>
+           <artifactId>mongo-java-driver</artifactId>
+           <version>2.12.3</version>
+       </dependency>
+   </dependencies>
+
+Alternatively, if you’re really old-school and like maintaining your
+dependencies the hard way, you can always `download the JAR
+file <http://central.maven.org/maven2/org/mongodb/mongo-java-driver/>`__.
+
+If you don’t already have a project that you want to try with MongoDB,
+I’ve created a `series of unit tests on
+github <https://github.com/trishagee/mongodb-getting-started>`__ which
+you can use to get a feel for working with MongoDB and Java.
+
+Connecting via Java
+~~~~~~~~~~~~~~~~~~~
+
+Assuming you’ve resolved your dependencies and you’ve set up your
+project, you’re ready to connect to MongoDB from your Java application.
+
+Since MongoDB is a document database, you might not be surprised to
+learn that you don’t connect to it via traditional SQL/relational DB
+methods like JDBC. But it’s simple all the same:
+
+::
+
+   MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
+
+Where I’ve put ``mongodb://localhost:27017``, you’ll want to put the
+address of where you’ve installed MongoDB. There’s more detailed
+information on how to create the correct URI, including how to connect
+to a `Replica Set <http://docs.mongodb.org/manual/replication/>`__, in
+the `MongoClientURI
+documentation <http://api.mongodb.org/java/2.12/com/mongodb/MongoURI.html>`__.
+
+If you’re connecting to a local instance on the default port, you can
+simply use:
+
+::
+
+   MongoClient mongoClient = new MongoClient();
+
+Note that this does throw a checked Exception, ``UnknownHostException``.
+You’ll either have to catch this or declare it, depending upon what your
+policy is for exception handling.
+
+The ``MongoClient`` is your route in to MongoDB, from this you’ll get
+your database and collections to work with (more on this later). Your
+instance of ``MongoClient`` (e.g. ``mongoClient`` above) will ordinarily
+be a singleton in your application. However, if you need to connect via
+different credentials (different user names and passwords) you’ll want a
+``MongoClient`` per set of credentials.
+
+It is important to limit the number of ``MongoClient`` instances in your
+application, hence why we suggest a singleton - the ``MongoClient`` is
+effectively the connection pool, so for every new ``MongoClient``, you
+are opening a new pool. Using a single ``MongoClient`` (and optionally
+`configuring its
+settings <http://api.mongodb.org/java/2.12/com/mongodb/MongoClientOptions.Builder.html>`__)
+will allow the driver to correctly manage your connections to the
+server. This ``MongoClient`` singleton is `safe to be used by multiple
+threads <http://docs.mongodb.org/ecosystem/drivers/java-concurrency/>`__.
+
+One final thing you need to be aware of: you want your application to
+shut down the connections to MongoDB when it finishes running. Always
+make sure your application or web server calls ``MongoClient.close()``
+when it shuts down.
+
+Try out connecting to MongoDB by getting the test in
+`Exercise1ConnectingTest <https://github.com/trishagee/mongodb-getting-started/blob/master/src/test/java/com/mechanitis/mongodb/gettingstarted/Exercise1ConnectingTest.java>`__
+to pass.
+
+Where are my tables?
+^^^^^^^^^^^^^^^^^^^^
+
+MongoDB doesn’t have tables, rows, columns, joins etc. There are some
+new concepts to learn when you’re using it, but nothing too challenging.
+
+While you still have the concept of a
+`database <http://docs.mongodb.org/manual/reference/glossary/#term-database>`__,
+the
+`documents <http://docs.mongodb.org/manual/reference/glossary/#term-document>`__
+(which we’ll cover in more detail later) are stored in
+`collections <http://docs.mongodb.org/manual/reference/glossary/#term-collection>`__,
+rather than your database being made up of tables of data. But it can be
+helpful to think of documents like rows and collections like tables in a
+traditional database. And collections can have
+`indexes <http://docs.mongodb.org/manual/core/indexes-introduction/>`__
+like you’d expect.
+
+Selecting Databases and Collections
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You’re going to want to define which databases and collections you’re
+using in your Java application. If you remember, a few sections ago we
+used the MongoDB shell to show the databases in your MongoDB instance,
+and you had an ``admin`` and a ``local``.
+
+Creating and getting a database or collection is extremely easy in
+MongoDB:
+
+::
+
+   DB database = mongoClient.getDB("TheDatabaseName");
+
+You can replace ``"TheDatabaseName"`` with whatever the name of your
+database is. If the database doesn’t already exist, it will be created
+automatically the first time you insert anything into it, so there’s no
+need for null checks or exception handling on the off-chance the
+database doesn’t exist.
+
+Getting the collection you want from the database is simple too:
+
+::
+
+   DBCollection collection = database.getCollection("TheCollectionName");
+
+Again, replacing ``"TheCollectionName"`` with whatever your collection
+is called.
+
+| If you’re playing along with the test code, you now know enough to get
+  the tests
+| in
+  `Exercise2MongoClientTest <https://github.com/trishagee/mongodb-getting-started/blob/master/src/test/java/com/mechanitis/mongodb/gettingstarted/Exercise2MongoClientTest.java>`__
+  to pass.
+
+An introduction to documents
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Something that is, hopefully, becoming clear to you as you work through
+the examples in this blog, is that MongoDB is different from the
+traditional relational databases you’ve used. As I’ve mentioned, there
+are collections, rather than tables, and documents, rather than rows and
+columns.
+
+Documents are much more flexible than a traditional row, as you have a
+dynamic schema rather than an enforced one. You can evolve the document
+over time without incurring the cost of schema migrations and tedious
+update scripts. But I’m getting ahead of myself.
+
+Although documents don’t look like the tables, columns and rows you’re
+used to, they should look familiar if you’ve done anything even remotely
+JSON-like. Here’s an example:
+
+::
+
+   person = {
+     _id: "jo",
+     name: "Jo Bloggs",
+     age: 34,
+     address: {
+       street: "123 Fake St",
+       city: "Faketon",
+       state: "MA",
+       zip: “12345”
+     }
+     books: [ 27464, 747854, ...]
+   }  
+
+There are a few interesting things to note:
+
+#. Like JSON, documents are structures of name/value pairs, and the
+   values can be one of a number of `primitive
+   types <http://docs.mongodb.org/manual/reference/bson-types/>`__,
+   including Strings and various number types.
+#. It also supports nested documents - in the example above, ``address``
+   is a subdocument inside the ``person`` document. Unlike a relational
+   database, where you might store this in a separate table and provide
+   a reference to it, in MongoDB if that data benefits from always being
+   associated with its parent, you can embed it in its parent.
+#. You can even store an array of values. The books field in the example
+   above is an array of integers that might represent, for example, IDs
+   of books the person has bought or borrowed.
+
+You can find out more detailed information about Documents in `the
+documentation <http://docs.mongodb.org/manual/core/document/>`__.
+
+Creating a document and saving it to the database
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In Java, if you wanted to create a document like the one above, you’d do
+something like:
+
+::
+
+   List books = Arrays.asList(27464, 747854);
+   DBObject person = new BasicDBObject("_id", "jo")
+                               .append("name", "Jo Bloggs")
+                               .append("address", new BasicDBObject("street", "123 Fake St")
+                                                            .append("city", "Faketon")
+                                                            .append("state", "MA")
+                                                            .append("zip", 12345))
+                               .append("books", books);
+
+At this point, it’s really easy to save it into your database:
+
+::
+
+   MongoClient mongoClient = new MongoClient();
+   DB database = mongoClient.getDB("Examples");
+   DBCollection collection = database.getCollection("people");
+       
+   collection.insert(person);
+
+Note that the first three lines are set-up, and you don’t need to
+re-initialize those every time.
+
+Now if we look inside MongoDB, we can see that the database has been
+created:
+
+::
+
+   > show dbs
+   Examples  0.078GB
+   admin     (empty)
+   local     0.078GB
+   > _
+
+…and we can see the collection has been created as well:
+
+::
+
+   > use Examples
+   switched to db Examples
+   > show collections
+   people
+   system.indexes
+   > _ 
+
+…finally, we can see the our person, “Jo”, was inserted:
+
+::
+
+   > db.people.findOne()
+   {
+       "_id" : "jo",
+       "name" : "Jo Bloggs",
+           "age": 34,
+       "address" : {
+           "street" : "123 Fake St",
+           "city" : "Faketon",
+           "state" : "MA",
+           "zip" : "12345"
+       },
+       "books" : [
+           27464,
+           747854
+       ]
+   }
+   > _
+
+As a Java developer, you can see the similarities between the Document
+that’s stored in MongoDB, and your domain object. In your code, that
+person would probably be a Person class, with simple primitive fields,
+an array field, and an Address field.
+
+So rather than building your ``DBObject`` manually like the above
+example, you’re more likely to be converting your domain object into a
+DBObject. It’s best not to have the MongoDB-specific DBObject class in
+your domain objects, so you might want to create a PersonAdaptor that
+converts your Person domain object to a DBObject:
+
+::
+
+   public static final DBObject toDBObject(Person person) {
+       return new BasicDBObject("_id", person.getId())
+                        .append("name", person.getName())
+                        .append("address", new BasicDBObject("street", person.getAddress().getStreet())
+                                                     .append("city", person.getAddress().getTown())
+                                                     .append("phone", person.getAddress().getPhone()))
+                        .append("books", person.getBookIds());
+   }
+
+As before, once you have the DBObject, you can save this into MongoDB:
+
+::
+
+   collection.insert(PersonAdaptor.toDBObject(myPerson));
+
+Now you’ve got all the basics to get the tests in
+`Exercise3InsertTest <https://github.com/trishagee/mongodb-getting-started/blob/master/src/test/java/com/mechanitis/mongodb/gettingstarted/Exercise3InsertTest.java>`__
+to pass.
+
+Getting documents back out again
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now you’ve saved a Person to the database, and we’ve seen it in the
+database using the shell, you’re going to want to get it back out into
+your Java application. In this post, we’re going to cover the very
+basics of retrieving a document - in a later post we’ll cover more
+complex querying.
+
+You’ll have guessed by the fact that MongoDB is a document database that
+we’re not going to be using SQL to query. Instead, we query by example,
+building up a document that looks like the document we’re looking for.
+So if we wanted to look for the person we saved into the database, “Jo
+Bloggs”, we remember that the ``_id`` field had the value of “jo”, and
+we create a document that matches this shape:
+
+::
+
+   DBObject query = new BasicDBObject("_id", "jo");
+   DBCursor cursor = collection.find(query);
+
+As you can see, the ``find`` method returns a cursor for the results.
+Since ``_id`` needs to be unique, we know that if we look for a document
+with this ID, we will find only one document, and it will be the one we
+want:
+
+::
+
+   DBObject jo = cursor.one();
+
+Earlier we saw that documents are simply made up of name/value pairs,
+where the value can be anything from a simple String or primitive, to
+more complex types like arrays or subdocuments. Therefore in Java, we
+can more or less treat DBObject as a ``Map<String, Object>``. So if we
+wanted to look at the fields of the document we got back from the
+database, we can get them with:
+
+::
+
+   (String)cursor.one().get("name");
+
+Note that you’ll need to cast the value to a ``String``, as the compiler
+only knows that it’s an ``Object``.
+
+If you’re still playing along with the example code, you’re now ready to
+take on all the tests in
+`Exercise4RetrieveTest <https://github.com/trishagee/mongodb-getting-started/blob/master/src/test/java/com/mechanitis/mongodb/gettingstarted/Exercise4RetrieveTest.java>`__
+
+Overview of JVM Libraries
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+So far I’ve shown you the basics of the official Java Driver, but you’ll
+notice that it’s quite low-level - you have to do a lot of taking things
+out of your domain objects and poking them into MongoDB-shaped
+DBObjects, and vice-versa. If this is the level of control you want,
+then the Java driver makes this easy for you. But if it seems like this
+is extra work that you shouldn’t have to do, there are plenty of other
+options for you.
+
+The tools I’m about to describe all use the MongoDB Java Driver at their
+core to interact with MongoDB. They provide a high-level abstraction for
+converting your domain objects into MongoDB documents, whilst also
+giving you a way to get to the underlying driver as well in case you
+need to use it at a lower level.
+
+Morphia
+^^^^^^^
+
+Morphia is a really lightweight ODM (Object Document Mapper), so it’s
+similar to
+`ORMs <http://en.wikipedia.org/wiki/Object-relational_mapping>`__ like
+Hibernate. Documents can be in a fairly similar shape to your Java
+domain objects, so this mapping can be automatic, but Morphia allows you
+point the mapper in the right direction.
+
+Morphia is open source, and has contributors from MongoDB. Sample code
+and documentation can be `found
+here <https://github.com/mongodb/morphia/wiki>`__.
+
+Spring Data
+^^^^^^^^^^^
+
+Another frequently used ODM is `Spring
+Data <http://projects.spring.io/spring-data/>`__. This supports
+traditional relational and non-relational databases, `including
+MongoDB <http://projects.spring.io/spring-data-mongodb/>`__. If you’re
+already using Spring in your application, this should be a familiar way
+to work.
+
+As always with Spring projects, there’s a lot of really great
+documentation, including a `Getting Started
+guide <http://spring.io/guides/gs/accessing-data-mongodb/>`__ with
+example code.
+
+MongoJack
+^^^^^^^^^
+
+If you’re working with web services or something else that supports
+JSON, and you’re using
+`Jackson <http://wiki.fasterxml.com/JacksonHome>`__ to work with this
+data, it probably seems like a waste to be turning it from this form
+into a Java object and then into a MongoDB DBObject. But
+`MongoJack <http://mongojack.org/>`__ might make your job easier, as
+it’s designed to map JSON objects directly into MongoDB. Take a look at
+the `example code and
+documentation <http://mongojack.org/tutorial.html>`__.
+
+Jongo
+^^^^^
+
+This is another
+`Jackson <http://wiki.fasterxml.com/JacksonHome>`__-based ODM, but
+provides an interesting extra in the form of supporting queries the way
+you’d write them in `the
+shell <http://docs.mongodb.org/manual/reference/mongo-shell/>`__.
+Documentation and example code is available on `the
+website <http://jongo.org/>`__.
+
+Grails MongoDB GORM
+^^^^^^^^^^^^^^^^^^^
+
+The Grails web application framework also supports its own
+Object-Relational Mapping
+(`GORM <http://grails.org/doc/2.4.x/guide/GORM.html>`__), including
+`support for MongoDB <http://grails.org/plugin/mongodb>`__. More
+documentation for this plugin `can be found
+here <http://grails.github.io/grails-data-mapping/mongo/manual/index.html>`__.
+
+Casbah
+^^^^^^
+
+This isn’t an ODM like the other tools mentioned, but the `officially
+supported Scala driver <https://github.com/mongodb/casbah>`__ for
+MongoDB. Like the previous libraries, it uses the MongoDB Java Driver
+under the covers, but it provides a Scala API for application developers
+to work with. If you like working with Scala but are searching for an
+async solution, consider `ReactiveMongo <http://reactivemongo.org/>`__,
+a community-supported driver that provides async and non-blocking
+operations.
+
+Other libraries and tools
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is far from an extensive list, and I apologise if I’ve left a
+favourite out. But we’ve compiled `a list of many more libraries for the
+JVM <http://docs.mongodb.org/ecosystem/drivers/java/#third-party-frameworks-and-libs>`__,
+which includes community projects and officially supported drivers.
+
+Conclusion
+~~~~~~~~~~
+
+We’ve covered the basics of using MongoDB from Java - we’ve touched on
+what MongoDB is, and you can find out a lot more detailed information
+about it from `the manual <http://docs.mongodb.org/manual/>`__; we’ve
+`installed <http://docs.mongodb.org/manual/installation/>`__ it
+somewhere that lets us play with it; we’ve talked a bit about
+collections and documents, and what these look like in Java; and we’ve
+started inserting things into MongoDB and getting them back out again.
+
+If you haven’t already started playing with the test code, you can find
+it in `this github
+repository <https://github.com/trishagee/mongodb-getting-started>`__.
+And if you get desperate and look hard enough, you’ll even find the
+answers there too.
+
+Finally, there are more examples of using the Java Driver in the `Quick
+Tour <http://docs.mongodb.org/ecosystem/tutorial/getting-started-with-java-driver/#getting-started-with-java-driver>`__,
+and there is `example code in
+github <https://github.com/mongodb/mongo-java-driver/tree/master/src/examples/example>`__,
+including examples for authentication.
+
+If you want to learn more, try our 7-week online course, `“Intro to
+MongoDB and
+Java” <https://university.mongodb.com/courses/M101J/about>`__.
+
+Try it out, and hopefully you’ll see how easy it is to use MongoDB from
+Java.
+
+`Read Part
+II <http://blog.mongodb.org/post/94724924068/getting-started-with-mongodb-and-java-part-ii>`__
+
+--------------
+
+If you're looking for more ways resources to learn MongoDB, view our
+`Getting Started
+Kit <https://resources.mongodb.com/getting-started-with-mongodb>`__.
