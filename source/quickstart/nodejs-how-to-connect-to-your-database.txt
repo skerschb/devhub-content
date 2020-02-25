@@ -32,8 +32,6 @@
 
 .. level:: beginner
 
-.. series:: test-article-series
-
 .. tags:: 
 
    * foo

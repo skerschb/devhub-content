@@ -47,7 +47,7 @@
 
 *By Trisha Gee, Java Engineer and Advocate at MongoDB*
 
-Java is one of the most popular programming languages in the MongoDB
+TEST Java is one of the most popular programming languages in the MongoDB
 Community. For new users, it’s important to provide an overview of how
 to work with the MongoDB Java driver and how to use MongoDB as a Java
 developer.
