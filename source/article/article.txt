@@ -28,8 +28,6 @@
 
 .. level:: beginner, intermediate, advanced
 
-.. series:: test-article-series
-
 .. tags:: 
 
    * foo
