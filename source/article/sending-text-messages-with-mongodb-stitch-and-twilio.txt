@@ -1,0 +1,118 @@
+:template: devhub-article
+
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
+.. meta-description:: 
+
+   How to send text messages from your app using MongoDB Stitch and Twilio.
+
+.. twitter::
+   :site: @mongodb
+   :creator: @andrewmorgan
+   :title: Sending Text Messages with MongoDB Stitch & Twilio
+   :image: https://webassets.mongodb.com/_com_assets/cms/Sending_text_with_MongoDB_Stitch_and_Twilio-7glbv13odr.png
+
+   How to send text messages from your app using MongoDB Stitch and Twilio.
+
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
+
+.. include:: /includes/authors/morgan-andrew.rst
+
+.. pubdate:: September 26, 2018
+
+.. updated-date:: February 12, 2019
+
+.. type:: article
+
+.. level:: beginner
+
+.. tags:: 
+
+   * Stitch
+   * JavaScript
+
+.. languages::
+
+   * javascript
+
+.. products::
+
+   * Realm
+   * MongoDB
+
+.. related::
+
+   * ``list of related articles``
+   * ``:doc:`/path/to/article```
+   * ``:doc:`/path/to/other/article```
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
+
+==========
+Sending Text Messages with MongoDB Stitch & Twilio
+==========
+
+.. content::
+
+    When creating a well-rounded app, there are lots of table stakes
+    features that make the app more useful but have already been implemented
+    thousands of times before. Having the application backend send a text
+    message informing your customer of an event is a classic example of such
+    a "commodity" feature.
+
+    Think about using a website or app to book a taxi, where you give your
+    phone number so that you get sent a text message when the taxi's on its
+    way. Why would the writers of that taxi app want to waste time writing
+    text messaging code? There's nothing extra they can do to differentiate
+    it from other apps – so why not just consume it as a service from
+    something like `Twilio <https://www.twilio.com/>`_?
+
+    MongoDB Stitch makes it even less work to add this kind of feature.
+    Rather than standing up an app server, figuring out how to use the
+    `Twilio API <https://www.twilio.com/docs/api>`_, writing the code, and
+    possibly creating a `REST
+    API <https://www.mongodb.com/blog/post/building-a-rest-api-with-mongodb-stitch>`_,
+    just configure the `Twilio
+    service <https://docs.mongodb.com/stitch/reference/partner-services/twilio/>`_
+    in Stitch.
+
+    .. image:: /images/Sending_text_with_MongoDB_Stitch_and_Twilio.png
+       :alt: Using MongoDB Stitch to send SMS text messages via Twilio
+
+    When configuring the Stitch Twilio serving, you supply the *Account ID*
+    and *Auth Token* from your Twilio account. All that's left is to write
+    the `Stitch function <https://docs.mongodb.com/stitch/functions/>`_ to
+    invoke the service:
+
+    .. code-block:: js
+
+       exports = function(trip, user){
+         const twilio = context.services.get("twilio");
+
+         twilio.send({
+           to: user.phone,
+           from: context.values.get("twilioNumber"),
+           body: "Hi " 
+             + user.firstname 
+             + " - just to let you know that your taxi to " 
+             + trip.destination + " will be with you at " 
+             + trip.pickupTime + "."
+         });
+       };
+
+    You can also have your application react when receiving a text message
+    by configuring `incoming webhooks for the Twilio
+    service <https://docs.mongodb.com/stitch/reference/partner-services/twilio/#incoming-webhooks>`_.
+
+    .. callout::
+        Creating your first Stitch app? Start with one of the `Stitch
+        tutorials <https://docs.mongodb.com/stitch/tutorials/>`_.
+
+    Want to learn more about MongoDB Stitch? Read the `white
+    paper <https://www.mongodb.com/collateral/mongodb-stitch-serverless-platform>`_.
