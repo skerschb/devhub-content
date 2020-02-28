@@ -1,0 +1,245 @@
+:template: devhub-article
+
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
+.. meta-description::
+
+   Learn how to enrich your data with MongoDB Stitch.
+
+.. twitter::
+   :site: @mongodb
+   :creator: @MBeugnet
+   :title: Data Enrichment with MongoDB Stitch
+
+   Learn how to enrich your data with MongoDB Stitch.
+
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
+
+.. include:: /includes/authors/beugnet-maxime.rst
+
+.. pubdate:: October 12, 2018
+
+.. updated-date:: April 29, 2019
+
+.. type:: how-to
+
+.. level:: beginner
+
+.. atf-image:: /images/stitch_movies_document_example.png
+
+.. tags::
+
+   * Technical
+
+.. languages::
+
+   * JavaScript
+
+.. products::
+
+   * Stitch
+   * Atlas
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
+
+================
+Data Enrichment with MongoDB Stitch
+================
+
+.. introduction::
+
+   Objectives
+   ----------
+
+   Here is what we are going to achieve in this tutorial:
+
+   Firstly, we are going to write a document to MongoDB using `MongoDB
+   Stitch <https://www.mongodb.com/cloud/stitch>`__.
+
+   The result in our MongoDB collection will look like this:
+
+   .. code-block:: json
+
+      {
+      "_id": ObjectId("5bb27712dced5f37bebf388c"),
+      "Title":"Guardians of the Galaxy"
+      }
+
+   Secondly, a trigger will catch this new insertion and start a function.
+
+   Lastly, this function will call `the OMDB external
+   API <http://www.omdbapi.com/>`__ with the given movie title, fetch data
+   about that movie, and finally enrich our MongoDB document with the data
+   we gathered from this API.
+
+   This is the final result we expect in our MongoDB collection:
+
+   .. code-block:: json
+
+      {
+         "_id": ObjectId("5bb27712dced5f37bebf388c"),
+         "Title":"Guardians of the Galaxy",
+         "Year":"2014",
+         "Rated":"PG-13",
+         "Released":"01 Aug 2014",
+         "Runtime":"121 min",
+         "Genre":"Action, Adventure, Comedy",
+         "Director":"James Gunn",
+         "Writer":"James Gunn, Nicole Perlman, Dan Abnett (based on the Marvel comics by), Andy Lanning (based on the Marvel comics by), Bill Mantlo (character created by: Rocket Raccoon), Keith Giffen (character created by: Rocket Raccoon), Jim Starlin (characters created by: Drax the Destroyer,  Gamora & Thanos), Steve Englehart (character created by: Star-Lord), Steve Gan (character created by: Star-Lord), Steve Gerber (character created by: Howard the Duck), Val Mayerik (character created by: Howard the Duck)",
+         "Actors":"Chris Pratt, Zoe Saldana, Dave Bautista, Vin Diesel",
+         "Plot":"A group of intergalactic criminals are forced to work together to stop a fanatical warrior from taking control of the universe.",
+         "Language":"English",
+         "Country":"USA",
+         "Awards":"Nominated for 2 Oscars. Another 52 wins & 99 nominations.",
+         "Poster":"https://m.media-amazon.com/images/M/MV5BMTAwMjU5OTgxNjZeQTJeQWpwZ15BbWU4MDUxNDYxODEx._V1_SX300.jpg",
+         "Ratings":[
+            {
+               "Source":"Internet Movie Database",
+               "Value":"8.1/10"
+            },
+            {
+               "Source":"Rotten Tomatoes",
+               "Value":"91%"
+            },
+            {
+               "Source":"Metacritic",
+               "Value":"76/100"
+            }
+         ],
+         "Metascore":"76",
+         "imdbRating":"8.1",
+         "imdbVotes":"871,949",
+         "imdbID":"tt2015381",
+         "Type":"movie",
+         "DVD":"09 Dec 2014",
+         "BoxOffice":"$270,592,504",
+         "Production":"Walt Disney Pictures",
+         "Website":"http://marvel.com/guardians",
+         "Response":"True"
+      }
+
+.. prerequisites::
+
+   Prerequisites
+   -------------
+
+   So first of all, if you want to try this at home, it is very easy. The
+   only requirement here is to create a free `MongoDB
+   Atlas <http://cloud.mongodb.com/>`__ cluster. `This
+   video <https://www.youtube.com/watch?v=ZpA2FIn761U>`__ will show you the
+   steps.
+
+   `MongoDB Stitch <https://www.mongodb.com/cloud/stitch>`__ is our
+   serverless platform, built by MongoDB on top of MongoDB Atlas. Once our
+   MongoDB Atlas cluster is ready to use, link a MongoDB Stitch application
+   to it:
+
+   -  Click on the left panel on "Stitch Apps",
+   -  Then click on "Create New Application",
+   -  Pick the name you want for your application,
+   -  Link it to your free MongoDB Atlas cluster.
+
+   .. image:: /images/create-new-stitch-application.png
+      :width: 760px
+      :alt:
+
+.. content::
+
+   Actions
+   -------
+
+   To be able to send a document to MongoDB, we are going to use an HTTP
+   POST service.
+
+   -  On the left panel, click on "Services",
+   -  Then click on "Add a Service",
+   -  Choose a service name "IMDB",
+   -  Click on "Add Service",
+   -  Click on "Add Incoming Webhook",
+   -  And copy the screenshot below.
+
+   .. image:: /images/create-webhook.png
+      :width: 760px
+      :alt:
+
+   When this is done, hit the "Save" button and you will be in the
+   "Function Editor" screen.
+
+   -  Enter the following code:
+   -  Click the "Save" button again.
+
+   Now that our Service is ready, we can test it!
+
+   -  Go to the "Settings" and you will find your Webhook URL.
+   -  You can now send an HTTP POST request like this to MongoDB Stitch:
+   -  We can check it worked by having a look at the content of the
+      "stitch.movies" collection in our MongoDB Atlas Cluster:
+
+   .. image:: /images/collection.png
+      :width: 760px
+      :alt:
+
+   Now that we can insert a new document into MongoDB Atlas using Stitch,
+   we are going to create the trigger.
+
+   -  On the left panel click on "Triggers",
+   -  Then click on "Add a Database Trigger",
+   -  And do as follow.
+   -  This is the code you will need to create the new function:
+   -  As you can see in the middle of the code, I am using the OMDB API and
+      I replaced the API key with a fake one.
+   -  You can create your own free API Key here with just a valid email
+      address: http://www.omdbapi.com/apikey.aspx - limited to 1000 calls
+      per day.
+   -  Once this is done, you can just replace my fake API key (highlighted
+      in yellow) with your own key.
+
+   Now that this is ready, we just have to test it by repeating the same
+   CURL command we used before. Feel free to use another movie title if you
+   have a better one in mind ;-).
+
+   I removed the previous test we made before adding the trigger and now
+   this is what I have in my collection:
+
+   .. figure:: /images/stitch_movies_document_example.png
+      :width: 760px
+      :alt:
+
+   Let’s review for a second what we have done:
+
+   -  We inserted a new document using an HTTP POST service hosted by
+      MongoDB Stitch containing only an "_id" (automatically populated by
+      MongoDB) and a "Title".
+   -  The insertion of this document is detected by the trigger that calls
+      an external Web API using this "Title" as the parameter.
+   -  We are then parsing the body of the result we get from this API and
+      updating the document we inserted a few milliseconds ago.
+
+.. summary::
+
+   Conclusion
+   ----------
+
+   With just a few lines of code, you can enrich the data where it lives
+   with MongoDB Stitch. This is a great way to leverage your micro services
+   architecture and finally switch to an event-driven architecture.
+
+   Next Steps
+   ^^^^^^^^^^
+
+   Thanks for taking the time to read my post. I hope you found it useful
+   and interesting.
+
+   If MongoDB Stitch is something you are considering in production, you
+   can discover here `how the billing
+   works <https://docs.mongodb.com/stitch/admin/billing/>`__.
+
+   If you want to query your data sitting in MongoDB Atlas using MongoDB
+   Stitch, I recommend `this article from Michael
+   Lynn <https://medium.com/@michael.lynn/creating-a-data-enabled-api-in-10-minutes-with-mongodb-stitch-6d23578fed6d>`__.
