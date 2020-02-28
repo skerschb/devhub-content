@@ -1,0 +1,68 @@
+:template: devhub-article
+
+.. meta-description:: 
+
+   New Scheduled Stitch Triggers allow Stitch Functions to be called at regular intervals.
+
+.. twitter::
+   :site: @mongodb
+   :title: Stitch Triggers Get Scheduled
+
+   New Scheduled Stitch Triggers allow Stitch Functions to be called at regular intervals.
+
+.. include:: /includes/authors/walker-dj.rst
+
+.. pubdate:: April 2, 2019
+
+.. type:: article
+.. level:: beginner
+
+.. tags:: 
+
+   * Releases
+   * Stitch
+
+.. products::
+
+   * Stitch
+
+=============================
+Stitch Triggers Get Scheduled
+=============================
+
+.. content::
+
+   Stitch Triggers are powerful tools letting you run functions
+   automatically when some change happens in your database or when a
+   particular authentication event occurs. There is, though, another
+   workflow where you may want to run functions automatically - at
+   particular times of the day and regularly. This workflow applies to, for
+   example, an evening consolidation run, an early morning validation, an
+   afternoon report, or pulling fresh data regularly from an API. Now, a
+   new breed of Stitch Trigger is answering that need. Say hello to the
+   `Scheduled Stitch
+   Trigger <http://docs.mongodb.com/stitch/triggers/scheduled-triggers>`_.
+
+   The Scheduled Stitch Trigger can be set to trigger on a flexible
+   interval across minutes, hours, days or weeks. If you have more complex
+   scheduling in mind, there’s an advanced option which uses `CRON style
+   syntax <https://docs.mongodb.com/stitch/triggers/cron-expressions>`_ to
+   give flexible yet precise repetition options.
+
+   When the Trigger fires, it calls a serverless `Stitch
+   Function <https://docs.mongodb.com/stitch/functions/>`_. Stitch
+   Functions run in a MongoDB Atlas aware context and let you seamlessly
+   interact with MongoDB and other configured services. Functions are
+   written in standard JavaScript and can run up to 60 seconds (with the
+   ability to call services like AWS Lambda or Step Functions for longer
+   runtimes). That’s basically everything you need to work with your data
+   and services.
+
+   And if you want to see how quick it is to set a scheduled trigger and
+   function up, check out this video where we do just that:
+
+   .. youtube:: q144NRq93Rs
+
+   Enjoy `Stitch Scheduled
+   Triggers <http://docs.mongodb.com/stitch/triggers/scheduled-triggers>`_
+   today!
