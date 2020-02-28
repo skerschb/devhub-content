@@ -78,7 +78,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. container:: fl-center
 
-      .. figure:: https://webassets.mongodb.com/_com_assets/cms/fts_example_app-qdne1zib7s.gif
+      .. figure:: images/Atlas-Full-Text-Search/fts_example_app.gif
          :alt: Full Text Search Example Application
 
          "Full Text Search Example Application"
@@ -101,7 +101,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. container:: fl-center
 
-      .. figure:: https://webassets.mongodb.com/_com_assets/cms/popcorn-7dbvqn7nlx.gif
+      .. figure:: images/Atlas-Full-Text-Search/popcorn.gif
          :alt: Break out the popcorn
 
          "Break out the popcorn"
@@ -124,7 +124,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
       sample dataset by clicking the ellipse button and **Load Sample
       Dataset**.
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/load_sample_data-wg94w5e75f.png
+   .. image:: images/Atlas-Full-Text-Search/load_sample_data.png
       :alt: Load Sample Dataset
 
       "Load Sample Dataset"
@@ -146,7 +146,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    collection in the new ``sample_mflix`` database. This collection has
    over 23k movie documents with information such as title, plot, and cast.
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/fts_demo-d5icwz7p5n.png
+   .. image:: images/Atlas-Full-Text-Search/fts_demo.png
       :alt: "Sample dataset"
 
       "Sample dataset"
@@ -170,7 +170,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. container:: fl-center
 
-      .. figure:: https://webassets.mongodb.com/_com_assets/cms/Build-search-index-Atlas-modal-screenshot-51p6x80pzd.png
+      .. figure:: images/Atlas-Full-Text-Search/build-search-index-atlas-modal-screenshot.png
          :alt: Create Full Text Search Index
 
          "Create Full Text Search Index"
@@ -213,7 +213,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    Navigate to the Aggregations tab in the ``sample_mflix.movies`` collection:
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/aggregations_tab-w2uqzr9fdc.png
+   .. image:: images/Atlas-Full-Text-Search/aggregations_tab.png
       :alt: Aggregations tab
 
       "Aggregations tab"
@@ -221,7 +221,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    Stage 1. $searchBeta
    ~~~~~~~~~~~~~~~~~~~~
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/searchBeta-jbg8kjdar4.png
+   .. image:: images/Atlas-Full-Text-Search/searchBeta.png
       :alt: "Search Beta"
 
       "Search Beta"
@@ -234,7 +234,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    fields to the result that display search terms in their original
    context, along with the adjacent text content. (More on this later.)
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/searchBeta2-vnhcb8rx8j.png
+   .. image:: images/Atlas-Full-Text-Search/searchBeta2.png
       :alt: "Extended Search"
 
       "Extended Search"
@@ -248,7 +248,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    Stage 2: $project
    ~~~~~~~~~~~~~~~~~
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/project-loamnas7xe.png
+   .. image:: images/Atlas-Full-Text-Search/project.png
       :alt: "Project dialog"
 
       "Project dialog"
@@ -311,7 +311,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    Stage 3: $limit
    ~~~~~~~~~~~~~~~
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/limit-a80vnllzej.png
+   .. image:: images/Atlas-Full-Text-Search/limit.png
       :alt: "limit"
 
       "limit"
@@ -325,7 +325,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    Compass’ Export Pipeline to Language feature by clicking the button in
    the top toolbar.
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/pipeline_export-2oz4tuc62y.png
+   .. image:: images/Atlas-Full-Text-Search/pipeline-export.png
       :alt: Export aggregation pipeline
 
       "Export aggregation pipeline"
@@ -377,7 +377,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    Name your Stitch application FTSDemo and make sure to link to your M0
    cluster. All other default settings are fine:
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/create_new_stitch_applicatoin-0cqy68f44y.png
+   .. image:: images/Atlas-Full-Text-Search/create-new-stitch-application.png
       :alt: Create a new Stitch Application
 
       "Create a new Stitch Application"
@@ -385,7 +385,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    Now click the **3rd Party Services** menu on the left and then **Add a
    Service**. Select the HTTP service and name it **movies**:
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/add_service-p8uaqefnki.png
+   .. image:: images/Atlas-Full-Text-Search/add-a-service.png
       :alt: Add a Service
 
       "Add a Service"
@@ -397,7 +397,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    HTTP Method to **GET**, and to make things simple, let’s just run the
    webhook as the System and skip validation.
 
-   .. image:: /image
+   .. image:: images/Atlas-Full-Text-Search/add-a-webhook.png
       :alt: Webhook
 
       "Add a Webhook"
@@ -458,7 +458,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    payload query argument - otherwise our movie search engine capabilities
    will be extremely limited.
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/query_code-toknjdm2ux.gif
+   .. image:: images/Atlas-Full-Text-Search/query-code.gif
       :alt: Query code
 
       "Query Code"
@@ -472,19 +472,19 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
       **arg**, as well as the string value **"hello"** to **"werewolves and
       vampires"** - or it won’t work.
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/query_code-toknjdm2ux.gif
+   .. image:: images/Atlas-Full-Text-Search/frustrated-developer.gif
       :alt: Frustrated Developer
 
       "Frustrated Developer"
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/query_code-toknjdm2ux.gif
-      :alt: Function Editor
+   .. image:: images/Atlas-Full-Text-Search/test-console.gif
+      :alt: Test console
 
-      "Function Editor"
+      "Test Console"
 
    Click **Run** to verify the result:
 
-   .. image:: https://webassets.mongodb.com/_com_assets/cms/query_results-nwx9lf6oea.png
+   .. image:: images/Atlas-Full-Text-Search/query-results.png
       :alt: Results of query
 
       "Results of query"
@@ -503,7 +503,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    Switch to the **Settings** tab of the **movies** service in Stitch and
    you’ll notice a Webhook URL has been generated.
 
-   .. image:: /image/location
+   .. image:: images/Atlas-Full-Text-Search/webhook-url.jpg
       :alt: Webhook URL
 
       "Webhook URL"
@@ -512,7 +512,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    append the following to the end of your URL: **?arg=’werewolves and
    vampires’**
 
-   .. image:: /image/location
+   .. image:: images/Atlas-Full-Text-Search/query-output.png
       :alt: Query output
 
       "Query output"
@@ -520,7 +520,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    If you receive an output like what we have above, congratulations! You
    have successfully created a movie search API!
 
-   .. figure:: /image/location
+   .. figure:: images/Atlas-Full-Text-Search/homer-woohoo.png
       :alt: Homer Simpson Woohoo
 
       "Homer Simpson Woohoo"
@@ -532,7 +532,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    -  ☐ Call from the front end
 
 
-   .. figure:: https://webassets.mongodb.com/_com_assets/cms/almost_there-rq9han85q2.gif
+   .. figure:: images/Atlas-Full-Text-Search/almost-there.gif
       :alt: Almost there
 
       "Almost there"
@@ -545,7 +545,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    file <https://developer-advocacy-public.s3-eu-west-1.amazonaws.com/full-text-search-demo/index.html>`_
    and open it in your browser. You will see a simple search bar:
 
-   .. image:: /image/location
+   .. image:: images/Atlas-Full-Text-Search/search-bar.png
       :alt: Search Bar
 
       "Search Bar"
@@ -582,7 +582,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    using Full-Text search indexes. 🙌 What kind of movie do you want to
    watch?!
 
-   .. image:: /image/location
+   .. image:: images/Atlas-Full-Text-Search/screencast-demo.gif
       :alt: Screencast demo
 
       "Screencast demo"
@@ -600,7 +600,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    `$searchBeta <https://docs.atlas.mongodb.com/reference/full-text-search/query-syntax/>`_
    documentation for other possibilities.
 
-   .. figure:: https://webassets.mongodb.com/_com_assets/cms/find_you-t3riporv4o.gif
+   .. figure:: images/Atlas-Full-Text-Search/i-will-find-you.gif
       :alt: I will find you
 
       "I will find you"
