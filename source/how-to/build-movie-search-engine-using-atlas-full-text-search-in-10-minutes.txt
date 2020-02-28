@@ -79,6 +79,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/fts_example_app.gif
       :alt: Full Text Search Example Application
+      :align: center
 
 .. prerequisites::
 
@@ -98,6 +99,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/popcorn.gif
       :alt: Break out the popcorn
+      :align: center
 
    To **Get Started**, we will need:
 
@@ -119,6 +121,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/load_sample_data.png
       :alt: Load Sample Dataset
+      :align: center
 
    .. blockquote::
       For more detailed information on how to spin up a cluster, configure
@@ -140,6 +143,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/fts_demo.png
       :alt: "Sample dataset"
+      :align: center
 
 
    -  ☒ Spin up an Atlas cluster and load sample movie data
@@ -161,6 +165,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/build-search-index-atlas-modal-screenshot.png
       :alt: Create Full Text Search Index
+      :align: center
 
    By default, we dynamically map all the text fields in your collection.
    This suits MongoDB’s flexible data model perfectly. As you add new data
@@ -202,12 +207,14 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/aggregations_tab.png
       :alt: Aggregations tab
+      :align: center
 
    Stage 1. $searchBeta
    ~~~~~~~~~~~~~~~~~~~~
 
    .. image:: /images/atlas-fts/searchBeta.png
       :alt: "Search Beta"
+      :align: center
 
    For the first stage, select the **$searchBeta** aggregation operator to
    search for the terms ‘werewolves and vampires’ in the ``fullplot``
@@ -219,6 +226,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/searchBeta2.png
       :alt: "Extended Search"
+      :align: center
 
    .. container:: callout
 
@@ -231,6 +239,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/project.png
       :alt: "Project dialog"
+      :align: center
 
    We use
    **:math:`project** to get back only the fields we will use in our movie search application. We also use the **`\ meta**
@@ -292,6 +301,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/limit.png
       :alt: "limit"
+      :align: center
 
    Remember the results are returned with the scores in descending order,
    so $limit: 10 will bring the 10 most relevant movie documents to your
@@ -304,6 +314,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/pipeline-export.png
       :alt: Export aggregation pipeline
+      :align: center
 
    Your final aggregation code will be this:
 
@@ -354,12 +365,14 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/create-new-stitch-application.png
       :alt: Create a new Stitch Application
+      :align: center
 
    Now click the **3rd Party Services** menu on the left and then **Add a
    Service**. Select the HTTP service and name it **movies**:
 
    .. image:: /images/atlas-fts/add-a-service.png
       :alt: Add a Service
+      :align: center
 
    Click the green **Add a Service** button, and you’ll be directed to add
    an incoming webhook.
@@ -370,6 +383,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/add-a-webhook.png
       :alt: Webhook
+      :align: center
 
    In this service function editor, replace the example code with the
    following:
@@ -429,8 +443,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/query-code.gif
       :alt: Query code
-
-      "Query Code"
+      :align: center
 
    Now you can test in the Console below the editor by changing the
    argument from **arg1: "hello"** to **arg: "werewolves and vampires"**.
@@ -443,14 +456,18 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/frustrated-developer.gif
       :alt: Frustrated Developer
+      :width: 450px
+      :align: center
 
    .. image:: /images/atlas-fts/test-console.gif
       :alt: Test console
+      :align: center
 
    Click **Run** to verify the result:
 
    .. image:: /images/atlas-fts/query-results.png
       :alt: Results of query
+      :align: center
 
    If this is working, congrats! We are almost done! Make sure to **SAVE**
    and deploy the service by clicking **REVIEW & DEPLOY CHANGES** at the
@@ -468,6 +485,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/webhook-url.jpg
       :alt: Webhook URL
+      :align: center
 
    Click the **COPY** button and paste the URL into your browser. Then
    append the following to the end of your URL: **?arg=’werewolves and
@@ -475,12 +493,14 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/query-output.png
       :alt: Query output
+      :align: center
 
    If you receive an output like what we have above, congratulations! You
    have successfully created a movie search API!
 
    .. image:: /images/atlas-fts/homer-woohoo.png
       :alt: Homer Simpson Woohoo
+      :align: center
 
    -  ☒ Spin up an Atlas cluster and load sample movie data
    -  ☒ Create a Full-Text Search index in movie data collection
@@ -491,6 +511,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/almost-there.gif
       :alt: Almost there
+      :align: center
 
    Finally! – The Front End
    ------------------------
@@ -502,6 +523,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/search-bar.png
       :alt: Search Bar
+      :align: center
 
    Entering data in the search bar will bring you movie search results
    because the application is currently pointing to an existing API.
@@ -537,6 +559,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/screencast-demo.gif
       :alt: Screencast demo
+      :align: center
 
 .. summary::
 
@@ -553,6 +576,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    .. image:: /images/atlas-fts/i-will-find-you.gif
       :alt: I will find you
+      :align: center
 
    Harnessing the power of Apache Lucene for efficient search algorithms,
    static and dynamic field mapping for flexible, scalable indexing, all
