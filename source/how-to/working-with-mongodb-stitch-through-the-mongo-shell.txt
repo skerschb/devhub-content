@@ -12,7 +12,7 @@
    :site: @mongodb
    :creator: @andrewmorgan
    :title: Working with MongoDB Stitch Through the mongo Shell – MongoDB Wire Protocol Support
-   :image: /images/MongoDB_Wire_protocol.png
+   :image: /images/MongoDB_Wire_Protocol.png
 
    The Stitch SDK is the best way to access MongoDB Stitch from your frontend application code – however, you may want to access Stitch from your existing tools (e.g. the `mongo` shell) or backend code – this post shows you how.
 
@@ -44,7 +44,7 @@
    * Stitch
    * Atlas
 
-.. atf-image:: /images/MongoDB_Wire_protocol.png
+.. atf-image:: /images/MongoDB_Wire_Protocol.png
 
 .. related::
 
@@ -95,7 +95,7 @@ Working with MongoDB Stitch Through the mongo Shell – MongoDB Wire Protocol Su
           comment: "Stitch wire protocol support rocks!"
       })
    
-   .. image:: /images/MongoDB_Wire_Protocol.jpg
+   .. image:: /images/MongoDB_Wire_Protocol.png
       :alt: MongoDB Stitch wire protocol
    
       MongoDB Stitch wire protocol
