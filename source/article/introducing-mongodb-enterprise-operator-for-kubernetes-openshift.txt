@@ -6,7 +6,7 @@
 
 .. meta-description:: 
 
-   To support teams building cloud-native apps with Kubernetes and OpenShift, we are introducing a Kubernetes Operator (beta) that integrates with Ops Manager, the enterprise management platform for MongoDB. 
+   TEST TEST To support teams building cloud-native apps with Kubernetes and OpenShift, we are introducing a Kubernetes Operator (beta) that integrates with Ops Manager, the enterprise management platform for MongoDB. 
 
 .. twitter::
    :site: @mongodb
