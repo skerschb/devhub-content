@@ -459,7 +459,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
       :width: 450px
       :align: center
 
-   .. image:: /images/atlas-fts/test-console.gif
+   .. image:: /images/atlas-fts/test-console.jpg
       :alt: Test console
       :align: center
 
