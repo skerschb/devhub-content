@@ -1,0 +1,131 @@
+:template: devhub-article
+
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
+.. meta-description::
+
+   The Stitch SDK is the best way to access MongoDB Stitch from your frontend application code – however, you may want to access Stitch from your existing tools (e.g. the `mongo` shell) or backend code – this post shows you how.
+
+.. twitter::
+   :site: @mongodb
+   :creator: @andrewmorgan
+   :title: Working with MongoDB Stitch Through the mongo Shell – MongoDB Wire Protocol Support
+   :image: /images/MongoDB_Wire_protocol.png
+
+   The Stitch SDK is the best way to access MongoDB Stitch from your frontend application code – however, you may want to access Stitch from your existing tools (e.g. the `mongo` shell) or backend code – this post shows you how.
+
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
+
+.. include:: /includes/authors/morgan-andrew.rst
+
+.. pubdate:: September 27, 2018
+
+.. updated-date:: February 28, 2020
+
+.. type:: how-to
+
+.. level:: beginner
+
+.. tags::
+
+   * Cloud
+   * Stitch
+
+.. languages::
+
+   * javascript
+
+.. products::
+
+   * Stitch
+   * Atlas
+
+.. atf-image:: /images/MongoDB_Wire_protocol.png
+
+.. related::
+
+   * ``list of related articles``
+   * ``:doc:`/path/to/article```
+   * ``:doc:`/path/to/other/article```
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
+
+================
+Working with MongoDB Stitch Through the mongo Shell – MongoDB Wire Protocol Support
+================
+
+.. content::
+   The `Stitch SDK <https://docs.mongodb.com/stitch/client-sdks/>`_ is the
+   best way to access `MongoDB Stitch <https://docs.mongodb.com/stitch/>`_
+   from your frontend application code – getting to your data and accessing
+   your Stitch Services and Functions becomes child’s’ play.
+   
+   However, those already using MongoDB may have existing backend code and
+   tools that work with MongoDB. MongoDB Stitch now supports the `MongoDB
+   wire protocol <https://docs.mongodb.com/stitch/wire-protocol/>`_ –
+   meaning that you can continue to work with your favorite tools
+   (including the ``mongo`` shell) and drivers while benefiting from
+   Stitch’s quick and simple data access control and hosted JavaScript
+   functions.
+   
+   After enabling connection string access, connecting to your Stitch app
+   from the ``mongo`` shell is business as usual – just use the connection
+   string you’re shown in the Stitch UI:
+   
+   .. code-block:: bash
+   
+      mongo "mongodb://andrewjamXXXXX%40gmail.com:gXXXX@stitch.mongodb.com:27020\
+          /?authMechanism=PLAIN&authSource=%24external&ssl=true&\
+          appName=imported_trackme-xxxxz:mongodb-atlas:local-userpass" --norc
+   
+   Once connected, adding a document through Stitch should feel very
+   familiar:
+   
+   .. code-block:: javascript
+   
+      db.comments.insert({
+          owner_id: "5bacd4e7698a67f72dfdb44c",
+          author: "Andrew Morgan",
+          comment: "Stitch wire protocol support rocks!"
+      })
+   
+   .. image:: /images/MongoDB_Wire_Protocol.jpg
+      :alt: MongoDB Stitch wire protocol
+   
+      MongoDB Stitch wire protocol
+   
+   However, Stitch is about more than accessing MongoDB data. I’ve created
+   a (stupidly) simple Stitch (``morning``) Function to show how you can
+   test your Stitch app:
+   
+   .. code-block:: javascript
+   
+      exports = function(name){
+        return {message: "Good Morning " + name + " from " 
+                   + context.user.data.email};
+      };
+   
+   From the ``mongo`` shell, I can now test that function:
+   
+   .. code-block:: javascript
+   
+      db.runCommand({ callFunction: "morning", arguments: ["Billy"] })
+      {
+          "ok" : 1,
+          "response" : {
+              "message" : "Good Morning Billy from greetings@clusterdb.com"
+          }
+      }
+
+   .. blockquote::
+      Creating your first Stitch app? Start with one of the `Stitch
+      tutorials <https://docs.mongodb.com/stitch/tutorials/>`_.
+   
+   Want to learn more about MongoDB Stitch? Read the `white
+   paper <https://www.mongodb.com/collateral/mongodb-stitch-serverless-platform>`_.
