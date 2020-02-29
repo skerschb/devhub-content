@@ -7,4 +7,4 @@ package-name-org = "mongodb-org"
 pgp-version = "{+version+}"
 
 [page_groups]
-"funarticles": ["/article/article", "/article/introducing-mongodb-enterprise-operator-for-kubernetes-openshift"]
+"funarticles" = ["/article/article", "/article/introducing-mongodb-enterprise-operator-for-kubernetes-openshift"]
