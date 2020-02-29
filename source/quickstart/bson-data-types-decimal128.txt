@@ -32,7 +32,7 @@
 
    * BSON
 
-.. atf-image:: /images/atf-images/qs-bson-header.jpg
+.. atf-image:: /images/atf-images/qs-bson-header.png
 
 .. related::
 
