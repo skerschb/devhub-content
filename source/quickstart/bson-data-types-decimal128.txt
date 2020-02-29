@@ -1,0 +1,202 @@
+:template: devhub-article
+
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
+.. meta-description::
+
+   Working with decimal numbers can be a challenge. The Decimal128 BSON data type allows for high precision options when working with numbers.
+
+.. twitter::
+   :site: @mongodb
+   :creator: @kenwalger
+   :title: Quick Start: BSON Data Types - Decimal128
+   :image: /images/decimal128-precision-details.png
+
+   Working with decimal numbers can be a challenge. The Decimal128 BSON data type allows for high precision options when working with numbers.
+
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
+
+.. include:: /includes/authors/alger-ken.rst
+
+.. pubdate:: January 16, 2020
+
+.. type:: quickstart
+
+.. level:: beginner
+
+.. tags::
+
+   * BSON
+
+.. atf-image:: /images/atf-images/qs-bson-header.jpg
+
+.. related::
+
+   * ``:doc:`/quickstart/bson-data-types-objectid```
+
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
+
+================
+Quick Start: BSON Data Types - Decimal128
+================
+
+.. introduction::
+
+   .. image:: /images/qs-badges/qs-badge-bson.png
+      :alt: BSON Quickstart badge
+      :scale: 50%
+      :align: right
+
+   Think back to when you were first introduced to the concept of decimals
+   in numerical calculations. Doing math problems along the lines of 3.231
+   / 1.28 caused problems when starting out because 1.28 doesn’t go into
+   3.231 evenly. This causes a long string of numbers to be created to
+   provide a more precise answer. In programming languages, we must choose
+   which number format is correct depending on the amount of precision we
+   need. When one needs high precision when working with `BSON data
+   types <http://bsonspec.org/>`__, the ``decimal128`` is the one to use.
+
+.. content::
+
+   As the name suggests, decimal128 provides 128 bits of decimal
+   representation for storing really big (or really small) numbers when
+   rounding decimals exactly is important. Decimal128 supports 34 decimal
+   digits of precision, or
+   `significand <https://en.wikipedia.org/wiki/Significand>`__ along with
+   an exponent range of -6143 to +6144. The significand is not normalized
+   in the decimal128 standard allowing for multiple possible
+   representations: 10 x 10^-1 = 1 x 10^0 = .1 x 10^1 = .01 x 10^2 and so
+   on. Having the ability to store maximum and minimum values in the order
+   of 10^6144 and 10^-6143, respectively, allows for a lot of precision.
+
+   .. image:: /images/decimal128-precision-details.png
+      :alt: Decimal128 Precision Details
+      :align: center
+
+   Why & Where to Use
+   ------------------
+
+   Sometimes when doing mathematical calculations in a programmatic way,
+   results are unexpected. For example in Node.js:
+
+   .. code:: bash
+
+      > 0.1
+      0.1
+      > 0.2
+      0.2
+      > 0.1 * 0.2
+      0.020000000000000004
+      > 0.1 + 0.1
+      0.010000000000000002
+
+   This issue is not unique to Node.js, in Java:
+
+   .. code:: java
+
+      class Main {
+       public static void main(String[] args) {
+         System.out.println("0.1 * 0.2:");
+         System.out.println(0.1 * 0.2);
+       }
+      }
+
+   Produces an output of:
+
+   .. code:: bash
+
+      0.1 * 0.2:
+      0.020000000000000004
+
+   The same computations in Python, Ruby, Rust, and others produce the same
+   results. What’s going on here? Are these languages just bad at math? Not
+   really, binary floating-point numbers just aren’t great at representing
+   base 10 values. For example, the ``0.1`` used in the above examples is
+   represented in binary as ``0.0001100110011001101``.
+
+   For many situations, this isn’t a huge issue. However, in monetary
+   applications precision is very important. Who remembers the `half-cent
+   issue from Superman
+   III <https://www.youtube.com/watch?v=iLw9OBV7HYA>`__? When precision and
+   accuracy are important for computations, decimal128 should be the data
+   type of choice.
+
+   How to Use
+   ----------
+
+   In MongoDB, storing data in decimal128 format is relatively straight
+   forward with the
+   `NumberDecimal() <https://docs.mongodb.com/manual/core/shell-types/#shell-type-decimal>`__
+   constructor:
+
+   .. code:: bash
+
+      NumberDecimal("9823.1297")
+
+   Passing in the decimal value as a string, the value gets stored in the
+   database as:
+
+   .. code:: bash
+
+      NumberDecimal("9823.1297")
+
+   If values are passed in as ``double`` values:
+
+   .. code:: bash
+
+      NumberDecimal(1234.99999999999)
+
+   Loss of precision can occur in the database:
+
+   .. code:: bash
+
+      NumberDecimal("1234.50000000000")
+
+   Another consideration, beyond simply the usage in MongoDB, is the usage
+   and support your programming has for decimal128. Many languages don’t
+   natively support this feature and will require a plugin or additional
+   package to get the functionality. Some examples…
+
+   Python: The
+   ```decimal.Decimal`` <https://docs.python.org/3/library/decimal.html>`__
+   module can be used for floating-point arithmetic.
+
+   Java: The
+   `BigDecimal <https://docs.oracle.com/javase/1.5.0/docs/api/java/math/BigDecimal.html>`__
+   class provides support for decimal128 numbers.
+
+   Node.js: There are several packages that provide support, such as
+   `js-big-decimal <https://www.npmjs.com/package/js-big-decimal>`__ or
+   `bigdecimal <https://www.npmjs.com/package/bigdecimal>`__ available on
+   `npm <https://www.npmjs.com>`__.
+
+.. summary::
+
+   Wrap Up
+   -------
+
+   .. blockquote::
+
+      Get started exploring BSON types, like decimal128, with `MongoDB
+      Atlas <https://www.mongodb.com/cloud/atlas>`__ today!
+
+   The ``decimal128`` field came about in August 2009 as part of the `IEEE
+   754-2008 <https://en.wikipedia.org/wiki/IEEE_754-2008_revision>`__
+   revision of floating points. MongoDB 3.4 is when support for decimal128
+   first appeared and to use the ``decimal`` data type with MongoDB, you’ll
+   want to make sure you `use a
+   driver <https://docs.mongodb.com/ecosystem/drivers/>`__ version that
+   supports this great feature. Decimal128 is great for huge (or very tiny)
+   numbers and for when precision in those numbers is important.
+
+   Learn about different BSON data types in other articles in this Quick
+   Start series:
+
+   -  :doc: `</quickstart/bson-data-types-objectid>`
