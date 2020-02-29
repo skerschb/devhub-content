@@ -6,7 +6,7 @@
 
 .. meta-description:: 
 
-   TEST TEST TEST TEST meta description (160 characters or fewer)
+   TTEST TEST EST TEST TEST TEST meta description (160 characters or fewer)
 
 .. twitter::
    :site: @mongodb
