@@ -42,9 +42,9 @@
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
 
-================
+========================================================================
 Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
-================
+========================================================================
 
 .. content::
 
@@ -623,6 +623,8 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
 
    Note: The version of the automation agent may be different than 3.6.5,
    be sure to check the directory path
+
+.. summary::
 
    Where to go for more information
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
