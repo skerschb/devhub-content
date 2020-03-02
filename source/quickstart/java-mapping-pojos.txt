@@ -390,6 +390,7 @@ Java - Mapping POJOs
 
       mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.MappingPOJO" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority"
 
+
 .. summary::
 
    Wrapping Up
