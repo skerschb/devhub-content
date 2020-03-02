@@ -6,7 +6,7 @@
 
 .. meta-description:: 
 
-   TTEST TEST EST TEST TEST TEST meta description (160 characters or fewer)
+   meta description (160 characters or fewer)
 
 .. twitter::
    :site: @mongodb
@@ -62,7 +62,7 @@ h1 Article Title
 
 .. introduction::
 
-   TEST TEST  TEST TEST TEST TEST TEST TEST  Capture the reader’s attention. An interesting fact or data point,
+   TESTTESTCapture the reader’s attention. An interesting fact or data point,
    empathy, engaging.
    
    Offer the reason for the post’s existence. What’s the purpose of the
