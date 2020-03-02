@@ -1,0 +1,180 @@
+:template: devhub-article
+
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
+.. meta-description::
+
+   Learn how we put MongoDB Charts to use to track the global Coronavirus outbreak.
+
+.. twitter::
+   :site: @mongodb
+   :creator: @MBeugnet
+   :title: Learn how we put MongoDB Charts to use to track the global Coronavirus outbreak.
+
+   Learn how we put MongoDB Charts to use to track the global Coronavirus outbreak.
+
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
+
+.. include:: /includes/authors/beugnet-maxime.rst
+
+.. pubdate:: February 05, 2020
+
+.. updated-date:: March 03, 2020
+
+.. type:: how-to
+
+.. level:: beginner
+
+.. tags::
+
+   * Analytics
+   * BI
+   * Cloud
+   * Data Visualization
+   * Time Series
+
+.. products::
+
+   * Atlas
+   * Charts
+   * Stitch
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
+
+=========================================================
+Coronavirus Map and Live Data Tracker with MongoDB Charts
+=========================================================
+
+.. introduction::
+
+   Too Long, Didn’t Read
+   ---------------------
+
+   `Thomas Rueckstiess <https://www.linkedin.com/in/rueckstiess/>`_ and
+   `myself <https://www.linkedin.com/in/maximebeugnet>`_ came up with two
+   `MongoDB Charts <https://www.mongodb.com/products/charts>`_ dashboards
+   with the Coronavirus dataset.
+
+   .. blockquote::
+
+      - Check out `Thomas's dashboard <https://charts.mongodb.com/charts-coronavirus-dashboard-yamfx/public/dashboards/4b328ffa-ba5d-435e-af11-b39fc974e47a>`_.
+      - Check out `Maxime's dashboard <https://charts.mongodb.com/charts-coronavirus-lwlvn/public/dashboards/1470d5ae-52b4-4bab-b9d3-8a7dd50a616c">`_.
+
+   Here is an example of the charts we made using the Coronavirus dataset.
+   More below and in the MongoDB Charts dashboards.
+
+   <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="760" height="570" src="https://charts.mongodb.com/charts-coronavirus-lwlvn/embed/charts?id=6f921f0c-a1ee-4106-839c-412fad3c64e7&autorefresh=3600&theme=light"></iframe>
+
+   <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="760" height="570" src="https://charts.mongodb.com/charts-coronavirus-lwlvn/embed/charts?id=e8e2eabc-4d50-43a2-be5c-8191bda87e96&autorefresh=3600&theme=light"></iframe>
+
+.. content::
+
+   Let The Data Speak
+   ------------------
+
+   We have to make decisions at work every day. - Should we discontinue
+   this project? - Should we hire more people? - Can we invest more in this
+   branch? How much?
+
+   Leaders make decisions. Great leaders make informed decisions, based on
+   facts backed by data and not just based on assumptions, feelings or
+   opinions.
+
+   The management of the Coronavirus outbreak obeys the same rules. To make
+   the right decisions, we need accurate data.
+
+   Data about the Coronavirus is relatively easy to find. The `Johns
+   Hopkins University <https://www.jhu.edu/>`_ has done a terrific job at
+   gathering, cleaning and curating data from various sources. They wrote
+   `an excellent blog
+   post <https://systems.jhu.edu/research/public-health/ncov/>`_ which I
+   encourage you to read.
+
+   Having data is great but it can also be overwhelming. That’s why data
+   visualisation is also very important. Data alone doesn’t speak and
+   doesn’t help make informed decisions.
+
+   `Johns Hopkins University <https://www.jhu.edu/>`_ also did a great job
+   on this part because they provided `this
+   dashboard <https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6>`_
+   to make this data more human accessible.
+
+   This is great… But we can do even better visualisations with `MongoDB
+   Charts <https://www.mongodb.com/products/charts>`_.
+
+   Free Your Data With MongoDB Charts
+   ----------------------------------
+
+   `Thomas Rueckstiess <https://www.linkedin.com/in/rueckstiess/>`_ and I
+   imported all the data from Johns Hopkins University (and we will keep
+   importing new data as they are published) into a MongoDB database. If
+   you are interested by the data import, you can check my `Github
+   repository <https://github.com/MaBeuLux88/coronavirus-mongodb>`_.
+
+   Then we used this data to produce a dashboard to monitor the progression
+   of the virus.
+
+   .. blockquote::
+
+      - Here is the `Thomas's dashboard <https://charts.mongodb.com/charts-coronavirus-dashboard-yamfx/public/dashboards/4b328ffa-ba5d-435e-af11-b39fc974e47a>`_ Thomas came up with.
+      - Here is the `Maxime's dashboard <https://charts.mongodb.com/charts-coronavirus-lwlvn/public/dashboards/1470d5ae-52b4-4bab-b9d3-8a7dd50a616c">`_ I came up with.
+
+      Both are shared publicly for the greater good.
+
+   `MongoDB Charts <https://www.mongodb.com/products/charts>`_ also allows you to embed easily charts within a website… or a blog post.
+
+   Here are a few of the graphs I was able to import in here with just two clicks.
+
+   <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="760" height="570" src="https://charts.mongodb.com/charts-coronavirus-lwlvn/embed/charts?id=067746f6-8b58-4d89-a5a4-7aa842ad6c54&autorefresh=3600&theme=light"></iframe>
+
+   <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="760" height="570" src="https://charts.mongodb.com/charts-coronavirus-lwlvn/embed/charts?id=0f3ecb6a-bc09-45fb-a3d4-744cb36d8aed&autorefresh=3600&theme=light"></iframe>
+
+   <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="760" height="570" src="https://charts.mongodb.com/charts-coronavirus-lwlvn/embed/charts?id=31dc28e0-839e-4b64-aded-77bc280456b1&autorefresh=3600&theme=light"></iframe>
+
+   <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="760" height="570" src="https://charts.mongodb.com/charts-coronavirus-lwlvn/embed/charts?id=3087edf3-f49d-4c84-8629-5c48d738d542&autorefresh=3600&theme=light"></iframe>
+
+   <iframe style="background: #21313C;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="760" height="570" src="https://charts.mongodb.com/charts-coronavirus-lwlvn/embed/charts?id=c12fd034-6429-4017-86b2-91bb035e451d&autorefresh=3600&theme=dark"></iframe>
+
+   <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="760" height="570" src="https://charts.mongodb.com/charts-coronavirus-lwlvn/embed/charts?id=1f2ba37d-1505-47c8-8596-9b5401a05ca5&autorefresh=3600&theme=light"></iframe>
+
+   <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="760" height="1000" src="https://charts.mongodb.com/charts-coronavirus-lwlvn/embed/charts?id=77ed8e96-69cd-42a0-bcab-66c572c1f747&autorefresh=3600&theme=light"></iframe>
+
+   As you can see, `MongoDB
+   Charts <https://www.mongodb.com/products/charts>`_ is really powerful
+   and super easy to embed. There is even a dark mode (see donut above) to
+   ease the integration with your themes.
+
+.. summary::
+
+   Participation
+   -------------
+
+   If you have a source of data that provides different or more accurate
+   data about this virus. Please let me know on Twitter
+   [@MBeugnet](https://twitter.com/mbeugnet) or in the comment section. I
+   will do my best to update this data and provide more charts.
+
+   .. blockquote::
+
+      Try `MongoDB Charts on MongoDB
+      Atlas <https://www.mongodb.com/products/charts>`_ now. Use the Atlas
+      code **MAXIME200** to get $200 and try advanced features like the
+      `AWS VPC
+      peering <https://docs.atlas.mongodb.com/security-vpc-peering/>`_.
+
+   Sources
+   -------
+
+   -  `Dashboard <https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6>`_ from `Johns Hopkins University <https://www.jhu.edu/>`_.
+   -  `Blog post from Johns Hopkins University <https://systems.jhu.edu/research/public-health/ncov/>`_.
+   -  `Public Google Spreadsheet (old version) - deprecated <https://docs.google.com/spreadsheets/d/1yZv9w9zRKwrGTaR-YzmAqMefw4wMlaXocejdxZaTs6w/htmlview?usp=sharing&sle=true#>`_.
+   -  `Public Google Spreadsheet (new version) - deprecated <https://docs.google.com/spreadsheets/d/1wQVypefm946ch4XDp37uZ-wartW4V7ILdg-qYiDXUHM/edit?usp=sharing>`_.
+   -  `Public Google Spreadsheet (Time Series) - deprecated <https://docs.google.com/spreadsheets/d/1UF2pSkFTURko2OvfHWWlFpDFAr1UxCBA4JLwlSP6KFo/edit?usp=sharing>`_.
+   -  `Github Repository with CSV dataset from Johns Hopkins University <https://github.com/CSSEGISandData/COVID-19>`_.
+   -  Image credit: `Scientific Animations <http://www.scientificanimations.com/wiki-images/>`_ (CC BY-SA 4.0).
