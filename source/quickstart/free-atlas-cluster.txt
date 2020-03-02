@@ -1,0 +1,94 @@
+:template: devhub-article
+
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
+.. meta-description::
+
+   Want to know the quickest way to start with MongoDB? It begins with getting yourself a free MongoDB Atlas Cluster so you can leverage your learning
+
+.. twitter::
+   :site: @mongodb
+   :creator: @MBeugnet
+   :title: Want to know the quickest way to start with MongoDB? It begins with getting yourself a free MongoDB Atlas Cluster so you can leverage your learning
+
+   Want to know the quickest way to start with MongoDB? It begins with getting yourself a free MongoDB Atlas Cluster so you can leverage your learning
+
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
+
+.. include:: /includes/authors/beugnet-maxime.rst
+
+.. pubdate:: September 18, 2019
+
+.. updated-date:: March 02, 2020
+
+.. type:: quickstart
+
+.. level:: beginner
+
+.. tags::
+
+   * Cloud
+
+.. products::
+
+   * Atlas
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
+
+=======================================
+Getting Your Free MongoDB Atlas Cluster
+=======================================
+
+.. introduction::
+
+   **You probably already know that MongoDB Atlas is MongoDB as a service
+   in the public cloud of your choice but did you know we also offer a free
+   forever cluster? In this Quick Start, we’ll show you why you should get
+   one and how to create one.**
+
+.. content::
+   
+   MongoDB Atlas’s Free Tier clusters - which are also known as M0
+   Sandboxes - are limited to only 512MB of storage but it’s more than
+   enough for a pet project or to learn about MongoDB with our `free
+   MongoDB University <http://bit.ly/mongodbuniversity>`_ courses.
+   
+   The only restriction on them is that they are available in a few regions
+   for each of our three cloud providers: currently there are six on AWS,
+   five on Azure, and four on Google Cloud Platform.
+   
+   In this tutorial video, I will show you `how to create an
+   account <http://bit.ly/mdb-atlas>`_. Then I’ll show you how to create
+   your first 3 node cluster and populate it with sample data.
+   
+   .. youtube:: rPqRyYJmx2g
+
+   Now that you understand the basics of `MongoDB
+   Atlas <https://docs.atlas.mongodb.com/>`_, you may want to explore some
+   of our advanced features that are not available in the Free Tier
+   clusters:
+
+   - `Peering your MongoDB Clusters <https://docs.atlas.mongodb.com/security-vpc-peering/>`_ with your AWS, GCP or Azure machines is only available for dedicated instances (M10 at least),
+   - `LDAP Authentication and Authorization <https://docs.atlas.mongodb.com/security-ldaps/>`_,
+   - `AWS PrivateLink <https://docs.atlas.mongodb.com/billing/additional-services/#aws-privatelink>`_.
+
+   Our new `Lucene-based Full-Text Search
+   engine <https://docs.atlas.mongodb.com/full-text-search/>`_ is
+   now available for free tier clusters directly.
+   
+   You are in luck because you can also try these features for free! The
+   coupon code **MAXIME200** will give you $200 to try these features and
+   anything else you like in `MongoDB
+   Atlas <http://bit.ly/mongodbatlas>`_. This is enough for 3 to 4 months
+   of a dedicated M10 Replica Set!
+   
+   To redeem this coupon code, you need to click “details” in the top right
+   corner (Next to the “Usage This Month” entry) to access your
+   `billing <https://docs.atlas.mongodb.com/billing/#billing-overview>`_
+   details, then click on “Billing Overview” and finally “Apply Credit”.
