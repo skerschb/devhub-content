@@ -10,7 +10,7 @@
 
    Learn how to use MongoDB Stitch for Internet of Things data in as little as 5 minutes.
 
-.. include:: /includes/authors/beugnet-max.rst
+.. include:: /includes/authors/beugnet-maxime.rst
 
 .. pubdate:: October 3, 2018
 
@@ -123,3 +123,4 @@ Capture IOT Data With MongoDB Stitch in 5 Minutes
   If you want to query your data sitting in MongoDB Atlas using MongoDB
   Stitch, I recommend `this article from Michael
   Lynn <https://medium.com/@michael.lynn/creating-a-data-enabled-api-in-10-minutes-with-mongodb-stitch-6d23578fed6d>`_.
+  
