@@ -49,12 +49,13 @@
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
 
-================
+================================================================================
 Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
-================
+================================================================================
 
 .. introduction::
-      .. container:: callout
+      
+   .. blockquote::
 
       Atlas Full-Text Search is now `Atlas
       Search <https://www.mongodb.com/atlas/search>`_.
@@ -119,16 +120,16 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
       sample dataset by clicking the ellipse button and **Load Sample
       Dataset**.
 
-   .. image:: /images/atlas-fts/load_sample_data.png
-      :alt: Load Sample Dataset
-      :align: center
-
-   .. blockquote::
-      For more detailed information on how to spin up a cluster, configure
-      your IP address, create a user, and load sample data, check
-      out `Getting Started with MongoDB
-      Atlas <https://docs.atlas.mongodb.com/getting-started/#atlas-getting-started>`_ from
-      our documentation.
+      .. image:: /images/atlas-fts/load_sample_data.png
+         :alt: Load Sample Dataset
+         :align: center
+   
+      .. blockquote::
+         For more detailed information on how to spin up a cluster, configure
+         your IP address, create a user, and load sample data, check
+         out `Getting Started with MongoDB
+         Atlas <https://docs.atlas.mongodb.com/getting-started/#atlas-getting-started>`_ from
+         our documentation.
 
    3. (Optional) MongoDB Compass. This is the free GUI for MongoDB that
       allows you to make smarter decisions about document structure,
@@ -205,7 +206,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    Navigate to the Aggregations tab in the ``sample_mflix.movies`` collection:
 
-   .. image:: /images/atlas-fts/aggregations_tab.png
+   .. image:: /images/atlas-fts/aggregations-tab.png
       :alt: Aggregations tab
       :align: center
 
@@ -241,14 +242,14 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
       :alt: "Project dialog"
       :align: center
 
-   We use
-   **:math:`project** to get back only the fields we will use in our movie search application. We also use the **`\ meta**
+   We use ``$project`` to get back only the fields we will use in
+   our movie search application. We also use the ``$meta``
    operator to surface each document’s **searchScore** and
    **searchHighlights** in the result set.
 
    Let’s break down the individual pieces in this stage further:
 
-   **SCORE:** The **"$meta": "searchScore"** contains the assigned score
+   **SCORE:** The ``"$meta": "searchScore"`` contains the assigned score
    for the document based on relevance. This signifies how well this
    movie’s ``fullplot`` field matches the query terms ‘werewolves and
    vampires’ above.
@@ -474,7 +475,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    top of the screen.
 
    Use the API
-   ```````````
+   ~~~~~~~~~~~
 
    The beauty of a REST API is that it can be called from just about
    anywhere. Let’s execute it in our browser. However, if you have tools
