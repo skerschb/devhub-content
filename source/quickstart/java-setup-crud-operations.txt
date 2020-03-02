@@ -1,0 +1,1761 @@
+:template: devhub-article
+
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
+.. meta-description:: 
+
+   In this Java series, you will learn everything you need to know about the MongoDB Java Driver. From installation and setup to advanced operations such as Change Streams and multi-document ACID transactions without forgetting basic CRUD operations and much more.
+
+.. twitter::
+   :site: @mongodb
+   :title: In this Java series, you will learn everything you need to know about the MongoDB Java Driver. From installation and setup to advanced operations such as Change Streams and multi-document ACID transactions without forgetting basic CRUD operations and much more.
+
+   In this Java series, you will learn everything you need to know about the MongoDB Java Driver. From installation and setup to advanced operations such as Change Streams and multi-document ACID transactions without forgetting basic CRUD operations and much more.
+
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
+
+.. include:: /includes/authors/beugnet-maxime.rst
+
+.. pubdate:: February 29, 2020
+
+.. updated-date:: February 29, 2020
+
+.. type:: quickstart
+
+.. level:: beginner
+
+.. tags::
+
+   * Java
+   * University
+
+.. languages::
+
+   * Java
+
+.. products::
+
+   * MongoDB
+   * Atlas
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
+
+================================
+Java - Setup and CRUD Operations
+================================
+
+.. introduction::
+
+   Introduction
+   ------------
+
+   .. image:: /images/quickstart-java-badge.png
+      :scale: 30%
+      :alt: Java badge
+      :align: right
+
+   In this very first blog post of the Java Quick Start series, I will show
+   you how to set up your Java project with Maven and execute a MongoDB
+   command in Java. Then we will explore all the CRUD operations using the
+   MongoDB Java driver.
+
+   In future blog posts, we will move on and work through:
+
+   - `Mapping MongoDB BSON documents directly to Plain Old Java Object (POJO) <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--mapping-pojos>`_,
+   - `The MongoDB Aggregation Framework <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--aggregation-pipeline>`_,
+   - `Change Streams <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--change-streams>`_,
+   - Multi-document ACID transactions,
+   - The MongoDB Java reactive streams driver.
+
+   Why Java and MongoDB? Java is the `most popular language in the IT
+   industry <https://stackify.com/popular-programming-languages-2018/>`_
+   at the date of this blog post, and `developers voted MongoDB as their
+   most wanted database four years in a
+   row <https://www.mongodb.com/blog/post/mongodb-the-most-wanted-database-by-developers-for-the-4th-consecutive-year>`_.
+   In this series of blog posts, I will be demonstrating how powerful these
+   two great pieces of technology are when combined and how you can access
+   that power.
+
+   To follow along, you can use any environment you like and the integrated
+   development environment of your choice. I’ll use
+   `Maven <http://maven.apache.org/install.html>`_ 3.6.2 and the Java
+   OpenJDK 13, but all the code will be compatible with Java versions 8 to
+   13 so feel free to use the JDK of your choice and update the Java
+   version accordingly in the pom.xml file we are about to setup.
+
+   For the MongoDB Cluster, we will be using a M0 Free Tier MongoDB Cluster
+   from `MongoDB Atlas <http://bit.ly/mongodbatlas>`_. If you don’t have
+   one already, check out my `Get started with an M0
+   cluster <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`_
+   blog post.
+
+   .. blockquote:: 
+
+      Get your free M0 cluster on `MongoDB
+      Atlas <http://bit.ly/mongodbatlas>`_ today. It’s free forever, and
+      you’ll be able to use it to work with the examples in this blog
+      series.
+
+   Let’s jump in and take a look at how well Java and MongoDB work
+   together.
+
+.. prerequisites::
+
+   Getting Set Up
+   --------------
+
+   To begin with, we will need to setup a new Maven project. You have two
+   options at this point. You can either clone this series’ git repository
+   or you can create and set up the maven project.
+
+   Using the Git repository
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+
+   If you choose to use git, you will get all the code immediately. I still
+   recommend you read through the manual set up.
+
+   You can clone the repository if you like with the following command.
+
+   .. code-block:: bash
+
+      git clone https://github.com/mongodb-developer/java-quick-start
+
+   Or you can download the repository as a zip file using `this
+   link <https://github.com/mongodb-developer/java-quick-start/archive/master.zip>`_.
+
+   Setting Up Manually
+   ~~~~~~~~~~~~~~~~~~~
+
+   You can either use your favorite IDE to create a new Maven project for
+   you or you can create the Maven project manually. Either way, you should
+   get the following folder architecture:
+
+   .. code-block:: none
+
+      java-quick-start/
+      ├── pom.xml
+      └── src
+          └── main
+              └── java
+                  └── com
+                      └── mongodb
+                          └── quickstart
+
+   The pom.xml file should contain the following code:
+
+   .. code-block:: auto
+
+      <?xml version="1.0" encoding="UTF-8"?>
+      <project xmlns="http://maven.apache.org/POM/4.0.0"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+          <modelVersion>4.0.0</modelVersion>
+
+          <groupId>com.mongodb</groupId>
+          <artifactId>java-quick-start</artifactId>
+          <version>1.0-SNAPSHOT</version>
+
+          <properties>
+              <maven-compiler-plugin.source>8</maven-compiler-plugin.source>
+              <maven-compiler-plugin.target>8</maven-compiler-plugin.target>
+              <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+              <mongodb-driver-sync.version>3.11.0</mongodb-driver-sync.version>
+              <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+          </properties>
+
+          <dependencies>
+              <dependency>
+                  <groupId>org.mongodb</groupId>
+                  <artifactId>mongodb-driver-sync</artifactId>
+                  <version>${mongodb-driver-sync.version}</version>
+              </dependency>
+          </dependencies>
+
+          <build>
+              <plugins>
+                  <plugin>
+                      <groupId>org.apache.maven.plugins</groupId>
+                      <artifactId>maven-compiler-plugin</artifactId>
+                      <version>${maven-compiler-plugin.version}</version>
+                      <configuration>
+                          <source>${maven-compiler-plugin.source}</source>
+                          <target>${maven-compiler-plugin.target}</target>
+                      </configuration>
+                  </plugin>
+              </plugins>
+          </build>
+
+      </project>
+
+   To verify that everything works correctly, you should be able to create
+   and run a simple “Hello MongoDB!” program. In
+   ``src/main/java/com/mongodb/quickstart``, create the
+   ``HelloMongoDB.java`` file:
+
+   .. code-block:: java
+
+      package com.mongodb.quickstart;
+
+      public class HelloMongoDB {
+
+          public static void main(String[] args) {
+              System.out.println("Hello MongoDB!");
+          }
+      }
+
+   Then compile and execute it with your IDE or use the command line in the
+   root directory (where the ``src`` folder is):
+
+   .. code-block:: bash
+
+      mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.HelloMongoDB"
+
+   The result should look like this:
+
+   .. code-block:: none
+
+      [...]
+      [INFO] Scanning for projects...
+      [INFO]
+      [INFO] --------------------< com.mongodb:java-quick-start >--------------------
+      [INFO] Building java-quick-start 1.0-SNAPSHOT
+      [INFO] --------------------------------[ jar ]---------------------------------
+      [INFO]
+      [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ java-quick-start ---
+      [INFO] Using 'UTF-8' encoding to copy filtered resources.
+      [INFO] Copying 1 resource
+      [INFO]
+      [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ java-quick-start ---
+      [INFO] Nothing to compile - all classes are up to date
+      [INFO]
+      [INFO] --- exec-maven-plugin:1.4.0:java (default-cli) @ java-quick-start ---
+      Hello MongoDB!
+      [INFO] ------------------------------------------------------------------------
+      [INFO] BUILD SUCCESS
+      [INFO] ------------------------------------------------------------------------
+      [INFO] Total time:  0.786 s
+      [INFO] Finished at: 2019-10-02T20:19:36+02:00
+      [INFO] ------------------------------------------------------------------------
+
+   .. blockquote::
+
+      Note: If you see some warnings about an illegal reflective access from
+      ``guice.java``, it’s safe to ignore them. Guice is used by Maven and
+      needs an update. You can read more about it
+      `here <https://github.com/google/guice/issues/1133>`_. These warnings
+      will disappear in a future release of Guice and Maven.
+
+.. content::
+
+   Putting the Driver to Work
+   --------------------------
+
+   Now that our Maven project works, we can start talking with MongoDB.
+
+   If you have imported the `Sample
+   Dataset <http://bit.ly/atlas-sample-data-blog>`_ as suggested in the
+   `Quick Start Atlas blog
+   post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`_,
+   then with the Java code we are about to create, you will be able to see
+   a list of the databases in the sample Dataset.
+
+   The first step is to instantiate a ``MongoClient`` by passing a MongoDB
+   Atlas connection string into the ``MongoClients.create()`` static
+   method. This will establish a connection to `MongoDB
+   Atlas <http://bit.ly/mongodbatlas>`_ using the connection string. Then
+   we can retrieve the list of databases on this cluster and print them out
+   to test the connection with MongoDB.
+
+   In ``src/main/java/com/mongodb``, create the ``Connection.java`` file:
+
+   .. code-block:: java
+
+      package com.mongodb.quickstart;
+
+      import com.mongodb.client.MongoClient;
+      import com.mongodb.client.MongoClients;
+      import org.bson.Document;
+
+      import java.util.ArrayList;
+      import java.util.List;
+      import java.util.logging.Level;
+      import java.util.logging.Logger;
+
+      public class Connection {
+
+          public static void main(String[] args) {
+              Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
+              String connectionString = System.getProperty("mongodb.uri");
+              try (MongoClient mongoClient = MongoClients.create(connectionString)) {
+                  List<Document> databases = mongoClient.listDatabases().into(new ArrayList<>());
+                  databases.forEach(db -> System.out.println(db.toJson()));
+              }
+          }
+      }
+
+   As you can see, the MongoDB connection string is retrieved from the
+   *System Properties* so we need to set this up. Once you have retrieved
+   your `MongoDB Atlas connection
+   string <https://docs.mongodb.com/guides/cloud/connectionstring/>`_, you
+   can add the ``mongodb.uri`` system property into your IDE. Here is my
+   configuration with IntelliJ for example.
+
+   .. figure:: /images/intellij-configuration.png
+      :alt: IntelliJ Configuration
+
+      IntelliJ Configuration
+
+   Or if you prefer to use Maven in command line, here is the equivalent
+   command line you can run in the root directory:
+
+   .. code-block:: bash
+
+      mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.Connection" -Dmongodb.uri="mongodb+srv://username:password@cluster0-abcde.mongodb.net/test?w=majority"
+
+
+   .. blockquote::
+
+      Note: Don’t forget the double quotes around the MongoDB URI to avoid surprises from your shell.
+
+   The standard output should look like this:
+
+   .. code-block:: none
+
+      {"name": "admin", "sizeOnDisk": 303104.0, "empty": false}
+      {"name": "config", "sizeOnDisk": 147456.0, "empty": false}
+      {"name": "local", "sizeOnDisk": 5.44731136E8, "empty": false}
+      {"name": "sample_airbnb", "sizeOnDisk": 5.761024E7, "empty": false}
+      {"name": "sample_geospatial", "sizeOnDisk": 1384448.0, "empty": false}
+      {"name": "sample_mflix", "sizeOnDisk": 4.583424E7, "empty": false}
+      {"name": "sample_supplies", "sizeOnDisk": 1339392.0, "empty": false}
+      {"name": "sample_training", "sizeOnDisk": 7.4801152E7, "empty": false}
+      {"name": "sample_weatherdata", "sizeOnDisk": 5103616.0, "empty": false}
+
+   Insert Operations
+   -----------------
+
+   Getting Set Up
+   ~~~~~~~~~~~~~~
+
+   In the setup part, we created the classes ``HelloMongoDB`` and
+   ``Connection``. Now we will work on the ``Create`` class.
+
+   If you didn’t set up your free cluster on MongoDB Atlas, now is great
+   time to do so. You have all the instructions in this `blog
+   post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`_.
+
+   Checking the Collection and Data Model
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   In the sample dataset, you can find the database ``sample_training``,
+   which contains a collection ``grades``. Each document in this collection
+   represents a student’s grades for a particular class.
+
+   Here is the JSON representation of a document in the `Mongo
+   Shell <https://docs.mongodb.com/manual/mongo/>`_.
+
+   .. code-block:: bash
+
+      MongoDB Enterprise Cluster0-shard-0:PRIMARY> db.grades.findOne({student_id: 0, class_id: 339})
+      {
+          "_id" : ObjectId("56d5f7eb604eb380b0d8d8ce"),
+          "student_id" : 0,
+          "scores" : [
+              {
+                  "type" : "exam",
+                  "score" : 78.40446309504266
+              },
+              {
+                  "type" : "quiz",
+                  "score" : 73.36224783231339
+              },
+              {
+                  "type" : "homework",
+                  "score" : 46.980982486720535
+              },
+              {
+                  "type" : "homework",
+                  "score" : 76.67556138656222
+              }
+          ],
+          "class_id" : 339
+      }
+
+   And here is the `extended
+   JSON <https://docs.mongodb.com/manual/reference/mongodb-extended-json/>`_
+   representation of the same student. You can retrieve it in `MongoDB
+   Compass <https://www.mongodb.com/products/compass>`_ if you want.
+
+   Extended JSON is the human readable version of a BSON document without
+   loss of type information. You can read more about the Java driver and
+   BSON
+   `here <https://mongodb.github.io/mongo-java-driver/3.11/bson/extended-json/>`_.
+
+   .. code-block:: json
+
+      {
+          "_id": {
+              "$oid": "56d5f7eb604eb380b0d8d8ce"
+          },
+          "student_id": {
+              "$numberDouble": "0"
+          },
+          "scores": [{
+              "type": "exam",
+              "score": {
+                  "$numberDouble": "78.40446309504266"
+              }
+          }, {
+              "type": "quiz",
+              "score": {
+                  "$numberDouble": "73.36224783231339"
+              }
+          }, {
+              "type": "homework",
+              "score": {
+                  "$numberDouble": "46.980982486720535"
+              }
+          }, {
+              "type": "homework",
+              "score": {
+                  "$numberDouble": "76.67556138656222"
+              }
+          }],
+          "class_id": {
+              "$numberDouble": "339"
+          }
+      }
+
+   As you can see, MongoDB stores BSON documents and for each key-value
+   pairs, the BSON contains the key and the value along with its type. This
+   is how MongoDB knows that ``class_id`` is actually a double and not an
+   integer, which is not explicit in the Mongo Shell representation of this
+   document.
+
+   We have 10,000 students (``student_id`` from 0 to 9999) already in this
+   collection and each of them took 10 different classes which adds up to
+   100,000 documents in this collection. Let’s say a new student
+   (``student_id`` 10,000) just arrived in this university and received a
+   bunch of (random) grades in his first class. Let’s insert this new
+   student using Java.
+
+   In this university, the ``class_id`` varies from 0 to 500 so I can use
+   any random value between 0 and 500.
+
+   Connecting to a Specific Collection
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Firstly, we need to set up our ``Create`` class and access this
+   ``sample_training.grades`` collection.
+
+   .. code-block:: java
+
+      package com.mongodb.quickstart;
+
+      import com.mongodb.client.MongoClient;
+      import com.mongodb.client.MongoClients;
+      import com.mongodb.client.MongoCollection;
+      import com.mongodb.client.MongoDatabase;
+      import org.bson.Document;
+
+      import java.util.logging.Level;
+      import java.util.logging.Logger;
+
+      public class Create {
+
+          public static void main(String[] args) {
+              Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
+              try (MongoClient mongoClient = MongoClients.create(System.getProperty("mongodb.uri"))) {
+
+                  MongoDatabase sampleTrainingDB = mongoClient.getDatabase("sample_training");
+                  MongoCollection<Document> gradesCollection = sampleTrainingDB.getCollection("grades");
+
+              }
+          }
+      }
+
+   Create a BSON Document
+   ~~~~~~~~~~~~~~~~~~~~~~
+
+   Secondly, we need to represent this new student in Java using the
+   ``Document`` class.
+
+   .. code-block:: java
+
+      Random rand = new Random();
+      Document student = new Document("_id", new ObjectId());
+      student.append("student_id", 10000d)
+             .append("class_id", 1d)
+             .append("scores", asList(new Document("type", "exam").append("score", rand.nextDouble() * 100),
+                                      new Document("type", "quiz").append("score", rand.nextDouble() * 100),
+                                      new Document("type", "homework").append("score", rand.nextDouble() * 100),
+                                      new Document("type", "homework").append("score", rand.nextDouble() * 100)));
+
+   As you can see, we reproduced the same data model from the existing
+   documents in this collection as we made sure that ``student_id``,
+   ``class_id`` and ``score`` are all doubles.
+
+   Also, the Java driver would have generated the ``_id`` field with an
+   ObjectId for us if we didn’t explicitly create one here but it’s good
+   practise to set the ``_id`` ourselves. This won’t change our life right
+   now but it makes more sense when we directly manipulate POJOs and we
+   want to create a clean REST API. I’m doing this in this `blog
+   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--mapping-pojos>`_.
+
+   Insert Operation
+   ~~~~~~~~~~~~~~~~
+
+   Finally, we can insert this document.
+
+   .. code-block:: java
+
+      gradesCollection.insertOne(student);
+
+   Final Code to Insert One Document
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Here is the final ``Create`` class to insert one document in MongoDB
+   with all the details I mentioned above.
+
+   .. code-block:: java
+
+      package com.mongodb.quickstart;
+
+      import com.mongodb.client.MongoClient;
+      import com.mongodb.client.MongoClients;
+      import com.mongodb.client.MongoCollection;
+      import com.mongodb.client.MongoDatabase;
+      import org.bson.Document;
+      import org.bson.types.ObjectId;
+
+      import java.util.Random;
+      import java.util.logging.Level;
+      import java.util.logging.Logger;
+
+      import static java.util.Arrays.asList;
+
+      public class Create {
+
+          public static void main(String[] args) {
+              Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
+              try (MongoClient mongoClient = MongoClients.create(System.getProperty("mongodb.uri"))) {
+
+                  MongoDatabase sampleTrainingDB = mongoClient.getDatabase("sample_training");
+                  MongoCollection<Document> gradesCollection = sampleTrainingDB.getCollection("grades");
+
+                  Random rand = new Random();
+                  Document student = new Document("_id", new ObjectId());
+                  student.append("student_id", 10000d)
+                         .append("class_id", 1d)
+                         .append("scores", asList(new Document("type", "exam").append("score", rand.nextDouble() * 100),
+                                                  new Document("type", "quiz").append("score", rand.nextDouble() * 100),
+                                                  new Document("type", "homework").append("score", rand.nextDouble() * 100),
+                                                  new Document("type", "homework").append("score", rand.nextDouble() * 100)));
+
+                  gradesCollection.insertOne(student);
+              }
+          }
+      }
+
+   You can execute this class with the following maven command line in the
+   root directory or using your IDE (see the `previous
+   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`_
+   for details). Do not forget the doubles quotes around the MongoDB URI to
+   avoid surprises.
+
+   .. code-block:: bash
+
+      mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.Create" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority"
+
+   And here is the document I extracted from `MongoDB
+   Compass <https://www.mongodb.com/products/compass>`_.
+
+   .. code-block:: json
+
+      {
+          "_id": {
+              "$oid": "5d97c375ded5651ea3462d0f"
+          },
+          "student_id": {
+              "$numberDouble": "10000"
+          },
+          "class_id": {
+              "$numberDouble": "1"
+          },
+          "scores": [{
+              "type": "exam",
+              "score": {
+                  "$numberDouble": "4.615256396625178"
+              }
+          }, {
+              "type": "quiz",
+              "score": {
+                  "$numberDouble": "73.06173415145801"
+              }
+          }, {
+              "type": "homework",
+              "score": {
+                  "$numberDouble": "19.378205578990727"
+              }
+          }, {
+              "type": "homework",
+              "score": {
+                  "$numberDouble": "82.3089189278531"
+              }
+          }]
+      }
+
+   Note that the order of the fields is different from the initial document
+   with ``"student_id": 0``.
+
+   We could get exactly the same order if we want to by creating the
+   document like this.
+
+   .. code-block:: java
+
+      Random rand = new Random();
+      Document student = new Document("_id", new ObjectId());
+      student.append("student_id", 10000d)
+             .append("scores", asList(new Document("type", "exam").append("score", rand.nextDouble() * 100),
+                                      new Document("type", "quiz").append("score", rand.nextDouble() * 100),
+                                      new Document("type", "homework").append("score", rand.nextDouble() * 100),
+                                      new Document("type", "homework").append("score", rand.nextDouble() * 100)))
+             .append("class_id", 1d);
+
+   But if you do things correctly, this should not have any impact in your
+   code and logic as fields in a JSON documents are not ordered.
+
+   I’m quoting `json.org <http://json.org/>`_ for this:
+
+   .. blockquote::
+
+      An object is an unordered set of name/value pairs.
+
+   Bulk Inserts
+   ~~~~~~~~~~~~
+
+   Now that we know how to create one document, let’s learn how to insert
+   many documents.
+
+   Of course, we could just wrap the previous ``insert`` operation into a
+   ``for`` loop. Indeed, if we loop 10 times on this method, we would send
+   10 insert commands to the cluster and expect 10 insert acknowledgments.
+   As you can imagine, this would not be very efficient as it would
+   generate a lot more TCP communications than necessary.
+
+   Instead, we want to wrap our 10 documents and send them in one call to
+   the cluster and we want to receive only one insert acknowledgment for
+   the entire list.
+
+   Let’s refactor the code. First, let’s make the random generator a
+   ``private static final`` field.
+
+   .. code-block:: java
+
+      private static final Random rand = new Random();
+
+   Let’s make a grade factory method.
+
+   .. code-block:: java
+
+      private static Document generateNewGrade(double studentId, double classId) {
+          List<Document> scores = asList(new Document("type", "exam").append("score", rand.nextDouble() * 100),
+                                         new Document("type", "quiz").append("score", rand.nextDouble() * 100),
+                                         new Document("type", "homework").append("score", rand.nextDouble() * 100),
+                                         new Document("type", "homework").append("score", rand.nextDouble() * 100));
+          return new Document("_id", new ObjectId()).append("student_id", studentId)
+                                                    .append("class_id", classId)
+                                                    .append("scores", scores);
+      }
+
+   And now we can use this to insert 10 documents all at once.
+
+   .. code-block:: java
+
+      List<Document> grades = new ArrayList<>();
+      for (double classId = 1d; classId <= 10d; classId++) {
+          grades.add(generateNewGrade(10001d, classId));
+      }
+
+      gradesCollection.insertMany(grades, new InsertManyOptions().ordered(false));
+
+   As you can see, we are now wrapping our grade documents into a list and
+   we are sending this list in a single call with the ``insertMany``
+   method.
+
+   By default, the ``insertMany`` method will insert the documents in order
+   and stop if an error occurs during the process. For example, if you try
+   to insert a new document with the same ``_id`` as an existing document
+   you would get a ``DuplicateKeyException``.
+
+   Therefore, with an ordered ``insertMany``, the last documents of the
+   list would not be inserted and the insertion process would stop and
+   return the appropriate exception as soon as the error occurs.
+
+   As you can see here, this is not the behaviour we want because all the
+   grades are completely independent from one to another so, if one of them
+   fails, we want to process all the grades and then eventually fall back
+   to an exception for the ones that failed.
+
+   This is why you see the second parameter
+   ``new InsertManyOptions().ordered(false)`` which is true by default.
+
+   The Final Code To Insert Multiple Documents
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Let’s refactor the code a bit and here is the final ``Create`` class.
+
+   .. code-block:: java
+
+      package com.mongodb.quickstart;
+
+      import com.mongodb.client.MongoClient;
+      import com.mongodb.client.MongoClients;
+      import com.mongodb.client.MongoCollection;
+      import com.mongodb.client.MongoDatabase;
+      import com.mongodb.client.model.InsertManyOptions;
+      import org.bson.Document;
+      import org.bson.types.ObjectId;
+
+      import java.util.ArrayList;
+      import java.util.List;
+      import java.util.Random;
+      import java.util.logging.Level;
+      import java.util.logging.Logger;
+
+      import static java.util.Arrays.asList;
+
+      public class Create {
+
+          private static final Random rand = new Random();
+
+          public static void main(String[] args) {
+              Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
+              try (MongoClient mongoClient = MongoClients.create(System.getProperty("mongodb.uri"))) {
+
+                  MongoDatabase sampleTrainingDB = mongoClient.getDatabase("sample_training");
+                  MongoCollection<Document> gradesCollection = sampleTrainingDB.getCollection("grades");
+
+                  insertOneDocument(gradesCollection);
+                  insertManyDocuments(gradesCollection);
+              }
+          }
+
+          private static void insertOneDocument(MongoCollection<Document> gradesCollection) {
+              gradesCollection.insertOne(generateNewGrade(10000d, 1d));
+              System.out.println("One grade inserted for studentId 10000.");
+          }
+
+          private static void insertManyDocuments(MongoCollection<Document> gradesCollection) {
+              List<Document> grades = new ArrayList<>();
+              for (double classId = 1d; classId <= 10d; classId++) {
+                  grades.add(generateNewGrade(10001d, classId));
+              }
+
+              gradesCollection.insertMany(grades, new InsertManyOptions().ordered(false));
+              System.out.println("Ten grades inserted for studentId 10001.");
+          }
+
+          private static Document generateNewGrade(double studentId, double classId) {
+              List<Document> scores = asList(new Document("type", "exam").append("score", rand.nextDouble() * 100),
+                                             new Document("type", "quiz").append("score", rand.nextDouble() * 100),
+                                             new Document("type", "homework").append("score", rand.nextDouble() * 100),
+                                             new Document("type", "homework").append("score", rand.nextDouble() * 100));
+              return new Document("_id", new ObjectId()).append("student_id", studentId)
+                                                        .append("class_id", classId)
+                                                        .append("scores", scores);
+          }
+      }
+
+   As a reminder, every write operation (create, replace, update, delete)
+   performed on a **SINGLE** document is
+   `ACID <https://en.wikipedia.org/wiki/ACID>`_ in MongoDB. Which means
+   ``insertMany`` is not ACID by default but, good news, since MongoDB 4.0,
+   we can wrap this call in a multi-document ACID transaction to make it
+   fully ACID. I am explaining this in more details in `this blog
+   post <https://www.mongodb.com/blog/post/java-and-mongodb-40-support-for-multidocument-acid-transactions>`_.
+
+   Read Operations
+   ---------------
+
+   Created Data
+   ~~~~~~~~~~~~
+
+   We created the class ``Create``. Now we will work in the ``Read`` class.
+
+   We wrote 11 new grades, one for the student with
+   ``{"student_id": 10000}`` and 10 for the student with
+   ``{"student_id": 10001}`` in the ``sample_training.grades`` collection.
+
+   As a reminder, here are the grades of the ``{"student_id": 10000}``.
+
+   .. code-block:: javascript
+
+      MongoDB Enterprise Cluster0-shard-0:PRIMARY> db.grades.findOne({"student_id":10000})
+      {
+          "_id" : ObjectId("5daa0e274f52b44cfea94652"),
+          "student_id" : 10000,
+          "class_id" : 1,
+          "scores" : [
+              {
+                  "type" : "exam",
+                  "score" : 39.25175977753478
+              },
+              {
+                  "type" : "quiz",
+                  "score" : 80.2908713167313
+              },
+              {
+                  "type" : "homework",
+                  "score" : 63.5444978481843
+              },
+              {
+                  "type" : "homework",
+                  "score" : 82.35202261582563
+              }
+          ]
+      }
+
+   We also discussed BSON types and we noted that ``student_id`` and
+   ``class_id`` are doubles.
+
+   MongoDB treats some types as equivalent for comparison purposes. For
+   instance, numeric types undergo conversion before comparison.
+
+   So do not be surprised if I filter with an integer number and match a
+   document which contains a double number for example. If you want to
+   filter documents by value types, you can use the `$type
+   operator <https://docs.mongodb.com/manual/reference/operator/query/type/>`_.
+
+   You can read more about `type
+   bracketing <https://docs.mongodb.com/manual/reference/method/db.collection.find/#type-bracketing>`_
+   and `comparison and sort
+   order <https://docs.mongodb.com/manual/reference/bson-type-comparison-order/>`_
+   in our documentation.
+
+   Read with a Filter
+   ~~~~~~~~~~~~~~~~~~
+
+   Let’s read the document above. To achieve this, we will use the method
+   ``find``.
+
+   Please create a class ``Read`` in the ``com.mongodb.quickstart`` package
+   with this code:
+
+   .. code-block:: java
+
+      package com.mongodb.quickstart;
+
+      import com.mongodb.client.*;
+      import org.bson.Document;
+
+      import java.util.ArrayList;
+      import java.util.List;
+      import java.util.logging.Level;
+      import java.util.logging.Logger;
+
+      import static com.mongodb.client.model.Filters.*;
+      import static com.mongodb.client.model.Projections.*;
+      import static com.mongodb.client.model.Sorts.descending;
+
+      public class Read {
+
+          public static void main(String[] args) {
+              Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
+              try (MongoClient mongoClient = MongoClients.create(System.getProperty("mongodb.uri"))) {
+                  MongoDatabase sampleTrainingDB = mongoClient.getDatabase("sample_training");
+                  MongoCollection<Document> gradesCollection = sampleTrainingDB.getCollection("grades");
+
+                  // find one document with new Document
+                  Document student1 = gradesCollection.find(new Document("student_id", 10000)).first();
+                  System.out.println("Student 1: " + student1.toJson());
+              }
+          }
+      }
+
+   Also, make sure you set up your ``mongodb.uri`` in your system
+   properties using your IDE if you want to run this code in your favorite
+   IDE.
+
+   Alternatively, you can use this maven command line in your root project
+   (where the ``src`` folder is):
+
+   .. code-block:: bash
+
+      mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.Read" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority"
+
+   The standard output should be:
+
+   .. code-block:: javascript
+
+      Student 1: {"_id": {"$oid": "5daa0e274f52b44cfea94652"},
+          "student_id": 10000.0,
+          "class_id": 1.0,
+          "scores": [
+              {"type": "exam", "score": 39.25175977753478},
+              {"type": "quiz", "score": 80.2908713167313},
+              {"type": "homework", "score": 63.5444978481843},
+              {"type": "homework", "score": 82.35202261582563}
+          ]
+      }
+
+   The MongoDB driver comes with a few helpers to ease the writing of these
+   queries. Here is an equivalent query using the ``Filters.eq()`` method.
+
+   .. code-block:: java
+
+      gradesCollection.find(eq("student_id", 10000)).first();
+
+   Of course, I used a static import to make the code as compact and easy
+   to read as possible.
+
+   .. code-block:: java
+
+      import static com.mongodb.client.model.Filters.eq;
+
+   Read a Range of Documents
+   ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   In the previous example, the benefit of these helpers is not obvious,
+   but let me show you another example where I’m searching all the grades
+   with a *student_id* greater than or equal to 10,000.
+
+   .. code-block:: java
+
+      // without helpers
+      gradesCollection.find(new Document("student_id", new Document("$gte", 10000)));
+      // with the Filters.gte() helper
+      gradesCollection.find(gte("student_id", 10000));
+
+   As you can see, I’m using the ``$gte`` operator to write this query. You
+   can learn about all the different `query
+   operators <https://docs.mongodb.com/manual/reference/operator/query/>`_
+   in the MongoDB documentation.
+
+   Iterators
+   ~~~~~~~~~
+
+   The ``find`` method returns an object that implements the interface
+   ``FindIterable`` which ultimately extends the ``Iterable`` interface so
+   we can use an iterator to go through the list of documents we are
+   receiving from MongoDB:
+
+   .. code-block:: java
+
+      FindIterable<Document> iterable = gradesCollection.find(gte("student_id", 10000));
+      MongoCursor<Document> cursor = iterable.iterator();
+      System.out.println("Student list with cursor: ");
+      while (cursor.hasNext()) {
+          System.out.println(cursor.next().toJson());
+      }
+
+   Lists
+   ~~~~~
+
+   Lists are usually easier to manipulate than iterators, so we can also do
+   this to retrieve directly an ``ArrayList<Document>``:
+
+   .. code-block:: java
+
+      List<Document> studentList = gradesCollection.find(gte("student_id", 10000)).into(new ArrayList<>());
+      System.out.println("Student list with an ArrayList:");
+      for (Document student : studentList) {
+          System.out.println(student.toJson());
+      }
+
+   Consumers
+   ~~~~~~~~~
+
+   We could also use a ``Consumer`` which is a functional interface:
+
+   .. code-block:: java
+
+      Consumer<Document> printConsumer = document -> System.out.println(document.toJson());
+      gradesCollection.find(gte("student_id", 10000)).forEach(printConsumer);
+
+   Cursors, Sort, Skip, Limit, and Projections
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   As we saw above with the ``Iterator`` example, MongoDB leverages
+   `cursors <https://docs.mongodb.com/manual/reference/method/js-cursor/>`_
+   to iterate through your result set.
+
+   If you are already familiar with the cursors in the `Mongo
+   Shell <https://docs.mongodb.com/manual/mongo/>`_, you know that
+   transformations can be applied to it. A cursor can be
+   `sorted <https://docs.mongodb.com/manual/reference/method/cursor.sort/>`_
+   and the documents it contains can be transformed using a
+   `projection <https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/>`_.
+   Also, once the cursor is sorted, we can choose to skip a few documents
+   and limit the number of documents in the output. This is very useful to
+   implement pagination in your frontend for example.
+
+   Let’s combine everything we have learnt in one query:
+
+   .. code-block:: java
+
+      List<Document> docs = gradesCollection.find(and(eq("student_id", 10001), lte("class_id", 5)))
+                                                        .projection(fields(excludeId(),
+                                                                           include("class_id",
+                                                                                   "student_id")))
+                                                        .sort(descending("class_id"))
+                                                        .skip(2)
+                                                        .limit(2)
+                                                        .into(new ArrayList<>());
+
+      System.out.println("Student sorted, skipped, limited and projected: ");
+      for (Document student : docs) {
+          System.out.println(student.toJson());
+      }
+
+   Here is the output we get:
+
+   .. code-block:: javascript
+
+      {"student_id": 10001.0, "class_id": 3.0}
+      {"student_id": 10001.0, "class_id": 2.0}
+
+   I remind you that documents are returned in the `natural
+   order <https://docs.mongodb.com/manual/reference/glossary/#term-natural-order>`_,
+   so if you want your output ordered, you need to sort your cursors to
+   make sure there is no randomness in your algorithm.
+
+   Indexes
+   ~~~~~~~
+
+   If you want to make these queries (with or without sort) efficient,
+   **you need** `indexes <https://docs.mongodb.com/manual/indexes/>`_!
+
+   To make my last query efficient, I should create this index:
+
+   .. code-block:: javascript
+
+      db.grades.createIndex({"student_id": 1, "class_id": -1})
+
+   When I run an
+   `explain <https://docs.mongodb.com/manual/reference/method/cursor.explain/>`_
+   on this query, this is the winning plan I get:
+
+   .. code-block:: javascript
+
+      "winningPlan" : {
+                  "stage" : "LIMIT",
+                  "limitAmount" : 2,
+                  "inputStage" : {
+                      "stage" : "PROJECTION_COVERED",
+                      "transformBy" : {
+                          "_id" : 0,
+                          "class_id" : 1,
+                          "student_id" : 1
+                      },
+                      "inputStage" : {
+                          "stage" : "SKIP",
+                          "skipAmount" : 2,
+                          "inputStage" : {
+                              "stage" : "IXSCAN",
+                              "keyPattern" : {
+                                  "student_id" : 1,
+                                  "class_id" : -1
+                              },
+                              "indexName" : "student_id_1_class_id_-1",
+                              "isMultiKey" : false,
+                              "multiKeyPaths" : {
+                                  "student_id" : [ ],
+                                  "class_id" : [ ]
+                              },
+                              "isUnique" : false,
+                              "isSparse" : false,
+                              "isPartial" : false,
+                              "indexVersion" : 2,
+                              "direction" : "forward",
+                              "indexBounds" : {
+                                  "student_id" : [
+                                      "[10001.0, 10001.0]"
+                                  ],
+                                  "class_id" : [
+                                      "[5.0, -inf.0]"
+                                  ]
+                              }
+                          }
+                      }
+                  }
+              }
+
+   With this index, we can see that we have no *SORT* stage so we are not
+   doing a sort in memory as the documents are already sorted “for free”
+   and returned in the order of the index.
+
+   Also, we can see that we don’t have any *FETCH* stage so this is a
+   `covered
+   query <https://docs.mongodb.com/manual/core/query-optimization/#covered-query>`_,
+   the most efficient type of query you can run in MongoDB. Indeed, all the
+   information we are returning at the end are already in the index, so the
+   index itself contains everything we need to answer this query.
+
+   The Final Code To Read Documents
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   .. code-block:: java
+
+      package com.mongodb.quickstart;
+
+      import com.mongodb.client.*;
+      import org.bson.Document;
+
+      import java.util.ArrayList;
+      import java.util.List;
+      import java.util.function.Consumer;
+      import java.util.logging.Level;
+      import java.util.logging.Logger;
+
+      import static com.mongodb.client.model.Filters.*;
+      import static com.mongodb.client.model.Projections.*;
+      import static com.mongodb.client.model.Sorts.descending;
+
+      public class Read {
+
+          public static void main(String[] args) {
+              Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
+              try (MongoClient mongoClient = MongoClients.create(System.getProperty("mongodb.uri"))) {
+                  MongoDatabase sampleTrainingDB = mongoClient.getDatabase("sample_training");
+                  MongoCollection<Document> gradesCollection = sampleTrainingDB.getCollection("grades");
+
+                  // find one document with new Document
+                  Document student1 = gradesCollection.find(new Document("student_id", 10000)).first();
+                  System.out.println("Student 1: " + student1.toJson());
+
+                  // find one document with Filters.eq()
+                  Document student2 = gradesCollection.find(eq("student_id", 10000)).first();
+                  System.out.println("Student 2: " + student2.toJson());
+
+                  // find a list of documents and iterate throw it using an iterator.
+                  FindIterable<Document> iterable = gradesCollection.find(gte("student_id", 10000));
+                  MongoCursor<Document> cursor = iterable.iterator();
+                  System.out.println("Student list with a cursor: ");
+                  while (cursor.hasNext()) {
+                      System.out.println(cursor.next().toJson());
+                  }
+
+                  // find a list of documents and use a List object instead of an iterator
+                  List<Document> studentList = gradesCollection.find(gte("student_id", 10000)).into(new ArrayList<>());
+                  System.out.println("Student list with an ArrayList:");
+                  for (Document student : studentList) {
+                      System.out.println(student.toJson());
+                  }
+
+                  // find a list of documents and print using a consumer
+                  System.out.println("Student list using a Consumer:");
+                  Consumer<Document> printConsumer = document -> System.out.println(document.toJson());
+                  gradesCollection.find(gte("student_id", 10000)).forEach(printConsumer);
+
+                  // find a list of documents with sort, skip, limit and projection
+                  List<Document> docs = gradesCollection.find(and(eq("student_id", 10001), lte("class_id", 5)))
+                                                        .projection(fields(excludeId(), include("class_id", "student_id")))
+                                                        .sort(descending("class_id"))
+                                                        .skip(2)
+                                                        .limit(2)
+                                                        .into(new ArrayList<>());
+
+                  System.out.println("Student sorted, skipped, limited and projected: ");
+                  for (Document student : docs) {
+                      System.out.println(student.toJson());
+                  }
+              }
+          }
+      }
+
+   Update Operations
+   -----------------
+
+   Update One Document
+   ~~~~~~~~~~~~~~~~~~~
+
+   Let’s edit the document with ``{student_id: 10000}``. To achieve this,
+   we will use the method ``updateOne``.
+
+   Please create a class ``Update`` in the ``com.mongodb.quickstart``
+   package with this code:
+
+   .. code-block:: java
+
+      package com.mongodb.quickstart;
+
+      import com.mongodb.client.MongoClient;
+      import com.mongodb.client.MongoClients;
+      import com.mongodb.client.MongoCollection;
+      import com.mongodb.client.MongoDatabase;
+      import com.mongodb.client.model.FindOneAndUpdateOptions;
+      import com.mongodb.client.model.ReturnDocument;
+      import com.mongodb.client.model.UpdateOptions;
+      import com.mongodb.client.result.UpdateResult;
+      import org.bson.Document;
+      import org.bson.conversions.Bson;
+      import org.bson.json.JsonWriterSettings;
+
+      import java.util.logging.Level;
+      import java.util.logging.Logger;
+
+      import static com.mongodb.client.model.Filters.and;
+      import static com.mongodb.client.model.Filters.eq;
+      import static com.mongodb.client.model.Updates.*;
+
+      public class Update {
+
+          public static void main(String[] args) {
+              Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
+              JsonWriterSettings prettyPrint = JsonWriterSettings.builder().indent(true).build();
+
+              try (MongoClient mongoClient = MongoClients.create(System.getProperty("mongodb.uri"))) {
+                  MongoDatabase sampleTrainingDB = mongoClient.getDatabase("sample_training");
+                  MongoCollection<Document> gradesCollection = sampleTrainingDB.getCollection("grades");
+
+                  // update one document
+                  Bson filter = eq("student_id", 10000);
+                  Bson updateOperation = set("comment", "You should learn MongoDB!");
+                  UpdateResult updateResult = gradesCollection.updateOne(filter, updateOperation);
+                  System.out.println("=> Updating the doc with {\"student_id\":10000}. Adding comment.");
+                  System.out.println(gradesCollection.find(filter).first().toJson(prettyPrint));
+                  System.out.println(updateResult);
+              }
+          }
+      }
+
+   As you can see in this example, the method ``updateOne`` takes 2
+   parameters:
+
+   -  the first one is the filter that identifies the document we want to
+      update,
+   -  the second one is the update operation. Here, we are setting a new
+      field ``comment`` with the value ``"You should learn MongoDB!"``.
+
+   In order to run this program, make sure you set up your ``mongodb.uri``
+   in your system properties using your IDE if you want to run this code in
+   your favorite IDE (see my `first blog
+   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`_
+   for more details).
+
+   Alternatively, you can use this maven command line in your root project
+   (where the ``src`` folder is):
+
+   .. code-block:: bash
+
+      mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.Update" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority"
+
+   The standard output should look like this:
+
+   .. code-block:: javascript
+
+      => Updating the doc with {"student_id":10000}. Adding comment.
+      {
+        "_id": {
+          "$oid": "5dd5c1f351f97d4a034109ed"
+        },
+        "student_id": 10000.0,
+        "class_id": 1.0,
+        "scores": [
+          {
+            "type": "exam",
+            "score": 21.580800815091415
+          },
+          {
+            "type": "quiz",
+            "score": 87.66967927111044
+          },
+          {
+            "type": "homework",
+            "score": 96.4060480668003
+          },
+          {
+            "type": "homework",
+            "score": 75.44966835508427
+          }
+        ],
+        "comment": "You should learn MongoDB!"
+      }
+      AcknowledgedUpdateResult{matchedCount=1, modifiedCount=1, upsertedId=null}
+
+   Upsert
+   ~~~~~~
+
+   An upsert is a mix between an insert operation and an update one. It
+   happens when you want to update a document, assuming it exists, but it
+   actually doesn’t exist yet in your database.
+
+   In MongoDB, you can set an option to create this document on the fly and
+   carry on with your update operation: this is an upsert operation.
+
+   In this example, I want to add a comment to the grades of my student
+   10002 for the class 10 but this document doesn’t exist yet.
+
+   .. code-block:: java
+
+      filter = and(eq("student_id", 10002d), eq("class_id", 10d));
+      updateOperation = push("comments", "You will learn a lot if you read the MongoDB blog!");
+      UpdateOptions options = new UpdateOptions().upsert(true);
+      updateResult = gradesCollection.updateOne(filter, updateOperation, options);
+      System.out.println("\n=> Upsert document with {\"student_id\":10002.0, \"class_id\": 10.0} because it doesn't exist yet.");
+      System.out.println(updateResult);
+      System.out.println(gradesCollection.find(filter).first().toJson(prettyPrint));
+
+   As you can see, I’m using the third parameter of the update operation to
+   set the option upsert to true.
+
+   I’m also using here the static method ``Updates.push()`` to push a new
+   value in my array ``comments`` which does not exist yet, so I’m creating
+   an array of one element in this case.
+
+   This is the output we get:
+
+   .. code-block:: javascript
+
+      => Upsert document with {"student_id":10002.0, "class_id": 10.0} because it doesn't exist yet.
+      AcknowledgedUpdateResult{matchedCount=0, modifiedCount=0, upsertedId=BsonObjectId{value=5ddeb7b7224ad1d5cfab3733}}
+      {
+        "_id": {
+          "$oid": "5ddeb7b7224ad1d5cfab3733"
+        },
+        "class_id": 10.0,
+        "student_id": 10002.0,
+        "comments": [
+          "You will learn a lot if you read the MongoDB blog!"
+        ]
+      }
+
+   Update many documents
+   ~~~~~~~~~~~~~~~~~~~~~
+
+   The same way I was able to update one document with ``updateOne()``, I
+   can update multiple documents with ``updateMany()``.
+
+   .. code-block:: java
+
+      filter = eq("student_id", 10001);
+      updateResult = gradesCollection.updateMany(filter, updateOperation);
+      System.out.println("\n=> Updating all the documents with {\"student_id\":10001}.");
+      System.out.println(updateResult);
+
+   In this example, I’m using the same ``updateOperation`` as earlier, so
+   I’m creating a new one element array ``comments`` in these 10 documents.
+
+   Here is the output:
+
+   .. code-block:: javascript
+
+      => Updating all the documents with {"student_id":10001}.
+      AcknowledgedUpdateResult{matchedCount=10, modifiedCount=10, upsertedId=null}
+
+   The findOneAndUpdate method
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Finally, we have one last very useful method available in the MongoDB
+   Java Driver: ``findOneAndUpdate()``.
+
+   In most web application, when a user update something, he wants to see
+   this update reflected in his web page. Without the
+   ``findOneAndUpdate()`` method, you would have to run an update operation
+   and then fetch the document with a find operation to make sure you are
+   printing the latest version of this object in the web page.
+
+   The ``findOneAndUpdate()`` method allow you to combine these two
+   operations in one.
+
+   .. code-block:: java
+
+      // findOneAndUpdate
+      filter = eq("student_id", 10000);
+      Bson update1 = inc("x", 10); // increment x by 10. As x doesn't exist yet, x=10.
+      Bson update2 = rename("class_id", "new_class_id"); // rename variable "class_id" in "new_class_id".
+      Bson update3 = mul("scores.0.score", 2); // multiply the first score in the array by 2.
+      Bson update4 = addToSet("comments", "This comment is uniq"); // creating an array with a comment.
+      Bson update5 = addToSet("comments", "This comment is uniq"); // using addToSet so no effect.
+      Bson updates = combine(update1, update2, update3, update4, update5);
+      // returns the old version of the document before the update.
+      Document oldVersion = gradesCollection.findOneAndUpdate(filter, updates);
+      System.out.println("\n=> FindOneAndUpdate operation. Printing the old version by default:");
+      System.out.println(oldVersion.toJson(prettyPrint));
+
+      // but I can also request the new version
+      filter = eq("student_id", 10001);
+      FindOneAndUpdateOptions optionAfter = new FindOneAndUpdateOptions().returnDocument(ReturnDocument.AFTER);
+      Document newVersion = gradesCollection.findOneAndUpdate(filter, updates, optionAfter);
+      System.out.println("\n=> FindOneAndUpdate operation. But we can also ask for the new version of the doc:");
+      System.out.println(newVersion.toJson(prettyPrint));
+
+   Here is the output:
+
+   .. code-block:: javascript
+
+      => FindOneAndUpdate operation. Printing the old version by default:
+      {
+        "_id": {
+          "$oid": "5dd5d46544fdc35505a8271b"
+        },
+        "student_id": 10000.0,
+        "class_id": 1.0,
+        "scores": [
+          {
+            "type": "exam",
+            "score": 69.52994626959251
+          },
+          {
+            "type": "quiz",
+            "score": 87.27457417188077
+          },
+          {
+            "type": "homework",
+            "score": 83.40970667948744
+          },
+          {
+            "type": "homework",
+            "score": 40.43663797673247
+          }
+        ],
+        "comment": "You should learn MongoDB!"
+      }
+
+      => FindOneAndUpdate operation. But we can also ask for the new version of the doc:
+      {
+        "_id": {
+          "$oid": "5dd5d46544fdc35505a82725"
+        },
+        "student_id": 10001.0,
+        "scores": [
+          {
+            "type": "exam",
+            "score": 138.42535412437857
+          },
+          {
+            "type": "quiz",
+            "score": 84.66740178906916
+          },
+          {
+            "type": "homework",
+            "score": 36.773091359279675
+          },
+          {
+            "type": "homework",
+            "score": 14.90842128691825
+          }
+        ],
+        "comments": [
+          "You will learn a lot if you read the MongoDB blog!",
+          "This comment is uniq"
+        ],
+        "new_class_id": 10.0,
+        "x": 10
+      }
+
+   As you can see in this example, you can choose which version of the
+   document you want to return using the appropriate option.
+
+   I also used this example to show you a bunch of update operators:
+
+   -  ``set`` will set a value,
+   -  ``inc`` will increment a value,
+   -  ``rename`` will rename a field,
+   -  ``mul`` will multiply the value by the given number,
+   -  ``addToSet`` is similar to push but will only push the value in the array if the value doesn’t exist already.
+
+   There are a few other update operators. You can consult the entire list
+   in our
+   `documentation <https://docs.mongodb.com/manual/reference/operator/update/>`_.
+
+   The Final Code For Updates
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   .. code-block:: java
+
+      package com.mongodb.quickstart;
+
+      import com.mongodb.client.MongoClient;
+      import com.mongodb.client.MongoClients;
+      import com.mongodb.client.MongoCollection;
+      import com.mongodb.client.MongoDatabase;
+      import com.mongodb.client.model.FindOneAndUpdateOptions;
+      import com.mongodb.client.model.ReturnDocument;
+      import com.mongodb.client.model.UpdateOptions;
+      import com.mongodb.client.result.UpdateResult;
+      import org.bson.Document;
+      import org.bson.conversions.Bson;
+      import org.bson.json.JsonWriterSettings;
+
+      import java.util.logging.Level;
+      import java.util.logging.Logger;
+
+      import static com.mongodb.client.model.Filters.and;
+      import static com.mongodb.client.model.Filters.eq;
+      import static com.mongodb.client.model.Updates.*;
+
+      public class Update {
+
+          public static void main(String[] args) {
+              Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
+              JsonWriterSettings prettyPrint = JsonWriterSettings.builder().indent(true).build();
+
+              try (MongoClient mongoClient = MongoClients.create(System.getProperty("mongodb.uri"))) {
+                  MongoDatabase sampleTrainingDB = mongoClient.getDatabase("sample_training");
+                  MongoCollection<Document> gradesCollection = sampleTrainingDB.getCollection("grades");
+
+                  // update one document
+                  Bson filter = eq("student_id", 10000);
+                  Bson updateOperation = set("comment", "You should learn MongoDB!");
+                  UpdateResult updateResult = gradesCollection.updateOne(filter, updateOperation);
+                  System.out.println("=> Updating the doc with {\"student_id\":10000}. Adding comment.");
+                  System.out.println(gradesCollection.find(filter).first().toJson(prettyPrint));
+                  System.out.println(updateResult);
+
+                  // upsert
+                  filter = and(eq("student_id", 10002d), eq("class_id", 10d));
+                  updateOperation = push("comments", "You will learn a lot if you read the MongoDB blog!");
+                  UpdateOptions options = new UpdateOptions().upsert(true);
+                  updateResult = gradesCollection.updateOne(filter, updateOperation, options);
+                  System.out.println("\n=> Upsert document with {\"student_id\":10002.0, \"class_id\": 10.0} because it doesn't exist yet.");
+                  System.out.println(updateResult);
+                  System.out.println(gradesCollection.find(filter).first().toJson(prettyPrint));
+
+                  // update many documents
+                  filter = eq("student_id", 10001);
+                  updateResult = gradesCollection.updateMany(filter, updateOperation);
+                  System.out.println("\n=> Updating all the documents with {\"student_id\":10001}.");
+                  System.out.println(updateResult);
+
+                  // findOneAndUpdate
+                  filter = eq("student_id", 10000);
+                  Bson update1 = inc("x", 10); // increment x by 10. As x doesn't exist yet, x=10.
+                  Bson update2 = rename("class_id", "new_class_id"); // rename variable "class_id" in "new_class_id".
+                  Bson update3 = mul("scores.0.score", 2); // multiply the first score in the array by 2.
+                  Bson update4 = addToSet("comments", "This comment is uniq"); // creating an array with a comment.
+                  Bson update5 = addToSet("comments", "This comment is uniq"); // using addToSet so no effect.
+                  Bson updates = combine(update1, update2, update3, update4, update5);
+                  // returns the old version of the document before the update.
+                  Document oldVersion = gradesCollection.findOneAndUpdate(filter, updates);
+                  System.out.println("\n=> FindOneAndUpdate operation. Printing the old version by default:");
+                  System.out.println(oldVersion.toJson(prettyPrint));
+
+                  // but I can also request the new version
+                  filter = eq("student_id", 10001);
+                  FindOneAndUpdateOptions optionAfter = new FindOneAndUpdateOptions().returnDocument(ReturnDocument.AFTER);
+                  Document newVersion = gradesCollection.findOneAndUpdate(filter, updates, optionAfter);
+                  System.out.println("\n=> FindOneAndUpdate operation. But we can also ask for the new version of the doc:");
+                  System.out.println(newVersion.toJson(prettyPrint));
+              }
+          }
+      }
+
+   Delete Operations
+   -----------------
+
+   Delete One Document
+   ~~~~~~~~~~~~~~~~~~~
+
+   Let’s delete the document above. To achieve this, we will use the method
+   ``deleteOne``.
+
+   Please create a class ``Delete`` in the ``com.mongodb.quickstart``
+   package with this code:
+
+   .. code-block:: java
+
+      package com.mongodb.quickstart;
+
+      import com.mongodb.client.MongoClient;
+      import com.mongodb.client.MongoClients;
+      import com.mongodb.client.MongoCollection;
+      import com.mongodb.client.MongoDatabase;
+      import com.mongodb.client.result.DeleteResult;
+      import org.bson.Document;
+      import org.bson.conversions.Bson;
+
+      import java.util.logging.Level;
+      import java.util.logging.Logger;
+
+      import static com.mongodb.client.model.Filters.eq;
+      import static com.mongodb.client.model.Filters.gte;
+
+      public class Delete {
+
+          public static void main(String[] args) {
+              Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
+
+              try (MongoClient mongoClient = MongoClients.create(System.getProperty("mongodb.uri"))) {
+                  MongoDatabase sampleTrainingDB = mongoClient.getDatabase("sample_training");
+                  MongoCollection<Document> gradesCollection = sampleTrainingDB.getCollection("grades");
+
+                  // delete one document
+                  Bson filter = eq("student_id", 10000);
+                  DeleteResult result = gradesCollection.deleteOne(filter);
+                  System.out.println(result);
+              }
+          }
+      }
+
+   As you can see in this example, the method ``deleteOne`` only takes one
+   parameter: a filter, just like the ``find()`` operation.
+
+   In order to run this program, make sure you set up your ``mongodb.uri``
+   in your system properties using your IDE if you want to run this code in
+   your favorite IDE (see my `first blog
+   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`_
+   for more details).
+
+   Alternatively, you can use this maven command line in your root project
+   (where the ``src`` folder is):
+
+   .. code-block:: bash
+
+      mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.Delete" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority"
+
+   The standard output should look like this:
+
+   .. code-block:: javascript
+
+      AcknowledgedDeleteResult{deletedCount=1}
+
+   FindOneAndDelete()
+   ~~~~~~~~~~~~~~~~~~
+
+   You are emotionally attached to your document and you want a chance to
+   see it one last time before it’s too late? We have what you need.
+
+   The method ``findOneAndDelete()`` allows you to retrieve a document and
+   delete it in a single atomic operation.
+
+   Here is how it works:
+
+   .. code-block:: java
+
+      Bson filter = eq("student_id", 10002);
+      Document doc = gradesCollection.findOneAndDelete(filter);
+      System.out.println(doc.toJson(JsonWriterSettings.builder().indent(true).build()));
+
+   Here is the output we get:
+
+   .. code-block:: javascript
+
+      {
+        "_id": {
+          "$oid": "5ddec378224ad1d5cfac02b8"
+        },
+        "class_id": 10.0,
+        "student_id": 10002.0,
+        "comments": [
+          "You will learn a lot if you read the MongoDB blog!"
+        ]
+      }
+
+   Delete Many Documents
+   ~~~~~~~~~~~~~~~~~~~~~
+
+   This time we will use ``deleteMany()`` instead of ``deleteOne()`` and we
+   will use a different filter to match more documents.
+
+   .. code-block:: java
+
+      Bson filter = gte("student_id", 10000);
+      DeleteResult result = gradesCollection.deleteMany(filter);
+      System.out.println(result);
+
+   As a reminder, you can learn more about all the query selectors `in our
+   documentation <https://docs.mongodb.com/manual/reference/operator/query/#query-selectors>`_.
+
+   This is the output we get:
+
+   .. code-block:: javascript
+
+      AcknowledgedDeleteResult{deletedCount=10}
+
+   Delete a Collection
+   ~~~~~~~~~~~~~~~~~~~
+
+   Deleting all the documents from a collection will not delete the
+   collection itself because a collection also contains metadata like the
+   index definitions or the chunk distribution if your collection is
+   sharded for example.
+
+   If you want to remove the entire collection **and** all the metadata
+   associated with it, then you need to use the ``drop()`` method.
+
+   .. code-block:: java
+
+      gradesCollection.drop();
+
+   The Final Code For Delete Operations
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   .. code-block:: java
+
+      package com.mongodb.quickstart;
+
+      import com.mongodb.client.MongoClient;
+      import com.mongodb.client.MongoClients;
+      import com.mongodb.client.MongoCollection;
+      import com.mongodb.client.MongoDatabase;
+      import com.mongodb.client.result.DeleteResult;
+      import org.bson.Document;
+      import org.bson.conversions.Bson;
+      import org.bson.json.JsonWriterSettings;
+
+      import java.util.logging.Level;
+      import java.util.logging.Logger;
+
+      import static com.mongodb.client.model.Filters.eq;
+      import static com.mongodb.client.model.Filters.gte;
+
+      public class Delete {
+
+          public static void main(String[] args) {
+              Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
+
+              try (MongoClient mongoClient = MongoClients.create(System.getProperty("mongodb.uri"))) {
+                  MongoDatabase sampleTrainingDB = mongoClient.getDatabase("sample_training");
+                  MongoCollection<Document> gradesCollection = sampleTrainingDB.getCollection("grades");
+
+                  // delete one document
+                  Bson filter = eq("student_id", 10000);
+                  DeleteResult result = gradesCollection.deleteOne(filter);
+                  System.out.println(result);
+
+                  // findOneAndDelete operation
+                  filter = eq("student_id", 10002);
+                  Document doc = gradesCollection.findOneAndDelete(filter);
+                  System.out.println(doc.toJson(JsonWriterSettings.builder().indent(true).build()));
+
+                  // delete many documents
+                  filter = gte("student_id", 10000);
+                  result = gradesCollection.deleteMany(filter);
+                  System.out.println(result);
+
+                  // delete the entire collection and its metadata (indexes, chunk metadata, etc).
+                  gradesCollection.drop();
+              }
+          }
+      }
+
+.. summary::
+
+   Wrapping Up
+   -----------
+
+   With this blog post we have now covered all the CRUD operations. You can
+   find the links to the other blog posts of this series just below.
+
+   .. blockquote:: 
+
+      If you want to learn more and deepen your knowledge faster, I
+      recommend you check out the M220J: MongoDB for Java Developers
+      training available for free on `MongoDB
+      University <http://bit.ly/mongodbuniversity>`_.
+
+   Articles in this Quick Start Java and MongoDB series:
+   -----------------------------------------------------
+
+   -  Quick Start: Java and MongoDB - Setup and CRUD Operations (this blog post)
+   -  `Quick Start: Java and MongoDB - Mapping POJOs <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--mapping-pojos>`_
+   -  `Quick Start: Java and MongoDB - Aggregation Pipeline <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--aggregation-pipeline>`_
+   -  `Quick Start: Java and MongoDB - Change Streams <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--change-streams>`_
