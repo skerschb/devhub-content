@@ -1,0 +1,73 @@
+:template: devhub-article
+
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
+.. meta-description:: 
+
+   Speed your static hosting uploads with Stitch's enhanced drag and drop feature.
+
+.. twitter::
+   :site: @mongodb
+   :creator: @Lauren_Schaefer
+   :title: Stitch Hosting: A Drag-and-Drop Delight
+   :image: https://webassets.mongodb.com/_com_assets/cms/BlogHero8-1920x360-1t6v3y2qcf.png
+
+   Speed your static hosting uploads with Stitch's enhanced drag and drop feature.
+
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
+
+.. include:: /includes/authors/schaefer-lauren.rst
+
+.. pubdate:: September 30, 2019
+
+.. type:: video
+
+.. level:: intermediate
+
+.. tags:: 
+
+   * Deploy
+
+.. products::
+
+   * Stitch
+   * MongoDB
+
+.. atf-image:: /images/hero-misc.png
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
+
+=======================================
+Stitch Hosting: A Drag-and-Drop Delight
+=======================================
+
+.. content::
+
+    In case you missed it, Stitch Hosting recently became `generally
+    available <https://www.mongodb.com/blog/post/mongodb-stitch-static-hosting-is-ga-ready-for-all-of-your-web-applications>`__!
+    In preparation for the big announcement, the engineering team added a
+    couple of features to make Stitch hosting even better. As described in
+    `an earlier
+    post <https://www.mongodb.com/blog/post/mongodb-stitch-static-hosting-is-ga-ready-for-all-of-your-web-applications>`__,
+    Stitch hosting now has streamlined support for Single Page Applications.
+    Stitch hosting also has enhanced drag-and-drop upload capabilities.
+
+    Prior to general availability, you could upload files to your Stitch
+    hosting directory by dragging and dropping them. The problem is that
+    most websites are not a simple set of files; they are a complex set of
+    files and folders. The Engineering team has implemented a feature that
+    allows you to drag and drop a combination of files and folders to your
+    Stitch hosting directory. It’s a small change that we think will make a
+    big impact on how much time you’re spending uploading files. Take a look
+    at this enhanced feature in the video below.
+
+    .. youtube:: eDMXvuxDbII
+
+    `Head over to Stitch <http://bit.ly/Stitch_Lauren>`__ and give it a try.
+    We hope you find Stitch hosting to be a drag-and-drop delight!
