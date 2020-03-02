@@ -46,9 +46,9 @@
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
 
-================
+=======================================
 Quick Start: BSON Data Types - ObjectId
-================
+=======================================
 
 .. introduction::
 
@@ -183,4 +183,4 @@ Quick Start: BSON Data Types - ObjectId
    Learn about different BSON data types in other articles in this Quick
    Start series:
 
-   - :doc:`</quickstart/bson-data-types-decimal128>`
+   - :doc:`/quickstart/bson-data-types-decimal128`

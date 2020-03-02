@@ -43,9 +43,9 @@
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
 
-================
+=========================================
 Quick Start: BSON Data Types - Decimal128
-================
+=========================================
 
 .. introduction::
 
@@ -199,4 +199,4 @@ Quick Start: BSON Data Types - Decimal128
    Learn about different BSON data types in other articles in this Quick
    Start series:
 
-   -  :doc: `</quickstart/bson-data-types-objectid>`
+   - :doc:`/quickstart/bson-data-types-objectid`
