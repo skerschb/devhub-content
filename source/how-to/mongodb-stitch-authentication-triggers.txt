@@ -1,0 +1,145 @@
+:template: devhub-article
+
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
+.. meta-description::
+
+   See how Stitch authentication triggers let you use third-party user-authentication services such as Facebook or Google without losing the ability to perform custom actions when users register, sign-in, or leave.
+
+.. twitter::
+   :site: @mongodb
+   :creator: @andrewmorgan
+   :title: MongoDB Stitch Authentication Triggers
+   :image: /images/add-trigger.png
+
+   See how Stitch authentication triggers let you use third-party user-authentication services such as Facebook or Google without losing the ability to perform custom actions when users register, sign-in, or leave.
+
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
+
+.. include:: /includes/authors/morgan-andrew.rst
+
+.. pubdate:: September 25, 2018
+
+.. updated-date:: April 17, 2019
+
+.. type:: how-to
+
+.. level:: beginner
+
+.. tags::
+
+   * Stitch
+   * Cloud
+   * Technical
+
+.. languages::
+
+   * javascript
+
+
+.. products::
+
+   Stitch
+   Atlas
+
+.. atf-image:: /images/add-trigger.png
+
+.. related::
+
+   * ``list of related articles``
+   * ``:doc:`/path/to/article```
+   * ``:doc:`/path/to/other/article```
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
+
+======================
+MongoDB Stitch Authentication Triggers
+======================
+
+.. content::
+
+   `MongoDB Stitch <https://docs.mongodb.com/stitch>`_ makes it a breeze
+   to use third-party services such as
+   `Google <https://docs.mongodb.com/stitch/authentication/google/>`_ or
+   `Facebook <https://docs.mongodb.com/stitch/authentication/facebook/>`_
+   to authenticate your app’s users. This is great for your users as it
+   means they don’t need to go through the tedious process of having to
+   provide all of their details to yet another application/service – it
+   also means one less password to remember.
+
+   While delegating the authentication process makes your app secure and
+   straightforward to use, you may still want to customize the process for
+   your users. For example, if someone is registering for the first time,
+   then you probably want to send them a welcome email. When a user
+   deregisters, there may be regulations (such as
+   `GDPR <https://www.mongodb.com/collateral/gdpr-impact-to-your-data-management-landscape>`_)
+   that mandate you delete all of their data.
+
+   This is where `Stitch Authentication
+   Triggers <https://docs.mongodb.com/stitch/triggers/authentication-triggers/>`_
+   come to the fore. The model is very simple; you register a `Stitch
+   Function <https://docs.mongodb.com/stitch/functions/>`_ with any
+   authentication event (register (create), login, deregister (delete)),
+   then add JavaScript code to that function to perform the required
+   actions.
+
+   Simply create the trigger through the Stitch UI (in this case, to send
+   the user an email every time they log in):
+
+   .. image:: /images/add-trigger.png
+      :alt: Triggering a MongoDB Stitch function when user logs in
+
+      MongoDB Stitch Authentication Trigger
+
+   and implement the function (``emailLoginNotification``) that receives
+   the authentication event and sends the email using the AWS SES service:
+
+   .. code-block:: javascript
+
+      exports = function(event){
+         var aws = context.services.get('AWS');
+         var input = {
+            Destination: {
+               ToAddresses: [event.user.data.email]
+            },
+            Message: {
+               Body: {
+                  Html: {
+                     Charset:"UTF-8",
+                     Data:   "This is a message to confirm that "
+                      + event.user.data.name
+                      + " (" + event.user.data.email
+                      + ") has just logged into TrackMe"
+                  }
+               },
+               Subject: {
+                     Charset:"UTF-8",
+                     Data:   "TrackMe Login"
+               }
+            },
+            Source: context.values.get('fromEmail')
+         };
+         try {
+            aws.ses().SendEmail(input).then(function (result){
+               console.log(JSON.stringify(result));
+            });
+         } catch(error) {
+            console.log(JSON.stringify(error));
+         }
+      };
+
+   Creating your first Stitch app? Start with one of the `Stitch
+   tutorials <https://docs.mongodb.com/stitch/tutorials/>`_.
+
+   Want to learn more about MongoDB Stitch? Read the `white
+   paper <https://www.mongodb.com/collateral/mongodb-stitch-serverless-platform>`_.
+
+   .. blockquote::
+
+      Get started with `MongoDB Atlas <https://www.mongodb.com/atlas>`_ today!
