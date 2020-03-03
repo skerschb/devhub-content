@@ -251,7 +251,7 @@ Java - Setup and CRUD Operations
       Note: If you see some warnings about an illegal reflective access from
       ``guice.java``, it's safe to ignore them. Guice is used by Maven and
       needs an update. You can read more about it
-      `here <https://github.com/google/guice/issues/1133>`_. These warnings
+      `in this github issue <https://github.com/google/guice/issues/1133>`_. These warnings
       will disappear in a future release of Guice and Maven.
 
 .. content::
@@ -398,7 +398,7 @@ Java - Setup and CRUD Operations
    Extended JSON is the human readable version of a BSON document without
    loss of type information. You can read more about the Java driver and
    BSON
-   `here <https://mongodb.github.io/mongo-java-driver/3.11/bson/extended-json/>`_.
+   `in the MongoDB java driver documentation <https://mongodb.github.io/mongo-java-driver/3.11/bson/extended-json/>`_.
 
    .. code-block:: json
 
@@ -508,7 +508,7 @@ Java - Setup and CRUD Operations
    ObjectId for us if we didn't explicitly create one here but it's good
    practise to set the ``_id`` ourselves. This won't change our life right
    now but it makes more sense when we directly manipulate POJOs and we
-   want to create a clean REST API. I'm doing this in this `blog
+   want to create a clean REST API. I'm doing this in my `mapping POJOs
    post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--mapping-pojos>`_.
 
    Insert Operation

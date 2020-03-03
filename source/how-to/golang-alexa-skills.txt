@@ -446,7 +446,7 @@ Developing Alexa Skills with MongoDB and Golang
     Alexa response.
 
     If you'd like more information on the ``Find`` and ``FindOne`` commands
-    for Go and MongoDB, check out my `previous
+    for Go and MongoDB, check out my `how to read documents
     tutorial <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-read-documents>`_
     on the subject.
 
@@ -470,9 +470,10 @@ Developing Alexa Skills with MongoDB and Golang
     or Windows, you're going to end up with a binary that is incompatible.
     By defining the operating system, we're telling Go what to build for.
 
-    For more information on cross-compiling with Go, check out my `previous
-    tutorial <https://www.thepolyglotdeveloper.com/2017/04/cross-compiling-golang-applications-raspberry-pi/>`_
-    on the subject.
+    For more information on cross-compiling with Go, check out my
+    `Cross Compiling Golang Applications For Use On A Raspberry Pi
+    <https://www.thepolyglotdeveloper.com/2017/04/cross-compiling-golang-applications-raspberry-pi/>`_
+    post.
 
     Next, we are creating an archive of our binary. It is important to
     replace the ``project-name`` with that of your actual binary name. It is

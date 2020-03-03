@@ -168,12 +168,12 @@ Quick Start: BSON Data Types - Decimal128
    module can be used for floating-point arithmetic.
 
    Java: The
-   `BigDecimal <https://docs.oracle.com/javase/1.5.0/docs/api/java/math/BigDecimal.html>`_
+   `Java BigDecimal <https://docs.oracle.com/javase/1.5.0/docs/api/java/math/BigDecimal.html>`_
    class provides support for decimal128 numbers.
 
    Node.js: There are several packages that provide support, such as
    `js-big-decimal <https://www.npmjs.com/package/js-big-decimal>`_ or
-   `bigdecimal <https://www.npmjs.com/package/bigdecimal>`_ available on
+   `node.js bigdecimal <https://www.npmjs.com/package/bigdecimal>`_ available on
    `npm <https://www.npmjs.com>`_.
 
 .. summary::
