@@ -1,6 +1,6 @@
 .. author:: 
    :name: Jay Runkel
-   :image: /images/bio-jay-runkel.jpg
+   :image: /images/bios/bio-jay-runkel.jpg
    
    Jay Runkel is a Master Solutions Architect at MongoDB and has been working with 
    Fortune 500 companies to architect enterprise solutions using NoSQL document 

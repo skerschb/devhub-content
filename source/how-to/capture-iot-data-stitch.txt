@@ -1,0 +1,129 @@
+:template: devhub-article
+
+.. meta-description:: 
+
+   Learn how to use MongoDB Stitch for Internet of Things data in as little as 5 minutes.
+
+.. twitter::
+   :site: @mongodb
+   :creator: @MBeugnet
+   :title: Capture IOT Data With MongoDB Stitch in 5 Minutes
+
+   Learn how to use MongoDB Stitch for Internet of Things data in as little as 5 minutes.
+
+.. include:: /includes/authors/beugnet-maxime.rst
+
+.. pubdate:: October 3, 2018
+
+.. type:: how-to
+.. level:: beginner
+
+.. tags:: 
+
+   * iot
+
+.. products::
+
+   * MongoDB
+
+.. languages::
+
+   * javascript
+
+.. atf-image:: /images/atf-images/quickstart/stitch-triggers.png
+
+=================================================
+Capture IOT Data With MongoDB Stitch in 5 Minutes
+=================================================
+
+.. content::
+
+  Capturing IOT data is a complex task for 2 main reasons: 
+  
+  - We have to deal with a huge amount of data so we need a rock solid architecture.
+  - While keeping a bulletproof security level.
+
+  First, let's have a look at a standard IOT capture architecture:
+
+  .. image:: /images/how-to/iot_00-bstfa0fkxb.png
+
+  On the left, we have our sensors. Let's assume they can push data every
+  second over TCP using a
+  `POST <https://en.wikipedia.org/wiki/POST_(HTTP)>`_ and let's suppose
+  we have a million of them. We need an architecture capable to handle a
+  million queries per seconds and able to resist any kind of network or
+  hardware failure. TCP queries need to be distributed evenly to the
+  application servers using `load
+  balancers <https://en.wikipedia.org/wiki/Load_balancing_(computing)>`_
+  and finally, the application servers are able to push the data to our
+  multiple
+  `Mongos <https://docs.mongodb.com/manual/reference/program/mongos/>`_
+  routers from our `MongoDB Sharded
+  Cluster <https://docs.mongodb.com/manual/sharding/>`_.
+
+  As you can see, this architecture is relatively complex to install. We need to:
+
+  - buy and maintain a lot of servers,
+  - make security updates on a regular basis of the Operating Systems
+    and applications,
+  - have an auto-scaling capability (reduce maintenance cost & enable
+    automatic failover)…
+
+  This kind of architecture is expensive and maintenance cost can be quite
+  high as well.
+
+  Now let's solve this same problem with MongoDB Stitch!
+
+  .. image:: /images/how-to/Iot_01-xs1xezu0vb.png
+
+  Once you have created a `MongoDB Atlas
+  cluster <https://www.youtube.com/watch?v=ZpA2FIn761U>`_, you can attach
+  a `MongoDB Stitch <https://www.mongodb.com/cloud/stitch>`_ application
+  to it and then create an `HTTP
+  Service <https://docs.mongodb.com/stitch/reference/service-webhooks/>`_
+  containing the following code:
+
+  .. code-block:: javascript
+
+    exports = function(payload, response) {
+      const mongodb = context.services.get("mongodb-atlas");
+      const sensors = mongodb.db("stitch").collection("sensors");
+      var body = EJSON.parse(payload.body.text());
+      body.createdAt = new Date();
+      sensors.insertOne(body)
+      .then(result => {
+        response.setStatusCode(201);
+      });
+    };
+
+  And that's it! That's all we need! Our HTTP POST service can be reached
+  directly by the sensors from the webhook provided by MongoDB Stitch like
+  so:
+
+  .. code-block:: auto
+
+    curl -H "Content-Type: application/json" -d '{"temp":22.4}' https://webhooks.mongodb-stitch.com/api/client/v2.0/app/stitchtapp-abcde/service/sensors/incoming_webhook/post_sensor?secret=test
+
+  Because MongoDB Stitch is capable of scaling automatically according to
+  demand, you no longer have to take care of infrastructure or handling
+  failovers.
+
+  Next Step
+  ---------
+
+  Thanks for taking the time to read my post. I hope you found it useful
+  and interesting.
+
+  If you are looking for a very simple way to get started with MongoDB,
+  you can do that in just 5 clicks on our `MongoDB
+  Atlas <https://www.mongodb.com/cloud/atlas>`_ database service in the
+  cloud.
+
+  You can also try `MongoDB Stitch for
+  free <https://www.mongodb.com/cloud/stitch>`_ and discover `how the
+  billing works <https://docs.mongodb.com/stitch/admin/billing/>`_.
+
+  If you want to query your data sitting in MongoDB Atlas using MongoDB
+  Stitch, I recommend `this article from Michael
+  Lynn <https://medium.com/@michael.lynn/creating-a-data-enabled-api-in-10-minutes-with-mongodb-stitch-6d23578fed6d>`_.
+  

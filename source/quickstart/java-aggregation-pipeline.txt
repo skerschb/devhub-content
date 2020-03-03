@@ -42,17 +42,19 @@
    * MongoDB
    * Atlas
 
+.. atf-image:: /images/atf-images/quickstart/java.png
+
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
 
-================================
+===========================
 Java - Aggregation Pipeline
-================================
+===========================
 
 .. introduction::
 
-   What’s the Aggregation Pipeline?
+   What's the Aggregation Pipeline?
    --------------------------------
 
    .. image:: /images/quickstart-java-badge.png
@@ -67,18 +69,18 @@ Java - Aggregation Pipeline
    enter a multi-stage pipeline that transforms the documents into
    aggregated results.
 
-   It’s the most powerful way to work with your data in MongoDB. It will
+   It's the most powerful way to work with your data in MongoDB. It will
    allow us to make advanced queries like grouping documents, manipulate
    arrays, reshape document models, etc.
 
-   Let’s see how we can harvest this power using Java.
+   Let's see how we can harvest this power using Java.
 
 .. prerequisites::
 
    Getting Set Up
    --------------
 
-   I will use the same repository as usual in this series. If you don’t
+   I will use the same repository as usual in this series. If you don't
    have a copy of it yet, you can clone it or just update it if you already
    have it:
 
@@ -88,7 +90,7 @@ Java - Aggregation Pipeline
 
    .. blockquote::
 
-      If you didn’t set up your free cluster on MongoDB Atlas, now is great
+      If you didn't set up your free cluster on MongoDB Atlas, now is great
       time to do so. You have all the instructions in this `blog
       post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`_.
 
@@ -99,7 +101,7 @@ Java - Aggregation Pipeline
 
    In the `MongoDB Sample
    Dataset <https://docs.atlas.mongodb.com/sample-data/available-sample-datasets/>`_
-   in `MongoDB Atlas <http://bit.ly/mongodbatlas>`_, let’s explore a bit
+   in `MongoDB Atlas <http://bit.ly/mongodbatlas>`_, let's explore a bit
    the ``zips`` collection in the ``sample_training`` database.
 
    .. code-block:: javascript
@@ -134,10 +136,10 @@ Java - Aggregation Pipeline
    To calculate the population of New York, I would have to sum the
    population of each zip code to get the population of the entire city.
 
-   Let’s try to find the 3 biggest cities in the state of Texas. Let’s
+   Let's try to find the 3 biggest cities in the state of Texas. Let's
    design this on paper first.
 
-   -  I don’t need to work with the entire collection. I need to filter
+   -  I don't need to work with the entire collection. I need to filter
       only the cities in Texas.
    -  Once this is done, I can regroup all the zip code from a same city
       together to get the total population.
@@ -190,7 +192,7 @@ Java - Aggregation Pipeline
    -  A `$project
       stage <https://docs.mongodb.com/manual/reference/operator/aggregation/project/>`_
       to rename the field ``_id`` in ``city`` for a clean output (not
-      mandatory but I’m classy),
+      mandatory but I'm classy),
    -  A `$sort
       stage <https://docs.mongodb.com/manual/reference/operator/aggregation/sort/>`_
       to sort by population descending,
@@ -224,7 +226,7 @@ Java - Aggregation Pipeline
    Second Example with Posts
    -------------------------
 
-   This time, I’m using the collection ``posts`` in the same database.
+   This time, I'm using the collection ``posts`` in the same database.
 
    .. code-block:: json
 
@@ -266,7 +268,7 @@ Java - Aggregation Pipeline
    contains arrays and I want to show you how we can manipulate arrays in a
    pipeline.
 
-   Let’s try to find the three most popular tags and for each tag, I also
+   Let's try to find the three most popular tags and for each tag, I also
    want the list of post titles they are tagging.
 
    Here is my solution in Java.
@@ -288,7 +290,7 @@ Java - Aggregation Pipeline
           results.forEach(printDocuments());
       }
 
-   Here I’m using the very useful `$unwind
+   Here I'm using the very useful `$unwind
    stage <https://docs.mongodb.com/manual/reference/operator/aggregation/unwind/>`_
    to break down my array of tags.
 
@@ -438,7 +440,7 @@ Java - Aggregation Pipeline
    -----------
 
    The aggregation pipeline is very powerful. We have just scratched the
-   surface with these two examples but trust me if I tell you that it’s
+   surface with these two examples but trust me if I tell you that it's
    your best ally if you can master it.
 
    .. blockquote::

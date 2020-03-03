@@ -42,13 +42,15 @@
    * MongoDB
    * Atlas
 
+.. atf-image:: /images/atf-images/quickstart/java.png
+
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
 
-================================
+====================
 Java - Mapping POJOs
-================================
+====================
 
 .. introduction::
 
@@ -62,10 +64,9 @@ Java - Mapping POJOs
 
    Java is an object-oriented programming language and MongoDB stores
    documents, which look a lot like objects. Indeed, this is not a
-   coincidence because that’s the core idea behind the MongoDB database.
+   coincidence because that's the core idea behind the MongoDB database.
 
-   In this blog post, as promised in the `first blog
-   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`_
+   In this blog post, as promised in the `first blog post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`_
    of this series, I will show you how to automatically map MongoDB
    documents to Plain Old Java Objects (POJOs) using only the MongoDB
    driver.
@@ -75,7 +76,7 @@ Java - Mapping POJOs
    Getting Set Up
    --------------
 
-   I will use the same repository as usual in this series. If you don’t
+   I will use the same repository as usual in this series. If you don't
    have a copy of it yet, you can clone it or just update it if you already
    have it:
 
@@ -83,7 +84,7 @@ Java - Mapping POJOs
 
       git clone https://github.com/mongodb-developer/java-quick-start
 
-   If you haven’t yet set up your free cluster on MongoDB Atlas, now is a
+   If you haven't yet set up your free cluster on MongoDB Atlas, now is a
    great time to do so. You have all the instructions in this `blog
    post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`_.
 
@@ -97,8 +98,8 @@ Java - Mapping POJOs
    import it easily by `loading the sample dataset in MongoDB
    Atlas <https://docs.atlas.mongodb.com/sample-data/load-sample-data/>`_.
 
-   Here is what a MongoDB document looks like in extended JSON format. I’m
-   using the extended JSON because it’s easier to identify the field types
+   Here is what a MongoDB document looks like in extended JSON format. I'm
+   using the extended JSON because it's easier to identify the field types
    and we will need them to build the POJOs.
 
    .. code-block:: json
@@ -152,8 +153,7 @@ Java - Mapping POJOs
    In the package ``com.mongodb.quickstart.models``, I created two new
    POJOs: ``Grade.java`` and ``Score.java``.
 
-   ``Grade.java``
-   (`code <https://github.com/mongodb-developer/java-quick-start/blob/master/src/main/java/com/mongodb/quickstart/models/Grade.java>`_):
+   `Grade.java <https://github.com/mongodb-developer/java-quick-start/blob/master/src/main/java/com/mongodb/quickstart/models/Grade.java>`:
 
    .. code-block:: java
 
@@ -178,14 +178,13 @@ Java - Mapping POJOs
 
    .. blockquote::
 
-      In the Grade class above, I’m using ``@BsonProperty`` to avoid
+      In the Grade class above, I'm using ``@BsonProperty`` to avoid
       violating Java naming conventions for variables, getters, and
       setters. This allows me to indicate to the mapper that I want the
       ``"student_id"`` field in JSON to be mapped to the ``"studentId"``
       field in Java.
 
-   ``Score.java``
-   (`code <https://github.com/mongodb-developer/java-quick-start/blob/master/src/main/java/com/mongodb/quickstart/models/Score.java>`_):
+   `Score.java <https://github.com/mongodb-developer/java-quick-start/blob/master/src/main/java/com/mongodb/quickstart/models/Score.java>`:
 
    .. code-block:: java
 
@@ -219,7 +218,7 @@ Java - Mapping POJOs
    package and here are the key lines of code:
 
    -  I need a ``ConnectionString`` instance instead of the usual
-      ``String`` I have used so far in this series. I’m still retrieving my
+      ``String`` I have used so far in this series. I'm still retrieving my
       MongoDB Atlas URI from the system properties. See my `starting and
       setup blog
       post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`_
@@ -266,11 +265,11 @@ Java - Mapping POJOs
       }
 
    As you can see in this last line of Java, all the magic is happening
-   here. The ``MongoCollection<Grade>`` I’m retrieving is typed by
+   here. The ``MongoCollection<Grade>`` I'm retrieving is typed by
    ``Grade`` and not by ``Document`` as usual.
 
    In the previous blog posts in this series, I showed you how to use CRUD
-   operations by manipulating ``MongoCollection<Document>``. Let’s review
+   operations by manipulating ``MongoCollection<Document>``. Let's review
    all the CRUD operations using POJOs now.
 
    -  Here is an insert (create).
@@ -387,14 +386,8 @@ Java - Mapping POJOs
    project (where the ``src`` folder is) or your favorite IDE.
 
    .. code-block:: bash
-<<<<<<< HEAD
 
       mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.MappingPOJO" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority"
-
-=======
-
-      mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.MappingPOJO" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority"
->>>>>>> fix code block indentation
 
 .. summary::
 
@@ -407,14 +400,13 @@ Java - Mapping POJOs
 
    MongoDB is a dynamic schema database which means your documents can have
    different schemas within a single collection. Mapping all the documents
-   from such a collection can be a challenge. So, sometimes, using the “old
-   school” method and the ``Document`` class will be easier.
+   from such a collection can be a challenge. So, sometimes, using the "old
+   school" method and the ``Document`` class will be easier.
 
    .. blockquote::
 
       If you want to learn more and deepen your knowledge faster, I
       recommend you check out the M220J: MongoDB for Java Developers
-      training available for free on `MongoDB
-      University <http://bit.ly/mongodbuniversity>`_.
+      training available for free on `MongoDB University <http://bit.ly/mongodbuniversity>`_.
 
    In the next blog post, I will show you the aggregation framework in Java.

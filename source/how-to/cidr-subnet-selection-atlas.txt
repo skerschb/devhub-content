@@ -37,6 +37,8 @@
 
    * Atlas
 
+.. atf-image:: /images/atf-images/quickstart/stitch-triggers.png
+
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
@@ -86,7 +88,7 @@ CIDR Subnet Selection for MongoDB Atlas
 
    When you create a group in MongoDB Atlas, by default we provide you with an AWS VPC which you can only modify before launching your first cluster. Groups with an existing cluster CANNOT MODIFY their VPC CIDR block - this is to comply with the `AWS requirement for peering <http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/Welcome.html>`_. By default we create a VPC with IP range 192.168.248.0/21. To specify your IP block prior to configuring peering and launching your cluster, follow these steps:
 
-   1. Sign up for `MongoDB Atlas <https://mongodb.com/cloud?jmp=blog>`_ and ensure your payment method is completed.
+   1. Sign up for `MongoDB Atlas`_ and ensure your payment method is completed.
 
    2. Click on the **Network Access** tab, then select **Peering**. You should see a page such as this which shows you that you have not launched a cluster yet:
 

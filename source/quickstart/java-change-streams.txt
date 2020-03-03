@@ -42,13 +42,15 @@
    * MongoDB
    * Atlas
 
+.. atf-image:: /images/atf-images/quickstart/java.png
+
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
 
-================================
+=====================
 Java - Change Streams
-================================
+=====================
 
 .. introduction::
 
@@ -81,7 +83,7 @@ Java - Change Streams
    Getting Set Up
    --------------
    
-   I will use the same repository as usual in this series. If you don’t
+   I will use the same repository as usual in this series. If you don't
    have a copy of it yet, you can clone it or just update it if you already
    have it:
    
@@ -91,7 +93,7 @@ Java - Change Streams
    
    .. blockquote::
    
-      If you haven’t yet set up your free cluster on MongoDB Atlas, now is
+      If you haven't yet set up your free cluster on MongoDB Atlas, now is
       a great time to do so. You have all the instructions in this `blog
       post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`_.
 
@@ -123,7 +125,7 @@ Java - Change Streams
    A simple Change Streams without filters
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
-   Let’s start with the most simple Change Stream we can make:
+   Let's start with the most simple Change Stream we can make:
    
    .. code-block:: java
    
@@ -131,10 +133,10 @@ Java - Change Streams
       ChangeStreamIterable<Grade> changeStream = grades.watch();
       changeStream.forEach((Consumer<ChangeStreamDocument<Grade>>) System.out::println);
    
-   As you can see, all we need is ``myCollection.watch()``! That’s it.
+   As you can see, all we need is ``myCollection.watch()``! That's it.
    
    This returns a ``ChangeStreamIterable`` which, as indicated by its name,
-   can be iterated to return our change events. Here, I’m iterating over my
+   can be iterated to return our change events. Here, I'm iterating over my
    Change Stream to print my change event documents in the Java standard
    output.
    
@@ -169,13 +171,13 @@ Java - Change Streams
    
    In MappingPOJO, we are doing 4 MongoDB operations:
    
-   -  I’m creating a new ``Grade`` document with the ``insertOne()``
+   -  I'm creating a new ``Grade`` document with the ``insertOne()``
       method,
-   -  I’m searching for this ``Grade`` document using the ``find()``
+   -  I'm searching for this ``Grade`` document using the ``find()``
       method,
-   -  I’m replacing entirely this ``Grade`` using the
+   -  I'm replacing entirely this ``Grade`` using the
       ``findOneAndReplace()`` method,
-   -  and finally, I’m deleting this ``Grade`` using the ``deleteOne()``
+   -  and finally, I'm deleting this ``Grade`` using the ``deleteOne()``
       method.
    
    This is confirmed in the standard output from ``MappingJava``:
@@ -187,7 +189,7 @@ Java - Change Streams
       Grade replaced: Grade{id=5e2b4a28c9e9d55e3d7dbacf, student_id=10003.0, class_id=10.0, scores=[Score{type='homework', score=50.0}, Score{type='exam', score=42.0}]}
       Grade deleted:  AcknowledgedDeleteResult{deletedCount=1}
    
-   Let’s check what we have in the standard output from
+   Let's check what we have in the standard output from
    ``ChangeStreams.java`` (prettified):
    
    .. code-block:: javascript
@@ -254,19 +256,19 @@ Java - Change Streams
    - replace, - delete.
    
    It was expected because the ``find()`` operation is just a reading
-   document from MongoDB. It’s not changing anything thus not generating an
+   document from MongoDB. It's not changing anything thus not generating an
    event in the Change Stream.
    
-   Now that we are done with the basic example, let’s explore some features
+   Now that we are done with the basic example, let's explore some features
    of the Change Streams.
    
-   Terminate the Change Stream program we started earlier and let’s move
+   Terminate the Change Stream program we started earlier and let's move
    on.
    
    A simple Change Stream filtering on the operation type
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
-   Now let’s do the same thing but let’s imagine that we are only
+   Now let's do the same thing but let's imagine that we are only
    interested by insert and delete operations.
    
    .. code-block:: java
@@ -274,13 +276,13 @@ Java - Change Streams
       List<Bson> pipeline = singletonList(match(in("operationType", asList("insert", "delete"))));
       grades.watch(pipeline).forEach(printEvent());
    
-   As you can see here, I’m using the aggregation pipeline feature of
+   As you can see here, I'm using the aggregation pipeline feature of
    Change Streams to filter down the change events I want to process.
    
    Uncomment the example 2 in ``ChangeStreams.java`` and execute the
    program followed by ``MappingPOJO.java``, just like we did earlier.
    
-   Here are the change events I’m receiving.
+   Here are the change events I'm receiving.
    
    .. code-block:: json
    
@@ -315,13 +317,13 @@ Java - Change Streams
         }
       ]
    
-   This time, I’m only getting 2 events ``insert`` and ``delete``. The
+   This time, I'm only getting 2 events ``insert`` and ``delete``. The
    ``replace`` event has been filtered out compared to the first example.
    
    Change Stream default behavior with update operations
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
-   Same as earlier, I’m filtering my change stream to keep only the update
+   Same as earlier, I'm filtering my change stream to keep only the update
    operations this time.
    
    .. code-block:: java
@@ -361,7 +363,7 @@ Java - Change Streams
    sends the difference to avoid overloading the change stream with
    potentially useless information.
    
-   Let’s see how we can change this behavior in the next example.
+   Let's see how we can change this behavior in the next example.
    
    Change Stream with “Update Lookup”
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -377,7 +379,7 @@ Java - Change Streams
    I added the option ``UPDATE_LOOKUP`` this time so we can also retrieve
    the entire document during an update operation.
    
-   Let’s see again the first update in my change stream:
+   Let's see again the first update in my change stream:
    
    .. code-block:: json
    
@@ -402,9 +404,9 @@ Java - Change Streams
    .. blockquote::
    
       Note: The ``Update.java`` program updates a made-up field “comments”
-      that doesn’t exist in my POJO ``Grade`` which represents the original
-      schema for this collection. Thus the field doesn’t appear in the
-      output as it’s not mapped.
+      that doesn't exist in my POJO ``Grade`` which represents the original
+      schema for this collection. Thus the field doesn't appear in the
+      output as it's not mapped.
    
    If I want to see this ``comments`` field, I can use a
    ``MongoCollection`` not mapped automatically to my ``Grade.java`` POJO.
@@ -449,13 +451,13 @@ Java - Change Streams
    Change Streams are resumable
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
-   In this final example 5, I have simulated an error and I’m restarting my
+   In this final example 5, I have simulated an error and I'm restarting my
    Change Stream from a ``resumeToken`` I got from a previous operation in
    my Change Stream.
    
    .. blockquote::
    
-      It’s important to note that a change stream will resume itself
+      It's important to note that a change stream will resume itself
       automatically in the face of an “incident”. Generally, the only
       reason that an application needs to restart the change stream
       manually from a resume token is if there is an incident in the
@@ -650,7 +652,7 @@ Java - Change Streams
    than the time separating 2 events.
    
    Scaling up correctly a Change Stream data processing pipeline can be
-   tricky. That’s why you can implement this easily using `MongoDB Triggers
+   tricky. That's why you can implement this easily using `MongoDB Triggers
    in MongoDB
    Stitch <https://docs.mongodb.com/stitch/triggers/database-triggers/>`_.
    

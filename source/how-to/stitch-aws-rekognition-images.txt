@@ -1,0 +1,110 @@
+:template: devhub-article
+
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
+.. meta-description::
+
+   Use MongoDB Stitch with AWS Rekognition to tag and analyse images.
+
+.. twitter::
+   :site: @mongodb
+   :creator: @aydrianh
+   :title: Using AWS Rekognition to Analyse and Tag Uploaded Images Using Stitch
+
+
+   Use MongoDB Stitch with AWS Rekognition to tag and analyse images.
+
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
+
+.. include:: /includes/authors/howard-aydrian.rst
+
+.. pubdate:: October 25, 2018
+
+.. updated-date:: February 4, 2019
+
+.. type:: how-to
+
+.. level:: beginner
+
+.. tags::
+
+   * AWS
+
+.. languages::
+
+   * javascript
+
+.. products::
+
+   * Stitch
+
+.. atf-image:: /images/atf-images/quickstart/stitch-triggers.png
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
+
+=====================================================================
+Using AWS Rekognition to Analyse and Tag Uploaded Images Using Stitch
+=====================================================================
+
+.. content::
+
+   Computers can now look at a video or image and know what's going on and,
+   sometimes, who's in it. Amazon Web Service Rekognition gives your
+   applications the eyes it needs to label visual content. In the
+   following, you can see how to use Rekognition along with MongoDB Stitch
+   to supplement new content with information as it is inserted into the
+   database.
+
+   You can easily detect labels or faces in images or videos in your
+   MongoDB Stitch application using the built-in AWS service. Just `add the
+   AWS service <https://docs.mongodb.com/stitch/reference/partner-services/amazon-service/#add-an-aws-service>`_
+   and use the Stitch client to execute the AWS SES request right from your
+   React.js application or create a Stitch function and Trigger. In a
+   recent Stitchcraft live coding session on `my Twitch
+   channel <https://twitch.tv/itsaydrian>`_, I wanted to tag an image
+   using `label
+   detection <https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html>`_.
+   I set up a trigger that executed a function after an image was uploaded
+   to my S3 bucket and its metadata was inserted into a collection.
+
+   .. code-block:: javascript
+
+      exports = function(changeEvent) {
+        const aws = context.services.get('AWS');
+        const mongodb = context.services.get("mongodb-atlas");
+        const insertedPic = changeEvent.fullDocument;
+
+        const args = {
+          Image: {
+            S3Object: {
+              Bucket: insertedPic.s3.bucket,
+              Name: insertedPic.s3.key
+            }
+          },
+          MaxLabels: 10,
+          MinConfidence: 75.0
+        };
+
+        return aws.rekognition()
+          .DetectLabels(args)
+          .then(result => {
+            return mongodb
+              .db('data')
+              .collection('picstream')
+              .updateOne({_id: insertedPic._id}, {$set: {tags: result.Labels}});
+          });
+      };
+
+   With just a couple of service calls, I was able to take an image, stored
+   in S3, analyse it with Rekognition, and add the tags to its document.
+   Want to see how it all came together? `Watch the recording on
+   YouTube <https://youtu.be/VK2ffPLnF0o>`_ with the Github repo in the
+   description. `Follow me on Twitch <https://twitch.tv/itsaydrian>`_ to
+   join me and ask questions live.
+
