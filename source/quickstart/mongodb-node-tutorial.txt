@@ -1020,6 +1020,26 @@ MongoDB and Node.js Tutorial - CRUD Operations
     This examples in this post were created with the following application
     versions:
 
+    .. list-table:: Optional Table Title
+       :header-rows: 1
+ 
+       *- Heading 1
+       - Heading 2
+       - Heading 3
+       - Heading 4
+       *- A1
+       - A2
+       - A3
+       - A4
+       *- B1
+       - B2
+       - B3
+       - B4
+       *- C1
+       - C2
+       - C3
+       - C4
+
     ======================== ============
     Component                Version Used      
     ======================== ============  
