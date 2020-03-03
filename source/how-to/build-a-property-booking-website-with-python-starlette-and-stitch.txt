@@ -21,6 +21,8 @@
 
 .. include:: /includes/authors/kukic-ado.rst
 
+.. atf-image:: /images/atf-images/quickstart/python.png
+
 .. pubdate:: March 4, 2020
 
 .. type:: how-to
