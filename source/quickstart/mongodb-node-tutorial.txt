@@ -1023,31 +1023,14 @@ MongoDB and Node.js Tutorial - CRUD Operations
     .. list-table:: Optional Table Title
        :header-rows: 1
  
-       * - Heading 1
-         - Heading 2
-         - Heading 3
-         - Heading 4
-       * - A1
-         - A2
-         - A3
-         - A4
-       * - B1
-         - B2
-         - B3
-         - B4
-       * - C1
-         - C2
-         - C3
-         - C4
-
-    ======================== ============
-    Component                Version Used      
-    ======================== ============  
-    MongoDB                  4.0  
-    MongoDB Node.js Driver   3.3.2  
-    Node.js                  10.16.3   
-    ======================== ============
-
+       * - Component
+         - MongoDB
+         - MongoDB Node.js Driver
+         - Node.js 
+       * - Version Used
+         - 4.0
+         - 3.3.2
+         - 10.16.3
 
     All Posts in the *Quick Start: Node.js and MongoDB* Series:
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
