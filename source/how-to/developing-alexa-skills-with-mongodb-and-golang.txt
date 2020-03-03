@@ -13,6 +13,8 @@
 
 .. include:: /includes/authors/raboy-nic.rst
 
+.. atf-image:: /images/atf-images/quickstart/golang.png
+
 .. tags::
 
     * go
