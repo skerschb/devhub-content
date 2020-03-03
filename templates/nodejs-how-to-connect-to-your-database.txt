@@ -26,7 +26,7 @@
 
 .. include:: /includes/authors/schaefer-lauren.rst
 
-.. pubdate:: January 31, 2019
+.. pubdate:: 2019-01-31
 
 .. type:: quickstart
 

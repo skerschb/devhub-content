@@ -22,7 +22,7 @@
 
 .. include:: /includes/authors/lastname-firstname.rst
 
-.. pubdate:: January 31, 2019
+.. pubdate:: 2019-01-01
 
 .. type:: article, quickstart, how-to, video, live
 
