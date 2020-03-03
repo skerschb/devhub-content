@@ -389,14 +389,8 @@ Java - Mapping POJOs
    project (where the ``src`` folder is) or your favorite IDE.
 
    .. code-block:: bash
-<<<<<<< HEAD
 
       mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.MappingPOJO" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority"
-
-=======
-
-      mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.MappingPOJO" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority"
->>>>>>> fix code block indentation
 
 .. summary::
 

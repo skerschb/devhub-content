@@ -120,7 +120,7 @@ MongoDB Change Streams with Python
 
 .. content::
 
-   .. _listen-to-inserts-from-an-application
+   .. _listen-to-inserts-from-an-application:
 
    Listen to Inserts from an Application
    -------------------------------------
@@ -182,7 +182,7 @@ MongoDB Change Streams with Python
           documentKey: { <unique identifier> }
       }
 
-   In the case of inserts and replace operations the ``fullDocument`` is provided by default as well. In the case of update operations the extra field provided is ``updateDescription`` and it gives you the document delta (i.e. the difference between the document before and after the operation). By default update operations only include the delta between the document before and after the operation. To get the full document with each update you can `pass in 'updateLookup' to the full document option <https://docs.mongodb.com/manual/changeStreams/#lookup-full-document-for-update-operations>`_. If an update operation ends up changing multiple documents, there will be one notification for each updated document. This transformation occurs to ensure that statements in the oplog are `idempotent <https://docs.mongodb.com/manual/core/replica-set-oplog/>`_.
+   In the case of inserts and replace operations the ``fullDocument`` is provided by default as well. In the case of update operations the extra field provided is ``updateDescription`` and it gives you the document delta (i.e. the difference between the document before and after the operation). By default update operations only include the delta between the document before and after the operation. To get the full document with each update you can `pass in "updateLookup" to the full document option <https://docs.mongodb.com/manual/changeStreams/#lookup-full-document-for-update-operations>`_. If an update operation ends up changing multiple documents, there will be one notification for each updated document. This transformation occurs to ensure that statements in the oplog are `idempotent <https://docs.mongodb.com/manual/core/replica-set-oplog/>`_.
 
    There is one further type of event that can be received which is the invalidate event. This tells the driver that the change stream is no longer valid. The driver will then close the stream. Potential reasons for this include the collection being dropped or renamed.
 

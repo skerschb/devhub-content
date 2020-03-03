@@ -6,7 +6,7 @@
 
 .. meta-description::
 
-   The Stitch SDK is the best way to access MongoDB Stitch from your frontend application code – however, you may want to access Stitch from your existing tools (e.g. the `mongo` shell) or backend code – this post shows you how.
+   The Stitch SDK is the best way to access MongoDB Stitch from your frontend application code – however, you may want to access Stitch from your existing tools (e.g. the mongo shell) or backend code – this post shows you how.
 
 .. twitter::
    :site: @mongodb

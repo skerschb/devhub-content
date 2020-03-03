@@ -52,7 +52,7 @@ Introduction to Multi-Document ACID Transactions in Python
 .. introduction::
 
    Introduction
-   -----------
+   ------------
 
    Multi-document transactions arrived in `MongoDB 4.0 <https://www.mongodb.com/download-center#community>`_ in June 2018. MongoDB has always been transactional around updates to a single document. Now, with multi-document ACID transactions we can wrap a set of database operations inside a start and commit transaction call. This ensures that even with inserts and/or updates happening across multiple collections and/or databases, the external view of the data meets `ACID constraints <https://en.wikipedia.org/wiki/ACID>`_.
    
@@ -170,7 +170,7 @@ Introduction to Multi-Document ACID Transactions in Python
    Running transactions_main.py
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    .. code-block:: none
+   .. code-block:: none
    
       $ python transaction_main.py -h
       usage: transaction_main.py [-h] [--host HOST] [--usetxns] [--delay DELAY]
@@ -196,7 +196,7 @@ Introduction to Multi-Document ACID Transactions in Python
    
    To run the program without transactions you can run it with no arguments:
 
-    .. code-block:: none
+   .. code-block:: none
    
       $ python transaction_main.py
       using collection: SEATSDB.seats
