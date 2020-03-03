@@ -22,6 +22,8 @@
 
 .. include:: /includes/authors/kukic-ado.rst
 
+.. atf-image:: /images/atf-images/illustrations/NodeJsIllustration.png
+
 .. pubdate:: February 7, 2020
 
 .. type:: how-to
