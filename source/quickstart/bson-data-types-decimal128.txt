@@ -32,7 +32,7 @@
 
    * BSON
 
-.. atf-image:: /images/atf-images/illustrations/dev-tools.png
+.. atf-image:: /images/atf-images/quickstart/bson.png
 
 .. related::
 
