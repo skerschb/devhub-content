@@ -42,7 +42,7 @@
    * Stitch
    * Atlas
 
-.. atf-image:: /source/images/atf-images/illustrations/build.png
+.. atf-image:: /images/atf-images/illustrations/build.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT

@@ -38,7 +38,7 @@
 
    * MongoDB
 
-.. atf-image:: /images/hero-computers.png
+.. atf-image:: /images/atf-images/generic/pink.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
