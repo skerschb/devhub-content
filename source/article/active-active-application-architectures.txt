@@ -36,7 +36,7 @@
 
    * MongoDB
 
-.. atf-image:: /images/hero-dark-lines.png
+.. atf-image:: /images/atf-images/generic/purple.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
