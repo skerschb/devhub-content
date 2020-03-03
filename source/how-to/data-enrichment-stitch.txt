@@ -48,9 +48,9 @@
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
 
-================
+===================================
 Data Enrichment with MongoDB Stitch
-================
+===================================
 
 .. introduction::
 
@@ -60,21 +60,21 @@ Data Enrichment with MongoDB Stitch
    Here is what we are going to achieve in this tutorial:
 
    Firstly, we are going to write a document to MongoDB using `MongoDB
-   Stitch <https://www.mongodb.com/cloud/stitch>`__.
+   Stitch <https://www.mongodb.com/cloud/stitch>`_.
 
    The result in our MongoDB collection will look like this:
 
    .. code-block:: json
 
       {
-      "_id": ObjectId("5bb27712dced5f37bebf388c"),
-      "Title":"Guardians of the Galaxy"
+         "_id": ObjectId("5bb27712dced5f37bebf388c"),
+         "Title":"Guardians of the Galaxy"
       }
 
    Secondly, a trigger will catch this new insertion and start a function.
 
    Lastly, this function will call `the OMDB external
-   API <http://www.omdbapi.com/>`__ with the given movie title, fetch data
+   API <http://www.omdbapi.com/>`_ with the given movie title, fetch data
    about that movie, and finally enrich our MongoDB document with the data
    we gathered from this API.
 
@@ -131,11 +131,11 @@ Data Enrichment with MongoDB Stitch
 
    So first of all, if you want to try this at home, it is very easy. The
    only requirement here is to create a free `MongoDB
-   Atlas <http://cloud.mongodb.com/>`__ cluster. `This
-   video <https://www.youtube.com/watch?v=ZpA2FIn761U>`__ will show you the
+   Atlas <http://cloud.mongodb.com/>`_ cluster. `This
+   video <https://www.youtube.com/watch?v=ZpA2FIn761U>`_ will show you the
    steps.
 
-   `MongoDB Stitch <https://www.mongodb.com/cloud/stitch>`__ is our
+   `MongoDB Stitch <https://www.mongodb.com/cloud/stitch>`_ is our
    serverless platform, built by MongoDB on top of MongoDB Atlas. Once our
    MongoDB Atlas cluster is ready to use, link a MongoDB Stitch application
    to it:
@@ -147,7 +147,7 @@ Data Enrichment with MongoDB Stitch
 
    .. image:: /images/create-new-stitch-application.png
       :width: 760px
-      :alt:
+      :alt: Create a new Stitch application
 
 .. content::
 
@@ -166,7 +166,7 @@ Data Enrichment with MongoDB Stitch
 
    .. image:: /images/create-webhook.png
       :width: 760px
-      :alt:
+      :alt: Create a webhook
 
    When this is done, hit the "Save" button and you will be in the
    "Function Editor" screen.
@@ -183,7 +183,7 @@ Data Enrichment with MongoDB Stitch
 
    .. image:: /images/collection.png
       :width: 760px
-      :alt:
+      :alt: Collection Stitch Movies in MongoDB Atlas
 
    Now that we can insert a new document into MongoDB Atlas using Stitch,
    we are going to create the trigger.
@@ -209,7 +209,7 @@ Data Enrichment with MongoDB Stitch
 
    .. figure:: /images/stitch_movies_document_example.png
       :width: 760px
-      :alt:
+      :alt: Stitch movies document example
 
    Let’s review for a second what we have done:
 
@@ -238,8 +238,8 @@ Data Enrichment with MongoDB Stitch
 
    If MongoDB Stitch is something you are considering in production, you
    can discover here `how the billing
-   works <https://docs.mongodb.com/stitch/admin/billing/>`__.
+   works <https://docs.mongodb.com/stitch/admin/billing/>`_.
 
    If you want to query your data sitting in MongoDB Atlas using MongoDB
    Stitch, I recommend `this article from Michael
-   Lynn <https://medium.com/@michael.lynn/creating-a-data-enabled-api-in-10-minutes-with-mongodb-stitch-6d23578fed6d>`__.
+   Lynn <https://medium.com/@michael.lynn/creating-a-data-enabled-api-in-10-minutes-with-mongodb-stitch-6d23578fed6d>`_.

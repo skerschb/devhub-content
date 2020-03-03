@@ -6,6 +6,7 @@
 
 .. twitter::
    :site: @mongodb
+   :creator: @MBeugnet
    :title: Capture IOT Data With MongoDB Stitch in 5 Minutes
 
    Learn how to use MongoDB Stitch for Internet of Things data in as little as 5 minutes.
