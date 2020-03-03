@@ -67,8 +67,8 @@ MongoDB Stitch Authentication Triggers
    to use third-party services such as
    `Google <https://docs.mongodb.com/stitch/authentication/google/>`_ or
    `Facebook <https://docs.mongodb.com/stitch/authentication/facebook/>`_
-   to authenticate your app’s users. This is great for your users as it
-   means they don’t need to go through the tedious process of having to
+   to authenticate your app's users. This is great for your users as it
+   means they don't need to go through the tedious process of having to
    provide all of their details to yet another application/service – it
    also means one less password to remember.
 

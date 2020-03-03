@@ -65,13 +65,13 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    Search <https://www.mongodb.com/atlas/full-text-search>`_ service, we
    have made it easier than ever to integrate simple yet sophisticated
    search capabilities into your MongoDB applications. To demonstrate just
-   how easy it is, let’s build a movie search engine - in only 10 minutes.
+   how easy it is, let's build a movie search engine - in only 10 minutes.
 
    Built on Apache Lucene, Full-Text Search adds document data to a
    full-text search index to make that data searchable in a highly
    performant, scalable manner. This tutorial will guide you through how to
    build a web application to search for movies based on a topic using
-   Atlas’ sample movie data collection on a free tier cluster. We will
+   Atlas' sample movie data collection on a free tier cluster. We will
    create a Full-Text Search index on that sample data. Then we will query
    on this index to filter, rank and sort through those movies to quickly
    surface movies by topic.
@@ -135,7 +135,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
       querying, indexing, document validation, and more. The latest version
       can be found here `https://www.mongodb.com/download-center/compass <https://www.mongodb.com/download-center/compass>`_.
 
-   Once your sample dataset is loaded into your database, let’s have a
+   Once your sample dataset is loaded into your database, let's have a
    closer look to see what we are working within the Atlas Data Explorer.
    In your Atlas UI, click on **Collections** to examine the ``movies``
    collection in the new ``sample_mflix`` database. This collection has
@@ -157,7 +157,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    Our movie search engine is going to look for movies based on a topic. We
    will use Full-Text Search to query for specific words and phrases in the
-   ‘fullplot’ field.
+   'fullplot' field.
 
    The first thing we need is a Full-Text Search index. Click on the tab
    titled SearchBETA under **Collections**. Clicking on the green **Create
@@ -168,13 +168,13 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
       :align: center
 
    By default, we dynamically map all the text fields in your collection.
-   This suits MongoDB’s flexible data model perfectly. As you add new data
+   This suits MongoDB's flexible data model perfectly. As you add new data
    to your collection and your schema evolves, dynamic mapping accommodates
    those changes in your schema and adds that new data to the Full-Text
    Search index automatically.
 
-   Let’s accept the default settings and click **Create Index**. *And
-   that’s all you need to do to start taking advantage of Lucene in your
+   Let's accept the default settings and click **Create Index**. *And
+   that's all you need to do to start taking advantage of Lucene in your
    MongoDB Atlas data!*
 
    -  ☒ Spin up an Atlas cluster and load sample movie data
@@ -192,14 +192,14 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    covered by the Full-Text Search index and must be used as the first
    stage in the aggregation pipeline.
 
-   Let’s use MongoDB Compass to see an aggregation pipeline that makes use
+   Let's use MongoDB Compass to see an aggregation pipeline that makes use
    of this Full-Text Search index. For instructions on how to connect your
    Atlas cluster to MongoDB Compass, `click
    here <https://docs.atlas.mongodb.com/compass-connection/index.html>`_.
 
    *You do not have to use Compass for this stage, but I really love the
    easy-to-use UI Compass has to offer. Plus the ability to preview the
-   results by stage makes troubleshooting a snap! For more on Compass’
+   results by stage makes troubleshooting a snap! For more on Compass'
    Aggregation Pipeline Builder, check out
    this*\ `blog <https://www.mongodb.com/blog/post/introducing-the-aggregation-pipeline-builder-in-mongodb-compass>`_\ *.*
 
@@ -217,7 +217,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
       :align: center
 
    For the first stage, select the **$searchBeta** aggregation operator to
-   search for the terms ‘werewolves and vampires’ in the ``fullplot``
+   search for the terms 'werewolves and vampires' in the ``fullplot``
    field.
 
    Using the **highlight** option will return the highlights by adding
@@ -243,15 +243,15 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    We use ``$project`` to get back only the fields we will use in
    our movie search application. We also use the ``$meta``
-   operator to surface each document’s **searchScore** and
+   operator to surface each document's **searchScore** and
    **searchHighlights** in the result set.
 
-   Let’s break down the individual pieces in this stage further:
+   Let's break down the individual pieces in this stage further:
 
    **SCORE:** The ``"$meta": "searchScore"`` contains the assigned score
    for the document based on relevance. This signifies how well this
-   movie’s ``fullplot`` field matches the query terms ‘werewolves and
-   vampires’ above.
+   movie's ``fullplot`` field matches the query terms 'werewolves and
+   vampires' above.
 
    Note that by scrolling in the right preview panel, the movie documents
    are returned with the score in descending order so that the best matches
@@ -264,7 +264,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    of the original document, it is necessary to use a $project pipeline
    stage to add them to the query output.*
 
-   Now open a document’s **highlight** array to show the data objects with
+   Now open a document's **highlight** array to show the data objects with
    text **values** and **types**.
 
    .. code-block:: bash
@@ -308,8 +308,8 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    search query.
 
    Finally, if you see results in the right preview panel, your aggregation
-   pipeline is working properly! Let’s grab that aggregation code with
-   Compass’ Export Pipeline to Language feature by clicking the button in
+   pipeline is working properly! Let's grab that aggregation code with
+   Compass' Export Pipeline to Language feature by clicking the button in
    the top toolbar.
 
    .. image:: /images/atlas-fts/pipeline-export.png
@@ -325,7 +325,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
       search: {
             query: 'werewolves and vampires',
             path: 'fullplot' },
-       highlight: {  path: 'fullplot’ }
+       highlight: {  path: 'fullplot' }
                      }},
                      { $project: {
        title: 1,
@@ -351,10 +351,10 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    Now that we have the heart of our movie search engine in the form of an
    aggregation pipeline, how will we use it in an application? There are
    lots of ways to do this, but I found the easiest was to simply create a
-   RESTful API to expose this data - and for that, I used MongoDB Stitch’s
+   RESTful API to expose this data - and for that, I used MongoDB Stitch's
    HTTP Service.
 
-   `Stitch <https://www.mongodb.com/cloud/stitch>`_ is MongoDB’s
+   `Stitch <https://www.mongodb.com/cloud/stitch>`_ is MongoDB's
    serverless platform where functions written in Javascript automatically
    scale to meet current demand. To create a Stitch application, return to
    your Atlas UI and click **Stitch** under SERVICES on the left menu, then
@@ -374,11 +374,11 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
       :alt: Add a Service
       :align: center
 
-   Click the green **Add a Service** button, and you’ll be directed to add
+   Click the green **Add a Service** button, and you'll be directed to add
    an incoming webhook.
 
    Once in the **Settings** tab, enable **Respond with Result**, set the
-   HTTP Method to **GET**, and to make things simple, let’s just run the
+   HTTP Method to **GET**, and to make things simple, let's just run the
    webhook as the System and skip validation.
 
    .. image:: /images/atlas-fts/add-a-webhook.png
@@ -413,7 +413,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
             ]).toArray();
       };
 
-   Let’s break down some of these components. MongoDB Stitch interacts with
+   Let's break down some of these components. MongoDB Stitch interacts with
    your Atlas movies collection through the global **context** variable. In
    the service function, we use that context variable to access the
    sample_mflix.movies collection in your Atlas cluster:
@@ -437,7 +437,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
       return collection.aggregate(<<PASTE AGGREGATION PIPELINE HERE>>).toArray();
 
    Finally, after pasting the aggregation code, we changed the terms
-   ‘werewolves and vampires’ to the generic arg to match the function’s
+   'werewolves and vampires' to the generic arg to match the function's
    payload query argument - otherwise our movie search engine capabilities
    will be extremely limited.
 
@@ -452,7 +452,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
       Note: Please be sure to change BOTH the field name **arg1** to
       **arg**, as well as the string value **"hello"** to **"werewolves and
-      vampires"** - or it won’t work.
+      vampires"** - or it won't work.
 
    .. image:: /images/atlas-fts/frustrated-developer.gif
       :alt: Frustrated Developer
@@ -477,19 +477,19 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    ~~~~~~~~~~~
 
    The beauty of a REST API is that it can be called from just about
-   anywhere. Let’s execute it in our browser. However, if you have tools
+   anywhere. Let's execute it in our browser. However, if you have tools
    like Postman installed, feel free to try that as well.
 
    Switch to the **Settings** tab of the **movies** service in Stitch and
-   you’ll notice a Webhook URL has been generated.
+   you'll notice a Webhook URL has been generated.
 
    .. image:: /images/atlas-fts/webhook-url.jpg
       :alt: Webhook URL
       :align: center
 
    Click the **COPY** button and paste the URL into your browser. Then
-   append the following to the end of your URL: **?arg=’werewolves and
-   vampires’**
+   append the following to the end of your URL: **?arg='werewolves and
+   vampires'**
 
    .. image:: /images/atlas-fts/query-output.png
       :alt: Query output
@@ -529,14 +529,14 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    because the application is currently pointing to an existing API.
 
    Now open the HTML file with your favorite text editor and familiarize
-   yourself with the contents. You’ll note this contains a very simple container and two javascript functions:
+   yourself with the contents. You'll note this contains a very simple container and two javascript functions:
 
    -  Line 82 - **userAction()** will execute when the user enters a
       search. If there is valid input in the search box and no errors, we
       will call the **buildMovieList()** function.
    -  Line 125 - **buildMovieList()** is a helper function for
       **userAction()** which will build out the list of movies, along with
-      their scores and highlights from the ‘fullplot’ field. Notice in line
+      their scores and highlights from the 'fullplot' field. Notice in line
       146 that if the highlight.texts.type === "hit" we highlight the
       highlight.texts.value with the tag.
 
@@ -563,7 +563,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
 .. summary::
 
-   That’s a Wrap!
+   That's a Wrap!
    --------------
 
    Now that you have just seen how easy it is to build a simple, powerful

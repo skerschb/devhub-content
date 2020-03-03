@@ -68,7 +68,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    fully managed database, alongside other products and services, managed
    by Kubernetes and OpenShift. 
    
-   In this blog, we’ll cover the following:
+   In this blog, we'll cover the following:
 
    -  Brief discussion on the container revolution
    -  Overview of MongoDB Ops Manager
@@ -123,7 +123,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    
    Later in
    this blog you will learn how to install and get started with the MongoDB
-   Enterprise Operator for Kubernetes. First let’s cover MongoDB Ops
+   Enterprise Operator for Kubernetes. First let's cover MongoDB Ops
    Manager, which is a key piece in efficient MongoDB cluster management.
 
    Managing MongoDB
@@ -297,7 +297,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    Figure 3: Ops Manager Config page
 
    Copy down the value displayed in the URL To Access Ops Manager box.
-   Note: If you don’t have access to the Admin drop down you will have to
+   Note: If you don't have access to the Admin drop down you will have to
    copy the Url used to connect to your Ops Manager server from your
    browser's navigation bar. 
    
@@ -344,7 +344,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    
    To see the list of Ops Manager users return to the Project and
    click on the “Users & Teams” menu. You can use any Ops Manager user who
-   has at least Project Owner access. If you’d like to create another
+   has at least Project Owner access. If you'd like to create another
    username click on the “Add Users & Team” button as shown in Figure 6.
 
    .. image:: /images/kubernetes5.png

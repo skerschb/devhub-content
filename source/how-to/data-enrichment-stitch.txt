@@ -211,7 +211,7 @@ Data Enrichment with MongoDB Stitch
       :width: 760px
       :alt: Stitch movies document example
 
-   Let’s review for a second what we have done:
+   Let's review for a second what we have done:
 
    -  We inserted a new document using an HTTP POST service hosted by
       MongoDB Stitch containing only an "_id" (automatically populated by

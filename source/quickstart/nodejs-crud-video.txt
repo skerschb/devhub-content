@@ -51,7 +51,7 @@
    * `How to read MongoDB documents using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-read-documents>`_
    * `How to update MongoDB documents using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-update-documents>`_
    * `How to delete MongoDB documents using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-delete-documents>`_
-   * `How to analyze your data using MongoDB’s Aggregation Framework and Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-analyze-data-using-the-aggregation-framework>`_
+   * `How to analyze your data using MongoDB's Aggregation Framework and Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-analyze-data-using-the-aggregation-framework>`_
    * `How to implement transactions using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-implement-transactions>`_
    * `How to react to database changes with change streams and triggers <https://www.mongodb.com/blog/post/node-js-change-streams-and-triggers>`_
 
@@ -70,9 +70,9 @@ Quick Start 📽️ Video: Node.js & MongoDB - The CRUD Operations
       :scale: 50%
       :align: right
 
-    If you’re using Node.js and want to learn how to quickly get started
-    using MongoDB, I’ve created the video for you! Follow along in your
-    favorite code editor and you’ll discover the following:
+    If you're using Node.js and want to learn how to quickly get started
+    using MongoDB, I've created the video for you! Follow along in your
+    favorite code editor and you'll discover the following:
 
     -  How to connect to a MongoDB database hosted on `MongoDB
        Atlas <https://bit.ly/MDB_Atlas>`_ from inside of a Node.js script
@@ -104,8 +104,8 @@ Quick Start 📽️ Video: Node.js & MongoDB - The CRUD Operations
 
     -  `MongoDB Atlas <https://bit.ly/MDB_Atlas>`_
     -  `How to create a free cluster on Atlas <https://youtu.be/rPqRyYJmx2g>`_
-    -  `MongoDB University’s Data Modeling Course <http://bit.ly/M320_DataModeling>`_
-    -  `MongoDB University’s Javascript Course <https://bit.ly/M220JS>`_
+    -  `MongoDB University's Data Modeling Course <http://bit.ly/M320_DataModeling>`_
+    -  `MongoDB University's Javascript Course <https://bit.ly/M220JS>`_
 
     Try it out and let me know what you think! What video do you want to see
     next?
@@ -125,7 +125,7 @@ Quick Start 📽️ Video: Node.js & MongoDB - The CRUD Operations
        Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-delete-documents>`_
     -  Video: How to perform the CRUD operations using MongoDB & Node.js
        (this post)
-    -  `How to analyze your data using MongoDB’s Aggregation Framework and
+    -  `How to analyze your data using MongoDB's Aggregation Framework and
        Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-analyze-data-using-the-aggregation-framework>`_
     -  `How to implement transactions using
        Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-implement-transactions>`_

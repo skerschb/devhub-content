@@ -63,8 +63,8 @@ Stitch Hosting: A Drag-and-Drop Delight
     most websites are not a simple set of files; they are a complex set of
     files and folders. The Engineering team has implemented a feature that
     allows you to drag and drop a combination of files and folders to your
-    Stitch hosting directory. It’s a small change that we think will make a
-    big impact on how much time you’re spending uploading files. Take a look
+    Stitch hosting directory. It's a small change that we think will make a
+    big impact on how much time you're spending uploading files. Take a look
     at this enhanced feature in the video below.
 
     .. youtube:: eDMXvuxDbII

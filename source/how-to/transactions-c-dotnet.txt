@@ -57,7 +57,7 @@ Working with MongoDB Transactions with C# and the .NET Framework
 
 .. blockquote::
 
-    Update 10/2019: This article’s code example has been updated to include
+    Update 10/2019: This article's code example has been updated to include
     the required handing of the session handle to database methods.
 
 .. content::
@@ -222,7 +222,7 @@ Working with MongoDB Transactions with C# and the .NET Framework
     Key points:
     -----------
 
-    -  You don’t have to match class properties to JSON objects – just
+    -  You don't have to match class properties to JSON objects – just
        define a class object and insert it directly into the database. There
        is no need for an Object Relational Mapper (ORM) layer.
     -  MongoDB transactions use snapshot isolation meaning only the client

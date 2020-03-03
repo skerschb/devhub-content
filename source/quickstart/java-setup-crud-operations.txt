@@ -86,14 +86,14 @@ Java - Setup and CRUD Operations
    that power.
 
    To follow along, you can use any environment you like and the integrated
-   development environment of your choice. I’ll use
+   development environment of your choice. I'll use
    `Maven <http://maven.apache.org/install.html>`_ 3.6.2 and the Java
    OpenJDK 13, but all the code will be compatible with Java versions 8 to
    13 so feel free to use the JDK of your choice and update the Java
    version accordingly in the pom.xml file we are about to setup.
 
    For the MongoDB Cluster, we will be using a M0 Free Tier MongoDB Cluster
-   from `MongoDB Atlas <http://bit.ly/mongodbatlas>`_. If you don’t have
+   from `MongoDB Atlas <http://bit.ly/mongodbatlas>`_. If you don't have
    one already, check out my `Get started with an M0
    cluster <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`_
    blog post.
@@ -101,11 +101,11 @@ Java - Setup and CRUD Operations
    .. blockquote:: 
 
       Get your free M0 cluster on `MongoDB
-      Atlas <http://bit.ly/mongodbatlas>`_ today. It’s free forever, and
-      you’ll be able to use it to work with the examples in this blog
+      Atlas <http://bit.ly/mongodbatlas>`_ today. It's free forever, and
+      you'll be able to use it to work with the examples in this blog
       series.
 
-   Let’s jump in and take a look at how well Java and MongoDB work
+   Let's jump in and take a look at how well Java and MongoDB work
    together.
 
 .. prerequisites::
@@ -114,7 +114,7 @@ Java - Setup and CRUD Operations
    --------------
 
    To begin with, we will need to setup a new Maven project. You have two
-   options at this point. You can either clone this series’ git repository
+   options at this point. You can either clone this series' git repository
    or you can create and set up the maven project.
 
    Using the Git repository
@@ -249,7 +249,7 @@ Java - Setup and CRUD Operations
    .. blockquote::
 
       Note: If you see some warnings about an illegal reflective access from
-      ``guice.java``, it’s safe to ignore them. Guice is used by Maven and
+      ``guice.java``, it's safe to ignore them. Guice is used by Maven and
       needs an update. You can read more about it
       `here <https://github.com/google/guice/issues/1133>`_. These warnings
       will disappear in a future release of Guice and Maven.
@@ -324,7 +324,7 @@ Java - Setup and CRUD Operations
 
    .. blockquote::
 
-      Note: Don’t forget the double quotes around the MongoDB URI to avoid surprises from your shell.
+      Note: Don't forget the double quotes around the MongoDB URI to avoid surprises from your shell.
 
    The standard output should look like this:
 
@@ -349,7 +349,7 @@ Java - Setup and CRUD Operations
    In the setup part, we created the classes ``HelloMongoDB`` and
    ``Connection``. Now we will work on the ``Create`` class.
 
-   If you didn’t set up your free cluster on MongoDB Atlas, now is great
+   If you didn't set up your free cluster on MongoDB Atlas, now is great
    time to do so. You have all the instructions in this `blog
    post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`_.
 
@@ -358,7 +358,7 @@ Java - Setup and CRUD Operations
 
    In the sample dataset, you can find the database ``sample_training``,
    which contains a collection ``grades``. Each document in this collection
-   represents a student’s grades for a particular class.
+   represents a student's grades for a particular class.
 
    Here is the JSON representation of a document in the `Mongo
    Shell <https://docs.mongodb.com/manual/mongo/>`_.
@@ -443,9 +443,9 @@ Java - Setup and CRUD Operations
 
    We have 10,000 students (``student_id`` from 0 to 9999) already in this
    collection and each of them took 10 different classes which adds up to
-   100,000 documents in this collection. Let’s say a new student
+   100,000 documents in this collection. Let's say a new student
    (``student_id`` 10,000) just arrived in this university and received a
-   bunch of (random) grades in his first class. Let’s insert this new
+   bunch of (random) grades in his first class. Let's insert this new
    student using Java.
 
    In this university, the ``class_id`` varies from 0 to 500 so I can use
@@ -505,10 +505,10 @@ Java - Setup and CRUD Operations
    ``class_id`` and ``score`` are all doubles.
 
    Also, the Java driver would have generated the ``_id`` field with an
-   ObjectId for us if we didn’t explicitly create one here but it’s good
-   practise to set the ``_id`` ourselves. This won’t change our life right
+   ObjectId for us if we didn't explicitly create one here but it's good
+   practise to set the ``_id`` ourselves. This won't change our life right
    now but it makes more sense when we directly manipulate POJOs and we
-   want to create a clean REST API. I’m doing this in this `blog
+   want to create a clean REST API. I'm doing this in this `blog
    post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--mapping-pojos>`_.
 
    Insert Operation
@@ -634,7 +634,7 @@ Java - Setup and CRUD Operations
    But if you do things correctly, this should not have any impact in your
    code and logic as fields in a JSON documents are not ordered.
 
-   I’m quoting `json.org <http://json.org/>`_ for this:
+   I'm quoting `json.org <http://json.org/>`_ for this:
 
    .. blockquote::
 
@@ -643,7 +643,7 @@ Java - Setup and CRUD Operations
    Bulk Inserts
    ~~~~~~~~~~~~
 
-   Now that we know how to create one document, let’s learn how to insert
+   Now that we know how to create one document, let's learn how to insert
    many documents.
 
    Of course, we could just wrap the previous ``insert`` operation into a
@@ -656,14 +656,14 @@ Java - Setup and CRUD Operations
    the cluster and we want to receive only one insert acknowledgment for
    the entire list.
 
-   Let’s refactor the code. First, let’s make the random generator a
+   Let's refactor the code. First, let's make the random generator a
    ``private static final`` field.
 
    .. code-block:: java
 
       private static final Random rand = new Random();
 
-   Let’s make a grade factory method.
+   Let's make a grade factory method.
 
    .. code-block:: java
 
@@ -712,7 +712,7 @@ Java - Setup and CRUD Operations
    The Final Code To Insert Multiple Documents
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   Let’s refactor the code a bit and here is the final ``Create`` class.
+   Let's refactor the code a bit and here is the final ``Create`` class.
 
    .. code-block:: java
 
@@ -845,7 +845,7 @@ Java - Setup and CRUD Operations
    Read with a Filter
    ~~~~~~~~~~~~~~~~~~
 
-   Let’s read the document above. To achieve this, we will use the method
+   Let's read the document above. To achieve this, we will use the method
    ``find``.
 
    Please create a class ``Read`` in the ``com.mongodb.quickstart`` package
@@ -926,7 +926,7 @@ Java - Setup and CRUD Operations
    ~~~~~~~~~~~~~~~~~~~~~~~~~
 
    In the previous example, the benefit of these helpers is not obvious,
-   but let me show you another example where I’m searching all the grades
+   but let me show you another example where I'm searching all the grades
    with a *student_id* greater than or equal to 10,000.
 
    .. code-block:: java
@@ -936,7 +936,7 @@ Java - Setup and CRUD Operations
       // with the Filters.gte() helper
       gradesCollection.find(gte("student_id", 10000));
 
-   As you can see, I’m using the ``$gte`` operator to write this query. You
+   As you can see, I'm using the ``$gte`` operator to write this query. You
    can learn about all the different `query
    operators <https://docs.mongodb.com/manual/reference/operator/query/>`_
    in the MongoDB documentation.
@@ -999,7 +999,7 @@ Java - Setup and CRUD Operations
    and limit the number of documents in the output. This is very useful to
    implement pagination in your frontend for example.
 
-   Let’s combine everything we have learnt in one query:
+   Let's combine everything we have learnt in one query:
 
    .. code-block:: java
 
@@ -1094,7 +1094,7 @@ Java - Setup and CRUD Operations
    doing a sort in memory as the documents are already sorted “for free”
    and returned in the order of the index.
 
-   Also, we can see that we don’t have any *FETCH* stage so this is a
+   Also, we can see that we don't have any *FETCH* stage so this is a
    `covered
    query <https://docs.mongodb.com/manual/core/query-optimization/#covered-query>`_,
    the most efficient type of query you can run in MongoDB. Indeed, all the
@@ -1179,7 +1179,7 @@ Java - Setup and CRUD Operations
    Update One Document
    ~~~~~~~~~~~~~~~~~~~
 
-   Let’s edit the document with ``{student_id: 10000}``. To achieve this,
+   Let's edit the document with ``{student_id: 10000}``. To achieve this,
    we will use the method ``updateOne``.
 
    Please create a class ``Update`` in the ``com.mongodb.quickstart``
@@ -1288,13 +1288,13 @@ Java - Setup and CRUD Operations
 
    An upsert is a mix between an insert operation and an update one. It
    happens when you want to update a document, assuming it exists, but it
-   actually doesn’t exist yet in your database.
+   actually doesn't exist yet in your database.
 
    In MongoDB, you can set an option to create this document on the fly and
    carry on with your update operation: this is an upsert operation.
 
    In this example, I want to add a comment to the grades of my student
-   10002 for the class 10 but this document doesn’t exist yet.
+   10002 for the class 10 but this document doesn't exist yet.
 
    .. code-block:: java
 
@@ -1306,11 +1306,11 @@ Java - Setup and CRUD Operations
       System.out.println(updateResult);
       System.out.println(gradesCollection.find(filter).first().toJson(prettyPrint));
 
-   As you can see, I’m using the third parameter of the update operation to
+   As you can see, I'm using the third parameter of the update operation to
    set the option upsert to true.
 
-   I’m also using here the static method ``Updates.push()`` to push a new
-   value in my array ``comments`` which does not exist yet, so I’m creating
+   I'm also using here the static method ``Updates.push()`` to push a new
+   value in my array ``comments`` which does not exist yet, so I'm creating
    an array of one element in this case.
 
    This is the output we get:
@@ -1343,8 +1343,8 @@ Java - Setup and CRUD Operations
       System.out.println("\n=> Updating all the documents with {\"student_id\":10001}.");
       System.out.println(updateResult);
 
-   In this example, I’m using the same ``updateOperation`` as earlier, so
-   I’m creating a new one element array ``comments`` in these 10 documents.
+   In this example, I'm using the same ``updateOperation`` as earlier, so
+   I'm creating a new one element array ``comments`` in these 10 documents.
 
    Here is the output:
 
@@ -1463,7 +1463,7 @@ Java - Setup and CRUD Operations
    -  ``inc`` will increment a value,
    -  ``rename`` will rename a field,
    -  ``mul`` will multiply the value by the given number,
-   -  ``addToSet`` is similar to push but will only push the value in the array if the value doesn’t exist already.
+   -  ``addToSet`` is similar to push but will only push the value in the array if the value doesn't exist already.
 
    There are a few other update operators. You can consult the entire list
    in our
@@ -1557,7 +1557,7 @@ Java - Setup and CRUD Operations
    Delete One Document
    ~~~~~~~~~~~~~~~~~~~
 
-   Let’s delete the document above. To achieve this, we will use the method
+   Let's delete the document above. To achieve this, we will use the method
    ``deleteOne``.
 
    Please create a class ``Delete`` in the ``com.mongodb.quickstart``
@@ -1624,7 +1624,7 @@ Java - Setup and CRUD Operations
    ~~~~~~~~~~~~~~~~~~
 
    You are emotionally attached to your document and you want a chance to
-   see it one last time before it’s too late? We have what you need.
+   see it one last time before it's too late? We have what you need.
 
    The method ``findOneAndDelete()`` allows you to retrieve a document and
    delete it in a single atomic operation.

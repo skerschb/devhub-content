@@ -43,13 +43,13 @@ Capture IOT Data With MongoDB Stitch in 5 Minutes
   - We have to deal with a huge amount of data so we need a rock solid architecture.
   - While keeping a bulletproof security level.
 
-  First, let’s have a look at a standard IOT capture architecture:
+  First, let's have a look at a standard IOT capture architecture:
 
   .. image:: /images/how-to/iot_00-bstfa0fkxb.png
 
-  On the left, we have our sensors. Let’s assume they can push data every
+  On the left, we have our sensors. Let's assume they can push data every
   second over TCP using a
-  `POST <https://en.wikipedia.org/wiki/POST_(HTTP)>`_ and let’s suppose
+  `POST <https://en.wikipedia.org/wiki/POST_(HTTP)>`_ and let's suppose
   we have a million of them. We need an architecture capable to handle a
   million queries per seconds and able to resist any kind of network or
   hardware failure. TCP queries need to be distributed evenly to the
@@ -72,7 +72,7 @@ Capture IOT Data With MongoDB Stitch in 5 Minutes
   This kind of architecture is expensive and maintenance cost can be quite
   high as well.
 
-  Now let’s solve this same problem with MongoDB Stitch!
+  Now let's solve this same problem with MongoDB Stitch!
 
   .. image:: /images/how-to/Iot_01-xs1xezu0vb.png
 
@@ -96,7 +96,7 @@ Capture IOT Data With MongoDB Stitch in 5 Minutes
       });
     };
 
-  And that’s it! That’s all we need! Our HTTP POST service can be reached
+  And that's it! That's all we need! Our HTTP POST service can be reached
   directly by the sensors from the webhook provided by MongoDB Stitch like
   so:
 

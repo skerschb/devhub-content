@@ -51,13 +51,13 @@ Getting Your Free MongoDB Atlas Cluster
 
    **You probably already know that MongoDB Atlas is MongoDB as a service
    in the public cloud of your choice but did you know we also offer a free
-   forever cluster? In this Quick Start, we’ll show you why you should get
+   forever cluster? In this Quick Start, we'll show you why you should get
    one and how to create one.**
 
 .. content::
    
-   MongoDB Atlas’s Free Tier clusters - which are also known as M0
-   Sandboxes - are limited to only 512MB of storage but it’s more than
+   MongoDB Atlas's Free Tier clusters - which are also known as M0
+   Sandboxes - are limited to only 512MB of storage but it's more than
    enough for a pet project or to learn about MongoDB with our `free
    MongoDB University <http://bit.ly/mongodbuniversity>`_ courses.
    
@@ -66,7 +66,7 @@ Getting Your Free MongoDB Atlas Cluster
    five on Azure, and four on Google Cloud Platform.
    
    In this tutorial video, I will show you `how to create an
-   account <http://bit.ly/mdb-atlas>`_. Then I’ll show you how to create
+   account <http://bit.ly/mdb-atlas>`_. Then I'll show you how to create
    your first 3 node cluster and populate it with sample data.
    
    .. youtube:: rPqRyYJmx2g

@@ -49,7 +49,7 @@ Calling the MongoDB Atlas API - How to do it from Node, Python, and Ruby
    API <https://docs.atlas.mongodb.com/api/>`_ is relatively simple and,
    once unlocked, it opens up a massive opportunity to integrate and
    automate the management of database deployments from creation to
-   deletion. The API itself is an extensive REST API, there’s role-based
+   deletion. The API itself is an extensive REST API, there's role-based
    access control and you can have `user or app-specific
    credentials <https://docs.atlas.mongodb.com/configure-api-access/>`_ to
    access it.
@@ -62,8 +62,8 @@ Calling the MongoDB Atlas API - How to do it from Node, Python, and Ruby
    client then sends an encrypted form of the username and password as a
    digest and the server works with that.
 
-   And that’s why we are here today, to show you how to do that with the
-   least fuss in Python, Node, and Ruby. In each example, we’ll try and
+   And that's why we are here today, to show you how to do that with the
+   least fuss in Python, Node, and Ruby. In each example, we'll try and
    access the base URL of the Atlas API which returns a JSON document about
    the underlying applications name, build and other facts.
 
@@ -88,7 +88,7 @@ Calling the MongoDB Atlas API - How to do it from Node, Python, and Ruby
 
    In the Python version, we lean on the ``requests`` library for most of
    the heavy lifting. As well as importing ``requests`` we also bring in
-   ``HTTPDigestAuth`` from requests’ ``auth`` module to handle digest
+   ``HTTPDigestAuth`` from requests' ``auth`` module to handle digest
    authentication. The ``os`` import is just there so we can get the
    environment variables ``ATLAS_USER`` and ``ATLAS_USER_KEY`` as
    credentials and the ``pprint`` import is just to format our results.
@@ -108,7 +108,7 @@ Calling the MongoDB Atlas API - How to do it from Node, Python, and Ruby
    -------
 
    For Node.js, it is a matter of finding a package which does HTTP
-   fetching with digest authentication. There’s a whole ecosystem of
+   fetching with digest authentication. There's a whole ecosystem of
    packages out there and one that we found that worked was
    `digest-fetch <https://www.npmjs.com/package/digest-fetch>`_ which
    wraps the very popular
@@ -140,12 +140,12 @@ Calling the MongoDB Atlas API - How to do it from Node, Python, and Ruby
       .then(json => console.log(JSON.stringify(json,null," ")));
 
    Taking it from the top… We first require and import the digest-fetch
-   package. It’ll pull in the other needed packages. Then we create our
+   package. It'll pull in the other needed packages. Then we create our
    DigestFetch client, giving it the user and key values from the
-   environment and an empty set of options. After setting the API’s URL
-   base value we then processed to ``client.fetch()`` from it. We’re using
+   environment and an empty set of options. After setting the API's URL
+   base value we then processed to ``client.fetch()`` from it. We're using
    promises and so the next two ``thens`` see the data converted to JSON
-   and then pretty-printed on the console. And we’re ready to run:
+   and then pretty-printed on the console. And we're ready to run:
 
    .. figure:: /images/how-to/atlasnode-8rd944aaw7.png
       :alt: Calling Atlas from Node
@@ -160,7 +160,7 @@ Calling the MongoDB Atlas API - How to do it from Node, Python, and Ruby
    authentication so, first up, ``gem install httparty`` to get the party
    started. There are two ways to use HTTParty, one is creating an object
    which abstracts the calls away while the other is just directly calling
-   methods on HTTParty itself. For brevity, we’ll do the latter. Here’s the
+   methods on HTTParty itself. For brevity, we'll do the latter. Here's the
    code:
 
    .. code-block:: auto
@@ -176,8 +176,8 @@ Calling the MongoDB Atlas API - How to do it from Node, Python, and Ruby
       pp JSON.parse(result.body())
 
    We require in the HTTParty and json gems first. We then create a
-   dictionary with our username and key, mapped for HTTParty’s
-   authentication and set a variable to hold the base URL. We’re ready to
+   dictionary with our username and key, mapped for HTTParty's
+   authentication and set a variable to hold the base URL. We're ready to
    do our get now, and in the options - the second parameter of the get -
    we pass ``:digest_auth=>auth`` to switch on the digest support. We wrap
    up by JSON parsing the resulting body and pretty printing that. Put it

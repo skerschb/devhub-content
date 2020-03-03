@@ -62,10 +62,10 @@ h1 Article Title
 
 .. introduction::
 
-   Capture the reader’s attention. An interesting fact or data point,
+   Capture the reader's attention. An interesting fact or data point,
    empathy, engaging.
    
-   Offer the reason for the post’s existence. What’s the purpose of the
+   Offer the reason for the post's existence. What's the purpose of the
    post?  What problem is the post going to address?
 
    Explain how this content will address the problem 

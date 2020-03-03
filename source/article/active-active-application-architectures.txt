@@ -139,10 +139,10 @@ Active-Active Application Architectures with MongoDB
     behave in the predictable and deterministic way users expect. 
     
     To address
-    the multi-master misconception, let’s start by looking at the various
+    the multi-master misconception, let's start by looking at the various
     database architectures that could be used to achieve an active-active
     application, and the pros and cons of each. Once we have done this, we
-    will drill into MongoDB’s architecture and look at how it can be used to
+    will drill into MongoDB's architecture and look at how it can be used to
     deploy an Active-Active application architecture.
 
     Database Requirements for Active-Active Applications
@@ -171,10 +171,10 @@ Active-Active Application Architectures with MongoDB
     for any database to completely satisfy all these requirements at the
     same time, so the important consideration for any engineering team
     building an application is to understand the tradeoffs made by each
-    database and selecting the one that provides for the application’s most
+    database and selecting the one that provides for the application's most
     critical requirements. 
     
-    Let’s look at each of these requirements in more
+    Let's look at each of these requirements in more
     detail.
 
     Performance
@@ -246,7 +246,7 @@ Active-Active Application Architectures with MongoDB
     Most distributed databases will provide consistency guarantees between
     eventual and causal consistency. The closer to causal consistency the
     more an application will behave as users expect, e.g.,queries will
-    return the values of previous writes, data won’t appear to be lost, and
+    return the values of previous writes, data won't appear to be lost, and
     data values will not change in non-deterministic ways.
 
     Availability
@@ -275,7 +275,7 @@ Active-Active Application Architectures with MongoDB
     #. Partitioned (sharded) database with multiple primaries each
        responsible for a unique partition of the data
 
-    Let’s look at each of these options in more detail, as well as the pros
+    Let's look at each of these options in more detail, as well as the pros
     and cons of each.
 
     Distributed Transactions with Two-Phase Commit
@@ -327,7 +327,7 @@ Active-Active Application Architectures with MongoDB
     for the time between the writes being applied and the completion of the
     conflict resolution mechanism. 
     
-    For example, let’s assume we are using a
+    For example, let's assume we are using a
     multi-master database as the persistence store for a shopping cart
     application and this application is deployed in two data centers: East
     and West. At roughly the same time, a user in San Francisco adds an item
@@ -345,7 +345,7 @@ Active-Active Application Architectures with MongoDB
     by multi-master databases (last update wins or most updated wins), it is
     impossible for the user or application to predict which version will be
     selected. In either case, data is lost and unexpected behavior occurs.
-    If the East version is selected, then the user’s selection of a
+    If the East version is selected, then the user's selection of a
     flashlight is lost and if the West version is selected, the the game
     console is still in the cart. Either way, information is lost. Finally,
     any other process inspecting the shopping cart between times 1 and 2 is
@@ -373,7 +373,7 @@ Active-Active Application Architectures with MongoDB
 
     A partitioned database divides the database into partitions, called
     shards. Each shard is implemented by a set of servers each of which
-    contains a complete copy of the partition’s data. What is key here is
+    contains a complete copy of the partition's data. What is key here is
     that each shard maintains exclusive control of its partition of the
     data. At any given time, for each shard, one server acts as the primary
     and the other servers act as secondary replicas. Reads and writes are
@@ -383,7 +383,7 @@ Active-Active Application Architectures with MongoDB
     
     Each record in
     the database belongs to a specific partition, and is managed by exactly
-    one shard, ensuring that it can only be written to the shard’s primary.
+    one shard, ensuring that it can only be written to the shard's primary.
     The mapping of records to shards and the existence of exactly one
     primary per shard ensures consistency. Since the cluster contains
     multiple shards, and hence multiple primaries (multiple masters), these
@@ -433,8 +433,8 @@ Active-Active Application Architectures with MongoDB
     traffic for West Coast users to the Oregon data center, which contains
     the primary for the Western shard. 
     
-    Let’s revisit the shopping cart
-    example using a sharded database. Again, let’s assume two data centers:
+    Let's revisit the shopping cart
+    example using a sharded database. Again, let's assume two data centers:
     East and West. For this implementation, we would shard (partition) the
     shopping carts by their shopping card ID plus a data center field
     identifying the data center in which the shopping cart was created. The
@@ -450,10 +450,10 @@ Active-Active Application Architectures with MongoDB
       Figure 6 - Shard key partitioning for shopping cart example
 
     This design assumes that there is some external process routing traffic
-    to the correct data center. When a new cart is created, the user’s
+    to the correct data center. When a new cart is created, the user's
     session will be routed to the geographically closest data center and
     then assigned a DataCenter value for that data center. For an existing
-    cart, the router can use the cart’s DataCenter field to identify the
+    cart, the router can use the cart's DataCenter field to identify the
     correct data center. 
     
     From this example, we can see that the sharded
@@ -540,13 +540,13 @@ Active-Active Application Architectures with MongoDB
     or primary elections, , therefore significantly simplifying application
     code. 
     
-    The speed of MongoDB’s automated failover is another
+    The speed of MongoDB's automated failover is another
     distinguishing feature that makes MongoDB ideally suited for multi-data
     center deployments. MongoDB is able to failover in 2-5 seconds
     (depending upon configuration and network reliability), when a node or
     data center fails or network split occurs. (Note, secondary reads can
     continue during the failover period.) After a failure occurs, the
-    remaining replica set members will elect a new primary and MongoDB’s
+    remaining replica set members will elect a new primary and MongoDB's
     driver, upon which most applications are built, will automatically
     identify this new primary. The recovery process is automatic and writes
     continue after the failover process completes. 
@@ -556,7 +556,7 @@ Active-Active Application Architectures with MongoDB
     consistency. First, when reading from secondaries, an application can
     specify a maximum staleness value
     (`maxStalenessSeconds <https://docs.mongodb.com/manual/core/read-preference/#maxstalenessseconds>`_).
-    This ensures that the secondary’s replication lag from the primary
+    This ensures that the secondary's replication lag from the primary
     cannot be greater than the specified duration, and thus, guarantees the
     currentness of the data being returned by the secondary. In addition, a
     read can also be associated with a

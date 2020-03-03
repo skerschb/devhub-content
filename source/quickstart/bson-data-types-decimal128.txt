@@ -55,7 +55,7 @@ Quick Start: BSON Data Types - Decimal128
 
    Think back to when you were first introduced to the concept of decimals
    in numerical calculations. Doing math problems along the lines of 3.231
-   / 1.28 caused problems when starting out because 1.28 doesn’t go into
+   / 1.28 caused problems when starting out because 1.28 doesn't go into
    3.231 evenly. This causes a long string of numbers to be created to
    provide a more precise answer. In programming languages, we must choose
    which number format is correct depending on the amount of precision we
@@ -115,12 +115,12 @@ Quick Start: BSON Data Types - Decimal128
       0.020000000000000004
 
    The same computations in Python, Ruby, Rust, and others produce the same
-   results. What’s going on here? Are these languages just bad at math? Not
-   really, binary floating-point numbers just aren’t great at representing
+   results. What's going on here? Are these languages just bad at math? Not
+   really, binary floating-point numbers just aren't great at representing
    base 10 values. For example, the ``0.1`` used in the above examples is
    represented in binary as ``0.0001100110011001101``.
 
-   For many situations, this isn’t a huge issue. However, in monetary
+   For many situations, this isn't a huge issue. However, in monetary
    applications precision is very important. Who remembers the `half-cent
    issue from Superman
    III <https://www.youtube.com/watch?v=iLw9OBV7HYA>`_? When precision and
@@ -159,7 +159,7 @@ Quick Start: BSON Data Types - Decimal128
       NumberDecimal("1234.50000000000")
 
    Another consideration, beyond simply the usage in MongoDB, is the usage
-   and support your programming has for decimal128. Many languages don’t
+   and support your programming has for decimal128. Many languages don't
    natively support this feature and will require a plugin or additional
    package to get the functionality. Some examples…
 
@@ -189,7 +189,7 @@ Quick Start: BSON Data Types - Decimal128
    The ``decimal128`` field came about in August 2009 as part of the `IEEE
    754-2008 <https://en.wikipedia.org/wiki/IEEE_754-2008_revision>`_
    revision of floating points. MongoDB 3.4 is when support for decimal128
-   first appeared and to use the ``decimal`` data type with MongoDB, you’ll
+   first appeared and to use the ``decimal`` data type with MongoDB, you'll
    want to make sure you `use a
    driver <https://docs.mongodb.com/ecosystem/drivers/>`_ version that
    supports this great feature. Decimal128 is great for huge (or very tiny)

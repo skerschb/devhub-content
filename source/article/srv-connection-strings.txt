@@ -168,7 +168,7 @@ MongoDB 3.6: Here to SRV you with easier replica set connections
     complexity of the cluster and its configuration parameters are stored in
     the DNS server and hidden from the end user. If a node's IP address or
     name changes or we want to change the replica set name, this can all now
-    be done completely transparently from the client’s perspective. We can
+    be done completely transparently from the client's perspective. We can
     also add and remove nodes from a cluster without impacting clients. 
     
     So now whenever you see ``mongodb+srv`` you know you are expecting a

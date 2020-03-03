@@ -48,7 +48,7 @@ Stitch Triggers Get Scheduled
 
    The Scheduled Stitch Trigger can be set to trigger on a flexible
    interval across minutes, hours, days or weeks. If you have more complex
-   scheduling in mind, there’s an advanced option which uses `CRON style
+   scheduling in mind, there's an advanced option which uses `CRON style
    syntax <https://docs.mongodb.com/stitch/triggers/cron-expressions>`_ to
    give flexible yet precise repetition options.
 
@@ -58,7 +58,7 @@ Stitch Triggers Get Scheduled
    interact with MongoDB and other configured services. Functions are
    written in standard JavaScript and can run up to 60 seconds (with the
    ability to call services like AWS Lambda or Step Functions for longer
-   runtimes). That’s basically everything you need to work with your data
+   runtimes). That's basically everything you need to work with your data
    and services.
 
    And if you want to see how quick it is to set a scheduled trigger and

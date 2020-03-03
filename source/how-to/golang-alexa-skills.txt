@@ -43,13 +43,13 @@ Developing Alexa Skills with MongoDB and Golang
     The popularity of `Amazon
     Alexa <https://developer.amazon.com/en-US/alexa>`_ and virtual
     assistants in general is no question, huge. Having a web application and
-    mobile application isn’t enough for most organizations anymore, and now
+    mobile application isn't enough for most organizations anymore, and now
     you need to start supporting voice operated applications.
 
     So what does it take to create something for Alexa? How different is it
     from creating a web application?
 
-    In this tutorial we’re going to see how to create an Amazon Alexa Skill,
+    In this tutorial we're going to see how to create an Amazon Alexa Skill,
     also referred to as an Alexa application, that interacts with a MongoDB
     cluster using the Go programming language (Golang) and AWS Lambda.
 
@@ -64,7 +64,7 @@ Developing Alexa Skills with MongoDB and Golang
     - Golang must be installed and configured
     - A MongoDB Atlas cluster
 
-    If you don’t have a `MongoDB Atlas <https://www.mongodb.com/cloud>`_
+    If you don't have a `MongoDB Atlas <https://www.mongodb.com/cloud>`_
     cluster, you can configure one for free. For this example an M0 cluster
     is more than sufficient.
 
@@ -85,13 +85,13 @@ Developing Alexa Skills with MongoDB and Golang
     Designing an Alexa Skill with an Invocation Term and Sample Utterances
     ----------------------------------------------------------------------
 
-    When it comes to building an Alexa Skill, it doesn’t matter if you start
-    with the code or the design. For this tutorial we’re going to start with
+    When it comes to building an Alexa Skill, it doesn't matter if you start
+    with the code or the design. For this tutorial we're going to start with
     the design, directly in the `Amazon Developer
     Portal <https://developer.amazon.com>`_ for Alexa.
 
     Sign into the portal and choose to create a new custom Skill. After
-    creating the Skill, you’ll be brought to a dashboard with several
+    creating the Skill, you'll be brought to a dashboard with several
     checklist items:
 
     .. figure:: /images/how-to/amazon-alexa-portal-j4mv42a9lt.png
@@ -111,7 +111,7 @@ Developing Alexa Skills with MongoDB and Golang
     be confused with the Skill name because the two do not need to match.
     The Skill name is what would appear in the online marketplace.
 
-    For our invocation name, let’s use **recipe manager**, something that is
+    For our invocation name, let's use **recipe manager**, something that is
     easy to remember and easy to pronounce. With the invocation name in
     place, we can anticipate using our Skill like the following:
 
@@ -124,7 +124,7 @@ Developing Alexa Skills with MongoDB and Golang
     known as sample phrases or data. You can, and probably should, have
     multiple intents for your Skill.
 
-    Let’s start by creating an intent titled
+    Let's start by creating an intent titled
     **GetIngredientsForRecipeIntent** with the following sample utterances:
 
     .. code-block:: none
@@ -150,7 +150,7 @@ Developing Alexa Skills with MongoDB and Golang
 
         Alexa, ask Recipe Manager what do I need to cook Chocolate Chip Cookies
 
-    Having one intent in your Alexa Skill is no fun, so let’s create another
+    Having one intent in your Alexa Skill is no fun, so let's create another
     intent with its own set of sample phrases. Choose to create a new intent
     titled ``GetRecipeFromIngredientsIntent`` with the following sample
     utterances:
@@ -161,13 +161,13 @@ Developing Alexa Skills with MongoDB and Golang
         what are some recipes with {ingredientone} and {ingredienttwo}
         if i have {ingredientone} and {ingredienttwo} what can i cook
 
-    This time around we’re using two slot variables instead of one. Like
+    This time around we're using two slot variables instead of one. Like
     previously mentioned, it is probably a good idea to add significantly
     more sample utterances to get the best results. Alexa needs to be able
     to process the data to send to your Lambda function.
 
     At this point in time, the configuration in the Alexa Developer Portal
-    is about complete. The exception being the endpoint which doesn’t exist
+    is about complete. The exception being the endpoint which doesn't exist
     yet.
 
     Building a Lambda Function with Golang and MongoDB
@@ -200,10 +200,10 @@ Developing Alexa Skills with MongoDB and Golang
         dep init
         dep ensure -add "go.mongodb.org/mongo-driver/mongo"
 
-    We’re using ``dep`` so that way the version of the driver that we’re
+    We're using ``dep`` so that way the version of the driver that we're
     using in our project is version locked.
 
-    In addition to the MongoDB Go driver, we’re also going to need to get
+    In addition to the MongoDB Go driver, we're also going to need to get
     the `AWS Lambda SDK for Go <https://github.com/aws/aws-lambda-go>`_ as
     well as an `unofficial SDK for
     Alexa <https://github.com/arienmalec/alexa-go>`_, since no official SDK
@@ -214,7 +214,7 @@ Developing Alexa Skills with MongoDB and Golang
         dep ensure -add "github.com/arienmalec/alexa-go"
         dep ensure -add "github.com/aws/aws-lambda-go/lambda"
 
-    With the dependencies available to us, we can modify the project’s
+    With the dependencies available to us, we can modify the project's
     **main.go** file. Open the file and add the following code:
 
     .. code-block:: go
@@ -249,13 +249,13 @@ Developing Alexa Skills with MongoDB and Golang
         }
 
     In the ``main`` function we are creating a client using the connection
-    string of our cluster. In this case, I’m using an environment variable
+    string of our cluster. In this case, I'm using an environment variable
     on my computer that points to my MongoDB Atlas cluster. Feel free to
     configure that connection string however you feel the most confident.
 
     Upon connecting, we are getting a handle of a ``recipes`` collection for
     an ``alexa`` database and storing it in a ``Connection`` data structure.
-    Because we won’t be writing any data in this example, both the ``alexa``
+    Because we won't be writing any data in this example, both the ``alexa``
     database and the ``recipes`` collection should exist prior to running
     this application.
 
@@ -272,11 +272,11 @@ Developing Alexa Skills with MongoDB and Golang
     remaining alive for as long as your server remains alive, Lambda
     functions tend to suspend or shutdown when they are not used. For this
     reason, we cannot rely on our connection being available and we also
-    don’t want to establish too many connections to our database in the
-    scenario where our function hasn’t shut down. To handle this, we can
+    don't want to establish too many connections to our database in the
+    scenario where our function hasn't shut down. To handle this, we can
     pass the connection from our ``main`` function to our logic function.
 
-    Let’s make a change to see this in action:
+    Let's make a change to see this in action:
 
     .. code-block:: go
 
@@ -317,17 +317,17 @@ Developing Alexa Skills with MongoDB and Golang
             lambda.Start(connection.IntentDispatcher)
         }
 
-    Notice in the above code that we’ve added a ``lambda.Start`` call in our
-    ``main`` function that points to an ``IntentDispatcher`` function. We’re
+    Notice in the above code that we've added a ``lambda.Start`` call in our
+    ``main`` function that points to an ``IntentDispatcher`` function. We're
     designing this function to use the connection information established in
     the ``main`` function, which based on our Lambda knowledge, may not run
     every time the function is executed.
 
-    So we’ve got the foundation to our Alexa Skill in place. Now we need to
+    So we've got the foundation to our Alexa Skill in place. Now we need to
     design the logic for each of our intents that were previously defined in
     the Alexa Developer Portal.
 
-    Since this is going to be a recipe related Skill, let’s model our
+    Since this is going to be a recipe related Skill, let's model our
     MongoDB documents like the following:
 
     .. code-block:: json
@@ -345,7 +345,7 @@ Developing Alexa Skills with MongoDB and Golang
 
     There is no doubt that our documents could be more extravagant, but for
     this example it will work out fine. Within the MongoDB Atlas cluster,
-    create the **alexa** database if it doesn’t already exist and add a
+    create the **alexa** database if it doesn't already exist and add a
     document modeled like the above in a **recipes** collection.
 
     In the ``main.go`` file of the project, add the following data
@@ -364,7 +364,7 @@ Developing Alexa Skills with MongoDB and Golang
     so that way we can easily map between the two. It essentially makes our
     lives a lot easier when working with MongoDB and Go.
 
-    Let’s circle back to the ``IntentDispatcher`` function:
+    Let's circle back to the ``IntentDispatcher`` function:
 
     .. code-block:: go
 
@@ -382,10 +382,10 @@ Developing Alexa Skills with MongoDB and Golang
     Remember the two intents from the Alexa Developer Portal? We need to
     assign logic to them.
 
-    Essentially, we’re going to do some database logic and then use the
+    Essentially, we're going to do some database logic and then use the
     ``NewSimpleResponse`` function to create a response the the results.
 
-    Let’s start with the ``GetIngredientsForRecipeIntent`` logic:
+    Let's start with the ``GetIngredientsForRecipeIntent`` logic:
 
     .. code-block:: go
 
@@ -409,7 +409,7 @@ Developing Alexa Skills with MongoDB and Golang
     string and are returning it back to Alexa. In theory, Alexa should then
     read back the comma separated list of ingredients.
 
-    Now let’s take a look at the ``GetRecipeFromIngredientsIntent`` intent
+    Now let's take a look at the ``GetRecipeFromIngredientsIntent`` intent
     logic:
 
     .. code-block:: go
@@ -445,14 +445,14 @@ Developing Alexa Skills with MongoDB and Golang
     recipe names and serialize it to a string to be returned as part of the
     Alexa response.
 
-    If you’d like more information on the ``Find`` and ``FindOne`` commands
+    If you'd like more information on the ``Find`` and ``FindOne`` commands
     for Go and MongoDB, check out my `previous
     tutorial <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-read-documents>`_
     on the subject.
 
     While it might seem simple, the code for the Alexa Skill is actually
-    complete. We’ve coded scenarios for each of the two intents that we’ve
-    set up in the Alexa Developer Portal. We could improve upon what we’ve
+    complete. We've coded scenarios for each of the two intents that we've
+    set up in the Alexa Developer Portal. We could improve upon what we've
     done or create more intents, but it is out of the scope of what we want
     to accomplish.
 
@@ -465,10 +465,10 @@ Developing Alexa Skills with MongoDB and Golang
         GOOS=linux go build
         zip handler.zip ./project-name
 
-    So what’s happening in the above commands? First we are building a Linux
-    compatible binary. We’re doing this because if you’re developing on Mac
-    or Windows, you’re going to end up with a binary that is incompatible.
-    By defining the operating system, we’re telling Go what to build for.
+    So what's happening in the above commands? First we are building a Linux
+    compatible binary. We're doing this because if you're developing on Mac
+    or Windows, you're going to end up with a binary that is incompatible.
+    By defining the operating system, we're telling Go what to build for.
 
     For more information on cross-compiling with Go, check out my `previous
     tutorial <https://www.thepolyglotdeveloper.com/2017/04/cross-compiling-golang-applications-raspberry-pi/>`_
@@ -502,7 +502,7 @@ Developing Alexa Skills with MongoDB and Golang
     that Amazon offers as part of the Alexa Developer Portal. This simulator
     can be accessed using the **Test** tab within the portal.
 
-    If you’ve used the same sample utterances that I have, you can try
+    If you've used the same sample utterances that I have, you can try
     entering something like this:
 
     .. code-block:: none
@@ -521,13 +521,13 @@ Developing Alexa Skills with MongoDB and Golang
     `MongoDB <https://www.mongodb.com>`_, Golang, and AWS Lambda. Knowing
     how to develop applications for voice assistants like Alexa is great
     because they are becoming increasingly popular, and the good news is
-    that they aren’t any more difficult than writing standard applications.
+    that they aren't any more difficult than writing standard applications.
 
     As previously mentioned, MongoDB Atlas makes pairing MongoDB with Lambda
     and Alexa very convenient. You can use the free tier or upgrade to
     something better with some promotional credits using coupon NICRABOY200.
 
-    If you’d like to expand your Alexa with Go knowledge and get more
+    If you'd like to expand your Alexa with Go knowledge and get more
     practice, check out a previous tutorial I wrote titled `Build an Alexa
     Skill with Golang and AWS
     Lambda <https://www.thepolyglotdeveloper.com/2018/10/build-alexa-skill-golang-aws-lambda/>`_.
