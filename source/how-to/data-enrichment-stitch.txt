@@ -29,8 +29,6 @@
 
 .. level:: beginner
 
-.. atf-image:: /images/stitch_movies_document_example.png
-
 .. tags::
 
    * Technical
@@ -43,6 +41,8 @@
 
    * Stitch
    * Atlas
+
+.. atf-image:: /images/atf-images/quickstart/stitch-triggers.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT

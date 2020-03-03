@@ -13,17 +13,16 @@
 
 .. include:: /includes/authors/raboy-nic.rst
 
-.. atf-image:: /images/atf-images/quickstart/golang.png
+.. pubdate:: January 30, 2020
+
+.. type:: how-to
+
+.. level:: beginner
 
 .. tags::
 
     * go
     * aws
-
-.. pubdate:: January 30, 2020
-
-.. type:: how-to
-.. level:: beginner
 
 .. languages::
 
@@ -32,6 +31,8 @@
 .. products::
 
     * MongoDB Atlas
+
+.. atf-image:: /images/atf-images/quickstart/golang.png
 
 ===============================================
 Developing Alexa Skills with MongoDB and Golang

@@ -37,7 +37,7 @@
 
    * MongoDB
 
-.. atf-image:: /images/hero-developer.jpg
+.. atf-image:: /images/atf-images/illustrations/productivity.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
@@ -50,7 +50,7 @@ MongoDB & Data Streaming – Implementing a MongoDB Kafka Consumer
 .. content::
 
     Data Streaming
-    ~~~~~~~~~~~~~~
+    --------------
 
     In today's data landscape, no single system can provide all of the
     required perspectives to deliver real insight. Deriving the full meaning
@@ -72,11 +72,11 @@ MongoDB & Data Streaming – Implementing a MongoDB Kafka Consumer
     MongoDB as a source (producer) and destination (consumer) for the
     streamed data. A more complete study of this topic can be found in the
     `Data Streaming with Kafka &
-    MongoDB <https://www.mongodb.com/collateral/data-streaming-with-apache-kafka-and-mongodb>`__
+    MongoDB <https://www.mongodb.com/collateral/data-streaming-with-apache-kafka-and-mongodb>`_
     white paper.
 
     Apache Kafka
-    ~~~~~~~~~~~~
+    ------------
 
     Kafka provides a flexible, scalable, and reliable method to communicate
     streams of event data from one or more **producers** to one or more
@@ -105,7 +105,7 @@ MongoDB & Data Streaming – Implementing a MongoDB Kafka Consumer
     *Figure 1: Kafka Producers, Consumers, Topics, and Partitions*
 
     MongoDB As A Kafka Consumer – A Java Example
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    --------------------------------------------
 
     In order to use MongoDB as a Kafka consumer, the received events must be
     converted into BSON documents before they are stored in the database. In
@@ -216,7 +216,7 @@ MongoDB & Data Streaming – Implementing a MongoDB Kafka Consumer
         ...
 
     Full Java Code for MongoDB Kafka Consumer
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     **Business Object –** ``Fish.java``
 
@@ -751,10 +751,10 @@ MongoDB & Data Streaming – Implementing a MongoDB Kafka Consumer
     command.
 
     Next Steps
-    ~~~~~~~~~~
+    ----------
 
     To learn much more about data streaming and how MongoDB fits in
     (including Apache Kafka and competing and complementary technologies)
     read the `Data Streaming with Kafka &
-    MongoDB <https://www.mongodb.com/collateral/data-streaming-with-apache-kafka-and-mongodb>`__
+    MongoDB <https://www.mongodb.com/collateral/data-streaming-with-apache-kafka-and-mongodb>`_
     white paper.

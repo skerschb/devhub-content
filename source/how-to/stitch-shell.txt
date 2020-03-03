@@ -44,15 +44,15 @@
    * Stitch
    * Atlas
 
-.. atf-image:: /images/MongoDB_Wire_Protocol.png
+.. atf-image:: /images/atf-images/quickstart/stitch-triggers.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
 
-================
+===================================================================================
 Working with MongoDB Stitch Through the mongo Shell – MongoDB Wire Protocol Support
-================
+===================================================================================
 
 .. content::
    The `Stitch SDK <https://docs.mongodb.com/stitch/client-sdks/>`_ is the

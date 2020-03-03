@@ -1,3 +1,5 @@
 .. author:: 
    :name: Robert Walters
+   :image: /images/bios/bio-robert-walters.jpg
 
+   Robert Walters is currently on the content marketing team at MongoDB. Spending the past 4 years at MongoDB, Rob started as a Solution Architect helping customers design solutions that leverage the MongoDB data platform. Previous to MongoDB Rob spent 17 years at Microsoft working in various roles including program management on the SQL Server team, consulting, and technical pre-sales. Rob has co-authored three patents for technologies used within SQL Server and was the lead author of several technical books on SQL Server. Rob is currently an active blogger on MongoDB Blogs. When not thinking about MongoDB, Rob provides fire suppression and emergency medical care as an on-call Firefighter and EMT for his local community.

@@ -34,6 +34,8 @@
  
    * MongoDB Atlas
 
+.. atf-image:: /images/atf-images/quickstart/nodejs.png
+
 ========================================================================
 Calling the MongoDB Atlas API - How to do it from Node, Python, and Ruby
 ========================================================================

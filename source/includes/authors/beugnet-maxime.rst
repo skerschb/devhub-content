@@ -1,6 +1,6 @@
 .. author::
    :name: Maxime Beugnet
-   :image: /images/bio-maxime.jpg
+   :image: /images/bios/bio-maxime.jpg
 
    Maxime has been working with MongoDB for the past 5 years and in the
    IT industry for 8 years. He is a MongoDB and Java trainer, with DEV

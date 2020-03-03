@@ -1,6 +1,6 @@
 .. author:: 
    :name: Lauren Schaefer
-   :image: /images/bio-lauren.jpg
+   :image: /images/bios/bio-lauren.jpg
    
    Lauren Hayward Schaefer is a developer advocate for MongoDB. She began her career as a software 
    engineer for IBM where she held a variety of roles including full-stack developer, test 

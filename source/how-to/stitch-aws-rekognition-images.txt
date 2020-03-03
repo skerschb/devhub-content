@@ -42,15 +42,15 @@
 
    * Stitch
 
-.. .. atf-image:: /img/heros/how-to-write-an-article.png
+.. atf-image:: /images/atf-images/quickstart/stitch-triggers.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
 
-================
+=====================================================================
 Using AWS Rekognition to Analyse and Tag Uploaded Images Using Stitch
-================
+=====================================================================
 
 .. content::
 

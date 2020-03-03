@@ -50,23 +50,23 @@ MongoDB 3.6: Here to SRV you with easier replica set connections
 
 .. content::
 
-    If you have logged into `MongoDB Atlas <http://bit.ly/meetatlas>`__ 
+    If you have logged into `MongoDB Atlas <http://bit.ly/meetatlas>`_ 
     recently – and you should, the entry-level tier is free! – you may have
     noticed a strange new syntax on 3.6 connection strings.
 
     .. figure:: /images/srv-address.png
 
     MongoDB Seed Lists
-    ~~~~~~~~~~~~~~~~~~
+    ------------------
 
     What is this ``mongodb+srv`` syntax? 
     
     Well, in MongoDB 3.6 we
     introduced the concept of a `seed
-    list <https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format>`__
+    list <https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format>`_
     that is specified using DNS records, specifically
-    `SRV <https://en.wikipedia.org/wiki/SRV_record>`__ and
-    `TXT <https://en.wikipedia.org/wiki/TXT_record>`__ records. You will
+    `SRV <https://en.wikipedia.org/wiki/SRV_record>`_ and
+    `TXT <https://en.wikipedia.org/wiki/TXT_record>`_ records. You will
     recall from using replica sets with MongoDB that the client must specify
     at least one replica set member (and may specify several of them) when
     connecting. This allows a client to connect to a replica set even if one
@@ -87,7 +87,7 @@ MongoDB 3.6: Here to SRV you with easier replica set connections
     
     With the 3.4 or earlier driver, we have
     to specify all the options on the command line using the `MongoDB URI
-    syntax <https://docs.mongodb.com/manual/reference/connection-string/>`__.
+    syntax <https://docs.mongodb.com/manual/reference/connection-string/>`_.
     
     The use of SRV records eliminates the requirement for every client to
     pass in a complete set of state information for the cluster. Instead, a
@@ -96,7 +96,7 @@ MongoDB 3.6: Here to SRV you with easier replica set connections
     options for the URI.
 
     Reading SRV and TXT Records
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ---------------------------
 
     We can see how this works in practice on a MongoDB Atlas cluster with a
     simple Python script. 
@@ -141,28 +141,28 @@ MongoDB 3.6: Here to SRV you with easier replica set connections
     
     .. code-block:: sh
 
-       JD10Gen-old:~ jdrumgoole$ nslookup 
-       > set type=SRV > \_mongodb._tcp.rs.joedrumgoole.com 
+       JD10Gen-old:~ jdrumgoole$ nslookup
+       > set type=SRV > \_mongodb._tcp.rs.joedrumgoole.com
        Server: 10.65.141.1
-       Address: 10.65.141.1#53 
+       Address: 10.65.141.1#53
         
        Non-authoritative answer:
-       \_mongodb._tcp.rs.joedrumgoole.com  service = 0 0 27022 rs1.joedrumgoole.com. 
-       \_mongodb._tcp.rs.joedrumgoole.com  service = 0 0 27022 rs2.joedrumgoole.com. 
-       \_mongodb._tcp.rs.joedrumgoole.com  service = 0 0 27022 rs3.joedrumgoole.com. 
+       \_mongodb._tcp.rs.joedrumgoole.com  service = 0 0 27022 rs1.joedrumgoole.com.
+       \_mongodb._tcp.rs.joedrumgoole.com  service = 0 0 27022 rs2.joedrumgoole.com.
+       \_mongodb._tcp.rs.joedrumgoole.com  service = 0 0 27022 rs3.joedrumgoole.com.
         
        Authoritative answers can be found from:
-       > set type=TXT 
-       > rs.joedrumgoole.com 
-       Server: 10.65.141.1 
-       Address: 10.65.141.1#53 
+       > set type=TXT
+       > rs.joedrumgoole.com
+       Server: 10.65.141.1
+       Address: 10.65.141.1#53
         
-       Non-authoritative answer: 
-       rs.joedrumgoole.com     text = "authSource=admin&replicaSet=srvdemo" 
+       Non-authoritative answer:
+       rs.joedrumgoole.com     text = "authSource=admin&replicaSet=srvdemo"
     
     You can see how this could
     be used to construct a 3.4 style connection string by comparing it with
-    the 3.4 connection string above. 
+    the 3.4 connection string above.
     
     As you can see, the
     complexity of the cluster and its configuration parameters are stored in
@@ -171,21 +171,19 @@ MongoDB 3.6: Here to SRV you with easier replica set connections
     be done completely transparently from the client’s perspective. We can
     also add and remove nodes from a cluster without impacting clients. 
     
-    So
-    now whenever you see ``mongodb+srv`` you know you are expecting a
+    So now whenever you see ``mongodb+srv`` you know you are expecting a
     SRV and TXT record to deliver the client connection string.
 
     Creating SRV and TXT records
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ----------------------------
 
     Of course, SRV and TXT records are not just for Atlas. You can also
     create your own SRV and TXT records for your self-hosted MongoDB
     clusters. All you need for this is edit access to your DNS server so you
     can add SRV and TXT records. In the examples that follow we are using
-    the `AWS Route 53 DNS <https://aws.amazon.com/route53/>`__ service. 
+    the `AWS Route 53 DNS <https://aws.amazon.com/route53/>`_ service. 
     
-    I
-    have set up a demo replica set on AWS with a three-node setup. They are
+    I have set up a demo replica set on AWS with a three-node setup. They are
 
     .. code-block:: sh
 
@@ -201,7 +199,6 @@ MongoDB 3.6: Here to SRV you with easier replica set connections
     the above nodes in AWS Route 53.
 
     .. figure:: /images/dnsnames.png
-    
 
     We can start the mongod processes by running the following command on
     each node. 
@@ -224,7 +221,6 @@ MongoDB 3.6: Here to SRV you with easier replica set connections
     The settings in AWS Route 53 are: 
 
     .. figure:: /images/awsroutes.png
-    
 
     Which leads to the following entry in the zone file for Route 53.
 
@@ -237,12 +233,10 @@ MongoDB 3.6: Here to SRV you with easier replica set connections
     We can do this on AWS Route 53 as follows:
 
     .. figure:: /images/awsroutes3.png
-    
 
     This will create the following TXT record.
 
     .. figure:: /images/awsroutes4.png
-    
 
     Now we can access this service as :
 
@@ -266,20 +260,20 @@ MongoDB 3.6: Here to SRV you with easier replica set connections
     
     You should also check out `full documentation on
     SRV and TXT records in MongoDB
-    3.6 <https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format>`__.
+    3.6 <https://docs.mongodb.com/manual/reference/connection-string/#dns-seedlist-connection-format>`_.
 
-    ---
+.. summary::
 
     You can `sign up for a free MongoDB Atlas
-    tier <http://bit.ly/meetatlas>`__ which is suitable for single user use.
+    tier <http://bit.ly/meetatlas>`_ which is suitable for single user use.
     
     Find out how to use your favorite programming language with MongoDB via
-    our `MongoDB drivers <https://docs.mongodb.com/ecosystem/drivers/>`__.
+    our `MongoDB drivers <https://docs.mongodb.com/ecosystem/drivers/>`_.
     
-    Please visit `MongoDB University <https://university.mongodb.com/>`__
+    Please visit `MongoDB University <https://university.mongodb.com/>`_
     for free online training in all aspects of MongoDB. 
     
     Follow `Joe
-    Drumgoole on twitter <https://twitter.com/jdrumgoole>`__ for more news
+    Drumgoole on twitter <https://twitter.com/jdrumgoole>`_ for more news
     about MongoDB.
 

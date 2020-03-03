@@ -10,6 +10,7 @@
 
 .. twitter::
    :site: @mongodb
+   :creator: @jayrunkel
    :title: Active-Active Application Architectures with MongoDB
    :image: https://webassets.mongodb.com/_com_assets/cms/image4-3d593nantp.png
 
@@ -48,7 +49,7 @@ Active-Active Application Architectures with MongoDB
 .. introduction::
 
     Introduction
-    ~~~~~~~~~~~~
+    ------------
 
     Determining the best database for a modern application to be deployed
     across multiple data centers requires careful evaluation to accommodate
@@ -84,7 +85,7 @@ Active-Active Application Architectures with MongoDB
 .. content::
 
     Active-Active Requirements
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    --------------------------
 
     When organizations consider deploying applications across multiple data
     centers (or cloud regions) they typically want to use an active-active
@@ -145,7 +146,7 @@ Active-Active Application Architectures with MongoDB
     deploy an Active-Active application architecture.
 
     Database Requirements for Active-Active Applications
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ----------------------------------------------------
 
     When designing an active-active application architecture, the database
     tier must meet four architectural requirements (in addition to standard
@@ -177,7 +178,7 @@ Active-Active Application Architectures with MongoDB
     detail.
 
     Performance
-    ~~~~~~~~~~~
+    -----------
 
     For performance reasons, it is necessary for application servers in a
     data center to be able to perform reads and writes to database nodes in
@@ -193,7 +194,7 @@ Active-Active Application Architectures with MongoDB
     factor.
 
     Data Durability
-    ~~~~~~~~~~~~~~~
+    ---------------
 
     Replication is a critical feature in a distributed database. The
     database must ensure that writes made to one node are replicated to the
@@ -209,7 +210,7 @@ Active-Active Application Architectures with MongoDB
        allowed, and how they are resolved when they occur
 
     Consistency
-    ~~~~~~~~~~~
+    -----------
 
     The consistency guarantees of a distributed database vary significantly.
     This variance depends upon a number of factors, including whether
@@ -229,7 +230,7 @@ Active-Active Application Architectures with MongoDB
     consistency guarantee that can be provided by distributed databases
     without severe impact to performance is causal consistency. As described
     by
-    `Wikipedia <https://en.wikipedia.org/wiki/Causal_consistency#cite_note-7>`__,
+    `Wikipedia <https://en.wikipedia.org/wiki/Causal_consistency#cite_note-7>`_,
     causal consistency provides the following guarantees:
 
     -  **Read Your Writes**: this means that preceding write operations are
@@ -249,7 +250,7 @@ Active-Active Application Architectures with MongoDB
     data values will not change in non-deterministic ways.
 
     Availability
-    ~~~~~~~~~~~~
+    ------------
 
     The availability of a database describes how well the database survives
     the loss of a node, a data center, or network communication. The degree
@@ -264,7 +265,7 @@ Active-Active Application Architectures with MongoDB
     cluster.
 
     Distributed Database Architectures
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ----------------------------------
 
     There are three broad categories of database architectures deployed to
     meet these requirements:
@@ -278,7 +279,7 @@ Active-Active Application Architectures with MongoDB
     and cons of each.
 
     Distributed Transactions with Two-Phase Commit
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ----------------------------------------------
 
     A distributed transaction approach updates all nodes containing a record
     as part of a single transaction, instead of having writes being made to
@@ -289,7 +290,7 @@ Active-Active Application Architectures with MongoDB
     
     A common protocol for
     implementing this functionality is called a `two-phase
-    commit <https://en.wikipedia.org/wiki/Two-phase_commit_protocol>`__. The
+    commit <https://en.wikipedia.org/wiki/Two-phase_commit_protocol>`_. The
     two-phase commit protocol ensures durability and multi-node consistency,
     but it sacrifices performance. The two-phase commit protocol requires
     two-phases of communication among all the nodes involved in the
@@ -302,7 +303,7 @@ Active-Active Application Architectures with MongoDB
     etc.) find this level of response time unacceptable.
 
     Multi-Master
-    ~~~~~~~~~~~~
+    ------------
 
     A multi-master database is a distributed database that allows a record
     to be updated in one of many possible clustered nodes. (Writes are
@@ -368,7 +369,7 @@ Active-Active Application Architectures with MongoDB
     during this process.
 
     Partitioned (Sharded) Database
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ------------------------------
 
     A partitioned database divides the database into partitions, called
     shards. Each shard is implemented by a set of servers each of which
@@ -464,7 +465,7 @@ Active-Active Application Architectures with MongoDB
     reads.
 
     Database Architecture Comparison
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    --------------------------------
 
     The pros and cons of how well each database architecture meets
     active-active application requirements is provided in Figure 7. In
@@ -479,7 +480,7 @@ Active-Active Application Architectures with MongoDB
     .. figure:: /images/aa6.png
 
     MongoDB Active-Active Applications
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ----------------------------------
 
     MongoDB is an example of a sharded database architecture. In MongoDB,
     the construct of a primary server and set of secondary servers is called
@@ -489,25 +490,25 @@ Active-Active Application Architectures with MongoDB
     geographical partitioning described in the previous section. The details
     of how to accomplish this are described in the `MongoDB Multi-Data
     Center
-    Deployments <https://www.mongodb.com/collateral/mongodb-multi-data-center-deployments>`__
+    Deployments <https://www.mongodb.com/collateral/mongodb-multi-data-center-deployments>`_
     white paper and `Zone Sharding
-    documentation <https://docs.mongodb.com/manual/tutorial/sharding-segmenting-data-by-location/>`__,
+    documentation <https://docs.mongodb.com/manual/tutorial/sharding-segmenting-data-by-location/>`_,
     but MongoDB operates as described in the “Partitioned (Sharded)
     Database” section. 
     
     Numerous organizations use MongoDB to implement
     active-active application architectures. For example: 
     
-    - `Ebay <https://www.mongodb.com/blog/post/ebay-building-mission-critical-multi-data-center-applications-with-mongodb>`__
+    - `Ebay <https://www.mongodb.com/blog/post/ebay-building-mission-critical-multi-data-center-applications-with-mongodb>`_
       has codified the use of zone sharding to enable local reads and writes
       as one of its standard architecture patterns. 
-    - `YouGov <https://www.mongodb.com/blog/post/leaf-in-the-wild-yougov-powers-market-research-with-globally-distributed-mongodb>`__
+    - `YouGov <https://www.mongodb.com/blog/post/leaf-in-the-wild-yougov-powers-market-research-with-globally-distributed-mongodb>`_
       deploys MongoDB for their flagship survey system, called Gryphon, in a
       “write local, read global” pattern that facilitates active-active multi
       data center deployments spanning data centers in North America and
       Europe. 
     - `Ogilvy and
-      Maher <https://www.mongodb.com/blog/post/ogilvy-and-mather-delivers-security-compliance-with-mongodb-enterprise-advanced>`__
+      Maher <https://www.mongodb.com/blog/post/ogilvy-and-mather-delivers-security-compliance-with-mongodb-enterprise-advanced>`_
       uses MongoDB as the persistence store for its core auditing application.
       Their sharded cluster spans three data centers in North America and
       Europe with active data centers in North American and mainland Europe
@@ -519,7 +520,7 @@ Active-Active Application Architectures with MongoDB
     sharded database functionality, MongoDB provides fine grain controls for
     write durability and read consistency that make it ideal for multi-data
     center deployments. For writes, a `write
-    concern <https://docs.mongodb.com/manual/reference/write-concern/>`__
+    concern <https://docs.mongodb.com/manual/reference/write-concern/>`_
     can be specified to control write durability. The write concern enables
     the application to specify the number of replica set members that must
     apply the write before MongoDB acknowledges the write to the
@@ -554,12 +555,12 @@ Active-Active Application Architectures with MongoDB
     provides two capabilities for specifying the desired level of
     consistency. First, when reading from secondaries, an application can
     specify a maximum staleness value
-    (`maxStalenessSeconds <https://docs.mongodb.com/manual/core/read-preference/#maxstalenessseconds>`__).
+    (`maxStalenessSeconds <https://docs.mongodb.com/manual/core/read-preference/#maxstalenessseconds>`_).
     This ensures that the secondary’s replication lag from the primary
     cannot be greater than the specified duration, and thus, guarantees the
     currentness of the data being returned by the secondary. In addition, a
     read can also be associated with a
-    `ReadConcern <https://docs.mongodb.com/master/reference/read-concern/index.html>`__
+    `ReadConcern <https://docs.mongodb.com/master/reference/read-concern/index.html>`_
     to control the consistency of the data returned by the query. For
     example, a ReadConcern of majority tells MongoDB to only return data
     that has been replicated to a majority of nodes in the replica set. This
@@ -568,7 +569,7 @@ Active-Active Application Architectures with MongoDB
     view of the data over time. 
     
     MongoDB 3.6 also introduced `causal
-    consistency <https://docs.mongodb.com/master/core/read-isolation-consistency-recency/#causal-consistency>`__ – guaranteeing that every read operation within a client session will
+    consistency <https://docs.mongodb.com/master/core/read-isolation-consistency-recency/#causal-consistency>`_ – guaranteeing that every read operation within a client session will
     always see the previous write operation, regardless of which replica is
     serving the request. By enforcing strict, causal ordering of operations
     within a session, causal consistency ensures every read is always
@@ -581,7 +582,7 @@ Active-Active Application Architectures with MongoDB
 .. summary::
 
     Conclusion
-    ~~~~~~~~~~
+    ----------
 
     In this post we have shown that sharded databases provide the best
     support for the replication, performance, consistency, and local-write,
@@ -593,4 +594,4 @@ Active-Active Application Architectures with MongoDB
     applications to specify desired consistency and durability guarantees
     through Read and Write Concerns.
 
-    `View the MongoDB Architect Hub <https://resources.mongodb.com/mongodb-architects>`__
+    `View the MongoDB Architect Hub <https://resources.mongodb.com/mongodb-architects>`_

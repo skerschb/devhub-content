@@ -42,8 +42,7 @@
    * Stitch
    * Atlas
 
-.. .. atf-image:: /img/heros/how-to-write-an-article.png
-
+.. atf-image:: /source/images/atf-images/illustrations/build.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
@@ -108,13 +107,13 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
       an account and deploy your free cluster on your preferred cloud
       provider and region.
 
-   .. container:: callout
+      .. blockquote::
 
-      **SPECIAL OFFER:**
-      Want to try our Full-Text Search on a cluster of your own?
-      ``YouOldMaid100`` for $100 of Atlas credit. For information on
-      redeeming Atlas credit, see `Atlas
-      Billing <https://www.google.com/url?q=https://www.mongodb.com/cloud/atlas/signup?form-type%3Dfree&sa=D&ust=1579301554143000&usg=AFQjCNHI71SacwhKWJLcHMUa9RvY5bAoKw>`_.
+         **SPECIAL OFFER:**
+         Want to try our Full-Text Search on a cluster of your own?
+         ``YouOldMaid100`` for $100 of Atlas credit. For information on
+         redeeming Atlas credit, see `Atlas
+         Billing <https://www.google.com/url?q=https://www.mongodb.com/cloud/atlas/signup?form-type%3Dfree&sa=D&ust=1579301554143000&usg=AFQjCNHI71SacwhKWJLcHMUa9RvY5bAoKw>`_.
 
    2. The Atlas sample dataset loaded into your cluster. You can load the
       sample dataset by clicking the ellipse button and **Load Sample
@@ -229,7 +228,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
       :alt: "Extended Search"
       :align: center
 
-   .. container:: callout
+   .. blockquote::
 
       Note the returned movie documents in the preview panel on the right.
       If no documents are in the panel, double-check the formatting in your
@@ -449,7 +448,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    Now you can test in the Console below the editor by changing the
    argument from **arg1: "hello"** to **arg: "werewolves and vampires"**.
 
-   .. container:: callout
+   .. blockquote::
 
       Note: Please be sure to change BOTH the field name **arg1** to
       **arg**, as well as the string value **"hello"** to **"werewolves and

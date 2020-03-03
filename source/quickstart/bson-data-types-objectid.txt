@@ -35,7 +35,6 @@
    * BSON
    * ObjectId
 
-
 .. atf-image:: /images/atf-images/qs-bson-header.jpg
 
 .. related::

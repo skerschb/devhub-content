@@ -1,6 +1,6 @@
 .. author::
    :name: Andrew Morgan
-   :image: /images/bio-andrew-morgan.jpg
+   :image: /images/bios/bio-andrew-morgan.jpg
 
    Andrew is part of the MongoDB product team, responsible for building
    the vision, positioning and content for MongoDB’s products and

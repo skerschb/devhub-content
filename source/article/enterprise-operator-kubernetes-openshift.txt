@@ -38,6 +38,8 @@
 
    * MongoDB
 
+.. atf-image:: /images/atf-images/illustrations/productivity.png
+
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
@@ -76,7 +78,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    -  Where to go for more information
 
    The containerization movement
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   -----------------------------
 
    If you ever visited an international shipping port or drove down an
    interstate highway you may have seen large rectangular metal containers
@@ -100,9 +102,9 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    Enterprise Operator for Kubernetes which enables a user to deploy and
    manage MongoDB clusters from the Kubernetes API, without the user having
    to connect directly to `Ops
-   Manager <https://www.mongodb.com/products/ops-manager>`__ or `Cloud
+   Manager <https://www.mongodb.com/products/ops-manager>`_ or `Cloud
    Manager (the hosted version of Ops Manager, delivered as a
-   service <https://www.mongodb.com/cloud/cloud-manager>`__. 
+   service <https://www.mongodb.com/cloud/cloud-manager>`_. 
    
    While MongoDB
    is fully supported in a containerized environment, you need to make sure
@@ -125,9 +127,9 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    Manager, which is a key piece in efficient MongoDB cluster management.
 
    Managing MongoDB
-   ^^^^^^^^^^^^^^^^
+   ----------------
 
-   `Ops Manager <https://www.mongodb.com/products/ops-manager>`__ is an
+   `Ops Manager <https://www.mongodb.com/products/ops-manager>`_ is an
    enterprise class management platform for MongoDB clusters that you run
    on your own infrastructure. The capabilities of Ops Manager include
    monitoring, alerting, disaster recovery, scaling, deploying and
@@ -156,11 +158,11 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    These pages are simply a front end to a robust set of Ops Manager REST
    APIs that are hosted in the Ops Manager HTTP Service. It is through
    these `REST
-   APIs <https://docs.opsmanager.mongodb.com/current/reference/api/>`__
+   APIs <https://docs.opsmanager.mongodb.com/current/reference/api/>`_
    that the Kubernetes Operator will interact with Ops Manager.
 
    MongoDB Automation Agent
-   ^^^^^^^^^^^^^^^^^^^^^^^^
+   ------------------------
 
    With a typical Ops Manager deployment there are many management options
    including upgrading the cluster to a different version, adding
@@ -177,7 +179,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    perform work on the cluster node.
 
    MongoDB Monitoring Agent
-   ^^^^^^^^^^^^^^^^^^^^^^^^
+   ------------------------
 
    When Ops Manager shows statistics such as database size and inserts per
    second it is receiving this telemetry from the individual nodes running
@@ -194,7 +196,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    running your new MongoDB cluster.
 
    Getting started with MongoDB Enterprise Operator for Kubernetes
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ---------------------------------------------------------------
 
    Ops Manager is an integral part of automating a MongoDB cluster with
    Kubernetes. To get started you will need access to an Ops Manager 4.0+
@@ -208,7 +210,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    minikube which deploys a local single node Kubernetes cluster on your
    machine. For additional information and setup instructions check out the
    following URL:
-   `https://kubernetes.io/docs/setup/minikube <https://kubernetes.io/docs/setup/minikube/>`__.
+   `https://kubernetes.io/docs/setup/minikube <https://kubernetes.io/docs/setup/minikube/>`_.
    
    The following sections will cover the three step installation and
    configuration of the MongoDB Enterprise Operator for Kubernetes. The
@@ -221,7 +223,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
       Manager API Key
 
    Step 1: Installing MongoDB Enterprise Operator for Kubernetes
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   -------------------------------------------------------------
 
    To install the MongoDB Enterprise Operator for Kubernetes you can use
    helm, the Kubernetes package manager, or pass a yaml file to kubectl.
@@ -260,7 +262,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    want to use.
 
    Step 2: Creating the Kubernetes ConfigMap file
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ----------------------------------------------
 
    For the Kubernetes Operator to know what Ops Manager you want to use you
    will need to obtain some properties from the Ops Manager console and
@@ -307,7 +309,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    An
    Ops Manager Project is a logical organization of MongoDB clusters and
    also provides a security boundary. One or more
-   `Projects <https://docs.opsmanager.mongodb.com/current/organizations-projects/>`__
+   `Projects <https://docs.opsmanager.mongodb.com/current/organizations-projects/>`_
    are apart of an Ops Manager Organization. If you need to create an
    Organization click on your user name at the upper right side of the
    screen and select, “Organizations”. Next click on the “+ New
@@ -418,7 +420,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
       kubectl apply -f my-project.yaml
 
    Step 3: Creating the Kubernetes Secret
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   --------------------------------------
 
    For a user to be able to create or update objects in an Ops Manager
    Project they need a Public API Key. Earlier in this section we created a
@@ -439,7 +441,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    MongoDB Clusters!
 
    Deploying a MongoDB Replica Set
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   -------------------------------
 
    Kubernetes can deploy a MongoDB standalone, replica set or a sharded
    cluster. To deploy a 3 node replica set create the following yaml file:
@@ -486,7 +488,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    Agent and Backup Agents.
 
    A word on persistent storage
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ----------------------------
 
    What good would a database be if anytime the container died your data
    went to the grave as well? Probably not a good situation and maybe one
@@ -505,7 +507,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    clusters) using either type.
 
    Connecting your application
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ---------------------------
 
    Connecting to MongoDB deployments in Kubernetes is no different than
    other deployment topologies. However, it is likely that you'll need to
@@ -515,7 +517,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    Kubernetes uses Kubernetes Services.
 
    Services
-   ''''''''
+   ~~~~~~~~
 
    Each MongoDB deployment type will have two Kubernetes services generated
    automatically during provisioning. For example, suppose we have a single
@@ -565,7 +567,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    tool you would like to use.
 
    Basic Troubleshooting
-   ^^^^^^^^^^^^^^^^^^^^^
+   ---------------------
 
    If you are having problems submitting a deployment you should read the
    logs. Issues like authentication issues and other common problems can be
@@ -627,10 +629,10 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
 .. summary::
 
    Where to go for more information
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   --------------------------------
 
    More information will be available on the `MongoDB documentation
-   website <https://docs.mongodb.com/manual/>`__ in the near future. Until
+   website <https://docs.mongodb.com/manual/>`_ in the near future. Until
    then check out these resources for more information: 
    
    Slack:

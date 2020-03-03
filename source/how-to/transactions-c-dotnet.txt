@@ -10,6 +10,7 @@
 
 .. twitter::
    :site: @mongodb
+   :creator: @RobsCranium
    :title: MongoDB Transactions with C# and the MongoDB .NET Driver
 
    MongoDB 4.0 and the MongoDB .NET Driver version 2.7 and above support MongoDB cross collection transactions! Walk through an example of how to use transactions in C#.
@@ -44,13 +45,15 @@
 
    * MongoDB
 
+.. atf-image:: /images/atf-images/quickstart/csharp.png
+
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
 
-================
+================================================================
 Working with MongoDB Transactions with C# and the .NET Framework
-================
+================================================================
 
 .. blockquote::
 
@@ -77,12 +80,12 @@ Working with MongoDB Transactions with C# and the .NET Framework
     entity as arrays and sub-documents within a single, rich document. That
     said, there are some cases where splitting the content into two or more
     collections would be appropriate, and for these cases, `multi-document
-    ACID transactions <https://www.mongodb.com/transactions>`__ makes it
+    ACID transactions <https://www.mongodb.com/transactions>`_ makes it
     easier than ever for developers to address the full spectrum of use
     cases with MongoDB. For a deeper discussion on MongoDB document model
     design, including how to represent one-to-many and many-to-many
     relationships, check out `this article on data model
-    design <https://docs.mongodb.com/manual/core/data-model-design>`__.
+    design <https://docs.mongodb.com/manual/core/data-model-design>`_.
 
     In the following code we will create a Product object and perform a
     MongoDB transaction that will insert some sample data into MongoDB then
@@ -210,7 +213,7 @@ Working with MongoDB Transactions with C# and the .NET Framework
         }
 
     Source Code available on
-    `Gist <https://gist.github.com/codepope/1366893d703a0be57953545619e87eea>`__.
+    `Gist <https://gist.github.com/codepope/1366893d703a0be57953545619e87eea>`_.
     Successful execution yields the following:
 
     .. figure:: /images/ExecutionResults-5aao2jdet7.png
@@ -230,5 +233,5 @@ Working with MongoDB Transactions with C# and the .NET Framework
 
     Additional information about using C# and the .NET driver can be found
     in the `C# and .NET MongoDB
-    Driver <https://docs.mongodb.com/ecosystem/drivers/csharp/>`__
+    Driver <https://docs.mongodb.com/ecosystem/drivers/csharp/>`_
     documentation.

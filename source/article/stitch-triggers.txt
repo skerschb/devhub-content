@@ -6,6 +6,7 @@
 
 .. twitter::
    :site: @mongodb
+   :creator: @codepope
    :title: Stitch Triggers Get Scheduled
 
    New Scheduled Stitch Triggers allow Stitch Functions to be called at regular intervals.
@@ -25,6 +26,8 @@
 .. products::
 
    * Stitch
+
+.. atf-image:: /images/atf-images/quickstart/stitch-triggers.png
 
 =============================
 Stitch Triggers Get Scheduled

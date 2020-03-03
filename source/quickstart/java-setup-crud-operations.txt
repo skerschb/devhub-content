@@ -10,6 +10,7 @@
 
 .. twitter::
    :site: @mongodb
+   :creator: @MBeugnet
    :title: In this Java series, you will learn everything you need to know about the MongoDB Java Driver. From installation and setup to advanced operations such as Change Streams and multi-document ACID transactions without forgetting basic CRUD operations and much more.
 
    In this Java series, you will learn everything you need to know about the MongoDB Java Driver. From installation and setup to advanced operations such as Change Streams and multi-document ACID transactions without forgetting basic CRUD operations and much more.
@@ -41,6 +42,8 @@
 
    * MongoDB
    * Atlas
+
+.. atf-image:: /images/atf-images/quickstart/java.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT

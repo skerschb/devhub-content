@@ -40,13 +40,12 @@
 
    * javascript
 
-
 .. products::
 
    Stitch
    Atlas
 
-.. atf-image:: /images/add-trigger.png
+.. atf-image:: /images/atf-images/quickstart/stitch-triggers.png
 
 .. related::
 
@@ -58,9 +57,9 @@
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
 
-======================
+======================================
 MongoDB Stitch Authentication Triggers
-======================
+======================================
 
 .. content::
 

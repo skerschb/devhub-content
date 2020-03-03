@@ -10,6 +10,7 @@
 
 .. twitter::
    :site: @mongodb
+   :creator: @kenwalger
    :title: Storing Large Objects and Files in MongoDB
 
    Discover how to store large objects and files in MongoDB.
@@ -36,13 +37,15 @@
 
    * MongoDB
 
+.. atf-image:: /images/atf-images/illustrations/nodejs.png
+
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
 .. ---------------------------------------------------------------
 
-================
+==========================================
 Storing Large Objects and Files in MongoDB
-================
+==========================================
 
 .. content::
 
@@ -57,7 +60,7 @@ Storing Large Objects and Files in MongoDB
     file set.
 
     MongoDB stores objects in a binary format called
-    `BSON <http://bsonspec.org>`__.  BinData is a BSON data type for a
+    `BSON <http://bsonspec.org>`_.  BinData is a BSON data type for a
     binary byte array.  However, MongoDB objects are typically limited to
     4MB in size.  To deal with this, files are “chunked” into multiple
     objects that are less than 4MB each.  This has the added advantage of
@@ -65,20 +68,20 @@ Storing Large Objects and Files in MongoDB
 
     While we could write our own chunking code, a standard format for this
     chunking is predefined, call
-    `GridFS <http://docs.mongodb.org/manual/core/gridfs/>`__.  GridFS
+    `GridFS <http://docs.mongodb.org/manual/core/gridfs/>`_.  GridFS
     support is included in many MongoDB drivers and also in the
-    `mongofiles <http://docs.mongodb.org/manual/reference/program/mongofiles/>`__
+    `mongofiles <http://docs.mongodb.org/manual/reference/program/mongofiles/>`_
     command line utility.
 
     A good way to do a quick test of this facility is to try out the
     mongofiles utility.  See the `MongoDB
-    documentation <http://docs.mongodb.org/manual/core/gridfs/>`__ for more
+    documentation <http://docs.mongodb.org/manual/core/gridfs/>`_ for more
     information on GridFS.
 
     More Information
     ~~~~~~~~~~~~~~~~
 
-    -  `GridFS Docs <http://docs.mongodb.org/manual/core/gridfs/>`__
-    -  `Building MongoDB Applications with Binary Files Using GridFS: Part 1 <http://www.mongodb.com/blog/post/building-mongodb-applications-binary-files-using-gridfs-part-1>`__
-    -  `Building MongoDB Applications with Binary Files Using GridFS: Part 2 <http://www.mongodb.com/blog/post/building-mongodb-applications-binary-files-using-gridfs-part-2>`__
-    -  `MongoDB Architecture Guide <https://www.mongodb.com/lp/white-paper/architecture-guide>`__
+    -  `GridFS Docs <http://docs.mongodb.org/manual/core/gridfs/>`_
+    -  `Building MongoDB Applications with Binary Files Using GridFS: Part 1 <http://www.mongodb.com/blog/post/building-mongodb-applications-binary-files-using-gridfs-part-1>`_
+    -  `Building MongoDB Applications with Binary Files Using GridFS: Part 2 <http://www.mongodb.com/blog/post/building-mongodb-applications-binary-files-using-gridfs-part-2>`_
+    -  `MongoDB Architecture Guide <https://www.mongodb.com/lp/white-paper/architecture-guide>`_

@@ -10,6 +10,7 @@
 
 .. twitter::
    :site: @mongodb
+   :creator: @kenwalger
    :title: Building with Patterns: The Polymorphic Pattern
 
    Learn about the Polymorphic Schema Design pattern in MongoDB.
@@ -35,6 +36,8 @@
 .. products::
 
    * MongoDB
+
+.. atf-image:: /images/atf-images/illustrations/charts.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
