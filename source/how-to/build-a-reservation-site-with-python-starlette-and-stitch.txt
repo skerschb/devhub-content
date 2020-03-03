@@ -6,14 +6,14 @@
 
 .. meta-description::
 
-   Build a Movie Search Engine Using Full Text Search Indexes on MongoDB Atlas.
+   Learn how to build a property booking website in Python with Starlette, MongoDB, and Twilio.
 
 .. twitter::
    :site: @mongodb
    :creator: @kukicado
-   :title: Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
+   :title: Build a Property Booking Website with Starlette, MongoDB, and Twilio
 
-   Build a Movie Search Engine Using Full Text Search Indexes on MongoDB Atlas.
+   Learn how to build a property booking website in Python with Starlette, MongoDB, and Twilio.
 
 .. ---------------------------------------------------------------
 .. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
@@ -48,7 +48,7 @@
 .. ---------------------------------------------------------------
 
 =======================================================================
-Building a Property Booking Website with Starlette, MongoDB, and Twilio
+Build a Property Booking Website with Starlette, MongoDB, and Twilio
 =======================================================================
 
 .. introduction::
