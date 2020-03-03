@@ -206,7 +206,7 @@ Building a Property Booking Website with Starlette, MongoDB, and Twilio
       
       class DatabaseMiddleware(BaseHTTPMiddleware):
           async def dispatch(self, request, call_next):
-            client = pymongo.MongoClient("{YOUR-CONNECTION-STRING}",       ssl_cert_reqs=ssl.CERT_NONE)
+            client = pymongo.MongoClient("{YOUR-CONNECTION-STRING}", ssl_cert_reqs=ssl.CERT_NONE)
             db = client["sample_airbnb"]
             request.state.db = db
             response = await call_next(request)
@@ -500,12 +500,12 @@ Building a Property Booking Website with Starlette, MongoDB, and Twilio
 
    .. code-block:: python
 
-   async def confirmation(request):
-       id = request.path_params['id']
-   
-       doc = request.state.db.bookings.insert({"property": id})
-   
-       return templates.TemplateResponse('confirmation.html', {'request':    request, 'confirmation': doc})
+      async def confirmation(request):
+          id = request.path_params['id']
+      
+          doc = request.state.db.bookings.insert({"property": id})
+      
+          return templates.TemplateResponse('confirmation.html', {'request':    request, 'confirmation': doc})
 
    Like in the previous route, we are making use of route parameters to capture the ``id`` of the booking. We are then using ``request.state.db`` to access our MongoDB database, but now we are accessing the ``bookings`` collection, which does not exist. That's ok, MongoDB will create a bookings collection for us in the ``sample_airbnb`` database, and since we are using insert, we'll add a document that has one attribute called ``property`` and we'll set it to the id of the listing.
 
@@ -576,8 +576,8 @@ Building a Property Booking Website with Starlette, MongoDB, and Twilio
         const args = {
           to: "+19999999999", // The phone number you want the SMS to send to
           from: "+19999999999", // Your Twilio phone number
-          body: ``Greeting from MongoBnB!
-          Your reservation is confirmed. If you need to cancel send a message with       your booking id: ${arg.fullDocument._id}``
+          body: `Greeting from MongoBnB!
+          Your reservation is confirmed. If you need to cancel send a message with       your booking id: ${arg.fullDocument._id}`
         };
         twilio.send(args);
         return {arg: arg};
@@ -629,7 +629,7 @@ Building a Property Booking Website with Starlette, MongoDB, and Twilio
         const args = {
           to: "+19999999999", // The number to send the SMS message to
           from: "+19999999999", // Your Twilio number
-          body: ``Reservation ${payload.Body} has been cancelled. See you next time!``
+          body: `Reservation ${payload.Body} has been cancelled. See you next time!`
         };
         twilio.send(args);
         return payload.Body
