@@ -22,9 +22,9 @@
 
 .. include:: /includes/authors/alger-ken.rst
 
-.. pubdate:: November 12, 2019
+.. pubdate:: 2019-11-12
 
-.. updated-date:: February 25, 2020
+.. updated-date:: 2020-02-25
 
 .. type:: quickstart
 

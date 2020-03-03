@@ -22,9 +22,9 @@
 
 .. include:: /includes/authors/morgan-andrew.rst
 
-.. pubdate:: September 25, 2018
+.. pubdate:: 2018-09-25
 
-.. updated-date:: April 17, 2019
+.. updated-date:: 2019-04-17
 
 .. type:: how-to
 

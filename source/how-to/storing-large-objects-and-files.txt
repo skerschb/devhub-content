@@ -21,9 +21,9 @@
 
 .. include:: /includes/authors/alger-ken.rst
 
-.. pubdate:: September 9, 2009
+.. pubdate:: 2009-09-09
 
-.. updated-date:: January 20, 2017
+.. updated-date:: 2017-01-20
 
 .. type:: how-to
 

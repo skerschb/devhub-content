@@ -16,7 +16,7 @@
 
 .. atf-image:: /images/atf-images/logos/GraphQL.png
 
-.. pubdate:: January 22, 2020
+.. pubdate:: 2020-01-22
 
 .. type:: how-to
 .. level:: beginner

@@ -22,9 +22,9 @@
 
 .. include:: /includes/authors/schaefer-lauren.rst
 
-.. pubdate:: December 3, 2019
+.. pubdate:: 2019-12-03
 
-.. updated-date:: January 16, 2020
+.. updated-date:: 2020-01-16
 
 .. type:: video
 

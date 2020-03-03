@@ -21,9 +21,9 @@
 
 .. include:: /includes/authors/morgan-andrew.rst
 
-.. pubdate:: June 15, 2016
+.. pubdate:: 2016-06-15
 
-.. updated-date:: May 2, 2018
+.. updated-date:: 2018-05-02
 
 .. type:: how-to
 

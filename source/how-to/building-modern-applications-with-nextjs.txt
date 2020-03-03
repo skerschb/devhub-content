@@ -24,7 +24,7 @@
 
 .. atf-image:: /images/atf-images/illustrations/NodeJsIllustration.png
 
-.. pubdate:: February 7, 2020
+.. pubdate:: 2020-02-07
 
 .. type:: how-to
 

@@ -21,9 +21,9 @@
 
 .. include:: /includes/authors/beugnet-maxime.rst
 
-.. pubdate:: February 27, 2020
+.. pubdate:: 2020-02-27
 
-.. updated-date:: February 27, 2020
+.. updated-date:: 2020-02-27
 
 .. type:: quickstart
 

@@ -22,7 +22,7 @@
 
 .. include:: /includes/authors/schaefer-lauren.rst
 
-.. pubdate:: September 30, 2019
+.. pubdate:: 2019-09-30
 
 .. type:: video
 

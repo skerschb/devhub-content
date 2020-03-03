@@ -21,9 +21,9 @@
 
 .. include:: /includes/authors/walters-robert.rst
 
-.. pubdate:: June 27, 2018
+.. pubdate:: 2018-06-27
 
-.. updated-date:: March 11, 2019
+.. updated-date:: 2019-03-11
 
 .. type:: article
 

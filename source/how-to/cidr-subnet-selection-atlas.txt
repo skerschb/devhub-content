@@ -20,9 +20,9 @@
 
 .. include:: /includes/authors/gordon-jay.rst
 
-.. pubdate:: January 12, 2017
+.. pubdate:: 2017-01-12
 
-.. updated-date:: February 29, 2020
+.. updated-date:: 2020-02-29
 
 .. type:: how-to
 

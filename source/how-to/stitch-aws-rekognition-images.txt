@@ -22,7 +22,7 @@
 
 .. include:: /includes/authors/howard-aydrian.rst
 
-.. pubdate:: October 25, 2018
+.. pubdate:: 2018-10-25
 
 .. updated-date:: February 4, 2019
 

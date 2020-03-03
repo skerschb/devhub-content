@@ -13,7 +13,7 @@
 
 .. include:: /includes/authors/beugnet-maxime.rst
 
-.. pubdate:: October 3, 2018
+.. pubdate:: 2018-10-03
 
 .. type:: how-to
 .. level:: beginner

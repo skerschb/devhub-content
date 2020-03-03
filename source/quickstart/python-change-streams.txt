@@ -21,9 +21,9 @@
 
 .. include:: /includes/authors/pentrel-naomi.rst
 
-.. pubdate:: May 06, 2019
+.. pubdate:: 2019-05-06
 
-.. updated-date:: February 29, 2020
+.. updated-date:: 2020-02-29
 
 .. type:: quickstart
 

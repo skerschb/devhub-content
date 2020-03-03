@@ -21,9 +21,9 @@
 
 .. include:: /includes/authors/beugnet-maxime.rst
 
-.. pubdate:: October 12, 2018
+.. pubdate:: 2018-10-12
 
-.. updated-date:: April 29, 2019
+.. updated-date:: 2019-04-29
 
 .. type:: how-to
 

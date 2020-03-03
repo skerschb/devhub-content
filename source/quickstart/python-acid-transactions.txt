@@ -21,9 +21,9 @@
 
 .. include:: /includes/authors/drumgoole-joe.rst
 
-.. pubdate:: August 02, 2018
+.. pubdate:: 2018-08-02
 
-.. updated-date:: February 28, 2019
+.. updated-date:: 2019-02-28
 
 .. type:: quickstart
 

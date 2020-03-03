@@ -13,7 +13,7 @@
 
 .. include:: /includes/authors/walker-dj.rst
 
-.. pubdate:: April 2, 2019
+.. pubdate:: 2019-04-02
 
 .. type:: article
 .. level:: beginner

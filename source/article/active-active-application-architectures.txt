@@ -22,7 +22,7 @@
 
 .. include:: /includes/authors/runkel-jay.rst
 
-.. pubdate:: December 8, 2017
+.. pubdate:: 2017-12-08
 
 .. type:: article
 

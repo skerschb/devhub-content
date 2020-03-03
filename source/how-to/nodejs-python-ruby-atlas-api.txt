@@ -19,7 +19,7 @@
    * python
    * ruby
  
-.. pubdate:: March 12, 2019
+.. pubdate:: 2019-03-12
  
 .. type:: how-to
 .. level:: beginner

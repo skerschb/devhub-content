@@ -13,7 +13,7 @@
 
 .. include:: /includes/authors/raboy-nic.rst
 
-.. pubdate:: January 30, 2020
+.. pubdate:: 2020-01-30
 
 .. type:: how-to
 

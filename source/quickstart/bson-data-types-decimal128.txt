@@ -22,7 +22,7 @@
 
 .. include:: /includes/authors/alger-ken.rst
 
-.. pubdate:: January 16, 2020
+.. pubdate:: 2020-01-16
 
 .. type:: quickstart
 

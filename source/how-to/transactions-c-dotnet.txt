@@ -21,9 +21,9 @@
 
 .. include:: /includes/authors/walters-robert.rst
 
-.. pubdate:: October 17, 2018
+.. pubdate:: 2018-10-17
 
-.. updated-date:: October 3, 2019
+.. updated-date:: 2020-10-03
 
 .. type:: how-to
 
