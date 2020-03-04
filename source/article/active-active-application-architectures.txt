@@ -54,7 +54,7 @@ Active-Active Application Architectures with MongoDB
     Determining the best database for a modern application to be deployed
     across multiple data centers requires careful evaluation to accommodate
     a variety of complex application requirements. The database will be
-    responsible for processing reads and writes in multiple geographies,
+    responsible for processing reads, and writes in multiple geographies,
     replicating changes among them, and providing the highest possible
     availability, consistency, and durability guarantees. But not all
     technology choices are equal. For example, one database technology might
