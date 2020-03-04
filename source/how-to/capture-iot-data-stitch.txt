@@ -28,7 +28,7 @@
 
 .. languages::
 
-   * Javascript
+   * JavaScript
 
 .. atf-image:: /images/atf-images/quickstart/stitch-triggers.png
 

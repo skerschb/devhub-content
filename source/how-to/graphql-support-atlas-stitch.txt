@@ -27,7 +27,7 @@
 
 .. languages::
 
-    * Javascript
+    * JavaScript
 
 .. products::
 
@@ -106,7 +106,7 @@ Introducing GraphQL Support in MongoDB Atlas with Stitch
     The first thing we want to do is make sure we have a cluster created and
     configured within `MongoDB Atlas <https://www.mongodb.com/cloud>`_. If
     this is your first time being exposed to Atlas, it is a cloud hosted
-    version of MongoDB, and it contains a forever free “M0” tier to get you
+    version of MongoDB, and it contains a forever free "M0" tier to get you
     started.
 
     .. blockquote::

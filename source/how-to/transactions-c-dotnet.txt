@@ -62,7 +62,7 @@ Working with MongoDB Transactions with C# and the .NET Framework
 
     C# applications connected to a MongoDB database use the MongoDB .NET
     driver. To add the .NET driver to your Visual Studio Application, in the
-    NuGet Package Manager, search for “MongoDB”.
+    NuGet Package Manager, search for "MongoDB".
 
     .. figure:: /images/driverdownload.png
        :width: 300px

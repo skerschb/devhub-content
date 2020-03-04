@@ -192,7 +192,7 @@ Java - Setup and CRUD Operations
       </project>
 
    To verify that everything works correctly, you should be able to create
-   and run a simple “Hello MongoDB!” program. In
+   and run a simple "Hello MongoDB!" program. In
    ``src/main/java/com/mongodb/quickstart``, create the
    ``HelloMongoDB.java`` file:
 
@@ -1086,7 +1086,7 @@ Java - Setup and CRUD Operations
               }
 
    With this index, we can see that we have no *SORT* stage so we are not
-   doing a sort in memory as the documents are already sorted “for free”
+   doing a sort in memory as the documents are already sorted "for free"
    and returned in the order of the index.
 
    Also, we can see that we don't have any *FETCH* stage so this is a
@@ -1749,11 +1749,3 @@ Java - Setup and CRUD Operations
       recommend you check out the M220J: MongoDB for Java Developers
       training available for free on `MongoDB
       University <http://bit.ly/mongodbuniversity>`_.
-
-   Articles in this Quick Start Java and MongoDB series:
-   -----------------------------------------------------
-
-   -  Quick Start: Java and MongoDB - Setup and CRUD Operations (this blog post)
-   -  `Quick Start: Java and MongoDB - Mapping POJOs <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--mapping-pojos>`_
-   -  `Quick Start: Java and MongoDB - Aggregation Pipeline <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--aggregation-pipeline>`_
-   -  `Quick Start: Java and MongoDB - Change Streams <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--change-streams>`_

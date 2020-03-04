@@ -35,7 +35,7 @@
 
 .. languages::
 
-   * Javascript
+   * JavaScript
 
 .. products::
 
@@ -59,8 +59,7 @@ Data Enrichment with MongoDB Stitch
 
    Here is what we are going to achieve in this tutorial:
 
-   Firstly, we are going to write a document to MongoDB using `MongoDB
-   Stitch <https://www.mongodb.com/cloud/stitch>`_.
+   - Firstly, we are going to write a document to MongoDB using `MongoDB Stitch <https://www.mongodb.com/cloud/stitch>`_.
 
    The result in our MongoDB collection will look like this:
 
@@ -71,12 +70,9 @@ Data Enrichment with MongoDB Stitch
          "Title":"Guardians of the Galaxy"
       }
 
-   Secondly, a trigger will catch this new insertion and start a function.
+   - Secondly, a trigger will catch this new insertion and start a function.
 
-   Lastly, this function will call `the OMDB external
-   API <http://www.omdbapi.com/>`_ with the given movie title, fetch data
-   about that movie, and finally enrich our MongoDB document with the data
-   we gathered from this API.
+   - Lastly, this function will call `the OMDB external API <http://www.omdbapi.com/>`_ with the given movie title, fetch data about that movie, and finally enrich our MongoDB document with the data we gathered from this API.
 
    This is the final result we expect in our MongoDB collection:
 
@@ -140,10 +136,10 @@ Data Enrichment with MongoDB Stitch
    MongoDB Atlas cluster is ready to use, link a MongoDB Stitch application
    to it:
 
-   -  Click on the left panel on "Stitch Apps",
-   -  Then click on "Create New Application",
-   -  Pick the name you want for your application,
-   -  Link it to your free MongoDB Atlas cluster.
+   - Click on the left panel on "Stitch Apps",
+   - Then click on "Create New Application",
+   - Pick the name you want for your application,
+   - Link it to your free MongoDB Atlas cluster.
 
    .. image:: /images/create-new-stitch-application.png
       :width: 760px
@@ -157,12 +153,17 @@ Data Enrichment with MongoDB Stitch
    To be able to send a document to MongoDB, we are going to use an HTTP
    POST service.
 
-   -  On the left panel, click on "Services",
-   -  Then click on "Add a Service",
-   -  Choose a service name "IMDB",
-   -  Click on "Add Service",
-   -  Click on "Add Incoming Webhook",
-   -  And copy the screenshot below.
+   - On the left panel, click on "Services",
+   - Then click on "Add a Service",
+   - Choose a service name "IMDB",
+
+   .. blockquote::
+
+      Note: 'IMDB' will be reuse later in the function code. If you choose another name, please make sure to update the code accordingly.
+
+   - Click on "Add Service",
+   - Click on "Add Incoming Webhook",
+   - And copy the screenshot below.
 
    .. image:: /images/create-webhook.png
       :width: 760px
@@ -171,15 +172,36 @@ Data Enrichment with MongoDB Stitch
    When this is done, hit the "Save" button and you will be in the
    "Function Editor" screen.
 
-   -  Enter the following code:
-   -  Click the "Save" button again.
+   - Enter the following code:
+
+   .. code-block:: javascript
+
+      exports = function(payload, response) {
+        const mongodb = context.services.get("mongodb-atlas");
+        const movies = mongodb.db("stitch").collection("movies");
+        var body = EJSON.parse(payload.body.text());
+        movies.insertOne(body)
+          .then(result => {
+            response.setStatusCode(201);
+          });
+      };
+
+   - Click the "Save" button again.
 
    Now that our Service is ready, we can test it!
 
-   -  Go to the "Settings" and you will find your Webhook URL.
-   -  You can now send an HTTP POST request like this to MongoDB Stitch:
-   -  We can check it worked by having a look at the content of the
-      "stitch.movies" collection in our MongoDB Atlas Cluster:
+   - Go to the "Settings" and you will find your Webhook URL.
+   - You can now send an HTTP POST request like this to MongoDB Stitch:
+
+   .. code-block:: bash
+
+      curl -H "Content-Type: application/json" -d '{"Title":"Guardians of the Galaxy"}' https://webhooks.mongodb-stitch.com/api/client/v2.0/app/stitchtapp-abcde/service/IMDB/incoming_webhook/post_movie_title?secret=test
+
+   .. blockquote::
+
+      Note: I used a curl command but feel free to use Postman or whatever you are used to.
+
+   - We can check it worked by having a look at the content of the "stitch.movies" collection in our MongoDB Atlas Cluster:
 
    .. image:: /images/collection.png
       :width: 760px
@@ -188,17 +210,40 @@ Data Enrichment with MongoDB Stitch
    Now that we can insert a new document into MongoDB Atlas using Stitch,
    we are going to create the trigger.
 
-   -  On the left panel click on "Triggers",
-   -  Then click on "Add a Database Trigger",
-   -  And do as follow.
-   -  This is the code you will need to create the new function:
-   -  As you can see in the middle of the code, I am using the OMDB API and
-      I replaced the API key with a fake one.
-   -  You can create your own free API Key here with just a valid email
-      address: http://www.omdbapi.com/apikey.aspx - limited to 1000 calls
-      per day.
-   -  Once this is done, you can just replace my fake API key (highlighted
-      in yellow) with your own key.
+   - On the left panel click on "Triggers",
+   - Then click on "Add a Database Trigger",
+   - And do as follow.
+
+   .. image:: /images/trigger-new-movie.png
+      :width: 760px
+      :alt: Trigger new movie
+
+   - This is the code you will need to create the new function:
+
+   .. code-block:: javascript
+
+      exports = function(changeEvent) {
+        var docId = changeEvent.documentKey._id;
+        var title = encodeURIComponent(changeEvent.fullDocument.Title.trim());
+
+        var movies = context.services.get("mongodb-atlas").db("stitch").collection("movies");
+        var imdb_url = "http://www.omdbapi.com/?apikey=a12b1234&t=" + title;
+
+        const http = context.services.get("IMDB"); // change the name of the service here if you used a different name.
+          return http
+            .get({ url: imdb_url })
+            .then(resp => {
+              var doc = EJSON.parse(resp.body.text());
+              movies.updateOne({"_id":docId}, doc);
+              });
+      };
+   
+   - As you can see in the middle of the code, I am using the OMDB API and
+     I replaced the API key with a fake one.
+   - You can create your own free API Key here with just a valid email
+     address: http://www.omdbapi.com/apikey.aspx - limited to 1000 calls
+     per day.
+   - Once this is done, you can just replace my fake API key with your own key.
 
    Now that this is ready, we just have to test it by repeating the same
    CURL command we used before. Feel free to use another movie title if you
@@ -213,13 +258,13 @@ Data Enrichment with MongoDB Stitch
 
    Let's review for a second what we have done:
 
-   -  We inserted a new document using an HTTP POST service hosted by
-      MongoDB Stitch containing only an "_id" (automatically populated by
-      MongoDB) and a "Title".
-   -  The insertion of this document is detected by the trigger that calls
-      an external Web API using this "Title" as the parameter.
-   -  We are then parsing the body of the result we get from this API and
-      updating the document we inserted a few milliseconds ago.
+   - We inserted a new document using an HTTP POST service hosted by
+     MongoDB Stitch containing only an "_id" (automatically populated by
+     MongoDB) and a "Title".
+   - The insertion of this document is detected by the trigger that calls
+     an external Web API using this "Title" as the parameter.
+   - We are then parsing the body of the result we get from this API and
+     updating the document we inserted a few milliseconds ago.
 
 .. summary::
 
@@ -231,7 +276,7 @@ Data Enrichment with MongoDB Stitch
    architecture and finally switch to an event-driven architecture.
 
    Next Steps
-   ^^^^^^^^^^
+   ----------
 
    Thanks for taking the time to read my post. I hope you found it useful
    and interesting.

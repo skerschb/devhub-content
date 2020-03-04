@@ -36,7 +36,7 @@
 
 .. languages::
 
-   * Javascript
+   * JavaScript
 
 .. products::
 
@@ -73,7 +73,7 @@ Building Modern Applications with Next.js and MongoDB
    What We’re Building: Macro Compliance Tracker
    ---------------------------------------------
 
-   The app we’re building today is called the Macro Compliance Tracker. If you’re like me, you probably had a New Years Resolution of *“I’m going to get in better shape!”* This year, I am taking that resolution seriously, and have gotten a person trainer and nutritionist. One interesting thing that I learned is that while the old adage of calories in needs to be less than calories out to lose weight is generally true, your macronutrients also play just as an important role in weight loss. 
+   The app we’re building today is called the Macro Compliance Tracker. If you’re like me, you probably had a New Years Resolution of *"I’m going to get in better shape!"* This year, I am taking that resolution seriously, and have gotten a person trainer and nutritionist. One interesting thing that I learned is that while the old adage of calories in needs to be less than calories out to lose weight is generally true, your macronutrients also play just as an important role in weight loss.
 
    There are many great apps that help you track your calories and macros. Unfortunately, most apps do not allow you to track a range and another interesting thing that I learned in my fitness journey this year is that for many beginners trying to hit their daily macro goals is a challenge and many folks end up giving up when they fail to hit the exact targets consistently. For that reason, my coach suggests a target range for calories and macros rather than a hard set number.
 
@@ -85,7 +85,7 @@ Building Modern Applications with Next.js and MongoDB
    Setting up a Next.js Application
    --------------------------------
 
-   The easiest way to create a Next.js application is by using the official create-next-app npx command. To do that we’ll simply open up our Terminal window and type: ``npx create-next-app mct``. “mct” is going to be the name of our application as well as the directory where our code is going to live. 
+   The easiest way to create a Next.js application is by using the official create-next-app npx command. To do that we’ll simply open up our Terminal window and type: ``npx create-next-app mct``. "mct" is going to be the name of our application as well as the directory where our code is going to live.
 
    .. image:: /images/nextjs/create-next-app.png
         :alt: create-next-app

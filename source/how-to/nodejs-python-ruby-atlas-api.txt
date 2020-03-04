@@ -20,7 +20,7 @@
 
 .. languages::
  
-   * Javascript
+   * JavaScript
    * Python
    * Ruby
  

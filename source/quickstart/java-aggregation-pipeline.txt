@@ -61,7 +61,7 @@ Java - Aggregation Pipeline
    The `aggregation
    pipeline <https://docs.mongodb.com/manual/core/aggregation-pipeline/>`_
    is a framework for data aggregation modeled on the concept of data
-   processing pipelines, just like the “pipe” in the Linux Shell. Documents
+   processing pipelines, just like the "pipe" in the Linux Shell. Documents
    enter a multi-stage pipeline that transforms the documents into
    aggregated results.
 
@@ -343,7 +343,7 @@ Java - Aggregation Pipeline
 
    As you can see, some titles are repeated. As I said earlier, the
    collection was generated so the post titles are not uniq. I could solve
-   this “problem” by using the `$addToSet
+   this "problem" by using the `$addToSet
    operator <https://docs.mongodb.com/manual/reference/operator/aggregation/addToSet/index.html>`_
    instead of the
    `$push <https://docs.mongodb.com/manual/reference/operator/aggregation/push/>`_

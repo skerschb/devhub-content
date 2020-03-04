@@ -36,7 +36,7 @@
 .. languages::
 
    * Python
-   * Javascript
+   * JavaScript
 
 .. products::
 

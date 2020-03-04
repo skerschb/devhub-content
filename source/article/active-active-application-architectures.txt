@@ -271,7 +271,7 @@ Active-Active Application Architectures with MongoDB
     meet these requirements:
 
     #. Distributed transactions using two-phase commit
-    #. Multi-Master, sometimes also called “masterless”
+    #. Multi-Master, sometimes also called "masterless"
     #. Partitioned (sharded) database with multiple primaries each
        responsible for a unique partition of the data
 
@@ -439,9 +439,9 @@ Active-Active Application Architectures with MongoDB
     shopping carts by their shopping card ID plus a data center field
     identifying the data center in which the shopping cart was created. The
     partitioning (Figure 6) would ensure that all shopping carts with a
-    DataCenter field value of “East” would be managed by the shard with the
+    DataCenter field value of "East" would be managed by the shard with the
     primary in the East data center. The other shard would manage carts with
-    the value of “West”. In addition, we would need two instances of the
+    the value of "West". In addition, we would need two instances of the
     inventory management service, one deployed in each data center, with
     responsibility for updating the carts owned by the local data center.
     
@@ -493,8 +493,8 @@ Active-Active Application Architectures with MongoDB
     Deployments <https://www.mongodb.com/collateral/mongodb-multi-data-center-deployments>`_
     white paper and `Zone Sharding
     documentation <https://docs.mongodb.com/manual/tutorial/sharding-segmenting-data-by-location/>`_,
-    but MongoDB operates as described in the “Partitioned (Sharded)
-    Database” section. 
+    but MongoDB operates as described in the "Partitioned (Sharded)
+    Database" section.
     
     Numerous organizations use MongoDB to implement
     active-active application architectures. For example: 
@@ -504,7 +504,7 @@ Active-Active Application Architectures with MongoDB
       as one of its standard architecture patterns. 
     - `YouGov <https://www.mongodb.com/blog/post/leaf-in-the-wild-yougov-powers-market-research-with-globally-distributed-mongodb>`_
       deploys MongoDB for their flagship survey system, called Gryphon, in a
-      “write local, read global” pattern that facilitates active-active multi
+      "write local, read global" pattern that facilitates active-active multi
       data center deployments spanning data centers in North America and
       Europe. 
     - `Ogilvy and

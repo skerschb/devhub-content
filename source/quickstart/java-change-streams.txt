@@ -361,7 +361,7 @@ Java - Change Streams
    
    Let's see how we can change this behavior in the next example.
    
-   Change Stream with “Update Lookup”
+   Change Stream with "Update Lookup"
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
    For this part, uncomment the example 4 from ``ChangeStreams.java`` and
@@ -399,7 +399,7 @@ Java - Change Streams
    
    .. blockquote::
    
-      Note: The ``Update.java`` program updates a made-up field “comments”
+      Note: The ``Update.java`` program updates a made-up field "comments"
       that doesn't exist in my POJO ``Grade`` which represents the original
       schema for this collection. Thus the field doesn't appear in the
       output as it's not mapped.
@@ -454,7 +454,7 @@ Java - Change Streams
    .. blockquote::
    
       It's important to note that a change stream will resume itself
-      automatically in the face of an “incident”. Generally, the only
+      automatically in the face of an "incident". Generally, the only
       reason that an application needs to restart the change stream
       manually from a resume token is if there is an incident in the
       application itself rather than the change stream (e.g. an operator

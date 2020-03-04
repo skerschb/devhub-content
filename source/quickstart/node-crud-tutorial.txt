@@ -36,7 +36,7 @@
 
 .. languages::
 
-   * Javascript
+   * JavaScript
 
 .. products::
 
@@ -147,7 +147,7 @@ MongoDB and Node.js Tutorial - CRUD Operations
     documents <https://bit.ly/Docs_Documents>`_. BSON is a binary
     representation of JSON (JavaScript Object Notation) documents. When you
     read MongoDB documentation, you’ll frequently see the term
-    “`document <https://bit.ly/Glossary_Document>`_,” but you can think of
+    "`document <https://bit.ly/Glossary_Document>`_," but you can think of
     a document as simply a JavaScript object. For those coming from the SQL
     world, you can think of a document as being roughly equivalent to a row.
 
@@ -394,7 +394,7 @@ MongoDB and Node.js Tutorial - CRUD Operations
 
     We can call this function by passing a connected MongoClient as well as
     the name of a listing we want to find. Let’s search for a listing named
-    “Infinite Views” that we `created in an earlier
+    "Infinite Views" that we `created in an earlier
     section <#create-many>`_.
 
     .. code-block:: javascript
@@ -667,7 +667,7 @@ MongoDB and Node.js Tutorial - CRUD Operations
         }
 
     Let’s say we want to update our Airbnb listing that has the name
-    “Infinite Views.” We created this listing in `an earlier
+    "Infinite Views." We created this listing in `an earlier
     section <#create-many>`_.
 
     .. code-block:: javascript
@@ -747,7 +747,7 @@ MongoDB and Node.js Tutorial - CRUD Operations
             }
         }
 
-    Let’s say we aren’t sure if a listing named “Cozy Cottage” is in our
+    Let’s say we aren’t sure if a listing named "Cozy Cottage" is in our
     collection or, if it does exist, it may hold old data. Either way, we
     want to ensure the listing that exists in our collection has the most
     up-to-date data. We can call ``upsertListingByName()`` with a connected
@@ -776,7 +776,7 @@ MongoDB and Node.js Tutorial - CRUD Operations
             bathrooms: 1,
             bedrooms: 2 }
 
-    If we discover more information about the “Cozy Cottage” listing, we can
+    If we discover more information about the "Cozy Cottage" listing, we can
     use ``upsertListingByName()`` again.
 
     .. code-block:: javascript
@@ -790,7 +790,7 @@ MongoDB and Node.js Tutorial - CRUD Operations
         1 document(s) matched the query criteria.
         1 document(s) was/were updated.
 
-    Now our document has a new field named “beds.”
+    Now our document has a new field named "beds."
 
     .. code-block:: json
 
@@ -821,7 +821,7 @@ MongoDB and Node.js Tutorial - CRUD Operations
     `$exists <https://bit.ly/docs_exists>`_ query operator to search for
     documents where the ``property_type`` field does not exist. Then we can
     use the `$set <https://bit.ly/docs_set>`_ update operator to set the
-    ``property_type`` to “Unknown” for those documents. Our function will
+    ``property_type`` to "Unknown" for those documents. Our function will
     look like the following.
 
     .. code-block:: javascript
@@ -847,7 +847,7 @@ MongoDB and Node.js Tutorial - CRUD Operations
         3 document(s) matched the query criteria.
         3 document(s) was/were updated.
 
-    Now our “Cozy Cottage” document and all of the other documents in the
+    Now our "Cozy Cottage" document and all of the other documents in the
     Airbnb collection have the ``property_type`` field.
 
     .. code-block:: json
@@ -860,8 +860,8 @@ MongoDB and Node.js Tutorial - CRUD Operations
             property_type: 'Unknown' }
 
     Listings that contained a ``property_type`` before we called
-    ``updateMany()`` remain as they were. For example, the “Spectacular
-    Modern Uptown Duplex” listing still has ``property_type`` set to
+    ``updateMany()`` remain as they were. For example, the "Spectacular
+    Modern Uptown Duplex" listing still has ``property_type`` set to
     ``Apartment``.
 
     .. code-block:: json
@@ -931,9 +931,9 @@ MongoDB and Node.js Tutorial - CRUD Operations
         }
 
     Let’s say we want to delete the Airbnb listing we created in an `earlier
-    section <#upsert>`_ that has the name “Cozy Cottage.” We can call
+    section <#upsert>`_ that has the name "Cozy Cottage." We can call
     ``deleteListingsByName()`` by passing a connected MongoClient and the
-    name “Cozy Cottage.”
+    name "Cozy Cottage."
 
     .. code-block:: javascript
 

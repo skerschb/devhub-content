@@ -289,7 +289,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    following: 
    
    Login to Ops Manager and click on the Admin button. Next
-   select the “Ops Manager Config” menu item. You will be presented with a
+   select the "Ops Manager Config" menu item. You will be presented with a
    screen similar to the figure below:
 
    .. image:: /images/kubernetes2.png
@@ -312,8 +312,8 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    `Projects <https://docs.opsmanager.mongodb.com/current/organizations-projects/>`_
    are apart of an Ops Manager Organization. If you need to create an
    Organization click on your user name at the upper right side of the
-   screen and select, “Organizations”. Next click on the “+ New
-   Organization” button and provide a name for your Organization. Once you
+   screen and select, "Organizations". Next click on the "+ New
+   Organization" button and provide a name for your Organization. Once you
    have an Organization you can create a Project.
 
    .. image:: /images/kubernetes3.png
@@ -321,8 +321,8 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    Figure 4: Ops Manager Organizations page
 
    To create a new Project, click on your Organization name. This will
-   bring you to the Projects page and from here click on the “+ New
-   Project” button and provide a unique name for your Project. If you are
+   bring you to the Projects page and from here click on the "+ New
+   Project" button and provide a unique name for your Project. If you are
    not an Ops Manager administrator you may not have this option and will
    have to ask your administrator to create a Project. 
    
@@ -343,9 +343,9 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    username.
    
    To see the list of Ops Manager users return to the Project and
-   click on the “Users & Teams” menu. You can use any Ops Manager user who
+   click on the "Users & Teams" menu. You can use any Ops Manager user who
    has at least Project Owner access. If you'd like to create another
-   username click on the “Add Users & Team” button as shown in Figure 6.
+   username click on the "Add Users & Team" button as shown in Figure 6.
 
    .. image:: /images/kubernetes5.png
 
@@ -360,15 +360,15 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    Manager API Key is used by the Kubernetes Operator to connect to the Ops
    Manager REST API endpoint. You can create a API Key by clicking on your
    username on the upper right hand corner of the Ops Manager console and
-   selecting, “Account” from the drop down menu. This will open the Account
+   selecting, "Account" from the drop down menu. This will open the Account
    Settings page as shown in Figure 7.
 
    .. image:: /images/kubernetes6.png
 
    Figure 7: Public API Access page
 
-   Click on the “Public API Access” tab. To create a new API key click on
-   the “Generate” button and provide a description. Upon completion you
+   Click on the "Public API Access" tab. To create a new API key click on
+   the "Generate" button and provide a description. Upon completion you
    will receive an API key as shown in Figure 8.
 
    .. image:: /images/kubernetes7.png
@@ -392,7 +392,7 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    text editor of your choice and create the following yaml file,
    substituting the bold placeholders for the values you obtained in the
    Ops Manager console. For sample purposes we can call this file
-   “my-project.yaml”.
+   "my-project.yaml".
 
    .. code-block:: auto
 

@@ -49,7 +49,7 @@ Storing Large Objects and Files in MongoDB
 
 .. content::
 
-    Large objects, or “files”, are easily stored in MongoDB.  It is no
+    Large objects, or "files", are easily stored in MongoDB.  It is no
     problem to store 100MB videos in the database. 
 
     This has a number of advantages over files stored in a file system. 
@@ -62,7 +62,7 @@ Storing Large Objects and Files in MongoDB
     MongoDB stores objects in a binary format called
     `BSON <http://bsonspec.org>`_.  BinData is a BSON data type for a
     binary byte array.  However, MongoDB objects are typically limited to
-    4MB in size.  To deal with this, files are “chunked” into multiple
+    4MB in size.  To deal with this, files are "chunked" into multiple
     objects that are less than 4MB each.  This has the added advantage of
     letting us efficiently retrieve a specific range of the given file.
 

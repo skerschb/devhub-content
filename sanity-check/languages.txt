@@ -3,7 +3,7 @@ C#
 C++
 Go
 Java
-Javascript
+JavaScript
 PHP
 Python
 R

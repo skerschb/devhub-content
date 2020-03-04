@@ -6,7 +6,7 @@
 
 .. meta-description:: 
 
-   Over the course of this blog post series, we'll take a look at twelve common Schema Design Patterns that work well in MongoDB. We hope this series will establish a common methodology and vocabulary you can use when designing schemas. Leveraging these patterns allows for the use of “building blocks” in schema planning, resulting in more methodology being used than art.
+   Over the course of this blog post series, we'll take a look at twelve common Schema Design Patterns that work well in MongoDB. We hope this series will establish a common methodology and vocabulary you can use when designing schemas. Leveraging these patterns allows for the use of "building blocks" in schema planning, resulting in more methodology being used than art.
 
 .. twitter::
    :site: @mongodb
@@ -52,11 +52,11 @@ Building with Patterns: The Polymorphic Pattern
    Introduction
    ------------
 
-   One frequently asked question when it comes to MongoDB is “How do I structure my schema in MongoDB for my application?” The honest answer is, it depends. Does your application do more reads than writes? What data needs to be together when read from the database? What performance considerations are there? How large are the documents? How large will they get? How do you anticipate your data will grow and scale?
+   One frequently asked question when it comes to MongoDB is "How do I structure my schema in MongoDB for my application?" The honest answer is, it depends. Does your application do more reads than writes? What data needs to be together when read from the database? What performance considerations are there? How large are the documents? How large will they get? How do you anticipate your data will grow and scale?
 
    All of these questions, and more, factor into how one designs a database schema in MongoDB. It has been said that MongoDB is schemaless. In fact, schema design is very important in MongoDB. The hard fact is that most performance issues we've found trace back to poor schema design.
 
-   Over the course of this series, Building with Patterns, we'll take a look at twelve common Schema Design Patterns that work well in MongoDB. We hope this series will establish a common methodology and vocabulary you can use when designing schemas. Leveraging these patterns allows for the use of “building blocks” in schema planning, resulting in more methodology being used than art.
+   Over the course of this series, Building with Patterns, we'll take a look at twelve common Schema Design Patterns that work well in MongoDB. We hope this series will establish a common methodology and vocabulary you can use when designing schemas. Leveraging these patterns allows for the use of "building blocks" in schema planning, resulting in more methodology being used than art.
 
    MongoDB uses a `document data model <https://docs.mongodb.com/manual/core/data-model-design/>`_. This model is inherently flexible, allowing for data models to support your application needs. The flexibility also can lead to schemas being more complex than they should. When thinking of schema design, we should be thinking of performance, scalability, and simplicity.
 
