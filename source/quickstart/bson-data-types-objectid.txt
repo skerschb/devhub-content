@@ -53,7 +53,7 @@ Quick Start: BSON Data Types - ObjectId
 
    .. image:: /images/qs-badges/qs-badge-bson.png
       :alt: BSON Quickstart badge
-      :scale: 50%
+      :scale: 30%
       :align: right
 
    In the database world, it is frequently important to have unique
@@ -178,8 +178,3 @@ Quick Start: BSON Data Types - ObjectId
    types <https://www.mongodb.com/blog/post/the-top-12-bson-data-types-you-wont-find-in-json>`_
    beyond those defined in JSON. It is a powerful data type that is
    incredibly useful as a unique identifier in MongoDB Documents.
-
-   Learn about different BSON data types in other articles in this Quick
-   Start series:
-
-   - :doc:`/quickstart/bson-data-types-decimal128`
