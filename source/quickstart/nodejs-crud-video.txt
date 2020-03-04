@@ -63,7 +63,7 @@ Quick Start 📽️ Video: Node.js & MongoDB - The CRUD Operations
 
     .. image:: /images/quickstart-node.png
       :alt: QuickStart for Node.js Logo
-      :scale: 50%
+      :scale: 30%
       :align: right
 
     If you're using Node.js and want to learn how to quickly get started
