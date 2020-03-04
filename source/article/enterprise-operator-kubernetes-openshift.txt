@@ -32,11 +32,11 @@
 .. tags:: 
 
    * Technical
-   * Ops Manager
 
 .. products::
 
    * MongoDB
+   * Ops Manager
 
 .. atf-image:: /images/atf-images/illustrations/productivity.png
 

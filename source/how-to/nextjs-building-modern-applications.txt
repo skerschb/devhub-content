@@ -30,19 +30,18 @@
 
 .. level:: beginner
 
-.. tags:: 
+.. tags::
 
-   * javascript
+   * React
 
 .. languages::
 
-   * nodejs
-   * react
+   * Javascript
 
 .. products::
 
    * MongoDB
-   * MongoDB Atlas
+   * Atlas
    * Compass
 
 .. ---------------------------------------------------------------

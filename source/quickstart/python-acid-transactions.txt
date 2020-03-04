@@ -32,7 +32,6 @@
 .. tags::
 
    * Transactions
-   * Python
    * MongoDB 4.0
 
 .. products::

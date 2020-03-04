@@ -13,26 +13,20 @@
 
 .. include:: /includes/authors/walker-dj.rst
  
-.. tags::
- 
-   * nodejs
-   * python
-   * ruby
- 
 .. pubdate:: 2019-03-12
  
 .. type:: how-to
 .. level:: beginner
- 
+
 .. languages::
  
-   * nodejs
-   * python
-   * ruby
+   * Javascript
+   * Python
+   * Ruby
  
 .. products::
  
-   * MongoDB Atlas
+   * Atlas
 
 .. atf-image:: /images/atf-images/quickstart/nodejs.png
 

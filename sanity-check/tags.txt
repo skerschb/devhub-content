@@ -1,12 +1,14 @@
 .NET
 Analytics
 API
+AWS
 BI
+BSON
 Change Streams
 Cloud
 Containers
 Data Visualization
-Full Text Search
+Full-Text Search
 GraphQL
 IoT
 Kafka
@@ -15,9 +17,12 @@ Mobile
 MongoDB 4.0
 MongoDB 4.2
 MongoDB 4.4
+React
+Releases
 Schema Design
 Security
 Starlette
+Technical
 Time Series
 Transactions
 University

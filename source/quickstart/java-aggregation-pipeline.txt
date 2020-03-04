@@ -29,10 +29,6 @@
 
 .. level:: beginner
 
-.. tags::
-
-   * Java
-
 .. languages::
 
    * Java

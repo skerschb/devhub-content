@@ -30,13 +30,9 @@
 
 .. level:: beginner
 
-.. tags:: 
-
-   * Node
-
 .. languages::
 
-   * nodejs
+   * Javascript
 
 .. products::
 

@@ -1,6 +1,6 @@
 .. author::
    :name: Karen Huaulme
-   :image: images/bios/bio-karen.jpg
+   :image: /images/bios/bio-karen.jpg
 
    Karen Huaulmé (pronounced “You-Old-Maid” - but with no d's) is a Senior Developer Advocate based out of Austin, Texas where she helps MongoDB users build reliable and scalable solutions efficiently using MongoDB. When not working with MongoDB customers directly, Karen can be found playing with all the new MongoDB technologies such as Full-Text Search, Charts, Compass, and MongoDB Realm.
 

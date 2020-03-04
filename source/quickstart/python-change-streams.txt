@@ -32,7 +32,6 @@
 .. tags::
 
    * Change Streams
-   * Python
 
 .. languages::
 

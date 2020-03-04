@@ -20,7 +20,7 @@
 
 .. tags:: 
 
-   * iot
+   * IoT
 
 .. products::
 
@@ -28,7 +28,7 @@
 
 .. languages::
 
-   * javascript
+   * Javascript
 
 .. atf-image:: /images/atf-images/quickstart/stitch-triggers.png
 
@@ -38,7 +38,7 @@ Capture IOT Data With MongoDB Stitch in 5 Minutes
 
 .. content::
 
-  Capturing IOT data is a complex task for 2 main reasons: 
+  Capturing IOT data is a complex task for 2 main reasons:
   
   - We have to deal with a huge amount of data so we need a rock solid architecture.
   - While keeping a bulletproof security level.

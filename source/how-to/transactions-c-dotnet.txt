@@ -32,14 +32,12 @@
 .. tags:: 
 
    * Technical
-   * Developer
    * .NET
    * Transactions
 
 .. languages::
 
-   * c#
-   * .NET
+   * C#
 
 .. products::
 

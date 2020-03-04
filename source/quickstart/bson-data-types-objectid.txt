@@ -33,7 +33,6 @@
 .. tags::
 
    * BSON
-   * ObjectId
 
 .. atf-image:: /images/atf-images/quickstart/bson.png
 

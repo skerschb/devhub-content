@@ -89,3 +89,8 @@ print('\nList of images not used:\n')
 for img in all_images:
     if img not in images_used:
         print('=> ' + img)
+
+print('\nList of images not found:\n')
+for img in images_used:
+    if img not in all_images:
+        print('=> ' + img)
