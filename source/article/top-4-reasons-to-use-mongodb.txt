@@ -1,0 +1,520 @@
+:template: devhub-article
+
+.. ---------------------------------------------------------------
+.. META FIELDS FOR SEO / SOCIAL
+.. ---------------------------------------------------------------
+
+.. meta-description:: 
+
+   Discover the top 4 reasons you should use MongoDB
+
+.. twitter::
+   :site: @mongodb
+   :creator: @Lauren_Schaefer
+   :title: The Top 4 Reasons Why You Should Use MongoDB
+   :image: /images/social/twitter/twitter-sql-mdb.png
+
+   Discover the top 4 reasons you should use MongoDB
+
+.. ---------------------------------------------------------------
+.. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
+.. ---------------------------------------------------------------
+
+.. include:: /includes/authors/schaefer-lauren.rst
+
+.. pubdate:: 2020-03-25
+
+.. type:: article
+
+.. level:: beginner
+
+.. tags:: 
+
+   * SQL
+
+.. products::
+
+   * MongoDB
+
+.. atf-image:: /images/atf-images/illustrations/sql-mdb.png
+
+.. ---------------------------------------------------------------
+.. ARTICLE CONTENT
+.. ---------------------------------------------------------------
+
+============================================
+The Top 4 Reasons Why You Should Use MongoDB
+============================================
+ 
+.. introduction::
+
+   Welcome (or welcome back!) to the SQL to MongoDB series. In the first
+   post in this series, I :doc:`mapped terms and concepts from SQL to MongoDB </article/map-terms-concepts-sql-mongodb>`.
+
+   I also introduced you to Ron. Let’s take a moment and return to Ron. Ron
+   is pretty set in his ways. For example, he loves his typewriter. It
+   doesn’t matter that computers are a bajillion times more powerful than
+   typewriters. Until someone convinces him otherwise, he’s sticking with
+   his typewriter.
+
+   .. image:: /images/article/sql-to-mdb/typewriter.gif
+      :alt: Ron sits at his typewriter and says, "I'm gonna type every word I know."
+
+   Maybe you don’t have a love for typewriters. But perhaps you have a love
+   for SQL databases. You’ve been using them for years, you’ve learned how
+   to make them work well enough for you, and you know that learning
+   MongoDB will require you to change your mindset. Is it really worth the
+   effort?
+
+   Yes!
+
+   In this post, we’ll examine the top four reasons why you should use
+   MongoDB:
+
+   -  :ref:`sql-mdb-2-scale-cheaper`
+   -  :ref:`sql-mdb-2-query-faster`
+   -  :ref:`sql-mdb-2-pivot-easier`
+   -  :ref:`sql-mdb-2-program-faster`
+
+   .. blockquote::
+
+      This article is based on a presentation I gave at MongoDB World and
+      MongoDB.local Houston entitled “From SQL to NoSQL: Changing Your
+      Mindset.” 
+      
+      If you prefer videos over articles, check out the 
+      `recording <https://youtu.be/FFj04Apz_BE>`_. Slides are available
+      `here <https://www.slideshare.net/LaurenHaywardSchaefe/jumpstart-from-sql-to-nosql-changing-your-mindset>`_.
+
+.. content::
+
+   .. _sql-mdb-2-scale-cheaper:
+
+   Scale Cheaper
+   -------------
+
+   You can scale cheaper with MongoDB. Why?
+
+   Let’s begin by talking about scaling SQL databases. Typically, SQL
+   databases scale vertically–when a database becomes too big for its
+   server, it is migrated to a larger server.
+
+   .. figure:: /images/article/sql-to-mdb/verticalscaling.gif
+      :alt: Vertical scaling
+
+      Vertical scaling by migrating to larger servers
+
+   A few key problems arise with vertical scaling: 
+
+   - Large servers tend to
+     be more expensive than two smaller servers with the same total capacity.
+   - Large servers may not be available due to cost limitations, cloud
+     provider limitations, or technology limitations (a server the size you
+     need may not exist). 
+   - Migrating to a larger server may require
+     application downtime.
+
+   When you use MongoDB, you have the flexibility to scale horizontally
+   through `sharding <https://docs.mongodb.com/manual/sharding/>`__.
+   Sharding is a method for distributing data across multiple servers. When
+   your database exceeds the capacity of its current server, you can begin
+   sharding and split it over two servers. As your database continues to
+   grow, you can continue to add more servers. The advantage is that these
+   new servers don’t need to be big, expensive machines–they can be
+   cheaper, commodity hardware. Plus, no downtime is required.
+
+   .. figure:: /images/article/sql-to-mdb/horizontalscaling.gif
+      :alt: Horizontal scaling
+
+      Horizonal scaling by adding more commodity servers
+
+   .. _sql-mdb-2-query-faster:
+
+   Query Faster
+   ------------
+
+   Your queries will typically be faster with MongoDB. Let’s examine why.
+
+   :ref:`Even in our simple example in the previous post <sql-mdb-1-example-docs>`
+   where we modeled Leslie’s data in SQL, we
+   saw that her information was spread across three tables. Whenever we
+   want to query for Leslie’s information, we’ll need to join three tables
+   together.
+
+   In these three small tables, the join will be very fast. However, as the
+   tables grow and our queries become more complex, joining tables together
+   becomes very expensive.
+
+   .. image:: /images/article/sql-to-mdb/db_joins.png
+      :alt: Representation of joining tables in a SQL database 
+
+   Recall our rule of thumb when modeling data in MongoDB: *data that is
+   accessed together should be stored together*. When you follow this rule
+   of thumb, most queries will not require you to join any data together.
+
+   Continuing with our earlier example, if we want to retrieve Leslie’s
+   information from MongoDB, we can simply query for a single document in
+   the ``Users`` collection. As a result, our query will be very fast.
+
+   As our documents and collections grow larger, we don’t have to worry
+   about our queries slowing down as long as we are using indexes and
+   continue following our rule of thumb: *data that is accessed together
+   should be stored together*.
+
+   .. image:: /images/article/sql-to-mdb/dbnojoins.png
+      :alt: Representation of a MongoDB query with no joins 
+
+   .. _sql-mdb-2-pivot-easier:
+
+   Pivot Easier
+   ------------
+
+   Requirements change. Sometimes the changes are simple and require only a
+   few tweaks to the user interface. But sometimes changes go all the way
+   down to the database.
+
+   In the previous post in this series, we discovered—after implementing our
+   application—that we needed to :ref:`store information about Lauren’s school <sql-mdb-1-store-laurens-info>`.
+   Let’s take a look at this example a little more closely.
+
+   To add a new ``school`` column in our SQL database, we’re going to have
+   to alter the ``Users`` table. Executing the ``Alter Table`` command
+   could take a couple of hours depending on how much data is in the table.
+   The performance of our application could be decreased while the table is
+   being altered, and we may need to schedule downtime for our application.
+
+   .. image:: /images/article/sql-to-mdb/altertable_parksandrec.png
+      :alt: Alter Table command 
+
+   Now let’s examine how we can do something similar in MongoDB. When our
+   requirements change and we need to begin storing the name of a user’s
+   school in a ``User`` document, we can simply begin doing so. We can
+   choose if and when to update existing documents in the collection.
+
+   If we had implemented schema validation, we would have the option of
+   applying the validation to all inserts and updates or only to inserts
+   and updates to documents that already meet the schema requirements. We
+   would also have the choice of throwing an error or a warning if a
+   validation rule is violated.
+
+   With MongoDB, you can easily change the shape of your data as your app
+   evolves.
+
+   .. image:: /images/article/sql-to-mdb/altertable_mongo.png
+      :alt: Change the shape of your data in MongoDB without executing an Alter Table command
+
+   .. _sql-mdb-2-program-faster:
+
+   Program Faster
+   --------------
+
+   To be honest with you, this advantage is one of the biggest surprises to
+   me. I figured that it didn’t matter what you used as your backend
+   database—the code that interacts with it would be basically the same. I
+   was wrong.
+
+   .. figure:: /images/article/sql-to-mdb/bensurprise.gif
+      :alt: Ben looks completely shocked 
+
+      MFW I realized how much easier it is to code with MongoDB.
+
+   MongoDB documents map to data structures in most popular programming
+   languages. This sounds like such a simple thing, but it makes a
+   *humongous* difference when you’re writing code.
+
+   A friend encouraged me to test this out, so I did. I implemented the
+   code to retrieve and update user profile information. My code has some
+   simplifications in it to enable me to focus on the interactions with the
+   database rather than the user interface. I also limited the user profile
+   information to just contact information and hobbies.
+
+   Below is a comparison of my implementation using
+   `MySQL <https://www.mysql.com>`__ and MongoDB.
+
+   I wrote the code in Python, but, don’t worry if you’re not familiar with
+   Python, I’ll walk you through it step by step. The concepts will be
+   applicable no matter what your programming language of choice is.
+
+   Connect to the Databases
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Let’s begin with the typical top-of-the-file stuff. We’ll import what we
+   need, connect to the database, and declare our variables. I’m going to
+   simplify things by hardcoding the User ID of the user whose profile we
+   will be retrieving rather than pulling it dynamically from the frontend
+   code.
+
+   MySQL
+
+   .. code:: python
+
+      import mysql.connector
+      
+      # CONNECT TO THE DB
+      mydb = mysql.connector.connect(
+         host="localhost",
+         user="root",
+         passwd="rootroot",
+         database="CityHall"
+      )
+      mycursor = mydb.cursor()
+      
+      # THE ID OF THE USER WHOSE PROFILE WE WILL BE RETRIEVING AND UPDATING
+      userId = 1
+
+   MongoDB
+
+   .. code:: python
+
+      import pymongo
+      from pymongo import MongoClient
+      
+      # CONNECT TO THE DB
+      client = MongoClient()
+      client = pymongo.MongoClient("mongodb+srv://root:rootroot@mycluster.mongodb.net/test?retryWrites=true&w=majority")
+      db = client.CityHall
+      
+      # THE ID OF THE USER WHOSE PROFILE WE WILL BE RETRIEVING AND UPDATING
+      userId = 1
+
+   So far, the code is pretty much the same.
+
+   Get the User’s Profile Information
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Now that we have our database connections ready, let’s use them to
+   retrieve our user profile information. We’ll store the profile
+   information in a `Python
+   Dictionary <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`__.
+   Dictionaries are a common data structure in Python and provide an easy
+   way to work with your data.
+
+   Let’s begin by implementing the code for MySQL.
+
+   Since the user profile information is spread across the ``Users`` table
+   and the ``Hobbies`` table, we’ll need to join them in our query. We can
+   use `prepared
+   statements <https://en.wikipedia.org/wiki/Prepared_statement>`__ to
+   ensure our data stays safe.
+
+   MySQL
+
+   .. code:: python
+
+      sql = "SELECT * FROM Users LEFT JOIN Hobbies ON Users.ID = Hobbies.user_id WHERE Users.id=%s"
+      values = (userId,)
+      my cursor.execute(sql, values)
+      result = mycursor.fetchone()
+
+   When we fetch a query result, a
+   `tuple <https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences>`__
+   is returned. The tuple contains a value for every column in the
+   ``Users`` and ``Hobbies`` tables:
+
+   .. code:: python
+
+      (1, u'Leslie', u'Yepp', u'8125552344', u'Pawnee', 39.1703, -86.5366, None, 10, 1, u'scrapbooking')
+
+   This tuple is a bit challenging to work with in the code since it’s not
+   clear what field is associated with each value. To work around this
+   challenge, we’ll manually create a ``user`` dictionary by pulling values
+   out of the tuple. Keep in mind that if any columns are added, removed,
+   or modified, we’ll need to remember to update this code to ensure the
+   mapping of the tuple to the dictionary is still correct.
+
+   MySQL
+
+   .. code:: python
+
+      user = {
+         "first_name": result[1],
+         "last_name": result[2],
+         "cell": result[3],
+         "city": result[4],
+         "location": [result[6], result[5]],
+         "school": result[7]
+      }
+
+   Because we joined the ``Users`` and the ``Hobbies`` tables, we have a
+   row for each hobby this user has. To retrieve all of the hobbies, we
+   need to iterate the cursor. We’ll append each hobby to a new ``hobbies``
+   array and then add the ``hobbies`` array to our ``user`` dictionary.
+
+   MySQL
+
+   .. code:: python
+
+      hobbies = []
+      if (result[10]):
+         hobbies.append(result[10])
+      for result in mycursor:
+         hobbies.append(result[10])
+      user["hobbies"] = hobbies
+
+   Now let’s implement that same functionality for MongoDB.
+
+   Since we stored all of the user profile information in the ``User``
+   document, we don’t need to do any joins. We can simply retrieve a single
+   document in our collection.
+
+   Here is where the big advantage that *MongoDB documents map to data
+   structures in most popular programming languages* comes in. I don’t have
+   to do any mapping or converting to get my data into an easy-to-work-with
+   Python Dictionary. MongoDB gives me the results in a Python Dictionary
+   automatically.
+
+   MongoDB
+
+   .. code:: python
+
+      user = db['Users'].find_one({"_id": userId})
+
+   And that’s it—we’re done. What took us 18 lines for MySQL, we were able
+   to implement in 1 line for MongoDB.
+
+   Our ``user`` dictionaries are now pretty similar in both pieces of code.
+
+   MySQL
+
+   .. code:: json
+
+      {
+         'city': 'Pawnee', 
+         'first_name': 'Leslie', 
+         'last_name': 'Yepp', 
+         'school': None, 
+         'cell': '8125552344', 
+         'location': [-86.5366, 39.1703], 
+         'hobbies': ['scrapbooking', 'eating waffles', 'working']
+      }
+
+   MongoDB
+
+   .. code:: json
+
+      {
+         'city': 'Pawnee', 
+         'first_name': 'Leslie', 
+         'last_name': 'Yepp', 
+         'cell': '8125552344', 
+         'location': [-86.536632, 39.170344], 
+         'hobbies': ['scrapbooking', 'eating waffles', 'working'],
+         '_id': 1
+      }
+
+   Now that we have retrieved the user’s profile information, we’d likely
+   send that information up the stack to the frontend UI code.
+
+   Update the User’s Profile Information
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   When Leslie views her profile information in our application, she may
+   discover she needs to update her profile information. The frontend UI
+   code would send that updated information in a Python dictionary to the
+   Python files we’ve been writing.
+
+   To simulate Leslie updating her profile information, we’ll manually
+   update the Python dictionary ourselves for both MySQL and MongoDB.
+
+   MySQL and MongoDB:
+
+   .. code:: python
+
+      user.update( {
+         "city": "Washington, DC",
+         "location": [-77.036809, 38.897760],
+         "hobbies": ["scrapbooking", "eating waffles", "signing bills"]
+         } )
+
+   Now that our ``user`` dictionary is updated, let’s push the updated
+   information to our databases.
+
+   Let’s begin with MySQL. First, we need to update the information that is
+   stored in the ``Users`` table.
+
+   MySQL
+
+   .. code:: python
+
+      sql = "UPDATE Users SET first_name=%s, last_name=%s, cell=%s, city=%s, latitude=%s, longitude=%s, school=%s WHERE (ID=%s)"
+      values = (user["first_name"], user["last_name"], user["cell"], user["city"], user["location"][1], user["location"][0], user["school"], userId)
+      mycursor.execute(sql, values)
+      mydb.commit()
+
+   Second, we need to update our hobbies. For simplicity, we’ll delete any
+   existing hobbies in the ``Hobbies`` table for this user and then we’ll
+   insert the new hobbies into the ``Hobbies`` table.
+
+   MySQL
+
+   .. code:: python
+
+      sql = "DELETE FROM Hobbies WHERE user_id=%s"
+      values = (userId,)
+      mycursor.execute(sql, values)
+      mydb.commit()
+      
+      if(len(user["hobbies"]) > 0):
+         sql = "INSERT INTO Hobbies (user_id, hobby) VALUES (%s, %s)"
+         values = []
+         for hobby in user["hobbies"]:
+            values.append((userId, hobby))
+         mycursor.executemany(sql,values)
+         mydb.commit()
+
+   Now let’s update the user profile information in MongoDB. Since the
+   user’s profile information is stored in a single document, we only have
+   to do a single update. Once again we will benefit from MongoDB documents
+   mapping to data structures in most popular programming languages. We can
+   send our ``user`` Python dictionary when we call ``update_one()``, which
+   significantly simplifies our code.
+
+   MongoDB
+
+   .. code:: python
+
+      result = db['Users'].update_one({"_id": userId}, {"$set": user})
+
+   What took us 11 lines for MySQL, we were able to implement in 1 line for
+   MongoDB.
+
+   Summary of Programming Faster
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   In this example, we wrote 30 lines of code to interact with our data in MySQL and 2 lines of code to interact with our data
+   in MongoDB. While fewer lines of code is not always indicative of
+   better code, in this case, we can probably agree that fewer lines of
+   code will likely lead to easier maintenance and fewer bugs.
+
+   The examples above were relatively simple with small queries. Imagine
+   how much bigger the difference would be for larger, more complex
+   queries.
+
+   MongoDB documents mapping to data structures in most popular programming
+   languages can be a huge advantage in terms of time to write, debug, and
+   maintain code.
+
+   The code above was written in Python and leveraged the Python MongoDB
+   Driver. For a complete list of all of the programming languages that
+   have MongoDB drivers, visit the `MongoDB
+   Manual <https://docs.mongodb.com/ecosystem/drivers/#drivers>`__.
+
+   If you’d like to grab a copy of the code in the examples above, visit my
+   `GitHub
+   repo <https://github.com/mongodb-developer/SQL-to-NoSQL-Examples>`__.
+
+.. summary::
+
+   Wrap Up
+   -------
+
+   In this post, we discussed the top four reasons why you should use
+   MongoDB:
+
+   -  :ref:`sql-mdb-2-scale-cheaper`
+   -  :ref:`sql-mdb-2-query-faster`
+   -  :ref:`sql-mdb-2-pivot-easier`
+   -  :ref:`sql-mdb-2-program-faster`
+
+   Be on the lookout for the final post in this series where I’ll discuss
+   the top three things you need to know as you move from SQL to MongoDB.
