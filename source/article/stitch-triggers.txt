@@ -21,7 +21,6 @@
 .. tags:: 
 
    * Releases
-   * Stitch
 
 .. products::
 

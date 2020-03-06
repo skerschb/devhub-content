@@ -21,16 +21,16 @@
 
 .. tags::
 
-    * go
-    * aws
+    * AWS
+    * Cloud
 
 .. languages::
 
-    * go
+    * Go
 
 .. products::
 
-    * MongoDB Atlas
+    * Atlas
 
 .. atf-image:: /images/atf-images/quickstart/golang.png
 

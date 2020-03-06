@@ -50,7 +50,7 @@ Quick Start: BSON Data Types - Decimal128
 
    .. image:: /images/qs-badges/qs-badge-bson.png
       :alt: BSON Quickstart badge
-      :scale: 50%
+      :scale: 30%
       :align: right
 
    Think back to when you were first introduced to the concept of decimals
@@ -194,8 +194,3 @@ Quick Start: BSON Data Types - Decimal128
    driver <https://docs.mongodb.com/ecosystem/drivers/>`_ version that
    supports this great feature. Decimal128 is great for huge (or very tiny)
    numbers and for when precision in those numbers is important.
-
-   Learn about different BSON data types in other articles in this Quick
-   Start series:
-
-   - :doc:`/quickstart/bson-data-types-objectid`

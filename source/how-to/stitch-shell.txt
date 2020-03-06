@@ -33,11 +33,10 @@
 .. tags::
 
    * Cloud
-   * Stitch
 
 .. languages::
 
-   * javascript
+   * JavaScript
 
 .. products::
 

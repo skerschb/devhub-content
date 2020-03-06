@@ -213,8 +213,8 @@ MongoDB 3.6: Here to SRV you with easier replica set connections
     members of the replica set. The TXT record defines the options for the
     replica set, specifically the database that will be used for
     authorization and the name of the replica set. It is important to note
-    that the **mongodb+srv** format URI implicitly adds “ssl=true”. In our
-    case SSL is not used for the demo so we have to append “&ssl=false” to
+    that the **mongodb+srv** format URI implicitly adds "ssl=true". In our
+    case SSL is not used for the demo so we have to append "&ssl=false" to
     the client connector. Note that the SRV record is specifically designed
     to look up the **mongodb** service referenced at the start of the URL.
     

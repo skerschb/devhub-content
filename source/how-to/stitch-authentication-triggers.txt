@@ -32,18 +32,17 @@
 
 .. tags::
 
-   * Stitch
    * Cloud
    * Technical
 
 .. languages::
 
-   * javascript
+   * JavaScript
 
 .. products::
 
-   Stitch
-   Atlas
+   * Stitch
+   * Atlas
 
 .. atf-image:: /images/atf-images/quickstart/stitch-triggers.png
 

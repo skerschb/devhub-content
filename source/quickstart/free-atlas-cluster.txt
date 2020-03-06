@@ -89,7 +89,7 @@ Getting Your Free MongoDB Atlas Cluster
    anything else you like in `MongoDB Atlas`. This is enough for 3 to 4
    months of a dedicated M10 Replica Set!
    
-   To redeem this coupon code, you need to click “details” in the top right
-   corner (Next to the “Usage This Month” entry) to access your
+   To redeem this coupon code, you need to click "details" in the top right
+   corner (Next to the "Usage This Month" entry) to access your
    `billing <https://docs.atlas.mongodb.com/billing/#billing-overview>`_
-   details, then click on “Billing Overview” and finally “Apply Credit”.
+   details, then click on "Billing Overview" and finally "Apply Credit".
