@@ -53,11 +53,11 @@ The Top 4 Reasons Why You Should Use MongoDB
       :stub-columns: 1
 
       * - Platform
-      - 4.0 Community & Enterprise
-      - 3.6 Community & Enterprise
+        - 4.0 Community & Enterprise
+        - 3.6 Community & Enterprise
       * - Ubuntu 16.04
-      - test1
-      - test2
+        - test1
+        - test2
 
    Welcome (or welcome back!) to the SQL to MongoDB series. In the first
    post in this series, I `mapped terms and concepts from SQL to
