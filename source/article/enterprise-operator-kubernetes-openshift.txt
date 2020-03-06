@@ -635,9 +635,6 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    website <https://docs.mongodb.com/manual/>`_ in the near future. Until
    then check out these resources for more information: 
    
-   Slack:
-   #enterprise-kubernetes 
-   
    Sign up @ https://launchpass.com/mongo-db 
    
    GitHub:
