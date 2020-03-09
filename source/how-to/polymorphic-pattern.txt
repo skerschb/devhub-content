@@ -58,7 +58,7 @@ Building with Patterns: The Polymorphic Pattern
 
    Over the course of this series, Building with Patterns, we'll take a look at twelve common Schema Design Patterns that work well in MongoDB. We hope this series will establish a common methodology and vocabulary you can use when designing schemas. Leveraging these patterns allows for the use of "building blocks" in schema planning, resulting in more methodology being used than art.
 
-   MongoDB uses a `document data model <https://docs.mongodb.com/manual/core/data-model-design/>`_. This model is inherently flexible, allowing for data models to support your application needs. The flexibility also can lead to schemas being more complex than they should. When thinking of schema design, we should be thinking of performance, scalability, and simplicity.
+   MongoDB uses a `document data model <https://docs.mongodb.com/manual/core/data-model-design/>`__. This model is inherently flexible, allowing for data models to support your application needs. The flexibility also can lead to schemas being more complex than they should. When thinking of schema design, we should be thinking of performance, scalability, and simplicity.
 
    Let's start our exploration into schema design with a look at what can be thought as the base for all patterns, the *Polymorphic Pattern*. This pattern is utilized when we have documents that have more similarities than differences. It's also a good fit for when we want to keep documents in a single collection.
 
@@ -90,9 +90,9 @@ Building with Patterns: The Polymorphic Pattern
    Sample Use Case
    ---------------
 
-   One example use case of the Polymorphic Pattern is `Single View applications <https://www.mongodb.com/use-cases/single-view>`_. Imagine working for a company that, over the course of time, acquires other companies with their technology and data patterns. For example, each company has many databases, each modeling "insurances with their customers" in a different way. Then you buy those companies and want to integrate all of those systems into one. Merging these different systems into a unified SQL schema is costly and time-consuming.
+   One example use case of the Polymorphic Pattern is `Single View applications <https://www.mongodb.com/use-cases/single-view>`__. Imagine working for a company that, over the course of time, acquires other companies with their technology and data patterns. For example, each company has many databases, each modeling "insurances with their customers" in a different way. Then you buy those companies and want to integrate all of those systems into one. Merging these different systems into a unified SQL schema is costly and time-consuming.
 
-   `MetLife <https://www.metlife.com/>`_ was able to leverage MongoDB and the Polymorphic Pattern to build their single view application in a few months. Their Single View application aggregates data from multiple sources into a central repository allowing customer service, insurance agents, billing, and other departments to get a 360° picture of a customer. This has allowed them to provide better customer service at a reduced cost to the company. Further, using MongoDB's flexible data model and the Polymorphic Pattern, the development team was able to innovate quickly to bring their product online.
+   `MetLife <https://www.metlife.com/>`__ was able to leverage MongoDB and the Polymorphic Pattern to build their single view application in a few months. Their Single View application aggregates data from multiple sources into a central repository allowing customer service, insurance agents, billing, and other departments to get a 360° picture of a customer. This has allowed them to provide better customer service at a reduced cost to the company. Further, using MongoDB's flexible data model and the Polymorphic Pattern, the development team was able to innovate quickly to bring their product online.
 
    A Single View application is one use case of the Polymorphic Pattern. It also works well for things like product catalogs where a bicycle has different attributes than a fishing rod. Our athlete example could easily be expanded into a more full-fledged content management system and utilize the Polymorphic Pattern there.
 
@@ -108,4 +108,4 @@ Building with Patterns: The Polymorphic Pattern
    - Mobile applications
    - A product catalog
 
-   The Polymorphic Pattern provides an easy-to-implement design that allows for querying across a single collection and is a starting point for many of the design patterns we'll be exploring in upcoming posts. The next pattern we'll discuss is the `Attribute Pattern <https://www.mongodb.com/blog/post/building-with-patterns-the-attribute-pattern>`_.
+   The Polymorphic Pattern provides an easy-to-implement design that allows for querying across a single collection and is a starting point for many of the design patterns we'll be exploring in upcoming posts. The next pattern we'll discuss is the `Attribute Pattern <https://www.mongodb.com/blog/post/building-with-patterns-the-attribute-pattern>`__.

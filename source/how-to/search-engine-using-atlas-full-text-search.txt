@@ -57,12 +57,12 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    .. blockquote::
 
       Atlas Full-Text Search is now `Atlas
-      Search <https://www.mongodb.com/atlas/search>`_.
+      Search <https://www.mongodb.com/atlas/search>`__.
 
    Giving your users the ability to find exactly what they are looking for
    in your application is critical for a fantastic user experience. With
    the new `MongoDB Atlas Full-Text
-   Search <https://www.mongodb.com/atlas/full-text-search>`_ service, we
+   Search <https://www.mongodb.com/atlas/full-text-search>`__ service, we
    have made it easier than ever to integrate simple yet sophisticated
    search capabilities into your MongoDB applications. To demonstrate just
    how easy it is, let's build a movie search engine - in only 10 minutes.
@@ -113,7 +113,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
          Want to try our Full-Text Search on a cluster of your own?
          ``YouOldMaid100`` for $100 of Atlas credit. For information on
          redeeming Atlas credit, see `Atlas
-         Billing <https://www.google.com/url?q=https://www.mongodb.com/cloud/atlas/signup?form-type%3Dfree&sa=D&ust=1579301554143000&usg=AFQjCNHI71SacwhKWJLcHMUa9RvY5bAoKw>`_.
+         Billing <https://www.google.com/url?q=https://www.mongodb.com/cloud/atlas/signup?form-type%3Dfree&sa=D&ust=1579301554143000&usg=AFQjCNHI71SacwhKWJLcHMUa9RvY5bAoKw>`__.
 
    2. The Atlas sample dataset loaded into your cluster. You can load the
       sample dataset by clicking the ellipse button and **Load Sample
@@ -127,13 +127,13 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
          For more detailed information on how to spin up a cluster, configure
          your IP address, create a user, and load sample data, check
          out `Getting Started with MongoDB
-         Atlas <https://docs.atlas.mongodb.com/getting-started/#atlas-getting-started>`_ from
+         Atlas <https://docs.atlas.mongodb.com/getting-started/#atlas-getting-started>`__ from
          our documentation.
 
    3. (Optional) MongoDB Compass. This is the free GUI for MongoDB that
       allows you to make smarter decisions about document structure,
       querying, indexing, document validation, and more. The latest version
-      can be found here `https://www.mongodb.com/download-center/compass <https://www.mongodb.com/download-center/compass>`_.
+      can be found here `https://www.mongodb.com/download-center/compass <https://www.mongodb.com/download-center/compass>`__.
 
    Once your sample dataset is loaded into your database, let's have a
    closer look to see what we are working within the Atlas Data Explorer.
@@ -187,7 +187,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    ----------------------------------------------------
 
    Full-Text Search queries take the form of an `aggregation pipeline
-   stage <https://docs.mongodb.com/manual/aggregation/>`_. The
+   stage <https://docs.mongodb.com/manual/aggregation/>`__. The
    **$searchBeta** stage performs a search query on the specified field(s)
    covered by the Full-Text Search index and must be used as the first
    stage in the aggregation pipeline.
@@ -195,13 +195,13 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    Let's use MongoDB Compass to see an aggregation pipeline that makes use
    of this Full-Text Search index. For instructions on how to connect your
    Atlas cluster to MongoDB Compass, `click
-   here <https://docs.atlas.mongodb.com/compass-connection/index.html>`_.
+   here <https://docs.atlas.mongodb.com/compass-connection/index.html>`__.
 
    *You do not have to use Compass for this stage, but I really love the
    easy-to-use UI Compass has to offer. Plus the ability to preview the
    results by stage makes troubleshooting a snap! For more on Compass'
    Aggregation Pipeline Builder, check out
-   this*\ `blog <https://www.mongodb.com/blog/post/introducing-the-aggregation-pipeline-builder-in-mongodb-compass>`_\ *.*
+   this*\ `blog <https://www.mongodb.com/blog/post/introducing-the-aggregation-pipeline-builder-in-mongodb-compass>`__\ *.*
 
    Navigate to the Aggregations tab in the ``sample_mflix.movies`` collection:
 
@@ -354,7 +354,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    RESTful API to expose this data - and for that, I used MongoDB Stitch's
    HTTP Service.
 
-   `Stitch <https://www.mongodb.com/cloud/stitch>`_ is MongoDB's
+   `Stitch <https://www.mongodb.com/cloud/stitch>`__ is MongoDB's
    serverless platform where functions written in Javascript automatically
    scale to meet current demand. To create a Stitch application, return to
    your Atlas UI and click **Stitch** under SERVICES on the left menu, then
@@ -518,7 +518,7 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    From the front end application, it takes a single call from the Fetch
    API to retrieve this data. Download the following `index.html
-   file <https://developer-advocacy-public.s3-eu-west-1.amazonaws.com/full-text-search-demo/index.html>`_
+   file <https://developer-advocacy-public.s3-eu-west-1.amazonaws.com/full-text-search-demo/index.html>`__
    and open it in your browser. You will see a simple search bar:
 
    .. image:: /images/atlas-fts/search-bar.png
@@ -568,10 +568,10 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
 
    Now that you have just seen how easy it is to build a simple, powerful
    search into an application with `MongoDB Atlas Full-Text
-   Search <https://www.mongodb.com/atlas/full-text-search>`_, go ahead and
+   Search <https://www.mongodb.com/atlas/full-text-search>`__, go ahead and
    experiment with other more advanced features, such as type-ahead or
    fuzzy matching, for your fine-grained searches. Check out our
-   `$searchBeta <https://docs.atlas.mongodb.com/reference/full-text-search/query-syntax/>`_
+   `$searchBeta <https://docs.atlas.mongodb.com/reference/full-text-search/query-syntax/>`__
    documentation for other possibilities.
 
    .. image:: /images/atlas-fts/i-will-find-you.gif
@@ -582,6 +582,6 @@ Tutorial: Build a Movie Search Engine Using Atlas Full-Text Search in 10 Minutes
    static and dynamic field mapping for flexible, scalable indexing, all
    while using the same MongoDB Query Language (MQL) you already know and
    love, `spoken in our very best Liam Neeson
-   impression <https://youtu.be/jZOywn1qArI>`_ MongoDB now has a very
+   impression <https://youtu.be/jZOywn1qArI>`__ MongoDB now has a very
    particular set of skills. Skills we have acquired over a very long
    career. Skills that make MongoDB a DREAM for developers like you.

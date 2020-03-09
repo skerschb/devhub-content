@@ -42,14 +42,14 @@
 
 .. related::
 
-   * `How to connect to a MongoDB database using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database>`_
-   * `How to create MongoDB documents using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-create-documents>`_
-   * `How to read MongoDB documents using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-read-documents>`_
-   * `How to update MongoDB documents using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-update-documents>`_
-   * `How to delete MongoDB documents using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-delete-documents>`_
-   * `How to analyze your data using MongoDB's Aggregation Framework and Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-analyze-data-using-the-aggregation-framework>`_
-   * `How to implement transactions using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-implement-transactions>`_
-   * `How to react to database changes with change streams and triggers <https://www.mongodb.com/blog/post/node-js-change-streams-and-triggers>`_
+   * `How to connect to a MongoDB database using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database>`__
+   * `How to create MongoDB documents using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-create-documents>`__
+   * `How to read MongoDB documents using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-read-documents>`__
+   * `How to update MongoDB documents using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-update-documents>`__
+   * `How to delete MongoDB documents using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-delete-documents>`__
+   * `How to analyze your data using MongoDB's Aggregation Framework and Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-analyze-data-using-the-aggregation-framework>`__
+   * `How to implement transactions using Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-implement-transactions>`__
+   * `How to react to database changes with change streams and triggers <https://www.mongodb.com/blog/post/node-js-change-streams-and-triggers>`__
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
@@ -71,19 +71,19 @@ Quick Start 📽️ Video: Node.js & MongoDB - The CRUD Operations
     favorite code editor and you'll discover the following:
 
     -  How to connect to a MongoDB database hosted on `MongoDB
-       Atlas <https://bit.ly/MDB_Atlas>`_ from inside of a Node.js script
-       `(00:40) <https://youtu.be/ayNI9Q84v8g?t=40>`_
+       Atlas <https://bit.ly/MDB_Atlas>`__ from inside of a Node.js script
+       `(00:40) <https://youtu.be/ayNI9Q84v8g?t=40>`__
     -  How MongoDB stores data in documents and collections (instead of rows
-       and tables) `(08:51) <https://youtu.be/ayNI9Q84v8g?t=531>`_
+       and tables) `(08:51) <https://youtu.be/ayNI9Q84v8g?t=531>`__
     -  How to create documents using insertOne() and insertMany()
-       `(11:01) <https://youtu.be/ayNI9Q84v8g?t=661>`_
+       `(11:01) <https://youtu.be/ayNI9Q84v8g?t=661>`__
     -  How to read documents using findOne() and find()
-       `(20:04) <https://youtu.be/ayNI9Q84v8g?t=1204>`_
+       `(20:04) <https://youtu.be/ayNI9Q84v8g?t=1204>`__
     -  How to update documents using updateOne() with and without upsert as
        well as updateMany()
-       `(31:13) <https://youtu.be/ayNI9Q84v8g?t=1873>`_
+       `(31:13) <https://youtu.be/ayNI9Q84v8g?t=1873>`__
     -  How to delete documents using deleteOne() and deleteMany()
-       `(46:07) <https://youtu.be/ayNI9Q84v8g?t=2767>`_
+       `(46:07) <https://youtu.be/ayNI9Q84v8g?t=2767>`__
 
     .. youtube:: ayNI9Q84v8g
 
@@ -92,16 +92,16 @@ Quick Start 📽️ Video: Node.js & MongoDB - The CRUD Operations
     ``main().catch(console.error);``.
 
     If you prefer text-based tutorials, start with the `first post in this
-    series <https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database>`_.
+    series <https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database>`__.
     A complete list of all posts in this series is included at the bottom of
     each post (including this one!).
 
     Below are the links I mentioned in the video.
 
-    -  `MongoDB Atlas <https://bit.ly/MDB_Atlas>`_
-    -  `How to create a free cluster on Atlas <https://youtu.be/rPqRyYJmx2g>`_
-    -  `MongoDB University's Data Modeling Course <http://bit.ly/M320_DataModeling>`_
-    -  `MongoDB University's Javascript Course <https://bit.ly/M220JS>`_
+    -  `MongoDB Atlas <https://bit.ly/MDB_Atlas>`__
+    -  `How to create a free cluster on Atlas <https://youtu.be/rPqRyYJmx2g>`__
+    -  `MongoDB University's Data Modeling Course <http://bit.ly/M320_DataModeling>`__
+    -  `MongoDB University's Javascript Course <https://bit.ly/M220JS>`__
 
     Try it out and let me know what you think! What video do you want to see
     next?
@@ -110,20 +110,20 @@ Quick Start 📽️ Video: Node.js & MongoDB - The CRUD Operations
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     -  `How to connect to a MongoDB database using
-       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database>`_
+       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database>`__
     -  `How to create MongoDB documents using
-       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-create-documents>`_
+       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-create-documents>`__
     -  `How to read MongoDB documents using
-       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-read-documents>`_
+       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-read-documents>`__
     -  `How to update MongoDB documents using
-       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-update-documents>`_
+       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-update-documents>`__
     -  `How to delete MongoDB documents using
-       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-delete-documents>`_
+       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-delete-documents>`__
     -  Video: How to perform the CRUD operations using MongoDB & Node.js
        (this post)
     -  `How to analyze your data using MongoDB's Aggregation Framework and
-       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-analyze-data-using-the-aggregation-framework>`_
+       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-analyze-data-using-the-aggregation-framework>`__
     -  `How to implement transactions using
-       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-implement-transactions>`_
+       Node.js <https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-implement-transactions>`__
     -  `How to react to database changes with change streams and
-       triggers <https://www.mongodb.com/blog/post/node-js-change-streams-and-triggers>`_
+       triggers <https://www.mongodb.com/blog/post/node-js-change-streams-and-triggers>`__

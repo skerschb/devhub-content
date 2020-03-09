@@ -53,7 +53,7 @@ Introduction to Multi-Document ACID Transactions in Python
    Introduction
    ------------
 
-   Multi-document transactions arrived in `MongoDB 4.0 <https://www.mongodb.com/download-center#community>`_ in June 2018. MongoDB has always been transactional around updates to a single document. Now, with multi-document ACID transactions we can wrap a set of database operations inside a start and commit transaction call. This ensures that even with inserts and/or updates happening across multiple collections and/or databases, the external view of the data meets `ACID constraints <https://en.wikipedia.org/wiki/ACID>`_.
+   Multi-document transactions arrived in `MongoDB 4.0 <https://www.mongodb.com/download-center#community>`__ in June 2018. MongoDB has always been transactional around updates to a single document. Now, with multi-document ACID transactions we can wrap a set of database operations inside a start and commit transaction call. This ensures that even with inserts and/or updates happening across multiple collections and/or databases, the external view of the data meets `ACID constraints <https://en.wikipedia.org/wiki/ACID>`__.
    
    To demonstrate transactions in the wild we use a trivial example app that emulates a flight booking for an online airline application. In this simplified booking we need to undertake three operations:
    
@@ -61,7 +61,7 @@ Introduction to Multi-Document ACID Transactions in Python
    - Pay for the seat in the ``payment_collection``
    - Update the count of allocated seats and sales in the ``audit_collection``
    
-   For this application we will use three separate collections for these documents as detailed above. The code in ``transactions_main.py`` updates these collections in serial unless the ``--usetxns argument`` is used. We then wrap the complete set of operations inside an ACID transaction. The code in ``transactions_main.py`` is built directly using the MongoDB Python driver (`Pymongo 3.7.1 <https://api.mongodb.com/python/current/>`_).
+   For this application we will use three separate collections for these documents as detailed above. The code in ``transactions_main.py`` updates these collections in serial unless the ``--usetxns argument`` is used. We then wrap the complete set of operations inside an ACID transaction. The code in ``transactions_main.py`` is built directly using the MongoDB Python driver (`Pymongo 3.7.1 <https://api.mongodb.com/python/current/>`__).
    
    The goal of this code is to demonstrate to the Python developers just how easy it is to covert existing code to transactions if required or to port older SQL based systems.
 
@@ -70,7 +70,7 @@ Introduction to Multi-Document ACID Transactions in Python
    Setting up your environment
    ---------------------------
    
-   The following files can be found in the associated github repo, `pymongo-transactions <https://github.com/jdrumgoole/pymongo-transactions">`_.
+   The following files can be found in the associated github repo, `pymongo-transactions <https://github.com/jdrumgoole/pymongo-transactions">`__.
    
    - ``gitignore`` : Standard Github .gitignore for Python.
    - ``LICENSE`` : Apache's 2.0 (standard Github) license.
@@ -83,7 +83,7 @@ Introduction to Multi-Document ACID Transactions in Python
 
    You can clone this repo and work alongside us during this blog post (please file any problems on the Issues tab in Github).
 
-   We assume for all that follows that you have `Python 3.6 <https://www.python.org/downloads/>`_ or greater correctly installed and on your path.
+   We assume for all that follows that you have `Python 3.6 <https://www.python.org/downloads/>`__ or greater correctly installed and on your path.
    
    The Makefile outlines the operations that are required to setup the test environment.
    
@@ -97,7 +97,7 @@ Introduction to Multi-Document ACID Transactions in Python
    Set a python virtualenv
    ~~~~~~~~~~~~~~~~~~~~~~~
 
-   Check out the doc for `virtualenv <https://docs.python.org/3/library/venv.html>`_.
+   Check out the doc for `virtualenv <https://docs.python.org/3/library/venv.html>`__.
 
    .. code-block:: bash
 
@@ -108,7 +108,7 @@ Introduction to Multi-Document ACID Transactions in Python
    Install Python MongoDB Driver pymongo
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
-   Install the `latest version <https://pypi.org/project/pymongo/>`_ of the PyMongo MongoDB Driver (3.7.1 at the time of writing).
+   Install the `latest version <https://pypi.org/project/pymongo/>`__ of the PyMongo MongoDB Driver (3.7.1 at the time of writing).
 
    .. code-block:: bash
 
@@ -117,13 +117,13 @@ Introduction to Multi-Document ACID Transactions in Python
    Install mtools
    ~~~~~~~~~~~~~~
    
-   `mtools <https://github.com/rueckstiess/mtools>`_ is a collection of helper scripts to parse, filter, and visualize MongoDB log files (mongod, mongos). mtools also includes ``mlaunch``, a utility to quickly set up complex MongoDB test environments on a local machine. For this demo we are only going to use the `mlaunch <http://blog.rueckstiess.com/mtools/mlaunch.html>`_ program.
+   `mtools <https://github.com/rueckstiess/mtools>`__ is a collection of helper scripts to parse, filter, and visualize MongoDB log files (mongod, mongos). mtools also includes ``mlaunch``, a utility to quickly set up complex MongoDB test environments on a local machine. For this demo we are only going to use the `mlaunch <http://blog.rueckstiess.com/mtools/mlaunch.html>`__ program.
 
    .. code-block:: bash
 
       pip install mtools
    
-   The ``mlaunch`` program also requires the `psutil <https://pypi.org/project/psutil/>`_ package.
+   The ``mlaunch`` program also requires the `psutil <https://pypi.org/project/psutil/>`__ package.
    
    .. code-block:: bash
 
@@ -218,7 +218,7 @@ Introduction to Multi-Document ACID Transactions in Python
    
    The program runs a function called ``book_seat()`` which books a seat on a plane by adding documents to three collections. First it adds the seat allocation to the ``seats_collection``, then it adds a payment to the ``payments_collection``, finally it updates an audit count in the ``audit_collection``. (This is a much simplified booking process used purely for illustration).
    
-   The default is to run the program **without** using transactions. To use transactions we have to add the command line flag ``--usetxns``. Run this to test that you are running MongoDB 4.0 and that the correct `featureCompatibility <https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/>`_ is configured (it must be set to 4.0). If you install MongoDB 4.0 over an existing ``/data`` directory containing 3.6 databases then featureCompatibility will be set to 3.6 by default and transactions will not be available.
+   The default is to run the program **without** using transactions. To use transactions we have to add the command line flag ``--usetxns``. Run this to test that you are running MongoDB 4.0 and that the correct `featureCompatibility <https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/>`__ is configured (it must be set to 4.0). If you install MongoDB 4.0 over an existing ``/data`` directory containing 3.6 databases then featureCompatibility will be set to 3.6 by default and transactions will not be available.
 
    .. blockquote::
 
@@ -238,7 +238,7 @@ Introduction to Multi-Document ACID Transactions in Python
    
    To actually see the effect of transactions we need to watch what is happening inside the collections ``SEATSDB.seats`` and ``PAYMENTSDB.payments``.
    
-   We can do this with ``watch_transactions.py``. This script uses `MongoDB Change Streams <https://docs.mongodb.com/manual/changeStreams/>`_ to see what's happening inside a collection in real-time. We need to run two of these in parallel so it's best to line them up side by side.
+   We can do this with ``watch_transactions.py``. This script uses `MongoDB Change Streams <https://docs.mongodb.com/manual/changeStreams/>`__ to see what's happening inside a collection in real-time. We need to run two of these in parallel so it's best to line them up side by side.
    
    Here is the ``watch_transactions.py`` program:
 
@@ -362,7 +362,7 @@ Introduction to Multi-Document ACID Transactions in Python
    What happens during failure?
    ----------------------------
    
-   In a MongoDB replica set all writes are directed to the Primary node. If the primary node fails or becomes inaccessible (e.g. due to a network partition) writes in flight may fail. In a non-transactional scenario the driver will recover from a single failure and `retry the write <https://docs.mongodb.com/manual/core/retryable-writes/>`_. In a multi-document transaction we must recover and retry in the event of these kinds of transient failures. This code is encapsulated in ``transaction_retry.py``. We both retry the transaction and retry the commit to handle scenarios where the primary fails within the transaction and/or the commit operation.
+   In a MongoDB replica set all writes are directed to the Primary node. If the primary node fails or becomes inaccessible (e.g. due to a network partition) writes in flight may fail. In a non-transactional scenario the driver will recover from a single failure and `retry the write <https://docs.mongodb.com/manual/core/retryable-writes/>`__. In a multi-document transaction we must recover and retry in the event of these kinds of transient failures. This code is encapsulated in ``transaction_retry.py``. We both retry the transaction and retry the commit to handle scenarios where the primary fails within the transaction and/or the commit operation.
 
    .. code-block:: python
 
@@ -433,7 +433,7 @@ Introduction to Multi-Document ACID Transactions in Python
       3. Sleeping: 1.0
    
    
-   ``kill_primary.py`` resets `electionTimeOutMillis <https://docs.mongodb.com/manual/reference/replica-configuration/index.html#rsconf.settings.electionTimeoutMillis>`_ to 500ms from its default of 10000ms (10 seconds). This allows elections to resolve more quickly for the purposes of this test as we are running everything locally.
+   ``kill_primary.py`` resets `electionTimeOutMillis <https://docs.mongodb.com/manual/reference/replica-configuration/index.html#rsconf.settings.electionTimeoutMillis>`__ to 500ms from its default of 10000ms (10 seconds). This allows elections to resolve more quickly for the purposes of this test as we are running everything locally.
    
    Once ``kill_primary.py`` is running we can start up ``transactions_main.py`` again using the ``--usetxns`` argument.
 
@@ -484,10 +484,10 @@ Introduction to Multi-Document ACID Transactions in Python
    
    As you can see during elections the transaction will be aborted and must be retried. If you look at the ``transaction_rety.py`` code you will see how this happens. If a write operation encounters an error it will throw one of the following exceptions:
 
-   - `pymongo.errors.ConnectionFailure <http://api.mongodb.com/python/current/api/pymongo/errors.html>`_
-   - `pymongo.errors.OperationFailure <http://api.mongodb.com/python/current/api/pymongo/errors.html>`_
+   - `pymongo.errors.ConnectionFailure <http://api.mongodb.com/python/current/api/pymongo/errors.html>`__
+   - `pymongo.errors.OperationFailure <http://api.mongodb.com/python/current/api/pymongo/errors.html>`__
 
-   Within these exceptions there will be a label called `TransientTransactionError <https://docs.mongodb.com/manual/core/transactions/#transactions-api>`_. This label can be detected using the ``has_error_label(label)`` function which is available in pymongo 3.7.x. Transient errors can be recovered from and the retry code in ``transactions_retry.py`` has code that retries for both writes and commits (see above).
+   Within these exceptions there will be a label called `TransientTransactionError <https://docs.mongodb.com/manual/core/transactions/#transactions-api>`__. This label can be detected using the ``has_error_label(label)`` function which is available in pymongo 3.7.x. Transient errors can be recovered from and the retry code in ``transactions_retry.py`` has code that retries for both writes and commits (see above).
    
 .. summary::
 
@@ -502,4 +502,4 @@ Introduction to Multi-Document ACID Transactions in Python
    
    .. include:: /includes/callouts/atlas-signup.rst
    
-   To try it locally `download MongoDB 4.0 <https://www.mongodb.com/download-center#production>`_.
+   To try it locally `download MongoDB 4.0 <https://www.mongodb.com/download-center#production>`__.

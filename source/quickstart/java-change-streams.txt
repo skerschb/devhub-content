@@ -61,7 +61,7 @@ Java - Change Streams
    Change Streams were introduced in MongoDB 3.6. They allow applications
    to access real-time data changes without the complexity and risk of
    tailing the
-   `oplog <https://docs.mongodb.com/manual/reference/glossary/#term-oplog>`_.
+   `oplog <https://docs.mongodb.com/manual/reference/glossary/#term-oplog>`__.
    
    Applications can use change streams to subscribe to all data changes on
    a single collection, a database, or an entire deployment, and
@@ -70,7 +70,7 @@ Java - Change Streams
    transform the notifications at will.
    
    In this blog post, as promised in the `first blog
-   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`_
+   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`__
    of this series, I will show you how to leverage MongoDB Change Streams
    using Java.
 
@@ -91,7 +91,7 @@ Java - Change Streams
    
       If you haven't yet set up your free cluster on MongoDB Atlas, now is
       a great time to do so. You have all the instructions in this `blog
-      post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`_.
+      post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`__.
 
 .. content::
 
@@ -106,7 +106,7 @@ Java - Change Streams
    Change Streams. For the sake of simplicity, I will only show you the
    pieces of code related to the Change Streams directly. You can find the
    entire code sample at the bottom of this blog post or in the `Github
-   repository <https://github.com/mongodb-developer/java-quick-start>`_.
+   repository <https://github.com/mongodb-developer/java-quick-start>`__.
    
    For each example, you will need to start 2 Java programs in the correct
    order if you want to reproduce my examples.
@@ -442,7 +442,7 @@ Java - Change Streams
    The full document we are retrieving here during our update operation is
    the document **after** the update has occurred. Read more about this in
    `our
-   documentation <https://docs.mongodb.com/manual/changeStreams/#lookup-full-document-for-update-operations>`_.
+   documentation <https://docs.mongodb.com/manual/changeStreams/#lookup-full-document-for-update-operations>`__.
    
    Change Streams are resumable
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -520,7 +520,7 @@ Java - Change Streams
    ----------
    
    ``ChangeStreams.java``
-   (`code <https://github.com/mongodb-developer/java-quick-start/blob/master/src/main/java/com/mongodb/quickstart/ChangeStreams.java>`_):
+   (`code <https://github.com/mongodb-developer/java-quick-start/blob/master/src/main/java/com/mongodb/quickstart/ChangeStreams.java>`__):
    
    .. code-block:: java
    
@@ -650,10 +650,10 @@ Java - Change Streams
    Scaling up correctly a Change Stream data processing pipeline can be
    tricky. That's why you can implement this easily using `MongoDB Triggers
    in MongoDB
-   Stitch <https://docs.mongodb.com/stitch/triggers/database-triggers/>`_.
+   Stitch <https://docs.mongodb.com/stitch/triggers/database-triggers/>`__.
    
    You can check out my `MongoDB Stitch sample
-   application <https://github.com/MaBeuLux88/mongodb-stitch-movie-collection>`_
+   application <https://github.com/MaBeuLux88/mongodb-stitch-movie-collection>`__
    if you want to see a real example with several Change Streams in action.
    
    .. blockquote::
@@ -661,7 +661,7 @@ Java - Change Streams
       If you want to learn more and deepen your knowledge faster, I
       recommend you check out the M220J: MongoDB for Java Developers
       training available for free on `MongoDB
-      University <http://bit.ly/mongodbuniversity>`_.
+      University <http://bit.ly/mongodbuniversity>`__.
    
    In the next blog post, I will show you multi-document ACID transactions
    in Java.

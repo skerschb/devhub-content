@@ -63,13 +63,13 @@ Using AWS Rekognition to Analyse and Tag Uploaded Images Using Stitch
 
    You can easily detect labels or faces in images or videos in your
    MongoDB Stitch application using the built-in AWS service. Just `add the
-   AWS service <https://docs.mongodb.com/stitch/reference/partner-services/amazon-service/#add-an-aws-service>`_
+   AWS service <https://docs.mongodb.com/stitch/reference/partner-services/amazon-service/#add-an-aws-service>`__
    and use the Stitch client to execute the AWS SES request right from your
    React.js application or create a Stitch function and Trigger. In a
    recent Stitchcraft live coding session on `my Twitch
-   channel <https://twitch.tv/itsaydrian>`_, I wanted to tag an image
+   channel <https://twitch.tv/itsaydrian>`__, I wanted to tag an image
    using `label
-   detection <https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html>`_.
+   detection <https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html>`__.
    I set up a trigger that executed a function after an image was uploaded
    to my S3 bucket and its metadata was inserted into a collection.
 
@@ -104,7 +104,7 @@ Using AWS Rekognition to Analyse and Tag Uploaded Images Using Stitch
    With just a couple of service calls, I was able to take an image, stored
    in S3, analyse it with Rekognition, and add the tags to its document.
    Want to see how it all came together? `Watch the recording on
-   YouTube <https://youtu.be/VK2ffPLnF0o>`_ with the Github repo in the
-   description. `Follow me on Twitch <https://twitch.tv/itsaydrian>`_ to
+   YouTube <https://youtu.be/VK2ffPLnF0o>`__ with the Github repo in the
+   description. `Follow me on Twitch <https://twitch.tv/itsaydrian>`__ to
    join me and ask questions live.
 

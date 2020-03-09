@@ -72,7 +72,7 @@ MongoDB & Data Streaming – Implementing a MongoDB Kafka Consumer
     MongoDB as a source (producer) and destination (consumer) for the
     streamed data. A more complete study of this topic can be found in the
     `Data Streaming with Kafka &
-    MongoDB <https://www.mongodb.com/collateral/data-streaming-with-apache-kafka-and-mongodb>`_
+    MongoDB <https://www.mongodb.com/collateral/data-streaming-with-apache-kafka-and-mongodb>`__
     white paper.
 
     Apache Kafka
@@ -756,5 +756,5 @@ MongoDB & Data Streaming – Implementing a MongoDB Kafka Consumer
     To learn much more about data streaming and how MongoDB fits in
     (including Apache Kafka and competing and complementary technologies)
     read the `Data Streaming with Kafka &
-    MongoDB <https://www.mongodb.com/collateral/data-streaming-with-apache-kafka-and-mongodb>`_
+    MongoDB <https://www.mongodb.com/collateral/data-streaming-with-apache-kafka-and-mongodb>`__
     white paper.

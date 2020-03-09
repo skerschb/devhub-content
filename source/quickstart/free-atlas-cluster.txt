@@ -59,29 +59,29 @@ Getting Your Free MongoDB Atlas Cluster
    MongoDB Atlas's Free Tier clusters - which are also known as M0
    Sandboxes - are limited to only 512MB of storage but it's more than
    enough for a pet project or to learn about MongoDB with our `free
-   MongoDB University <http://bit.ly/mongodbuniversity>`_ courses.
+   MongoDB University <http://bit.ly/mongodbuniversity>`__ courses.
    
    The only restriction on them is that they are available in a few regions
    for each of our three cloud providers: currently there are six on AWS,
    five on Azure, and four on Google Cloud Platform.
    
    In this tutorial video, I will show you `how to create an
-   account <http://bit.ly/mdb-atlas>`_. Then I'll show you how to create
+   account <http://bit.ly/mdb-atlas>`__. Then I'll show you how to create
    your first 3 node cluster and populate it with sample data.
    
    .. youtube:: rPqRyYJmx2g
 
    Now that you understand the basics of `MongoDB
-   Atlas <https://docs.atlas.mongodb.com/>`_, you may want to explore some
+   Atlas <https://docs.atlas.mongodb.com/>`__, you may want to explore some
    of our advanced features that are not available in the Free Tier
    clusters:
 
-   - `Peering your MongoDB Clusters <https://docs.atlas.mongodb.com/security-vpc-peering/>`_ with your AWS, GCP or Azure machines is only available for dedicated instances (M10 at least),
-   - `LDAP Authentication and Authorization <https://docs.atlas.mongodb.com/security-ldaps/>`_,
-   - `AWS PrivateLink <https://docs.atlas.mongodb.com/billing/additional-services/#aws-privatelink>`_.
+   - `Peering your MongoDB Clusters <https://docs.atlas.mongodb.com/security-vpc-peering/>`__ with your AWS, GCP or Azure machines is only available for dedicated instances (M10 at least),
+   - `LDAP Authentication and Authorization <https://docs.atlas.mongodb.com/security-ldaps/>`__,
+   - `AWS PrivateLink <https://docs.atlas.mongodb.com/billing/additional-services/#aws-privatelink>`__.
 
    Our new `Lucene-based Full-Text Search
-   engine <https://docs.atlas.mongodb.com/full-text-search/>`_ is
+   engine <https://docs.atlas.mongodb.com/full-text-search/>`__ is
    now available for free tier clusters directly.
    
    You are in luck because you can also try these features for free! The
@@ -91,5 +91,5 @@ Getting Your Free MongoDB Atlas Cluster
    
    To redeem this coupon code, you need to click "details" in the top right
    corner (Next to the "Usage This Month" entry) to access your
-   `billing <https://docs.atlas.mongodb.com/billing/#billing-overview>`_
+   `billing <https://docs.atlas.mongodb.com/billing/#billing-overview>`__
    details, then click on "Billing Overview" and finally "Apply Credit".

@@ -54,14 +54,14 @@ Working with MongoDB Stitch Through the mongo Shell – MongoDB Wire Protocol Su
 ===================================================================================
 
 .. content::
-   The `Stitch SDK <https://docs.mongodb.com/stitch/client-sdks/>`_ is the
-   best way to access `MongoDB Stitch <https://docs.mongodb.com/stitch/>`_
+   The `Stitch SDK <https://docs.mongodb.com/stitch/client-sdks/>`__ is the
+   best way to access `MongoDB Stitch <https://docs.mongodb.com/stitch/>`__
    from your frontend application code – getting to your data and accessing
    your Stitch Services and Functions becomes child's' play.
    
    However, those already using MongoDB may have existing backend code and
    tools that work with MongoDB. MongoDB Stitch now supports the `MongoDB
-   wire protocol <https://docs.mongodb.com/stitch/wire-protocol/>`_ –
+   wire protocol <https://docs.mongodb.com/stitch/wire-protocol/>`__ –
    meaning that you can continue to work with your favorite tools
    (including the ``mongo`` shell) and drivers while benefiting from
    Stitch's quick and simple data access control and hosted JavaScript
@@ -118,7 +118,7 @@ Working with MongoDB Stitch Through the mongo Shell – MongoDB Wire Protocol Su
 
    .. blockquote::
       Creating your first Stitch app? Start with one of the `Stitch
-      tutorials <https://docs.mongodb.com/stitch/tutorials/>`_.
+      tutorials <https://docs.mongodb.com/stitch/tutorials/>`__.
    
    Want to learn more about MongoDB Stitch? Read the `white
-   paper <https://www.mongodb.com/collateral/mongodb-stitch-serverless-platform>`_.
+   paper <https://www.mongodb.com/collateral/mongodb-stitch-serverless-platform>`__.

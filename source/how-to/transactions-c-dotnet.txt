@@ -78,12 +78,12 @@ Working with MongoDB Transactions with C# and the .NET Framework
     entity as arrays and sub-documents within a single, rich document. That
     said, there are some cases where splitting the content into two or more
     collections would be appropriate, and for these cases, `multi-document
-    ACID transactions <https://www.mongodb.com/transactions>`_ makes it
+    ACID transactions <https://www.mongodb.com/transactions>`__ makes it
     easier than ever for developers to address the full spectrum of use
     cases with MongoDB. For a deeper discussion on MongoDB document model
     design, including how to represent one-to-many and many-to-many
     relationships, check out `this article on data model
-    design <https://docs.mongodb.com/manual/core/data-model-design>`_.
+    design <https://docs.mongodb.com/manual/core/data-model-design>`__.
 
     In the following code we will create a Product object and perform a
     MongoDB transaction that will insert some sample data into MongoDB then
@@ -211,7 +211,7 @@ Working with MongoDB Transactions with C# and the .NET Framework
         }
 
     Source Code available on
-    `Gist <https://gist.github.com/codepope/1366893d703a0be57953545619e87eea>`_.
+    `Gist <https://gist.github.com/codepope/1366893d703a0be57953545619e87eea>`__.
     Successful execution yields the following:
 
     .. figure:: /images/ExecutionResults-5aao2jdet7.png
@@ -231,5 +231,5 @@ Working with MongoDB Transactions with C# and the .NET Framework
 
     Additional information about using C# and the .NET driver can be found
     in the `C# and .NET MongoDB
-    Driver <https://docs.mongodb.com/ecosystem/drivers/csharp/>`_
+    Driver <https://docs.mongodb.com/ecosystem/drivers/csharp/>`__
     documentation.

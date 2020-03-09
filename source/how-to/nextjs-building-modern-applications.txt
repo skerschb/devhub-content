@@ -585,12 +585,12 @@ Building Modern Applications with Next.js and MongoDB
    Connecting Our Application to MongoDB
    -------------------------------------
 
-   Our application is looking good. It also works. But, the data is all in memory. As soon as we refresh our page, all the data is reset to the default values. In this sense, our app is not very useful. So our next step will be to connect our application to a database so that we can start seeing our progress over time. We’ll use MongoDB and `MongoDB Atlas <https://www.mongodb.com/cloud/atlas>`__ to accomplish this. 
+   Our application is looking good. It also works. But, the data is all in memory. As soon as we refresh our page, all the data is reset to the default values. In this sense, our app is not very useful. So our next step will be to connect our application to a database so that we can start seeing our progress over time. We’ll use MongoDB and `MongoDB Atlas <https://www.mongodb.com/cloud/atlas>`__ to accomplish this.
 
    Setting Up Our MongoDB Database
    -------------------------------
 
-   Before we can save our data, we’ll need a database. For this I’ll use MongoDB and MongoDB Atlas to host my database. If you don’t already have MongoDB Atlas, you can sign up and use it for `free here <https://www.mongodb.com/atlas>`__, otherwise go into an existing cluster and create a new database. Inside MongoDB Atlas, I will use an existing cluster and set up a new database called MCT. With this new database created, I will create a new collection called daily that will store my daily results, target macros, as well as allowed variants. 
+   Before we can save our data, we’ll need a database. For this I’ll use MongoDB and MongoDB Atlas to host my database. If you don’t already have MongoDB Atlas, you can sign up and use it for `free here <https://www.mongodb.com/atlas>`__, otherwise go into an existing cluster and create a new database. Inside MongoDB Atlas, I will use an existing cluster and set up a new database called MCT. With this new database created, I will create a new collection called daily that will store my daily results, target macros, as well as allowed variants.
 
    .. image:: /images/nextjs/mongodb-atlas.png
         :alt: MongoDB Atlas

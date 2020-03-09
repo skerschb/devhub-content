@@ -65,38 +65,38 @@ Java - Setup and CRUD Operations
 
    In future blog posts, we will move on and work through:
 
-   - `Mapping MongoDB BSON documents directly to Plain Old Java Object (POJO) <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--mapping-pojos>`_,
-   - `The MongoDB Aggregation Framework <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--aggregation-pipeline>`_,
-   - `Change Streams <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--change-streams>`_,
+   - `Mapping MongoDB BSON documents directly to Plain Old Java Object (POJO) <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--mapping-pojos>`__,
+   - `The MongoDB Aggregation Framework <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--aggregation-pipeline>`__,
+   - `Change Streams <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--change-streams>`__,
    - Multi-document ACID transactions,
    - The MongoDB Java reactive streams driver.
 
    Why Java and MongoDB? Java is the `most popular language in the IT
-   industry <https://stackify.com/popular-programming-languages-2018/>`_
+   industry <https://stackify.com/popular-programming-languages-2018/>`__
    at the date of this blog post, and `developers voted MongoDB as their
    most wanted database four years in a
-   row <https://www.mongodb.com/blog/post/mongodb-the-most-wanted-database-by-developers-for-the-4th-consecutive-year>`_.
+   row <https://www.mongodb.com/blog/post/mongodb-the-most-wanted-database-by-developers-for-the-4th-consecutive-year>`__.
    In this series of blog posts, I will be demonstrating how powerful these
    two great pieces of technology are when combined and how you can access
    that power.
 
    To follow along, you can use any environment you like and the integrated
    development environment of your choice. I'll use
-   `Maven <http://maven.apache.org/install.html>`_ 3.6.2 and the Java
+   `Maven <http://maven.apache.org/install.html>`__ 3.6.2 and the Java
    OpenJDK 13, but all the code will be compatible with Java versions 8 to
    13 so feel free to use the JDK of your choice and update the Java
    version accordingly in the pom.xml file we are about to setup.
 
    For the MongoDB Cluster, we will be using a M0 Free Tier MongoDB Cluster
-   from `MongoDB Atlas <http://bit.ly/mongodbatlas>`_. If you don't have
+   from `MongoDB Atlas <http://bit.ly/mongodbatlas>`__. If you don't have
    one already, check out my `Get started with an M0
-   cluster <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`_
+   cluster <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`__
    blog post.
 
    .. blockquote:: 
 
       Get your free M0 cluster on `MongoDB
-      Atlas <http://bit.ly/mongodbatlas>`_ today. It's free forever, and
+      Atlas <http://bit.ly/mongodbatlas>`__ today. It's free forever, and
       you'll be able to use it to work with the examples in this blog
       series.
 
@@ -125,7 +125,7 @@ Java - Setup and CRUD Operations
       git clone https://github.com/mongodb-developer/java-quick-start
 
    Or you can download the repository as a zip file using `this
-   link <https://github.com/mongodb-developer/java-quick-start/archive/master.zip>`_.
+   link <https://github.com/mongodb-developer/java-quick-start/archive/master.zip>`__.
 
    Setting Up Manually
    ~~~~~~~~~~~~~~~~~~~
@@ -246,7 +246,7 @@ Java - Setup and CRUD Operations
       Note: If you see some warnings about an illegal reflective access from
       ``guice.java``, it's safe to ignore them. Guice is used by Maven and
       needs an update. You can read more about it
-      `in this github issue <https://github.com/google/guice/issues/1133>`_. These warnings
+      `in this github issue <https://github.com/google/guice/issues/1133>`__. These warnings
       will disappear in a future release of Guice and Maven.
 
 .. content::
@@ -257,16 +257,16 @@ Java - Setup and CRUD Operations
    Now that our Maven project works, we can start talking with MongoDB.
 
    If you have imported the `Sample
-   Dataset <http://bit.ly/atlas-sample-data-blog>`_ as suggested in the
+   Dataset <http://bit.ly/atlas-sample-data-blog>`__ as suggested in the
    `Quick Start Atlas blog
-   post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`_,
+   post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`__,
    then with the Java code we are about to create, you will be able to see
    a list of the databases in the sample Dataset.
 
    The first step is to instantiate a ``MongoClient`` by passing a MongoDB
    Atlas connection string into the ``MongoClients.create()`` static
    method. This will establish a connection to `MongoDB
-   Atlas <http://bit.ly/mongodbatlas>`_ using the connection string. Then
+   Atlas <http://bit.ly/mongodbatlas>`__ using the connection string. Then
    we can retrieve the list of databases on this cluster and print them out
    to test the connection with MongoDB.
 
@@ -300,7 +300,7 @@ Java - Setup and CRUD Operations
    As you can see, the MongoDB connection string is retrieved from the
    *System Properties* so we need to set this up. Once you have retrieved
    your `MongoDB Atlas connection
-   string <https://docs.mongodb.com/guides/cloud/connectionstring/>`_, you
+   string <https://docs.mongodb.com/guides/cloud/connectionstring/>`__, you
    can add the ``mongodb.uri`` system property into your IDE. Here is my
    configuration with IntelliJ for example.
 
@@ -346,7 +346,7 @@ Java - Setup and CRUD Operations
 
    If you didn't set up your free cluster on MongoDB Atlas, now is great
    time to do so. You have all the instructions in this `blog
-   post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`_.
+   post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`__.
 
    Checking the Collection and Data Model
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -356,7 +356,7 @@ Java - Setup and CRUD Operations
    represents a student's grades for a particular class.
 
    Here is the JSON representation of a document in the `Mongo
-   Shell <https://docs.mongodb.com/manual/mongo/>`_.
+   Shell <https://docs.mongodb.com/manual/mongo/>`__.
 
    .. code-block:: bash
 
@@ -386,14 +386,14 @@ Java - Setup and CRUD Operations
       }
 
    And here is the `extended
-   JSON <https://docs.mongodb.com/manual/reference/mongodb-extended-json/>`_
+   JSON <https://docs.mongodb.com/manual/reference/mongodb-extended-json/>`__
    representation of the same student. You can retrieve it in `MongoDB
-   Compass <https://www.mongodb.com/products/compass>`_ if you want.
+   Compass <https://www.mongodb.com/products/compass>`__ if you want.
 
    Extended JSON is the human readable version of a BSON document without
    loss of type information. You can read more about the Java driver and
    BSON
-   `in the MongoDB java driver documentation <https://mongodb.github.io/mongo-java-driver/3.11/bson/extended-json/>`_.
+   `in the MongoDB java driver documentation <https://mongodb.github.io/mongo-java-driver/3.11/bson/extended-json/>`__.
 
    .. code-block:: json
 
@@ -504,7 +504,7 @@ Java - Setup and CRUD Operations
    practise to set the ``_id`` ourselves. This won't change our life right
    now but it makes more sense when we directly manipulate POJOs and we
    want to create a clean REST API. I'm doing this in my `mapping POJOs
-   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--mapping-pojos>`_.
+   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--mapping-pojos>`__.
 
    Insert Operation
    ~~~~~~~~~~~~~~~~
@@ -563,7 +563,7 @@ Java - Setup and CRUD Operations
 
    You can execute this class with the following maven command line in the
    root directory or using your IDE (see the `previous
-   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`_
+   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`__
    for details). Do not forget the doubles quotes around the MongoDB URI to
    avoid surprises.
 
@@ -572,7 +572,7 @@ Java - Setup and CRUD Operations
       mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.Create" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority"
 
    And here is the document I extracted from `MongoDB
-   Compass <https://www.mongodb.com/products/compass>`_.
+   Compass <https://www.mongodb.com/products/compass>`__.
 
    .. code-block:: json
 
@@ -629,7 +629,7 @@ Java - Setup and CRUD Operations
    But if you do things correctly, this should not have any impact in your
    code and logic as fields in a JSON documents are not ordered.
 
-   I'm quoting `json.org <http://json.org/>`_ for this:
+   I'm quoting `json.org <http://json.org/>`__ for this:
 
    .. blockquote::
 
@@ -773,11 +773,11 @@ Java - Setup and CRUD Operations
 
    As a reminder, every write operation (create, replace, update, delete)
    performed on a **SINGLE** document is
-   `ACID <https://en.wikipedia.org/wiki/ACID>`_ in MongoDB. Which means
+   `ACID <https://en.wikipedia.org/wiki/ACID>`__ in MongoDB. Which means
    ``insertMany`` is not ACID by default but, good news, since MongoDB 4.0,
    we can wrap this call in a multi-document ACID transaction to make it
    fully ACID. I am explaining this in more details in `this blog
-   post <https://www.mongodb.com/blog/post/java-and-mongodb-40-support-for-multidocument-acid-transactions>`_.
+   post <https://www.mongodb.com/blog/post/java-and-mongodb-40-support-for-multidocument-acid-transactions>`__.
 
    Read Operations
    ---------------
@@ -829,12 +829,12 @@ Java - Setup and CRUD Operations
    So do not be surprised if I filter with an integer number and match a
    document which contains a double number for example. If you want to
    filter documents by value types, you can use the `$type
-   operator <https://docs.mongodb.com/manual/reference/operator/query/type/>`_.
+   operator <https://docs.mongodb.com/manual/reference/operator/query/type/>`__.
 
    You can read more about `type
-   bracketing <https://docs.mongodb.com/manual/reference/method/db.collection.find/#type-bracketing>`_
+   bracketing <https://docs.mongodb.com/manual/reference/method/db.collection.find/#type-bracketing>`__
    and `comparison and sort
-   order <https://docs.mongodb.com/manual/reference/bson-type-comparison-order/>`_
+   order <https://docs.mongodb.com/manual/reference/bson-type-comparison-order/>`__
    in our documentation.
 
    Read with a Filter
@@ -933,7 +933,7 @@ Java - Setup and CRUD Operations
 
    As you can see, I'm using the ``$gte`` operator to write this query. You
    can learn about all the different `query
-   operators <https://docs.mongodb.com/manual/reference/operator/query/>`_
+   operators <https://docs.mongodb.com/manual/reference/operator/query/>`__
    in the MongoDB documentation.
 
    Iterators
@@ -981,15 +981,15 @@ Java - Setup and CRUD Operations
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    As we saw above with the ``Iterator`` example, MongoDB leverages
-   `cursors <https://docs.mongodb.com/manual/reference/method/js-cursor/>`_
+   `cursors <https://docs.mongodb.com/manual/reference/method/js-cursor/>`__
    to iterate through your result set.
 
    If you are already familiar with the cursors in the `Mongo
-   Shell <https://docs.mongodb.com/manual/mongo/>`_, you know that
+   Shell <https://docs.mongodb.com/manual/mongo/>`__, you know that
    transformations can be applied to it. A cursor can be
-   `sorted <https://docs.mongodb.com/manual/reference/method/cursor.sort/>`_
+   `sorted <https://docs.mongodb.com/manual/reference/method/cursor.sort/>`__
    and the documents it contains can be transformed using a
-   `projection <https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/>`_.
+   `projection <https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/>`__.
    Also, once the cursor is sorted, we can choose to skip a few documents
    and limit the number of documents in the output. This is very useful to
    implement pagination in your frontend for example.
@@ -1020,7 +1020,7 @@ Java - Setup and CRUD Operations
       {"student_id": 10001.0, "class_id": 2.0}
 
    I remind you that documents are returned in the `natural
-   order <https://docs.mongodb.com/manual/reference/glossary/#term-natural-order>`_,
+   order <https://docs.mongodb.com/manual/reference/glossary/#term-natural-order>`__,
    so if you want your output ordered, you need to sort your cursors to
    make sure there is no randomness in your algorithm.
 
@@ -1028,7 +1028,7 @@ Java - Setup and CRUD Operations
    ~~~~~~~
 
    If you want to make these queries (with or without sort) efficient,
-   **you need** `indexes <https://docs.mongodb.com/manual/indexes/>`_!
+   **you need** `indexes <https://docs.mongodb.com/manual/indexes/>`__!
 
    To make my last query efficient, I should create this index:
 
@@ -1037,7 +1037,7 @@ Java - Setup and CRUD Operations
       db.grades.createIndex({"student_id": 1, "class_id": -1})
 
    When I run an
-   `explain <https://docs.mongodb.com/manual/reference/method/cursor.explain/>`_
+   `explain <https://docs.mongodb.com/manual/reference/method/cursor.explain/>`__
    on this query, this is the winning plan I get:
 
    .. code-block:: javascript
@@ -1091,7 +1091,7 @@ Java - Setup and CRUD Operations
 
    Also, we can see that we don't have any *FETCH* stage so this is a
    `covered
-   query <https://docs.mongodb.com/manual/core/query-optimization/#covered-query>`_,
+   query <https://docs.mongodb.com/manual/core/query-optimization/#covered-query>`__,
    the most efficient type of query you can run in MongoDB. Indeed, all the
    information we are returning at the end are already in the index, so the
    index itself contains everything we need to answer this query.
@@ -1235,7 +1235,7 @@ Java - Setup and CRUD Operations
    In order to run this program, make sure you set up your ``mongodb.uri``
    in your system properties using your IDE if you want to run this code in
    your favorite IDE (see my `first blog
-   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`_
+   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`__
    for more details).
 
    Alternatively, you can use this maven command line in your root project
@@ -1462,7 +1462,7 @@ Java - Setup and CRUD Operations
 
    There are a few other update operators. You can consult the entire list
    in our
-   `documentation <https://docs.mongodb.com/manual/reference/operator/update/>`_.
+   `documentation <https://docs.mongodb.com/manual/reference/operator/update/>`__.
 
    The Final Code For Updates
    ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1599,7 +1599,7 @@ Java - Setup and CRUD Operations
    In order to run this program, make sure you set up your ``mongodb.uri``
    in your system properties using your IDE if you want to run this code in
    your favorite IDE (see my `first blog
-   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`_
+   post <https://www.mongodb.com/blog/post/quick-start-java-and-mongodb--starting-and-setup>`__
    for more details).
 
    Alternatively, you can use this maven command line in your root project
@@ -1660,7 +1660,7 @@ Java - Setup and CRUD Operations
       System.out.println(result);
 
    As a reminder, you can learn more about all the query selectors `in our
-   documentation <https://docs.mongodb.com/manual/reference/operator/query/#query-selectors>`_.
+   documentation <https://docs.mongodb.com/manual/reference/operator/query/#query-selectors>`__.
 
    This is the output we get:
 
@@ -1748,4 +1748,4 @@ Java - Setup and CRUD Operations
       If you want to learn more and deepen your knowledge faster, I
       recommend you check out the M220J: MongoDB for Java Developers
       training available for free on `MongoDB
-      University <http://bit.ly/mongodbuniversity>`_.
+      University <http://bit.ly/mongodbuniversity>`__.

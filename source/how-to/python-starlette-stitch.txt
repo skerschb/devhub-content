@@ -195,7 +195,7 @@ Build a Property Booking Website with Starlette, MongoDB, and Twilio
    Connecting Starlette to MongoDB
    -------------------------------
 
-   Name a more iconic duo than Python and `SQLAlchemy <https://www.sqlalchemy.org/>`__. Fortunately, Starlette is not opinionated about which database technology you should work with and doesn't prefer SQL over NoSQL. For our tutorial, since we have our dataset in MongoDB Atlas, we'll use Mongo and the excellent `pymongo package <https://api.mongodb.com/python/current/>`__. 
+   Name a more iconic duo than Python and `SQLAlchemy <https://www.sqlalchemy.org/>`__. Fortunately, Starlette is not opinionated about which database technology you should work with and doesn't prefer SQL over NoSQL. For our tutorial, since we have our dataset in MongoDB Atlas, we'll use Mongo and the excellent `pymongo package <https://api.mongodb.com/python/current/>`__.
 
    If you don't already have pymongo installed, do so now by running ``pip3 install pymongo``. Once pymongo is installed, open up the ``middleware.py`` file we created earlier. Here is where we'll instantiate our connection to MongoDB so that we can interact with the dataset and populate our application with real data.
 

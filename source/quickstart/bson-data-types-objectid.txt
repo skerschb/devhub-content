@@ -64,10 +64,10 @@ Quick Start: BSON Data Types - ObjectId
    type.
 
    For those that are familiar with MongoDB
-   `Documents <https://alger.me/mongodb-documents>`_ you've likely come
+   `Documents <https://alger.me/mongodb-documents>`__ you've likely come
    across the ``ObjectId`` data type in the ``_id`` field. For those
    unfamiliar with MongoDB Documents, the
-   `ObjectId <https://alger.me/mongodb-objectid>`_ datatype is
+   `ObjectId <https://alger.me/mongodb-objectid>`__ datatype is
    automatically generated as a unique document identifier if no other
    identifier is provided. But what is an ``ObjectId`` field? What makes
    them unique? This post will unveil some of the magic behind the BSON
@@ -81,7 +81,7 @@ Quick Start: BSON Data Types - ObjectId
    Many programming languages have JavaScript Object Notation (JSON)
    support or similar data structures. MongoDB uses JSON documents to store
    records. However, behind the scenes, MongoDB represents these documents
-   in a binary-encoded format called `BSON <http://bsonspec.org/>`_. BSON
+   in a binary-encoded format called `BSON <http://bsonspec.org/>`__. BSON
    provides additional data types and ordered fields to allow for efficient
    support across a variety of languages. One of these additional data
    types is ObjectId.
@@ -93,12 +93,12 @@ Quick Start: BSON Data Types - ObjectId
    take a look at the construction of the ObjectId value, in its current
    implementation, it is a 12-byte hexadecimal value. This 12-byte
    configuration is smaller than a typical `universally unique
-   identifier <https://alger.me/uuid-defined>`_ (UUID), which is,
+   identifier <https://alger.me/uuid-defined>`__ (UUID), which is,
    typically, 128-bits. Beginning in MongoDB 3.4, an ObjectId consists of
    the following values:
 
    -  4-byte value representing the seconds since the `Unix
-      epoch <https://en.wikipedia.org/wiki/Unix_time>`_,
+      epoch <https://en.wikipedia.org/wiki/Unix_time>`__,
    -  5-byte random value, and
    -  3-byte counter, starting with a random value.
 
@@ -153,9 +153,9 @@ Quick Start: BSON Data Types - ObjectId
    and change. As a bit of perspective, the odds of being struck by
    lightning in the U.S. in a given year are 1 in 700,000, according to
    `National
-   Geographic <https://www.nationalgeographic.com/news/2005/6/flash-facts-about-lightning/>`_.
+   Geographic <https://www.nationalgeographic.com/news/2005/6/flash-facts-about-lightning/>`__.
    The odds of winning the `Powerball
-   Lottery <https://www.powerball.com/games/home>`_ jackpot are 1 in
+   Lottery <https://www.powerball.com/games/home>`__ jackpot are 1 in
    292,201,338. The numerator in our odds equation is the number of
    documents per second. Even in a write-heavy system with 250 million
    writes/second, the odds are, while not zero, pretty good against
@@ -169,11 +169,11 @@ Quick Start: BSON Data Types - ObjectId
    .. blockquote::
 
       Get started exploring BSON types, like ObjectId, with `MongoDB
-      Atlas <https://www.mongodb.com/cloud/atlas>`_ today!
+      Atlas <https://www.mongodb.com/cloud/atlas>`__ today!
 
    ObjectId is one data type that is part of the `BSON
-   Specification <http://bsonspec.org/>`_ that MongoDB uses for data
+   Specification <http://bsonspec.org/>`__ that MongoDB uses for data
    storage. It is a binary representation of JSON and includes `other data
-   types <https://www.mongodb.com/blog/post/the-top-12-bson-data-types-you-wont-find-in-json>`_
+   types <https://www.mongodb.com/blog/post/the-top-12-bson-data-types-you-wont-find-in-json>`__
    beyond those defined in JSON. It is a powerful data type that is
    incredibly useful as a unique identifier in MongoDB Documents.

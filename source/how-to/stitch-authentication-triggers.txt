@@ -62,10 +62,10 @@ MongoDB Stitch Authentication Triggers
 
 .. content::
 
-   `MongoDB Stitch <https://docs.mongodb.com/stitch>`_ makes it a breeze
+   `MongoDB Stitch <https://docs.mongodb.com/stitch>`__ makes it a breeze
    to use third-party services such as
-   `Google <https://docs.mongodb.com/stitch/authentication/google/>`_ or
-   `Facebook <https://docs.mongodb.com/stitch/authentication/facebook/>`_
+   `Google <https://docs.mongodb.com/stitch/authentication/google/>`__ or
+   `Facebook <https://docs.mongodb.com/stitch/authentication/facebook/>`__
    to authenticate your app's users. This is great for your users as it
    means they don't need to go through the tedious process of having to
    provide all of their details to yet another application/service – it
@@ -76,13 +76,13 @@ MongoDB Stitch Authentication Triggers
    your users. For example, if someone is registering for the first time,
    then you probably want to send them a welcome email. When a user
    deregisters, there may be regulations (such as
-   `GDPR <https://www.mongodb.com/collateral/gdpr-impact-to-your-data-management-landscape>`_)
+   `GDPR <https://www.mongodb.com/collateral/gdpr-impact-to-your-data-management-landscape>`__)
    that mandate you delete all of their data.
 
    This is where `Stitch Authentication
-   Triggers <https://docs.mongodb.com/stitch/triggers/authentication-triggers/>`_
+   Triggers <https://docs.mongodb.com/stitch/triggers/authentication-triggers/>`__
    come to the fore. The model is very simple; you register a `Stitch
-   Function <https://docs.mongodb.com/stitch/functions/>`_ with any
+   Function <https://docs.mongodb.com/stitch/functions/>`__ with any
    authentication event (register (create), login, deregister (delete)),
    then add JavaScript code to that function to perform the required
    actions.
@@ -133,11 +133,11 @@ MongoDB Stitch Authentication Triggers
       };
 
    Creating your first Stitch app? Start with one of the `Stitch
-   tutorials <https://docs.mongodb.com/stitch/tutorials/>`_.
+   tutorials <https://docs.mongodb.com/stitch/tutorials/>`__.
 
    Want to learn more about MongoDB Stitch? Read the `white
-   paper <https://www.mongodb.com/collateral/mongodb-stitch-serverless-platform>`_.
+   paper <https://www.mongodb.com/collateral/mongodb-stitch-serverless-platform>`__.
 
    .. blockquote::
 
-      Get started with `MongoDB Atlas <https://www.mongodb.com/atlas>`_ today!
+      Get started with `MongoDB Atlas <https://www.mongodb.com/atlas>`__ today!

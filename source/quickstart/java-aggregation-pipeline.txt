@@ -59,7 +59,7 @@ Java - Aggregation Pipeline
       :align: right
 
    The `aggregation
-   pipeline <https://docs.mongodb.com/manual/core/aggregation-pipeline/>`_
+   pipeline <https://docs.mongodb.com/manual/core/aggregation-pipeline/>`__
    is a framework for data aggregation modeled on the concept of data
    processing pipelines, just like the "pipe" in the Linux Shell. Documents
    enter a multi-stage pipeline that transforms the documents into
@@ -88,7 +88,7 @@ Java - Aggregation Pipeline
 
       If you didn't set up your free cluster on MongoDB Atlas, now is great
       time to do so. You have all the instructions in this `blog
-      post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`_.
+      post <https://www.mongodb.com/blog/post/quick-start-getting-your-free-mongodb-atlas-cluster>`__.
 
 .. content::
 
@@ -96,8 +96,8 @@ Java - Aggregation Pipeline
    -----------------------
 
    In the `MongoDB Sample
-   Dataset <https://docs.atlas.mongodb.com/sample-data/available-sample-datasets/>`_
-   in `MongoDB Atlas <http://bit.ly/mongodbatlas>`_, let's explore a bit
+   Dataset <https://docs.atlas.mongodb.com/sample-data/available-sample-datasets/>`__
+   in `MongoDB Atlas <http://bit.ly/mongodbatlas>`__, let's explore a bit
    the ``zips`` collection in the ``sample_training`` database.
 
    .. code-block:: javascript
@@ -144,13 +144,13 @@ Java - Aggregation Pipeline
 
    The easiest way to build this pipeline in MongoDB is to use the
    `aggregation pipeline
-   builder <https://docs.mongodb.com/compass/master/aggregation-pipeline-builder/>`_
+   builder <https://docs.mongodb.com/compass/master/aggregation-pipeline-builder/>`__
    that is available in `MongoDB
-   Compass <https://www.mongodb.com/products/compass>`_ or in `MongoDB
-   Atlas <http://bit.ly/mongodbatlas>`_ in the ``Collections`` tab.
+   Compass <https://www.mongodb.com/products/compass>`__ or in `MongoDB
+   Atlas <http://bit.ly/mongodbatlas>`__ in the ``Collections`` tab.
 
    Once this is done, you can `export your pipeline to
-   Java <https://docs.mongodb.com/compass/master/export-pipeline-to-language/>`_
+   Java <https://docs.mongodb.com/compass/master/export-pipeline-to-language/>`__
    using the export button.
 
    After a little code refactoring, here is what I have:
@@ -180,20 +180,20 @@ Java - Aggregation Pipeline
    As you can see, I solved this problem with:
 
    -  A `$match
-      stage <https://docs.mongodb.com/manual/reference/operator/aggregation/match/>`_
+      stage <https://docs.mongodb.com/manual/reference/operator/aggregation/match/>`__
       to filter my documents and keep only the zip code in Texas,
    -  A `$group
-      stage <https://docs.mongodb.com/manual/reference/operator/aggregation/group/>`_
+      stage <https://docs.mongodb.com/manual/reference/operator/aggregation/group/>`__
       to regroup my zip codes in cities,
    -  A `$project
-      stage <https://docs.mongodb.com/manual/reference/operator/aggregation/project/>`_
+      stage <https://docs.mongodb.com/manual/reference/operator/aggregation/project/>`__
       to rename the field ``_id`` in ``city`` for a clean output (not
       mandatory but I'm classy),
    -  A `$sort
-      stage <https://docs.mongodb.com/manual/reference/operator/aggregation/sort/>`_
+      stage <https://docs.mongodb.com/manual/reference/operator/aggregation/sort/>`__
       to sort by population descending,
    -  A `$limit
-      stage <https://docs.mongodb.com/manual/reference/operator/aggregation/limit/>`_
+      stage <https://docs.mongodb.com/manual/reference/operator/aggregation/limit/>`__
       to keep only the 3 most populated cities.
 
    Here is the output we get:
@@ -217,7 +217,7 @@ Java - Aggregation Pipeline
    In MongoDB 4.2, there are 30 different aggregation pipeline stages that
    you can use to manipulate your documents. If you want to know more, I
    encourage you to follow this course on MongoDB University: `M121: The
-   MongoDB Aggregation Framework <http://bit.ly/MongoDBUniversityM121>`_.
+   MongoDB Aggregation Framework <http://bit.ly/MongoDBUniversityM121>`__.
 
    Second Example with Posts
    -------------------------
@@ -287,7 +287,7 @@ Java - Aggregation Pipeline
       }
 
    Here I'm using the very useful `$unwind
-   stage <https://docs.mongodb.com/manual/reference/operator/aggregation/unwind/>`_
+   stage <https://docs.mongodb.com/manual/reference/operator/aggregation/unwind/>`__
    to break down my array of tags.
 
    It allows me in the following $group stage to group my tags, count the
@@ -344,9 +344,9 @@ Java - Aggregation Pipeline
    As you can see, some titles are repeated. As I said earlier, the
    collection was generated so the post titles are not uniq. I could solve
    this "problem" by using the `$addToSet
-   operator <https://docs.mongodb.com/manual/reference/operator/aggregation/addToSet/index.html>`_
+   operator <https://docs.mongodb.com/manual/reference/operator/aggregation/addToSet/index.html>`__
    instead of the
-   `$push <https://docs.mongodb.com/manual/reference/operator/aggregation/push/>`_
+   `$push <https://docs.mongodb.com/manual/reference/operator/aggregation/push/>`__
    one if this was really an issue.
 
    Final Code
@@ -442,13 +442,13 @@ Java - Aggregation Pipeline
    .. blockquote::
 
       I encourage you to follow the `M121 course on MongoDB
-      University <http://bit.ly/MongoDBUniversityM121>`_ to become an
+      University <http://bit.ly/MongoDBUniversityM121>`__ to become an
       aggregation pipeline jedi.
 
       If you want to learn more and deepen your knowledge faster, I
       recommend you check out the M220J: MongoDB for Java Developers
       training available for free on `MongoDB
-      University <http://bit.ly/mongodbuniversity>`_.
+      University <http://bit.ly/mongodbuniversity>`__.
 
    In the next blog post, I will explain to you the `Change
-   Streams <https://docs.mongodb.com/manual/changeStreams/>`_ in Java.
+   Streams <https://docs.mongodb.com/manual/changeStreams/>`__ in Java.

@@ -85,7 +85,7 @@ MongoDB Change Streams with Python
    Set up PyMongo
    --------------
 
-   To get started, set up a virtual environment using `Virtualenv <https://virtualenv.pypa.io/en/stable/>`_. Virtualenv allows you to isolate dependencies of your project from other projects. Create a directory for this project and copy the following into a file called requirements.txt in your new directory:
+   To get started, set up a virtual environment using `Virtualenv <https://virtualenv.pypa.io/en/stable/>`__. Virtualenv allows you to isolate dependencies of your project from other projects. Create a directory for this project and copy the following into a file called requirements.txt in your new directory:
 
    .. code-block:: none
 
@@ -109,7 +109,7 @@ MongoDB Change Streams with Python
 
    We will go through two options for setting up a test MongoDB Replica Set for us to connect to. If you have MongoDB 3.6 or later installed and are comfortable making changes to your local setup choose this option and follow :ref:`the guide in the appendix <how-to-set-up-a-local-cluster>` and skip to the next section.
 
-   If you do not have MongoDB installed, would prefer not to mess with your local setup or if you are fairly new to MongoDB then we recommend that you set up a MongoDB Atlas cluster; there's a free tier which gives you a three node replica set which is ideal for experimenting and learning with. Simply follow `these steps <https://docs.mongodb.com/manual/tutorial/atlas-free-tier-setup/>`_ until you get the URI connection string in step 8. Take that URI connection string, insert the password where it says ``<password>``, and add it to your environment by running
+   If you do not have MongoDB installed, would prefer not to mess with your local setup or if you are fairly new to MongoDB then we recommend that you set up a MongoDB Atlas cluster; there's a free tier which gives you a three node replica set which is ideal for experimenting and learning with. Simply follow `these steps <https://docs.mongodb.com/manual/tutorial/atlas-free-tier-setup/>`__ until you get the URI connection string in step 8. Take that URI connection string, insert the password where it says ``<password>``, and add it to your environment by running
 
    .. code-block:: bash
 
@@ -181,7 +181,7 @@ MongoDB Change Streams with Python
           documentKey: { <unique identifier> }
       }
 
-   In the case of inserts and replace operations the ``fullDocument`` is provided by default as well. In the case of update operations the extra field provided is ``updateDescription`` and it gives you the document delta (i.e. the difference between the document before and after the operation). By default update operations only include the delta between the document before and after the operation. To get the full document with each update you can `pass in "updateLookup" to the full document option <https://docs.mongodb.com/manual/changeStreams/#lookup-full-document-for-update-operations>`_. If an update operation ends up changing multiple documents, there will be one notification for each updated document. This transformation occurs to ensure that statements in the oplog are `idempotent <https://docs.mongodb.com/manual/core/replica-set-oplog/>`_.
+   In the case of inserts and replace operations the ``fullDocument`` is provided by default as well. In the case of update operations the extra field provided is ``updateDescription`` and it gives you the document delta (i.e. the difference between the document before and after the operation). By default update operations only include the delta between the document before and after the operation. To get the full document with each update you can `pass in "updateLookup" to the full document option <https://docs.mongodb.com/manual/changeStreams/#lookup-full-document-for-update-operations>`__. If an update operation ends up changing multiple documents, there will be one notification for each updated document. This transformation occurs to ensure that statements in the oplog are `idempotent <https://docs.mongodb.com/manual/core/replica-set-oplog/>`__.
 
    There is one further type of event that can be received which is the invalidate event. This tells the driver that the change stream is no longer valid. The driver will then close the stream. Potential reasons for this include the collection being dropped or renamed.
 
@@ -259,21 +259,21 @@ MongoDB Change Streams with Python
    Caveats
    -------
 
-   - **Change Streams in Production**: If you plan to use change streams in production, please read `MongoDB's recommendations <https://docs.mongodb.com/manual/administration/change-streams-production-recommendations/>`_.
+   - **Change Streams in Production**: If you plan to use change streams in production, please read `MongoDB's recommendations <https://docs.mongodb.com/manual/administration/change-streams-production-recommendations/>`__.
    - **Ordering and Rollbacks**: MongoDB guarantees that the received events will be in the order they occurred (thus providing a total ordering of changes across shards if you use shards). On top of that only durable, i.e. majority committed changes will be sent to listeners. This means that listeners do not have to consider rollbacks in their applications.
    - **Reading from Secondaries**: Change streams can be opened against any data-bearing node in a cluster regardless whether it's primary or secondary.  However, it is generally not recommended to read from secondaries as failovers can lead to increased load and failures in this setup.
    - **Updates with the fullDocument Option**: The fullDocument option for Update Operations does not guarantee the returned document does not include further changes. In contrast to the document deltas that are guaranteed to be sent in order with update notifications, there is no guarantee that the *fullDocument* returned represents the document as it was exactly after the operation. ``updateLookup`` will poll the current version of the document. If changes happen quickly it is possible that the document was changed before the ``updateLookup`` finished. This means that the fullDocument might not represent the document at the time of the event thus potentially giving the impression events took place in a different order.
-   - **Impact on Performance**: Up to 1,000 concurrent change streams to each node are supported with negligible impact on the overall performance. However, on `sharded clusters <https://docs.mongodb.com/manual/administration/change-streams-production-recommendations/#sharded-clusters>`_, the guarantee of total ordering could cause response times of the change stream to be slower.
-   - **WiredTiger**: Change streams are a MongoDB 3.6 and later feature. It is not available for older versions, MMAPv1 storage or pre `pv1 <https://docs.mongodb.com/manual/reference/replica-configuration/#rsconf.protocolVersion>`_ replications.
+   - **Impact on Performance**: Up to 1,000 concurrent change streams to each node are supported with negligible impact on the overall performance. However, on `sharded clusters <https://docs.mongodb.com/manual/administration/change-streams-production-recommendations/#sharded-clusters>`__, the guarantee of total ordering could cause response times of the change stream to be slower.
+   - **WiredTiger**: Change streams are a MongoDB 3.6 and later feature. It is not available for older versions, MMAPv1 storage or pre `pv1 <https://docs.mongodb.com/manual/reference/replica-configuration/#rsconf.protocolVersion>`__ replications.
 
 .. summary::
 
    Learn More
    ----------
 
-   To read more about this check out the `Change Streams documentation <https://docs.mongodb.com/manual/changeStreams/>`_.
+   To read more about this check out the `Change Streams documentation <https://docs.mongodb.com/manual/changeStreams/>`__.
 
-   If you're interested in more MongoDB tips, follow us on Twitter `@mongodb <http://www.twitter.com/mongodb>`_.
+   If you're interested in more MongoDB tips, follow us on Twitter `@mongodb <http://www.twitter.com/mongodb>`__.
 
    Appendix
    --------
@@ -288,7 +288,7 @@ MongoDB Change Streams with Python
    How to set up a Local Cluster
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   Before setting up the instances please confirm that you are running version 3.6 or later of the MongoDB Server (mongod) and the MongoDB shell (mongo). You can do this by running ``mongod --version`` and ``mongo --version``. If either of these do not satisfy our requirements, please `upgrade to a more recent version <https://docs.mongodb.com/manual/tutorial/upgrade-revision/#upgrade-replace-binaries>`_ before continuing.
+   Before setting up the instances please confirm that you are running version 3.6 or later of the MongoDB Server (mongod) and the MongoDB shell (mongo). You can do this by running ``mongod --version`` and ``mongo --version``. If either of these do not satisfy our requirements, please `upgrade to a more recent version <https://docs.mongodb.com/manual/tutorial/upgrade-revision/#upgrade-replace-binaries>`__ before continuing.
 
    In the following you will set up a single-node replica-set named ``test-change-streams``. For a production replica-set, at least three nodes are recommended.
 

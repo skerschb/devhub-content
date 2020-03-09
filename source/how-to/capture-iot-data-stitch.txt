@@ -49,17 +49,17 @@ Capture IOT Data With MongoDB Stitch in 5 Minutes
 
   On the left, we have our sensors. Let's assume they can push data every
   second over TCP using a
-  `POST <https://en.wikipedia.org/wiki/POST_(HTTP)>`_ and let's suppose
+  `POST <https://en.wikipedia.org/wiki/POST_(HTTP)>`__ and let's suppose
   we have a million of them. We need an architecture capable to handle a
   million queries per seconds and able to resist any kind of network or
   hardware failure. TCP queries need to be distributed evenly to the
   application servers using `load
-  balancers <https://en.wikipedia.org/wiki/Load_balancing_(computing)>`_
+  balancers <https://en.wikipedia.org/wiki/Load_balancing_(computing)>`__
   and finally, the application servers are able to push the data to our
   multiple
-  `Mongos <https://docs.mongodb.com/manual/reference/program/mongos/>`_
+  `Mongos <https://docs.mongodb.com/manual/reference/program/mongos/>`__
   routers from our `MongoDB Sharded
-  Cluster <https://docs.mongodb.com/manual/sharding/>`_.
+  Cluster <https://docs.mongodb.com/manual/sharding/>`__.
 
   As you can see, this architecture is relatively complex to install. We need to:
 
@@ -77,10 +77,10 @@ Capture IOT Data With MongoDB Stitch in 5 Minutes
   .. image:: /images/how-to/Iot_01-xs1xezu0vb.png
 
   Once you have created a `MongoDB Atlas
-  cluster <https://www.youtube.com/watch?v=ZpA2FIn761U>`_, you can attach
-  a `MongoDB Stitch <https://www.mongodb.com/cloud/stitch>`_ application
+  cluster <https://www.youtube.com/watch?v=ZpA2FIn761U>`__, you can attach
+  a `MongoDB Stitch <https://www.mongodb.com/cloud/stitch>`__ application
   to it and then create an `HTTP
-  Service <https://docs.mongodb.com/stitch/reference/service-webhooks/>`_
+  Service <https://docs.mongodb.com/stitch/reference/service-webhooks/>`__
   containing the following code:
 
   .. code-block:: javascript
@@ -116,14 +116,14 @@ Capture IOT Data With MongoDB Stitch in 5 Minutes
 
   If you are looking for a very simple way to get started with MongoDB,
   you can do that in just 5 clicks on our `MongoDB
-  Atlas <https://www.mongodb.com/cloud/atlas>`_ database service in the
+  Atlas <https://www.mongodb.com/cloud/atlas>`__ database service in the
   cloud.
 
   You can also try `MongoDB Stitch for
-  free <https://www.mongodb.com/cloud/stitch>`_ and discover `how the
-  billing works <https://docs.mongodb.com/stitch/admin/billing/>`_.
+  free <https://www.mongodb.com/cloud/stitch>`__ and discover `how the
+  billing works <https://docs.mongodb.com/stitch/admin/billing/>`__.
 
   If you want to query your data sitting in MongoDB Atlas using MongoDB
   Stitch, I recommend `this article from Michael
-  Lynn <https://medium.com/@michael.lynn/creating-a-data-enabled-api-in-10-minutes-with-mongodb-stitch-6d23578fed6d>`_.
+  Lynn <https://medium.com/@michael.lynn/creating-a-data-enabled-api-in-10-minutes-with-mongodb-stitch-6d23578fed6d>`__.
   

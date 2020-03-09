@@ -41,7 +41,7 @@ Developing Alexa Skills with MongoDB and Golang
 .. content::
 
     The popularity of `Amazon
-    Alexa <https://developer.amazon.com/en-US/alexa>`_ and virtual
+    Alexa <https://developer.amazon.com/en-US/alexa>`__ and virtual
     assistants in general is no question, huge. Having a web application and
     mobile application isn't enough for most organizations anymore, and now
     you need to start supporting voice operated applications.
@@ -64,7 +64,7 @@ Developing Alexa Skills with MongoDB and Golang
     - Golang must be installed and configured
     - A MongoDB Atlas cluster
 
-    If you don't have a `MongoDB Atlas <https://www.mongodb.com/cloud>`_
+    If you don't have a `MongoDB Atlas <https://www.mongodb.com/cloud>`__
     cluster, you can configure one for free. For this example an M0 cluster
     is more than sufficient.
 
@@ -88,7 +88,7 @@ Developing Alexa Skills with MongoDB and Golang
     When it comes to building an Alexa Skill, it doesn't matter if you start
     with the code or the design. For this tutorial we're going to start with
     the design, directly in the `Amazon Developer
-    Portal <https://developer.amazon.com>`_ for Alexa.
+    Portal <https://developer.amazon.com>`__ for Alexa.
 
     Sign into the portal and choose to create a new custom Skill. After
     creating the Skill, you'll be brought to a dashboard with several
@@ -191,7 +191,7 @@ Developing Alexa Skills with MongoDB and Golang
     With the boilerplate code added, now we can install the MongoDB Go
     driver. To do this, you could in theory do a ``go get``, but the
     preferred approach as of now is to use the
-    `dep <https://github.com/golang/dep>`_ package management tool for
+    `dep <https://github.com/golang/dep>`__ package management tool for
     Golang. To do this, after having installed the tool, execute the
     following:
 
@@ -204,9 +204,9 @@ Developing Alexa Skills with MongoDB and Golang
     using in our project is version locked.
 
     In addition to the MongoDB Go driver, we're also going to need to get
-    the `AWS Lambda SDK for Go <https://github.com/aws/aws-lambda-go>`_ as
+    the `AWS Lambda SDK for Go <https://github.com/aws/aws-lambda-go>`__ as
     well as an `unofficial SDK for
-    Alexa <https://github.com/arienmalec/alexa-go>`_, since no official SDK
+    Alexa <https://github.com/arienmalec/alexa-go>`__, since no official SDK
     exists. To do this, we can execute:
 
     .. code-block:: bash
@@ -261,7 +261,7 @@ Developing Alexa Skills with MongoDB and Golang
 
     You can check out more information about connecting to MongoDB with the
     Go programming language in a `previous
-    tutorial <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--starting-and-setup>`_
+    tutorial <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--starting-and-setup>`__
     I wrote.
 
     So why are we storing the collection handle in a ``Connection`` data
@@ -447,7 +447,7 @@ Developing Alexa Skills with MongoDB and Golang
 
     If you'd like more information on the ``Find`` and ``FindOne`` commands
     for Go and MongoDB, check out my `how to read documents
-    tutorial <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-read-documents>`_
+    tutorial <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-read-documents>`__
     on the subject.
 
     While it might seem simple, the code for the Alexa Skill is actually
@@ -472,7 +472,7 @@ Developing Alexa Skills with MongoDB and Golang
 
     For more information on cross-compiling with Go, check out my
     `Cross Compiling Golang Applications For Use On A Raspberry Pi
-    <https://www.thepolyglotdeveloper.com/2017/04/cross-compiling-golang-applications-raspberry-pi/>`_
+    <https://www.thepolyglotdeveloper.com/2017/04/cross-compiling-golang-applications-raspberry-pi/>`__
     post.
 
     Next, we are creating an archive of our binary. It is important to
@@ -495,7 +495,7 @@ Developing Alexa Skills with MongoDB and Golang
     list.
 
     Navigate back to the `Alexa Developer
-    Portal <https://developer.amazon.com/alexa/console/ask>`_ and choose
+    Portal <https://developer.amazon.com/alexa/console/ask>`__ and choose
     the **Endpoint** checklist item. Add the ARN value to the default region
     and choose to build the Skill using the **Build Model** button.
 
@@ -519,7 +519,7 @@ Developing Alexa Skills with MongoDB and Golang
     ----------
 
     You just saw how to build an Alexa Skill with
-    `MongoDB <https://www.mongodb.com>`_, Golang, and AWS Lambda. Knowing
+    `MongoDB <https://www.mongodb.com>`__, Golang, and AWS Lambda. Knowing
     how to develop applications for voice assistants like Alexa is great
     because they are becoming increasingly popular, and the good news is
     that they aren't any more difficult than writing standard applications.
@@ -531,4 +531,4 @@ Developing Alexa Skills with MongoDB and Golang
     If you'd like to expand your Alexa with Go knowledge and get more
     practice, check out a previous tutorial I wrote titled `Build an Alexa
     Skill with Golang and AWS
-    Lambda <https://www.thepolyglotdeveloper.com/2018/10/build-alexa-skill-golang-aws-lambda/>`_.
+    Lambda <https://www.thepolyglotdeveloper.com/2018/10/build-alexa-skill-golang-aws-lambda/>`__.

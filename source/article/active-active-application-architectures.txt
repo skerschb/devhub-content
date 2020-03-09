@@ -230,7 +230,7 @@ Active-Active Application Architectures with MongoDB
     consistency guarantee that can be provided by distributed databases
     without severe impact to performance is causal consistency. As described
     by
-    `Wikipedia <https://en.wikipedia.org/wiki/Causal_consistency#cite_note-7>`_,
+    `Wikipedia <https://en.wikipedia.org/wiki/Causal_consistency#cite_note-7>`__,
     causal consistency provides the following guarantees:
 
     -  **Read Your Writes**: this means that preceding write operations are
@@ -290,7 +290,7 @@ Active-Active Application Architectures with MongoDB
     
     A common protocol for
     implementing this functionality is called a `two-phase
-    commit <https://en.wikipedia.org/wiki/Two-phase_commit_protocol>`_. The
+    commit <https://en.wikipedia.org/wiki/Two-phase_commit_protocol>`__. The
     two-phase commit protocol ensures durability and multi-node consistency,
     but it sacrifices performance. The two-phase commit protocol requires
     two-phases of communication among all the nodes involved in the
@@ -490,25 +490,25 @@ Active-Active Application Architectures with MongoDB
     geographical partitioning described in the previous section. The details
     of how to accomplish this are described in the `MongoDB Multi-Data
     Center
-    Deployments <https://www.mongodb.com/collateral/mongodb-multi-data-center-deployments>`_
+    Deployments <https://www.mongodb.com/collateral/mongodb-multi-data-center-deployments>`__
     white paper and `Zone Sharding
-    documentation <https://docs.mongodb.com/manual/tutorial/sharding-segmenting-data-by-location/>`_,
+    documentation <https://docs.mongodb.com/manual/tutorial/sharding-segmenting-data-by-location/>`__,
     but MongoDB operates as described in the "Partitioned (Sharded)
     Database" section.
     
     Numerous organizations use MongoDB to implement
     active-active application architectures. For example: 
     
-    - `Ebay <https://www.mongodb.com/blog/post/ebay-building-mission-critical-multi-data-center-applications-with-mongodb>`_
+    - `Ebay <https://www.mongodb.com/blog/post/ebay-building-mission-critical-multi-data-center-applications-with-mongodb>`__
       has codified the use of zone sharding to enable local reads and writes
       as one of its standard architecture patterns. 
-    - `YouGov <https://www.mongodb.com/blog/post/leaf-in-the-wild-yougov-powers-market-research-with-globally-distributed-mongodb>`_
+    - `YouGov <https://www.mongodb.com/blog/post/leaf-in-the-wild-yougov-powers-market-research-with-globally-distributed-mongodb>`__
       deploys MongoDB for their flagship survey system, called Gryphon, in a
       "write local, read global" pattern that facilitates active-active multi
       data center deployments spanning data centers in North America and
       Europe. 
     - `Ogilvy and
-      Maher <https://www.mongodb.com/blog/post/ogilvy-and-mather-delivers-security-compliance-with-mongodb-enterprise-advanced>`_
+      Maher <https://www.mongodb.com/blog/post/ogilvy-and-mather-delivers-security-compliance-with-mongodb-enterprise-advanced>`__
       uses MongoDB as the persistence store for its core auditing application.
       Their sharded cluster spans three data centers in North America and
       Europe with active data centers in North American and mainland Europe
@@ -520,7 +520,7 @@ Active-Active Application Architectures with MongoDB
     sharded database functionality, MongoDB provides fine grain controls for
     write durability and read consistency that make it ideal for multi-data
     center deployments. For writes, a `write
-    concern <https://docs.mongodb.com/manual/reference/write-concern/>`_
+    concern <https://docs.mongodb.com/manual/reference/write-concern/>`__
     can be specified to control write durability. The write concern enables
     the application to specify the number of replica set members that must
     apply the write before MongoDB acknowledges the write to the
@@ -555,12 +555,12 @@ Active-Active Application Architectures with MongoDB
     provides two capabilities for specifying the desired level of
     consistency. First, when reading from secondaries, an application can
     specify a maximum staleness value
-    (`maxStalenessSeconds <https://docs.mongodb.com/manual/core/read-preference/#maxstalenessseconds>`_).
+    (`maxStalenessSeconds <https://docs.mongodb.com/manual/core/read-preference/#maxstalenessseconds>`__).
     This ensures that the secondary's replication lag from the primary
     cannot be greater than the specified duration, and thus, guarantees the
     currentness of the data being returned by the secondary. In addition, a
     read can also be associated with a
-    `ReadConcern <https://docs.mongodb.com/master/reference/read-concern/index.html>`_
+    `ReadConcern <https://docs.mongodb.com/master/reference/read-concern/index.html>`__
     to control the consistency of the data returned by the query. For
     example, a ReadConcern of majority tells MongoDB to only return data
     that has been replicated to a majority of nodes in the replica set. This
@@ -569,7 +569,7 @@ Active-Active Application Architectures with MongoDB
     view of the data over time. 
     
     MongoDB 3.6 also introduced `causal
-    consistency <https://docs.mongodb.com/master/core/read-isolation-consistency-recency/#causal-consistency>`_ – guaranteeing that every read operation within a client session will
+    consistency <https://docs.mongodb.com/master/core/read-isolation-consistency-recency/#causal-consistency>`__ – guaranteeing that every read operation within a client session will
     always see the previous write operation, regardless of which replica is
     serving the request. By enforcing strict, causal ordering of operations
     within a session, causal consistency ensures every read is always
@@ -594,4 +594,4 @@ Active-Active Application Architectures with MongoDB
     applications to specify desired consistency and durability guarantees
     through Read and Write Concerns.
 
-    `View the MongoDB Architect Hub <https://resources.mongodb.com/mongodb-architects>`_
+    `View the MongoDB Architect Hub <https://resources.mongodb.com/mongodb-architects>`__

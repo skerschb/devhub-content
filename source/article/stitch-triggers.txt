@@ -43,16 +43,16 @@ Stitch Triggers Get Scheduled
    afternoon report, or pulling fresh data regularly from an API. Now, a
    new breed of Stitch Trigger is answering that need. Say hello to the
    `Scheduled Stitch
-   Trigger <http://docs.mongodb.com/stitch/triggers/scheduled-triggers>`_.
+   Trigger <http://docs.mongodb.com/stitch/triggers/scheduled-triggers>`__.
 
    The Scheduled Stitch Trigger can be set to trigger on a flexible
    interval across minutes, hours, days or weeks. If you have more complex
    scheduling in mind, there's an advanced option which uses `CRON style
-   syntax <https://docs.mongodb.com/stitch/triggers/cron-expressions>`_ to
+   syntax <https://docs.mongodb.com/stitch/triggers/cron-expressions>`__ to
    give flexible yet precise repetition options.
 
    When the Trigger fires, it calls a serverless `Stitch
-   Function <https://docs.mongodb.com/stitch/functions/>`_. Stitch
+   Function <https://docs.mongodb.com/stitch/functions/>`__. Stitch
    Functions run in a MongoDB Atlas aware context and let you seamlessly
    interact with MongoDB and other configured services. Functions are
    written in standard JavaScript and can run up to 60 seconds (with the
@@ -66,5 +66,5 @@ Stitch Triggers Get Scheduled
    .. youtube:: q144NRq93Rs
 
    Enjoy `Stitch Scheduled
-   Triggers <http://docs.mongodb.com/stitch/triggers/scheduled-triggers>`_
+   Triggers <http://docs.mongodb.com/stitch/triggers/scheduled-triggers>`__
    today!

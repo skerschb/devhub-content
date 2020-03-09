@@ -50,12 +50,12 @@ Introducing GraphQL Support in MongoDB Atlas with Stitch
     What is GraphQL
     ---------------
 
-    If you’ve never heard of `GraphQL <https://graphql.org/>`_ before, you
+    If you’ve never heard of `GraphQL <https://graphql.org/>`__ before, you
     can think of it as a query language for APIs. Rather than making simple
     HTTP requests to an API endpoint and receiving the full payload of that
     resource as a response, you can use GraphQL to query for only the fields
     you want, similar to a `MongoDB
-    projection <https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/>`_
+    projection <https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/>`__
     or a SQL query.
 
     By specifying the fields you want returned, you’re now decreasing the
@@ -104,7 +104,7 @@ Introducing GraphQL Support in MongoDB Atlas with Stitch
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     The first thing we want to do is make sure we have a cluster created and
-    configured within `MongoDB Atlas <https://www.mongodb.com/cloud>`_. If
+    configured within `MongoDB Atlas <https://www.mongodb.com/cloud>`__. If
     this is your first time being exposed to Atlas, it is a cloud hosted
     version of MongoDB, and it contains a forever free "M0" tier to get you
     started.
@@ -112,7 +112,7 @@ Introducing GraphQL Support in MongoDB Atlas with Stitch
     .. blockquote::
 
         Want some premium credits applied to your MongoDB Atlas account? Use
-        promotional code `NICRABOY200 <https://www.mongdb.com/cloud>`_ to
+        promotional code `NICRABOY200 <https://www.mongdb.com/cloud>`__ to
         receive credits towards building a more powerful cluster.
 
     Within Atlas, click the **COLLECTIONS** button on your desired cluster.
@@ -128,7 +128,7 @@ Introducing GraphQL Support in MongoDB Atlas with Stitch
         :alt: MongoDB Atlas New Database
 
     While out of the scope of this example, you could also play around with
-    the `sample data <https://docs.atlas.mongodb.com/sample-data/>`_ found
+    the `sample data <https://docs.atlas.mongodb.com/sample-data/>`__ found
     in MongoDB Atlas.
 
     After choosing to create the new database and collection, you should be
@@ -461,8 +461,8 @@ Introducing GraphQL Support in MongoDB Atlas with Stitch
     Stitch, there are a few more projects you can look at to give you a bump
     in the right direction.
 
-    -  `MongoDB GraphQL Example with React and Apollo <https://github.com/JoeKarlsson/mongodb-graphql-demo>`_
-    -  `Todo List with React and Axios <https://github.com/mongodb-appeng/taskit>`_
+    -  `MongoDB GraphQL Example with React and Apollo <https://github.com/JoeKarlsson/mongodb-graphql-demo>`__
+    -  `Todo List with React and Axios <https://github.com/mongodb-appeng/taskit>`__
 
     While both of the above examples leverage React, a popular web
     development framework, they demonstrate interacting with GraphQL using
