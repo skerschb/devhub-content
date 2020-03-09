@@ -12,6 +12,7 @@
    :site: @mongodb
    :creator: @kenwalger
    :title: Storing Large Objects and Files in MongoDB
+   :image: /images/social/twitter/twitter-mdb-developer.png
 
    Discover how to store large objects and files in MongoDB.
 

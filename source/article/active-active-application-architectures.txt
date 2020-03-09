@@ -12,7 +12,7 @@
    :site: @mongodb
    :creator: @jayrunkel
    :title: Active-Active Application Architectures with MongoDB
-   :image: https://webassets.mongodb.com/_com_assets/cms/image4-3d593nantp.png
+   :image: /images/social/twitter/twitter-mdb-developer.png
 
    This post will begin by describing the database capabilities required by modern multi-data center applications
 

@@ -12,6 +12,7 @@
    :site: @mongodb
    :creator: @andrewmorgan
    :title: MongoDB & Data Streaming – Implementing a MongoDB Kafka Consumer
+   :image: /images/social/twitter/twitter-mdb-developer.png
 
    Discover how to implement a MongoDB Kafka consumer
 

@@ -12,7 +12,7 @@
    :site: @mongodb
    :creator: @jdrumgoole
    :title: MongoDB 3.6: Here to SRV you with easier replica set connections
-   :image: /images/mdb-diagram.png
+   :image: /images/social/twitter/twitter-mdb-developer.png
 
    SRV records are another way in which MongoDB is making life easier for database developers everywhere.
 

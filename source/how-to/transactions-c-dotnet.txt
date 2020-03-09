@@ -12,6 +12,7 @@
    :site: @mongodb
    :creator: @RobsCranium
    :title: MongoDB Transactions with C# and the MongoDB .NET Driver
+   :image: /images/social/twitter/twitter-mdb-developer.png
 
    MongoDB 4.0 and the MongoDB .NET Driver version 2.7 and above support MongoDB cross collection transactions! Walk through an example of how to use transactions in C#.
 
