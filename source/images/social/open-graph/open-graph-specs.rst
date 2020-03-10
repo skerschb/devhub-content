@@ -1,3 +1,5 @@
+DO NOT CHANGE THE EXTENSION OF THIS FILE
+
 Open Graph is used by sites such as Facebook, LinkedIn, and Reddit.
 
 3/9/2020
