@@ -21,7 +21,7 @@
 
 .. include:: /includes/authors/kukic-ado.rst
 
-.. atf-image:: /images/atf-images/generic/purple.png
+.. atf-image:: /images/atf-images/generic/purple2.png
 
 .. pubdate:: 2020-03-11
 
