@@ -253,6 +253,8 @@ MongoDB and Node.js Tutorial - CRUD Operations
     Repo <https://bit.ly/NodejsQuickStart_Create>`__.
 
 
+    .. _node-tutorial-create-many:
+
     Create Multiple Documents
     ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -394,8 +396,8 @@ MongoDB and Node.js Tutorial - CRUD Operations
 
     We can call this function by passing a connected MongoClient as well as
     the name of a listing we want to find. Let’s search for a listing named
-    "Infinite Views" that we `created in an earlier
-    section <#create-many>`__.
+    "Infinite Views" that we :ref:`created in an earlier
+    section <node-tutorial-create-many>`.
 
     .. code-block:: javascript
 
@@ -561,8 +563,8 @@ MongoDB and Node.js Tutorial - CRUD Operations
             maximumNumberOfResults: 5
         });
 
-    If you’ve created the documents as described in the `earlier
-    section <#create-many>`__, the output would be something like the
+    If you’ve created the documents as described in the :ref:`earlier
+    section <node-tutorial-create-many>`, the output would be something like the
     following:
 
     .. code-block:: sh
@@ -667,8 +669,8 @@ MongoDB and Node.js Tutorial - CRUD Operations
         }
 
     Let’s say we want to update our Airbnb listing that has the name
-    "Infinite Views." We created this listing in `an earlier
-    section <#create-many>`__.
+    "Infinite Views." We created this listing in :ref:`an earlier
+    section <node-tutorial-create-many>`.
 
     .. code-block:: javascript
 
@@ -711,6 +713,7 @@ MongoDB and Node.js Tutorial - CRUD Operations
     the code above in the `Node.js Quick Start GitHub
     Repo <https://bit.ly/NodejsQuickStart_Update>`__.
 
+    .. _node-tutorial-upsert:
 
     Upsert One Document
     ~~~~~~~~~~~~~~~~~~~
@@ -930,8 +933,8 @@ MongoDB and Node.js Tutorial - CRUD Operations
             console.log(`${result.deletedCount} document(s) was/were deleted.`);
         }
 
-    Let’s say we want to delete the Airbnb listing we created in an `earlier
-    section <#upsert>`__ that has the name "Cozy Cottage." We can call
+    Let’s say we want to delete the Airbnb listing we created in an :ref:`earlier
+    section <node-tutorial-upsert>` that has the name "Cozy Cottage." We can call
     ``deleteListingsByName()`` by passing a connected MongoClient and the
     name "Cozy Cottage."
 

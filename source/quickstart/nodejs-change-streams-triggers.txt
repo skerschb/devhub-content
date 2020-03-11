@@ -276,6 +276,7 @@ Change Streams & Triggers with Node.js Tutorial
 
           await closeChangeStream(timeInMs, changeStream);
 
+    .. _node-change-streams-output:
 
     Call the Function
     ^^^^^^^^^^^^^^^^^
@@ -296,8 +297,6 @@ Change Streams & Triggers with Node.js Tutorial
     #. Create and update sample data by executing :ref:`node changeStreamsTestData.js <node-change-streams-set-up>` in a new shell. Output similar
        to the following will be displayed in your first shell where you are
        running ``changeStreams.js``.
-
-       .. _node-change-streams-output:
 
        .. code-block:: javascript
 
@@ -416,6 +415,8 @@ Change Streams & Triggers with Node.js Tutorial
           Closing the change stream
     
 
+    .. _node-change-streams-agg-output:
+
     Call the Function with an Aggregation Pipeline
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -466,8 +467,6 @@ Change Streams & Triggers with Node.js Tutorial
        Sydney, Australia market will be in the change stream. Output similar
        to the following will be displayed in your first shell where you are
        running ``changeStreams.js``.
-
-       .. _node-change-streams-agg-output:
 
        .. code-block:: javascript
 
