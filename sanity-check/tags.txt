@@ -9,6 +9,7 @@ Cloud
 Containers
 Data Visualization
 Full-Text Search
+GatsbyJS
 GraphQL
 IoT
 Kafka
