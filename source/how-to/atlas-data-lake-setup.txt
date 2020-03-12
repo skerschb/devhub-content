@@ -37,7 +37,7 @@
    * Atlas
    * Data Lake
 
-.. atf-image:: /images/atf-images/illustrations/docs.png
+.. atf-image:: /images/atf-images/logos/datalake.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT

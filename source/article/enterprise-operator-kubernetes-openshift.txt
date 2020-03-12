@@ -38,7 +38,7 @@
    * MongoDB
    * Ops Manager
 
-.. atf-image:: /images/atf-images/illustrations/productivity.png
+.. atf-image:: /images/atf-images/illustrations/dev-tools.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT

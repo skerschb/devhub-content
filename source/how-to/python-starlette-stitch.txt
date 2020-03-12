@@ -12,6 +12,7 @@
    :site: @mongodb
    :creator: @kukicado
    :title: Build a Property Booking Website with Starlette, MongoDB, and Twilio
+   :image: /images/atf-images/logos/starlette.png
 
    Learn how to build a property booking website in Python with Starlette, MongoDB, and Twilio.
 
@@ -21,9 +22,9 @@
 
 .. include:: /includes/authors/kukic-ado.rst
 
-.. atf-image:: /images/atf-images/quickstart/python.png
+.. atf-image:: /images/atf-images/logos/starlette.png
 
-.. pubdate:: 2020-03-04
+.. pubdate:: 2020-03-12
 
 .. type:: how-to
 

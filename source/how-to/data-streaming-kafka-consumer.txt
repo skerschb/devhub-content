@@ -38,7 +38,7 @@
 
    * MongoDB
 
-.. atf-image:: /images/atf-images/illustrations/productivity.png
+.. atf-image:: /images/atf-images/logos/kafka.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT

@@ -22,7 +22,7 @@
 
 .. include:: /includes/authors/kukic-ado.rst
 
-.. atf-image:: /images/atf-images/illustrations/nodejs.png
+.. atf-image:: /images/atf-images/logos/nextjs.png
 
 .. pubdate:: 2020-02-07
 

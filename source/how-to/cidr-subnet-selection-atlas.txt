@@ -37,7 +37,7 @@
 
    * Atlas
 
-.. atf-image:: /images/atf-images/quickstart/stitch-triggers.png
+.. atf-image:: /images/atf-images/generic/purple.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT

@@ -30,7 +30,7 @@
 
    * JavaScript
 
-.. atf-image:: /images/atf-images/quickstart/stitch-triggers.png
+.. atf-image:: /images/atf-images/generic/pink2.png
 
 =================================================
 Capture IOT Data With MongoDB Stitch in 5 Minutes

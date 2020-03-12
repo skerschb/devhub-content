@@ -32,7 +32,7 @@
 
     * Atlas
 
-.. atf-image:: /images/atf-images/quickstart/golang.png
+.. atf-image:: /images/atf-images/logos/alexa.png
 
 ===============================================
 Developing Alexa Skills with MongoDB and Golang

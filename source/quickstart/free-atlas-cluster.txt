@@ -37,7 +37,7 @@
 
    * Atlas
 
-.. atf-image:: /images/atf-images/illustrations/build.png
+.. atf-image:: /images/atf-images/logos/atlas-cluster.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT

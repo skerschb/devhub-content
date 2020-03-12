@@ -2,7 +2,7 @@ import os
 
 
 def read_list_in_directive(file, directive):
-    with open(file.path) as f:
+    with open(file.path, encoding="utf-8") as f:
         reading_tags = False
         empty_lines = 1
         tags_array = []
@@ -30,7 +30,7 @@ def check_for_invalid_elements(files, valid_list, element):
 
 
 def scan_images(file):
-    with open(file) as f:
+    with open(file, encoding="utf-8") as f:
         images = []
         for line in f.readlines():
             line_chards = line.split()
@@ -40,11 +40,11 @@ def scan_images(file):
         return images
 
 
-with open('tags.txt') as f:
+with open('tags.txt', encoding="utf-8") as f:
     valid_tags = f.read().splitlines()
-with open('products.txt') as f:
+with open('products.txt', encoding="utf-8") as f:
     valid_products = f.read().splitlines()
-with open('languages.txt') as f:
+with open('languages.txt', encoding="utf-8") as f:
     valid_languages = f.read().splitlines()
 
 blog_posts = []
@@ -83,7 +83,7 @@ check_for_invalid_elements(file_languages, valid_languages, 'language')
 
 all_images = []
 for (dirpath, dirnames, filenames) in os.walk('../source/images'):
-    all_images += [os.path.join(dirpath, file).replace('../source', '') for file in filenames]
+    all_images += [os.path.join(dirpath, file).replace('../source', '').replace('\\', '/') for file in filenames]
 
 print('\nList of images not used:\n')
 for img in all_images:
