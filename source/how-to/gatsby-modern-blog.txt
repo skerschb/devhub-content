@@ -23,7 +23,7 @@
 
 .. atf-image:: /images/atf-images/generic/purple.png
 
-.. pubdate:: 2020-03-15
+.. pubdate:: 2020-03-24
 
 .. type:: how-to
 
@@ -875,6 +875,8 @@ Build a Modern Blog with Gatsby and MongoDB
 
    In this tutorial, I showed you how to build a modern blog with GatsbyJS. We used multiple data sources, including a remote `MongoDB Atlas <https://mongodb.com/cloud/atlas>`__ database and local markdown files, to generate a static blog. We took a brief tour of GraphQL and how it enhances our development experience by consolidating all of our data sources into a single API that we can query both at build and run time. I hope you learned something new, if you have any questions feel free to ask in our `MongoDB community forums <https://community.mongodb.com/>`__.
 
-   If you want to get the code for this tutorial, you can clone it from this `GitHub repo <https://github.com/kukicado/gatsby-mongodb-article>`__. The sample books dataset can also be found `here <https://github.com/ozlerhakan/mongodb-json-files>`__. Try `MongoDB Atlas <https://mongodb.com/cloud/atlas>`__ to make it easy to manage and scale your MongoDB database and use code **ADO200** for a $200 credit. 
+   .. blockquote::
+
+      If you want to get the code for this tutorial, you can clone it from this `GitHub repo <https://github.com/kukicado/gatsby-mongodb-article>`__. The sample books dataset can also be found `here <https://github.com/ozlerhakan/mongodb-json-files>`__. Try `MongoDB Atlas <https://mongodb.com/cloud/atlas>`__ to make it easy to manage and scale your MongoDB database and use code **ADO200** for a $200 credit. 
 
    Happy coding!
