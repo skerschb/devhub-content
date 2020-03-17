@@ -12,6 +12,7 @@
    :site: @mongodb
    :creator: @nraboy
    :title: Reacting to Database Changes with MongoDB Change Streams and Go
+   :image: https://webassets.mongodb.com/_com_assets/cms/QuickStart-Go(Blog)-min-egkag5bi1n.png
 
    Learn how to use change streams to react to changes to MongoDB documents, databases, and clusters in real-time using the Go programming language.
 
@@ -55,16 +56,16 @@ Reacting to Database Changes with MongoDB Change Streams and Go
    we’ve done, you can have a look at the following tutorials in the
    series:
 
-   -  `How to Get Connected to Your MongoDB Cluster with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--starting-and-setup>`_
-   -  `Creating MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-create-documents>`_
-   -  `Retrieving and Querying MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-read-documents>`_
-   -  `Updating MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-update-documents>`_
-   -  `Deleting MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-delete-documents>`_
-   -  `Modeling MongoDB Documents with Native Go Data Structures <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--modeling-documents-with-go-data-structures>`_
-   -  `Performing Complex MongoDB Data Aggregation Queries with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--data-aggregation-pipeline>`_
+   -  `How to Get Connected to Your MongoDB Cluster with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--starting-and-setup>`__
+   -  `Creating MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-create-documents>`__
+   -  `Retrieving and Querying MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-read-documents>`__
+   -  `Updating MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-update-documents>`__
+   -  `Deleting MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-delete-documents>`__
+   -  `Modeling MongoDB Documents with Native Go Data Structures <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--modeling-documents-with-go-data-structures>`__
+   -  `Performing Complex MongoDB Data Aggregation Queries with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--data-aggregation-pipeline>`__
 
    In this tutorial we’re going to explore `change
-   streams <https://docs.mongodb.com/manual/changeStreams/>`_ in MongoDB
+   streams <https://docs.mongodb.com/manual/changeStreams/>`__ in MongoDB
    and how they might be useful, all with the Go programming language
    (Golang).
 
@@ -124,7 +125,7 @@ Reacting to Database Changes with MongoDB Change Streams and Go
    The above code is a very basic connection to a MongoDB cluster,
    something that we explored in the `How to Get Connected to Your MongoDB
    Cluster with
-   Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--starting-and-setup>`_,
+   Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--starting-and-setup>`__,
    tutorial.
 
    To watch for changes, we can do something like the following:
@@ -176,7 +177,7 @@ Reacting to Database Changes with MongoDB Change Streams and Go
    While the code that we used would work fine, it is currently a blocking
    operation. If we wanted to watch for changes and continue to do other
    things, we’d want to use a
-   `goroutine <https://tour.golang.org/concurrency/1>`_ for iterating over
+   `goroutine <https://tour.golang.org/concurrency/1>`__ for iterating over
    our change stream cursor.
 
    We could make some changes like this:
@@ -293,7 +294,7 @@ Reacting to Database Changes with MongoDB Change Streams and Go
    With change streams, you’ll have access to a subset of the MongoDB
    aggregation pipeline and its operators. You can learn more about what’s
    available in the `official
-   documentation <http://docs.mongodb.com/manual/changeStreams/#modify-change-stream-output>`_.
+   documentation <http://docs.mongodb.com/manual/changeStreams/#modify-change-stream-output>`__.
 
    Conclusion
    ----------
@@ -308,13 +309,13 @@ Reacting to Database Changes with MongoDB Change Streams and Go
    If you’re looking to catch up on the other tutorials in the MongoDB with
    Go quick start series, you can find them below:
 
-   -  `How to Get Connected to Your MongoDB Cluster with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--starting-and-setup>`_
-   -  `Creating MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-create-documents>`_
-   -  `Retrieving and Querying MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-read-documents>`_
-   -  `Updating MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-update-documents>`_
-   -  `Deleting MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-delete-documents>`_
-   -  `Modeling MongoDB Documents with Native Go Data Structures <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--modeling-documents-with-go-data-structures>`_
-   -  `Performing Complex MongoDB Data Aggregation Queries with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--data-aggregation-pipeline>`_
+   -  `How to Get Connected to Your MongoDB Cluster with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--starting-and-setup>`__
+   -  `Creating MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-create-documents>`__
+   -  `Retrieving and Querying MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-read-documents>`__
+   -  `Updating MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-update-documents>`__
+   -  `Deleting MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-delete-documents>`__
+   -  `Modeling MongoDB Documents with Native Go Data Structures <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--modeling-documents-with-go-data-structures>`__
+   -  `Performing Complex MongoDB Data Aggregation Queries with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--data-aggregation-pipeline>`__
 
    To bring the series to a close, the next tutorial will focus on
    transactions with the MongoDB Go driver.
