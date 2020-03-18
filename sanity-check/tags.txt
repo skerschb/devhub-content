@@ -23,6 +23,7 @@ Releases
 Schema Design
 Security
 Starlette
+SQL
 Technical
 Time Series
 Transactions
