@@ -11,6 +11,7 @@
 .. twitter::
    :site: @mongodb
    :title: CIDR Subnet Selection for MongoDB Atlas
+   :image: /images/social/twitter/twitter-security.png
 
    One of the best features of MongoDB Atlas is the ability to peer your host VPC on your own Amazon Web Services (AWS) account to your Atlas VPC. VPC peering provides you with the ability to use the private IP range of your hosts and MongoDB Atlas cluster.
 
@@ -37,7 +38,7 @@
 
    * Atlas
 
-.. atf-image:: /images/atf-images/generic/purple.png
+.. atf-image:: /images/atf-images/illustrations/security.png
 
 .. ---------------------------------------------------------------
 .. ARTICLE CONTENT
