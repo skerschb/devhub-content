@@ -14,7 +14,7 @@
    :title: MongoDB 3.6: Here to SRV you with easier replica set connections
    :image: /images/social/twitter/twitter-mdb-developer.png
 
-   SRV records are another way in which MongoDB is making life easier for database developers everywhere.
+   SRV TESTING records are another way in which MongoDB is making life easier for database developers everywhere.
 
 .. ---------------------------------------------------------------
 .. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
