@@ -257,10 +257,13 @@ The Top 4 Reasons Why You Should Use MongoDB
          passwd="rootroot",
          database="CityHall"
       )
-      mycursor = mydb.cursor()
+      mycursor = mydb.cursor(dictionary=True)
       
       # THE ID OF THE USER WHOSE PROFILE WE WILL BE RETRIEVING AND UPDATING
       userId = 1
+
+   We'll pass the `dictionary=True <https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursordict.html>`_
+   option when we create the cursor so that each row will be returned as a dictionary.
 
    MongoDB
 
@@ -304,39 +307,18 @@ The Top 4 Reasons Why You Should Use MongoDB
       sql = "SELECT * FROM Users LEFT JOIN Hobbies ON Users.ID = Hobbies.user_id WHERE Users.id=%s"
       values = (userId,)
       my cursor.execute(sql, values)
-      result = mycursor.fetchone()
+      user = mycursor.fetchone()
 
-   When we fetch a query result, a
-   `tuple <https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences>`__
-   is returned. The tuple contains a value for every column in the
-   ``Users`` and ``Hobbies`` tables:
-
-   .. code:: python
-
-      (1, u'Leslie', u'Yepp', u'8125552344', u'Pawnee', 39.1703, -86.5366, None, 10, 1, u'scrapbooking')
-
-   This tuple is a bit challenging to work with in the code since it’s not
-   clear what field is associated with each value. To work around this
-   challenge, we’ll manually create a ``user`` dictionary by pulling values
-   out of the tuple. Keep in mind that if any columns are added, removed,
-   or modified, we’ll need to remember to update this code to ensure the
-   mapping of the tuple to the dictionary is still correct.
-
-   MySQL
+   When we execute the query, a
+   result is returned for every user/hobby combination. When we call ``fetchone()``, we get a dictionary
+   like the following
 
    .. code:: python
 
-      user = {
-         "first_name": result[1],
-         "last_name": result[2],
-         "cell": result[3],
-         "city": result[4],
-         "location": [result[6], result[5]],
-         "school": result[7]
-      }
+      {u'city': u'Pawnee', u'first_name': u'Leslie', u'last_name': u'Yepp', u'user_id': 1, u'school': None, u'longitude': -86.5366, u'cell': u'8125552344', u'latitude': 39.1703, u'hobby': u'scrapbooking', u'ID': 10}
 
    Because we joined the ``Users`` and the ``Hobbies`` tables, we have a
-   row for each hobby this user has. To retrieve all of the hobbies, we
+   result for each hobby this user has. To retrieve all of the hobbies, we
    need to iterate the cursor. We’ll append each hobby to a new ``hobbies``
    array and then add the ``hobbies`` array to our ``user`` dictionary.
 
@@ -345,10 +327,12 @@ The Top 4 Reasons Why You Should Use MongoDB
    .. code:: python
 
       hobbies = []
-      if (result[10]):
-         hobbies.append(result[10])
+      if (user["hobby"]):
+        hobbies.append(user["hobby"])
+      del user["hobby"]
+      del user["ID"]
       for result in mycursor:
-         hobbies.append(result[10])
+        hobbies.append(result["hobby"])
       user["hobbies"] = hobbies
 
    Now let’s implement that same functionality for MongoDB.
@@ -359,8 +343,8 @@ The Top 4 Reasons Why You Should Use MongoDB
 
    Here is where the big advantage that *MongoDB documents map to data
    structures in most popular programming languages* comes in. I don’t have
-   to do any mapping or converting to get my data into an easy-to-work-with
-   Python Dictionary. MongoDB gives me the results in a Python Dictionary
+   to do any work to get my data into an easy-to-work-with
+   Python Dictionary. MongoDB gives me all of the results in a Python Dictionary
    automatically.
 
    MongoDB
@@ -369,7 +353,7 @@ The Top 4 Reasons Why You Should Use MongoDB
 
       user = db['Users'].find_one({"_id": userId})
 
-   And that’s it—we’re done. What took us 18 lines for MySQL, we were able
+   And that’s it—we’re done. What took us 12 lines for MySQL, we were able
    to implement in 1 line for MongoDB.
 
    Our ``user`` dictionaries are now pretty similar in both pieces of code.
@@ -384,8 +368,10 @@ The Top 4 Reasons Why You Should Use MongoDB
          'last_name': 'Yepp', 
          'school': None, 
          'cell': '8125552344', 
-         'location': [-86.5366, 39.1703], 
-         'hobbies': ['scrapbooking', 'eating waffles', 'working']
+         'latitude': 39.1703,
+         'longitude': -86.5366,3
+         'hobbies': ['scrapbooking', 'eating waffles', 'working'],
+         'user_id': 1
       }
 
    MongoDB
@@ -416,7 +402,19 @@ The Top 4 Reasons Why You Should Use MongoDB
    To simulate Leslie updating her profile information, we’ll manually
    update the Python dictionary ourselves for both MySQL and MongoDB.
 
-   MySQL and MongoDB:
+   MySQL:
+
+   .. code:: python
+
+      user.update( {
+         "city": "Washington, DC",
+         "latitude": 38.897760,
+         "longitude": -77.036809,
+         "hobbies": ["scrapbooking", "eating waffles", "signing bills"]
+         } )
+
+
+   MongoDB:
 
    .. code:: python
 
@@ -437,7 +435,7 @@ The Top 4 Reasons Why You Should Use MongoDB
    .. code:: python
 
       sql = "UPDATE Users SET first_name=%s, last_name=%s, cell=%s, city=%s, latitude=%s, longitude=%s, school=%s WHERE (ID=%s)"
-      values = (user["first_name"], user["last_name"], user["cell"], user["city"], user["location"][1], user["location"][0], user["school"], userId)
+      values = (user["first_name"], user["last_name"], user["cell"], user["city"], user["latitude"], user["longitude"], user["school"], userId)
       mycursor.execute(sql, values)
       mydb.commit()
 
@@ -475,13 +473,13 @@ The Top 4 Reasons Why You Should Use MongoDB
 
       result = db['Users'].update_one({"_id": userId}, {"$set": user})
 
-   What took us 11 lines for MySQL, we were able to implement in 1 line for
+   What took us 15 lines for MySQL, we were able to implement in 1 line for
    MongoDB.
 
    Summary of Programming Faster
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   In this example, we wrote 30 lines of code to interact with our data in MySQL and 2 lines of code to interact with our data
+   In this example, we wrote 27 lines of code to interact with our data in MySQL and 2 lines of code to interact with our data
    in MongoDB. While fewer lines of code is not always indicative of
    better code, in this case, we can probably agree that fewer lines of
    code will likely lead to easier maintenance and fewer bugs.
