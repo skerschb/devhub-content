@@ -376,7 +376,7 @@ Static Website Deployments to MongoDB Stitch with Hugo, Git, and Travis CI
 
    Open the project’s **hugo/config.toml** file and add the following line:
 
-   ::
+   .. code-block:: none
 
       publishDir = "../hosting/files"
 
