@@ -61,7 +61,7 @@ Multi-Document ACID Transactions in MongoDB with Go
 
     There are some situations where you might need atomicity of reads and
     writes to multiple documents within a single collection or multiple
-    collections. This isn’t always a necessity, but in some cases it might
+    collections. This isn’t always a necessity, but in some cases, it might
     be.
 
     Take the following for example.
@@ -71,7 +71,7 @@ Multi-Document ACID Transactions in MongoDB with Go
     validation rules in place on your collection. In the scenario that
     you’re trying to create documents and the related document doesn’t exist
     or your schema validation rules fail, you don’t want the operation to
-    proceed. Instead, you’d probably want to rollback to before it happened.
+    proceed. Instead, you’d probably want to roll back to before it happened.
 
     There are other reasons that you might use transactions, but you can use
     your imagination for those.
@@ -87,7 +87,7 @@ Multi-Document ACID Transactions in MongoDB with Go
     be a good idea to have a refresher on the data model that we’ll be using
     for this example.
 
-    In the past few tutorials we’ve explored working with potential podcast
+    In the past few tutorials, we’ve explored working with potential podcast
     data in various collections. For example, our Go data model looks
     something like this:
 
@@ -194,7 +194,7 @@ Multi-Document ACID Transactions in MongoDB with Go
     Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--starting-and-setup>`__.
 
     The goal here will be to try to insert a document that complies with our
-    schema validation as well as a document that doesn’t, so that we have a
+    schema validation as well as a document that doesn’t so that we have a
     commit that doesn’t happen.
 
     .. code-block:: go
@@ -249,9 +249,9 @@ Multi-Document ACID Transactions in MongoDB with Go
             }
         }
 
-    In the above code we start by starting a session which will encapsulate
+    In the above code, we start by starting a session which will encapsulate
     everything we want to do with atomicity. After, we start a transaction
-    which we’ll use to commit everything in the session.
+    that we’ll use to commit everything in the session.
 
     A ``Session`` represents a MongoDB logical session and can be used to
     enable casual consistency for a group of operations or to execute
@@ -259,7 +259,7 @@ Multi-Document ACID Transactions in MongoDB with Go
     Go can be found in the
     `documentation <https://godoc.org/go.mongodb.org/mongo-driver/mongo#Session>`__.
 
-    Inside the session we are doing two ``InsertOne`` operations. The first
+    Inside the session, we are doing two ``InsertOne`` operations. The first
     would succeed because it doesn’t violate any of our schema validation
     rules. It will even print out an object id when it’s done. However, the
     second operation will fail because it is less than two minutes. The
@@ -347,6 +347,6 @@ Multi-Document ACID Transactions in MongoDB with Go
     -  `Reacting to Database Changes with MongoDB Change Streams and Go <https://>`__
 
     Since transactions brings this tutorial series to a close, make sure you
-    keep a lookout for more tutorials which focus on more niche and
+    keep a lookout for more tutorials that focus on more niche and
     interesting topics that apply everything that was taught while getting
     started.
