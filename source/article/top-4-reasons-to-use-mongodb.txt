@@ -83,8 +83,8 @@ The Top 4 Reasons Why You Should Use MongoDB
       Mindset.” 
       
       If you prefer videos over articles, check out the 
-      `recording <https://youtu.be/FFj04Apz_BE>`_. Slides are available
-      `here <https://www.slideshare.net/LaurenHaywardSchaefe/jumpstart-from-sql-to-nosql-changing-your-mindset>`_.
+      `recording <https://youtu.be/FFj04Apz_BE>`__. Slides are available
+      `here <https://www.slideshare.net/LaurenHaywardSchaefe/jumpstart-from-sql-to-nosql-changing-your-mindset>`__.
 
 .. content::
 
@@ -262,7 +262,7 @@ The Top 4 Reasons Why You Should Use MongoDB
       # THE ID OF THE USER WHOSE PROFILE WE WILL BE RETRIEVING AND UPDATING
       userId = 1
 
-   We'll pass the `dictionary=True <https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursordict.html>`_
+   We'll pass the `dictionary=True <https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursordict.html>`__
    option when we create the cursor so that each row will be returned as a dictionary.
 
    MongoDB

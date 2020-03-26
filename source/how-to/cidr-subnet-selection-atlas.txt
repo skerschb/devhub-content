@@ -10,6 +10,7 @@
 
 .. twitter::
    :site: @mongodb
+   :creator: @jaydestro
    :title: CIDR Subnet Selection for MongoDB Atlas
    :image: /images/social/twitter/twitter-security.png
 

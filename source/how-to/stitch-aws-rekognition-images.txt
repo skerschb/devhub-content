@@ -13,7 +13,6 @@
    :creator: @aydrianh
    :title: Using AWS Rekognition to Analyse and Tag Uploaded Images Using Stitch
 
-
    Use MongoDB Stitch with AWS Rekognition to tag and analyse images.
 
 .. ---------------------------------------------------------------
@@ -24,7 +23,7 @@
 
 .. pubdate:: 2018-10-25
 
-.. updated-date:: February 4, 2019
+.. updated-date:: 2019-02-04
 
 .. type:: how-to
 

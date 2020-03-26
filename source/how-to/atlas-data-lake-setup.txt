@@ -21,7 +21,7 @@
 
 .. include:: /includes/authors/alger-ken.rst
 
-.. pubdate:: November 22, 2019
+.. pubdate:: 2019-11-22
 
 .. type:: how-to
 

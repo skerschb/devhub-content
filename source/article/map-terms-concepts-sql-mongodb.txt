@@ -76,8 +76,8 @@ Mapping Terms and Concepts from SQL to MongoDB
       Mindset.” 
       
       If you prefer videos over articles, check out the 
-      `recording <https://youtu.be/FFj04Apz_BE>`_. Slides are available
-      `here <https://www.slideshare.net/LaurenHaywardSchaefe/jumpstart-from-sql-to-nosql-changing-your-mindset>`_.
+      `recording <https://youtu.be/FFj04Apz_BE>`__. Slides are available
+      `here <https://www.slideshare.net/LaurenHaywardSchaefe/jumpstart-from-sql-to-nosql-changing-your-mindset>`__.
 
 .. content::
 
@@ -98,7 +98,7 @@ Mapping Terms and Concepts from SQL to MongoDB
    .. image:: /images/article/sql-to-mdb/bacon.gif
       :alt: When it comes to bacon, be prepared
 
-   In season 6, Ron discovers `Yelp <https://www.yelp.com>`_. Ron thinks
+   In season 6, Ron discovers `Yelp <https://www.yelp.com>`__. Ron thinks
    Yelp is amazing, because he loves the idea of reviewing places he’s
    been.
 
@@ -167,21 +167,21 @@ Mapping Terms and Concepts from SQL to MongoDB
    When I talk with developers, they often ask me questions like, “What use
    cases are good for MongoDB?” Developers often have this feeling that
    `non-relational
-   databases <https://www.mongodb.com/scale/what-is-a-non-relational-database>`_
+   databases <https://www.mongodb.com/scale/what-is-a-non-relational-database>`__
    (or NoSQL databases) like MongoDB are for specific, niche use cases.
 
    MongoDB is a general-purpose database that can be used in a variety of
    use cases across nearly every industry. For more details, see `MongoDB
-   Use Cases <https://www.mongodb.com/use-cases>`_, `MongoDB
-   Industries <https://www.mongodb.com/industries>`_, and the `MongoDB Use
+   Use Cases <https://www.mongodb.com/use-cases>`__, `MongoDB
+   Industries <https://www.mongodb.com/industries>`__, and the `MongoDB Use
    Case Guidance
-   Whitepaper <https://www.mongodb.com/collateral/use-case-guidance-where-to-use-mongodb>`_
+   Whitepaper <https://www.mongodb.com/collateral/use-case-guidance-where-to-use-mongodb>`__
    that includes a summary of when you should evaluate other database
    options.
 
    Another common question is, “If my data is relational, why would I use a
    `non-relational
-   database <https://www.mongodb.com/scale/what-is-a-non-relational-database>`_?”
+   database <https://www.mongodb.com/scale/what-is-a-non-relational-database>`__?”
 
    MongoDB is considered a non-relational database. However, that doesn’t
    mean MongoDB doesn’t store relationship data well. (I know I just used a
@@ -204,9 +204,9 @@ Mapping Terms and Concepts from SQL to MongoDB
       :alt: Clippy raises his eyebrows
 
    I’m talking about `BSON
-   documents <https://docs.mongodb.com/manual/core/document/>`_. BSON is a
+   documents <https://docs.mongodb.com/manual/core/document/>`__. BSON is a
    binary representation of `JSON (JavaScript Object Notation)
-   documents <https://docs.mongodb.com/manual/reference/glossary/#term-json>`_.
+   documents <https://docs.mongodb.com/manual/reference/glossary/#term-json>`__.
    Documents will likely feel comfortable to you if you’ve used any of the
    C-family of programming languages such as C, C#, Go, Java, JavaScript,
    PHP, or Python.
@@ -237,9 +237,9 @@ Mapping Terms and Concepts from SQL to MongoDB
 
    The fields are strings that describe the pieces of data being stored.
 
-   The values can be any of the `BSON <http://bsonspec.org/>`_ data types.
+   The values can be any of the `BSON <http://bsonspec.org/>`__ data types.
    BSON has a variety of `data
-   types <https://docs.mongodb.com/manual/reference/bson-types/>`_
+   types <https://docs.mongodb.com/manual/reference/bson-types/>`__
    including Double, String, Object, Array, Binary Data, ObjectId, Boolean,
    Date, Null, Regular Expression, JavaScript, JavaScript (with scope),
    32-bit Integer, Timestamp, 64-bit Integer, Decimal128, Min Key, and Max
@@ -247,7 +247,7 @@ Mapping Terms and Concepts from SQL to MongoDB
    power to model your data as it exists in the real world.
 
    Every document is required to have a field named
-   `_id <https://docs.mongodb.com/manual/core/document/#the-id-field>`_.
+   `_id <https://docs.mongodb.com/manual/core/document/#the-id-field>`__.
    The value of ``_id`` must be unique for each document in a collection,
    is immutable, and can be of any type other than an array.
 
@@ -355,9 +355,9 @@ Mapping Terms and Concepts from SQL to MongoDB
 
    Bonus Tip: MongoDB has a few different built-in ways to visualize
    location data including the `schema analyzer in MongoDB
-   Compass <https://docs.mongodb.com/compass/master/schema/#analyze-location-data>`_
+   Compass <https://docs.mongodb.com/compass/master/schema/#analyze-location-data>`__
    and the `Geospatial Charts in MongoDB
-   Charts <https://docs.mongodb.com/charts/master/chart-type-reference/geo-spatial/>`_.
+   Charts <https://docs.mongodb.com/charts/master/chart-type-reference/geo-spatial/>`__.
    I generated the map below with just a few clicks in MongoDB Charts.
 
    .. image:: /images/article/sql-to-mdb/map.png
@@ -398,7 +398,7 @@ Mapping Terms and Concepts from SQL to MongoDB
    “hobbies” to our existing document. The array can contain as many or as
    few hobbies as we need (assuming we don’t exceed the `16 megabyte
    document size
-   limit <https://docs.mongodb.com/manual/reference/limits/#BSON-Document-Size>`_).
+   limit <https://docs.mongodb.com/manual/reference/limits/#BSON-Document-Size>`__).
    When we need to retrieve Leslie’s hobbies, we don’t need to do an
    expensive join to bring the data together; we can simply retrieve her
    document in the ``Users`` collection.
@@ -752,7 +752,7 @@ Mapping Terms and Concepts from SQL to MongoDB
    application’s requirements evolve and change.
 
    MongoDB provides `schema
-   validation <https://docs.mongodb.com/manual/core/schema-validation/>`_
+   validation <https://docs.mongodb.com/manual/core/schema-validation/>`__
    so you can lock down your schema as much or as little as you’d like when
    you’re ready.
 
@@ -829,7 +829,7 @@ Mapping Terms and Concepts from SQL to MongoDB
    Remember: indexes slow down write performance but speed up read
    performance. For more information on indexes including the types of
    indexes that MongoDB supports, see the `MongoDB
-   Manual <https://docs.mongodb.com/manual/indexes/>`_.
+   Manual <https://docs.mongodb.com/manual/indexes/>`__.
 
    View ⇒ View
    ~~~~~~~~~~~
@@ -842,11 +842,11 @@ Mapping Terms and Concepts from SQL to MongoDB
       :alt: SQL View and MongoDB View
 
    To learn more about views, see the `MongoDB
-   Manual <https://docs.mongodb.com/manual/core/views/>`_.
+   Manual <https://docs.mongodb.com/manual/core/views/>`__.
 
    MongoDB added support for On-Demand Materialized Views in version 4.2.
    To learn more, see the `MongoDB
-   Manual <https://docs.mongodb.com/manual/core/materialized-views/>`_.
+   Manual <https://docs.mongodb.com/manual/core/materialized-views/>`__.
 
    Join ⇒ Embedding
    ~~~~~~~~~~~~~~~~
@@ -873,9 +873,9 @@ Mapping Terms and Concepts from SQL to MongoDB
 
    For more information, see the MongoDB Manual’s pages on `modeling
    one-to-one relationships with
-   embedding <https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-one-relationships-between-documents/>`_
+   embedding <https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-one-relationships-between-documents/>`__
    and `modeling one-to-many relationships with
-   embedding <https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-many-relationships-between-documents/>`_.
+   embedding <https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-many-relationships-between-documents/>`__.
 
    Join ⇒ Database References
    ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -898,7 +898,7 @@ Mapping Terms and Concepts from SQL to MongoDB
 
    For more information on modeling one-to-many relationships with
    database references, see the `MongoDB
-   Manual <https://docs.mongodb.com/manual/tutorial/model-referenced-one-to-many-relationships-between-documents/>`_.
+   Manual <https://docs.mongodb.com/manual/tutorial/model-referenced-one-to-many-relationships-between-documents/>`__.
 
    Left Outer Join ⇒ $lookup (Aggregation Pipeline)
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -922,12 +922,12 @@ Mapping Terms and Concepts from SQL to MongoDB
       :alt: SQL Left Outer Join and MongoDB $lookup
 
    For more information, see the MongoDB Manual’s pages on the `aggregation
-   framework <https://docs.mongodb.com/manual/core/aggregation-pipeline/index.html>`_
+   framework <https://docs.mongodb.com/manual/core/aggregation-pipeline/index.html>`__
    and
-   `$lookup <https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/index.html>`_.
+   `$lookup <https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/index.html>`__.
    MongoDB University has a fantastic free course on the aggregation
    pipeline that will walk you in detail through using ``$lookup``: `M121:
-   The MongoDB Aggregation Framework <http://bit.ly/MDBU_m121>`_.
+   The MongoDB Aggregation Framework <http://bit.ly/MDBU_m121>`__.
 
    Recursive Common Table Expressions ⇒ $graphLookup (Aggregation Pipeline)
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -943,16 +943,16 @@ Mapping Terms and Concepts from SQL to MongoDB
       :alt: SQL Recursive Common Table Expressions and $graphLookup
 
    For more information, see the MongoDB Manual’s page on
-   `$graphLookup <https://docs.mongodb.com/manual/reference/operator/aggregation/graphLookup/>`_
+   `$graphLookup <https://docs.mongodb.com/manual/reference/operator/aggregation/graphLookup/>`__
    and `MongoDB University’s free course on the aggregation
-   framework <http://bit.ly/MDBU_m121>`_.
+   framework <http://bit.ly/MDBU_m121>`__.
 
    .. _sql-mdb-1-transactions-mapping:
 
    Multi-Record ACID Transaction ⇒ Multi-Document ACID Transaction
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   Finally, let’s talk about `ACID <https://en.wikipedia.org/wiki/ACID>`_
+   Finally, let’s talk about `ACID <https://en.wikipedia.org/wiki/ACID>`__
    transactions. Transactions group database operations together so they
    all succeed or none succeed. In SQL, we call these multi-record ACID
    transactions. In MongoDB, we call these multi-document ACID
@@ -962,7 +962,7 @@ Mapping Terms and Concepts from SQL to MongoDB
       :alt: SQL Transaction and MongoDB Transaction
 
    For more information, see the `MongoDB
-   Manual <https://docs.mongodb.com/manual/core/transactions/>`_.
+   Manual <https://docs.mongodb.com/manual/core/transactions/>`__.
 
 .. summary::
 

@@ -187,7 +187,7 @@ Building with Patterns: The Attribute Pattern
    seldom common across the assets or are simply difficult to predict at
    design time. Relational models typically use a complicated design
    process to express the same idea in the form of `user-defined
-   fields <https://martinfowler.com/bliki/UserDefinedField.html>`_.
+   fields <https://martinfowler.com/bliki/UserDefinedField.html>`__.
 
    While many of the fields in the product catalog are similar, such as
    name, vendor, manufacturer, country of origin, etc., the specifications,
