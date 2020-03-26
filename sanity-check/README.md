@@ -10,7 +10,7 @@ This small python script scans the blog posts:
 - images used but not found in the `source/images/` folder,
 - missing information in twitter directive:
   - site,
-  - creator,
+  - creator (with the @),
   - title (max size 70 characters),
   - image (with a relative path and image in the /images/ folder),
   - image-alt,

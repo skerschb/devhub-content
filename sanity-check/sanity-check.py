@@ -125,8 +125,8 @@ def check_twitter(files):
         file_path = ft['file'].path.replace('../source', '')
         if ':site: @mongodb' not in ft['array']:
             output.append(['=> Missing ":site: @mongodb"', file_path])
-        if not any(re.compile(':creator:.*').match(line) for line in ft['array']):
-            output.append(['=> Missing ":creator:"', file_path])
+        if not any(re.compile(':creator: @.*').match(line) for line in ft['array']):
+            output.append(['=> Missing ":creator: @..."', file_path])
         if not any(re.compile(':title:.*').match(line) for line in ft['array']):
             output.append(['=> Missing ":title:"', file_path])
         if not any(re.compile(':image: /images/.*').match(line) for line in ft['array']):
