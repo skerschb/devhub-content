@@ -87,6 +87,14 @@ def read_links(file):
                 return {'file': file, 'link_found': True}
         return {'file': file, 'link_found': False}
 
+def read_atf_image(file):
+    with open(file.path, encoding="utf-8") as f:
+        for line in f.readlines():
+            line_stripped = line.strip()
+            if '.. atf-image::' in line_stripped:
+                return {'file': file, 'atf_image_found': True}
+        return {'file': file, 'atf_image_found': False}
+
 
 def check_for_invalid_elements(files, valid_list, element):
     output = [['\nList of the invalid ' + element + 's:\n']]
@@ -190,6 +198,15 @@ def check_level(files):
         level = ft['level']
         if level == '' or level not in ['beginner', 'intermediate', 'advanced']:
             output.append(['=> Level directive is wrong in this file.', file_path])
+    print_if_necessary_style_columns(output)
+
+def check_atf_image(files):
+    output = [['\nList of files without directive atf-image:\n']]
+    for ft in files:
+        file_path = ft['file'].path.replace('../source', '')
+        found = ft['atf_image_found']
+        if not found:
+            output.append(['=> atf-image directive is missing in this file.', file_path])
     print_if_necessary_style_columns(output)
 
 
@@ -317,6 +334,7 @@ file_links = []
 file_og = []
 file_type = []
 file_level = []
+file_atf_image = []
 images_used = set()
 includes_used = set()
 
@@ -330,6 +348,7 @@ for file in blog_posts:
     file_links.append(read_links(file))
     file_type.append(read_type_directive(file))
     file_level.append(read_level_directive(file))
+    file_atf_image.append(read_atf_image(file))
 
 check_snooty(blog_posts)
 check_for_invalid_elements(file_tags, valid_tags, 'tag')
@@ -341,6 +360,7 @@ check_meta_description(file_meta_description)
 check_links(file_links)
 check_type(file_type)
 check_level(file_level)
+check_atf_image(file_atf_image)
 
 blog_posts_and_authors = list(blog_posts)
 
