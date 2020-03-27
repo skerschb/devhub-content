@@ -272,15 +272,10 @@ def check_snooty(blog_posts):
                 reading_page_groups = False
             if reading_page_groups and line != '[page_groups]':
                 page_groups.append(line)
-
         if home == '':
             output.append(['=> ERROR: Featured articles for the "home" page are missing in "snooty.toml".'])
-        else:
-            check_blogs_exist(blog_posts, home, output)
         if learn == '':
             output.append(['=> ERROR: Featured articles for the "learn" page are missing in "snooty.toml".'])
-        else:
-            check_blogs_exist(blog_posts, learn, output)
         for line in page_groups:
             check_blogs_exist(blog_posts, line, output)
         print_if_necessary_style_columns(output)
