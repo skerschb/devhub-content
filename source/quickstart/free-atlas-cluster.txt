@@ -86,7 +86,7 @@ Getting Your Free MongoDB Atlas Cluster
    
    You are in luck because you can also try these features for free! The
    coupon code **MAXIME200** will give you $200 to try these features and
-   anything else you like in `MongoDB Atlas`. This is enough for 3 to 4
+   anything else you like in `MongoDB Atlas <http://bit.ly/mdb-atlas>`__. This is enough for 3 to 4
    months of a dedicated M10 Replica Set!
    
    To redeem this coupon code, you need to click "details" in the top right
