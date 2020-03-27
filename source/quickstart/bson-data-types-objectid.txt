@@ -36,7 +36,7 @@
 
 .. atf-image:: /images/atf-images/quickstart/bson.png
 
->`__
+.. related::
 
    * ``:doc:`Decimal128 </quickstart/bson-data-types-decimal128>```
 
