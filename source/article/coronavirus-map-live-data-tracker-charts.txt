@@ -69,10 +69,11 @@ Coronavirus Map and Live Data Tracker with MongoDB Charts
    ------
 
    - March 24th:
-     - `Johns Hopkins University <https://www.jhu.edu/>`__ changed the dataset they release daily.
-     - They don't include anymore the "recovered" data.
-     - I can't calculate anymore the "actively infected persons" which I was calculating: ``infected = confirmed - deaths - recovered``.
-     - To avoid breaking all my existing charts, I decided to froze the current dashboard and create a `new one based on the new dataset <https://charts.mongodb.com/charts-coronavirus-lwlvn/public/dashboards/5e7a3667-c25a-4c3c-8ba2-5f5d6910e339>`__.
+   
+      - `Johns Hopkins University <https://www.jhu.edu/>`__ changed the dataset they release daily.
+      - They don't include anymore the "recovered" data.
+      - I can't calculate anymore the "actively infected persons" which I was calculating: ``infected = confirmed - deaths - recovered``.
+      - To avoid breaking all my existing charts, I decided to froze the current dashboard and create a `new one based on the new dataset <https://charts.mongodb.com/charts-coronavirus-lwlvn/public/dashboards/5e7a3667-c25a-4c3c-8ba2-5f5d6910e339>`__.
 
    .. blockquote::
 
@@ -99,7 +100,7 @@ Coronavirus Map and Live Data Tracker with MongoDB Charts
       :url: https://charts.mongodb.com/charts-coronavirus-lwlvn
       :id: 6f921f0c-a1ee-4106-839c-412fad3c64e7
       :autorefresh: 3600
-      :theme: dark
+      :theme: light
       :width: 760
       :height: 570
 
@@ -107,7 +108,7 @@ Coronavirus Map and Live Data Tracker with MongoDB Charts
       :url: https://charts.mongodb.com/charts-coronavirus-lwlvn
       :id: 9b2d8fb8-bd0d-4394-8153-1aebef8ec284
       :autorefresh: 3600
-      :theme: dark
+      :theme: light
       :width: 760
       :height: 570
 
@@ -173,7 +174,7 @@ Coronavirus Map and Live Data Tracker with MongoDB Charts
       :url: https://charts.mongodb.com/charts-coronavirus-lwlvn
       :id: b7d6b81d-7c5c-465a-90ce-84d178482d1e
       :autorefresh: 3600
-      :theme: dark
+      :theme: light
       :width: 760
       :height: 570
 
@@ -181,7 +182,7 @@ Coronavirus Map and Live Data Tracker with MongoDB Charts
       :url: https://charts.mongodb.com/charts-coronavirus-lwlvn
       :id: 124d803e-b45a-40cd-bd3a-ae62a0959145
       :autorefresh: 3600
-      :theme: dark
+      :theme: light
       :width: 760
       :height: 570
 
@@ -189,7 +190,7 @@ Coronavirus Map and Live Data Tracker with MongoDB Charts
       :url: https://charts.mongodb.com/charts-coronavirus-lwlvn
       :id: 31dc28e0-839e-4b64-aded-77bc280456b1
       :autorefresh: 3600
-      :theme: dark
+      :theme: light
       :width: 760
       :height: 570
 
@@ -197,7 +198,7 @@ Coronavirus Map and Live Data Tracker with MongoDB Charts
       :url: https://charts.mongodb.com/charts-coronavirus-lwlvn
       :id: 3087edf3-f49d-4c84-8629-5c48d738d542
       :autorefresh: 3600
-      :theme: dark
+      :theme: light
       :width: 760
       :height: 570
 
@@ -205,7 +206,7 @@ Coronavirus Map and Live Data Tracker with MongoDB Charts
       :url: https://charts.mongodb.com/charts-coronavirus-lwlvn
       :id: 9e1057e8-0018-41d6-bfcd-3c8125c730d2
       :autorefresh: 3600
-      :theme: dark
+      :theme: light
       :width: 760
       :height: 570
 
@@ -213,7 +214,7 @@ Coronavirus Map and Live Data Tracker with MongoDB Charts
       :url: https://charts.mongodb.com/charts-coronavirus-lwlvn
       :id: 1f2ba37d-1505-47c8-8596-9b5401a05ca5
       :autorefresh: 3600
-      :theme: dark
+      :theme: light
       :width: 760
       :height: 570
 
@@ -221,7 +222,7 @@ Coronavirus Map and Live Data Tracker with MongoDB Charts
       :url: https://charts.mongodb.com/charts-coronavirus-lwlvn
       :id: 77ed8e96-69cd-42a0-bcab-66c572c1f747
       :autorefresh: 3600
-      :theme: dark
+      :theme: light
       :width: 760
       :height: 1000
 
