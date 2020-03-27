@@ -269,19 +269,17 @@ Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    will need to obtain some properties from the Ops Manager console and
    create a ConfigMap file. These properties are as follows: 
 
-   - **Base Url** - The URL of your Ops Manager or Cloud Manager.
-   - **Project Id** - The id of an Ops Manager Project which the Kubernetes Operator 
-      will deploy into.
-   - **User** - An existing Ops Manager username 
-   - **Public API Key** - Used by the Kubernetes Operator to connect to the Ops Manager 
-      REST API endpoint
+   - **Base Url**: The URL of your Ops Manager or Cloud Manager.
+   - **Project Id**: The id of an Ops Manager Project which the Kubernetes Operator will deploy into.
+   - **User**: An existing Ops Manager username.
+   - **Public API Key**: Used by the Kubernetes Operator to connect to the Ops Manager REST API endpoint.
+   - **Base Url**: The Base Uri is the URL of your Ops Manager or Cloud Manager.
 
-      If you already know how to obtain these follows copy them down and
-      proceed to Step 3. 
-   - **Base Url** - The Base Uri is the URL of your Ops Manager or Cloud Manager. 
-   
-   Note: If you are using Cloud Manager the Base
-   Url is https://cloud.mongodb.com 
+   If you already know how to obtain these fellows, copy them down and proceed to Step 3.
+
+   .. blockquote::
+
+      Note: If you are using Cloud Manager the Base Url is https://cloud.mongodb.com
    
    To
    obtain the Base Url in Ops Manager copy the Url used to connect to your

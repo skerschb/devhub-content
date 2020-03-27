@@ -25,6 +25,7 @@ This small python script scans the blog posts:
 - type,
 - level,
 - "include" directives with non existing content,
+- "atf-image" directive presence
 - links with the correct number of underscores,
 - check "home" and "learn" featured pages are in snooty.toml,
 - check all the blog posts in snooty.toml exist.

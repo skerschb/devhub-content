@@ -149,7 +149,7 @@ Java - Mapping POJOs
    In the package ``com.mongodb.quickstart.models``, I created two new
    POJOs: ``Grade.java`` and ``Score.java``.
 
-   `Grade.java <https://github.com/mongodb-developer/java-quick-start/blob/master/src/main/java/com/mongodb/quickstart/models/Grade.java>`:
+   `Grade.java <https://github.com/mongodb-developer/java-quick-start/blob/master/src/main/java/com/mongodb/quickstart/models/Grade.java>`__:
 
    .. code-block:: java
 
@@ -180,7 +180,7 @@ Java - Mapping POJOs
       ``"student_id"`` field in JSON to be mapped to the ``"studentId"``
       field in Java.
 
-   `Score.java <https://github.com/mongodb-developer/java-quick-start/blob/master/src/main/java/com/mongodb/quickstart/models/Score.java>`:
+   `Score.java <https://github.com/mongodb-developer/java-quick-start/blob/master/src/main/java/com/mongodb/quickstart/models/Score.java>`__:
 
    .. code-block:: java
 
