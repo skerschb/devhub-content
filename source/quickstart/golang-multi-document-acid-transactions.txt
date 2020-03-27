@@ -12,7 +12,16 @@
    :site: @mongodb
    :creator: @nraboy
    :title: Multi-Document ACID Transactions in MongoDB with Go
-   :image: https://webassets.mongodb.com/_com_assets/cms/QuickStart-Go(Blog)-min-egkag5bi1n.png
+   :image: /images/social/twitter/twitter-golang.png
+   :image-alt: MongoDB QuickStart twitter banner for golang
+
+   Learn how to accomplish ACID transactions and logical sessions with MongoDB and the Go programming language (Golang).
+
+.. og::
+   :url: https://developer.mongodb.com/quickstart/golang-multi-document-acid-transactions
+   :title: Multi-Document ACID Transactions in MongoDB with Go
+   :image: /images/social/twitter/twitter-golang.png
+   :type: article
 
    Learn how to accomplish ACID transactions and logical sessions with MongoDB and the Go programming language (Golang).
 
@@ -22,7 +31,7 @@
 
 .. include:: /includes/authors/raboy-nic.rst
 
-.. pubdate:: 2020-03-26
+.. pubdate:: 2020-03-27
 
 .. type:: quickstart
 
@@ -47,7 +56,7 @@
 Multi-Document ACID Transactions in MongoDB with Go
 ===================================================
 
-.. content::
+.. introduction::
 
     The past few months have been an adventure when it comes to getting
     started with MongoDB using the Go programming language (Golang). We’ve
@@ -79,6 +88,8 @@ Multi-Document ACID Transactions in MongoDB with Go
     In this tutorial, we’re going to look at what it takes to use
     transactions with Golang and MongoDB. Our example will rely more on
     schema validation rules passing, but it isn’t a limitation.
+
+.. content::
 
     Understanding the Data Model and Applying Schema Validation
     -----------------------------------------------------------
@@ -326,6 +337,8 @@ Multi-Document ACID Transactions in MongoDB with Go
     that application code. Not only that, but retries can happen for
     specific errors if certain operations fail.
 
+.. summary::
+
     Conclusion
     ----------
 
@@ -344,7 +357,7 @@ Multi-Document ACID Transactions in MongoDB with Go
     -  `Deleting MongoDB Documents with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-delete-documents>`__
     -  `Modeling MongoDB Documents with Native Go Data Structures <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--modeling-documents-with-go-data-structures>`__
     -  `Performing Complex MongoDB Data Aggregation Queries with Go <https://www.mongodb.com/blog/post/quick-start-golang--mongodb--data-aggregation-pipeline>`__
-    -  `Reacting to Database Changes with MongoDB Change Streams and Go <https://>`__
+    -  `Reacting to Database Changes with MongoDB Change Streams and Go <https://developer.mongodb.com/quickstart/golang-change-streams>`__
 
     Since transactions brings this tutorial series to a close, make sure you
     keep a lookout for more tutorials that focus on more niche and
