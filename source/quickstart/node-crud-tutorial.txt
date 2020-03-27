@@ -22,9 +22,9 @@
 
 .. include:: /includes/authors/schaefer-lauren.rst
 
-.. pubdate:: October 23, 2019
+.. pubdate:: 2019-10-23
 
-.. updated-date:: March 4, 2020
+.. updated-date:: 2020-03-04
 
 .. type:: quickstart
 
@@ -62,8 +62,8 @@ MongoDB and Node.js Tutorial - CRUD Operations
 
 .. introduction::
 
-    .. image:: /images/quickstart-node.png
-      :alt: QuickStart for Node.js Logo
+    .. image:: /images/qs-badges/qs-badge-nodejs.png
+      :alt: QuickStart Node.js Logo
       :scale: 30%
       :align: right
 

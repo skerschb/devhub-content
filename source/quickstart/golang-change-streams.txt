@@ -49,6 +49,11 @@ Reacting to Database Changes with MongoDB Change Streams and Go
 
 .. content::
 
+   .. image:: /images/qs-badges/qs-badge-go.png
+      :alt: QuickStart Golang Logo
+      :scale: 30%
+      :align: right
+
    If you’ve been keeping up with my getting started with Go and MongoDB
    tutorial series, you’ll remember that we’ve accomplished quite a bit so
    far. We’ve had a look at everything from CRUD interaction with the

@@ -53,7 +53,7 @@ Java - Aggregation Pipeline
    What's the Aggregation Pipeline?
    --------------------------------
 
-   .. image:: /images/quickstart-java-badge.png
+   .. image:: /images/qs-badges/qs-badge-java.png
       :scale: 30%
       :alt: Java badge
       :align: right

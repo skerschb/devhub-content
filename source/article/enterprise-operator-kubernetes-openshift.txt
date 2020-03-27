@@ -10,6 +10,7 @@
 
 .. twitter::
    :site: @mongodb
+   :creator: @RobsCranium
    :title: Introducing the MongoDB Enterprise Operator for Kubernetes and OpenShift
    :image: /images/social/twitter/twitter-mdb-developer.png
 

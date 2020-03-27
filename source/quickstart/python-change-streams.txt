@@ -57,6 +57,11 @@ MongoDB Change Streams with Python
    Introduction
    ------------
 
+   .. image:: /images/qs-badges/qs-badge-python.png
+      :alt: QuickStart Python Logo
+      :scale: 30%
+      :align: right
+
    Change streams allow you to listen to changes that occur in your MongoDB database. On MongoDB 3.6 or above, this functionality allows you to build applications that can immediately respond to real time data changes. In this tutorial, we'll show you how to use change streams with Python. In particular you will:
 
    - Learn about change streams

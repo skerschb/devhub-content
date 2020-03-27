@@ -22,9 +22,9 @@
 
 .. include:: /includes/authors/schaefer-lauren.rst
 
-.. pubdate:: January 8, 2020
+.. pubdate:: 2020-01-08
 
-.. updated-date:: February 18, 2020
+.. updated-date:: 2020-02-18
 
 .. type:: quickstart
 
@@ -62,8 +62,8 @@ Change Streams & Triggers with Node.js Tutorial
  
 .. introduction::
 
-    .. image:: /images/quickstart-node.png
-      :alt: QuickStart for Node.js Logo
+    .. image:: /images/qs-badges/qs-badge-nodejs.png
+      :alt: QuickStart Node.js Logo
       :scale: 30%
       :align: right
 
