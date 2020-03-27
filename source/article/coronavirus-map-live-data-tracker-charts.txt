@@ -75,10 +75,11 @@ Coronavirus Map and Live Data Tracker with MongoDB Charts
    - They don't include anymore the "recovered" data.
    - I can't calculate anymore the "actively infected persons" which I was calculating: ``infected = confirmed - deaths - recovered``.
    - To avoid breaking all my existing charts, I decided to froze the current dashboard and create a `new one based on the new dataset <https://charts.mongodb.com/charts-coronavirus-lwlvn/public/dashboards/5e7a3667-c25a-4c3c-8ba2-5f5d6910e339>`__.
+   - My new dashboard updates **automatically every hour** as new data comes in.
 
    .. blockquote::
 
-      - Check out `Maxime's new dashboard <https://charts.mongodb.com/charts-coronavirus-lwlvn/public/dashboards/5e7a3667-c25a-4c3c-8ba2-5f5d6910e339>`__.
+      - Check out `Maxime's new dashboard <https://charts.mongodb.com/charts-coronavirus-lwlvn/public/dashboards/5e7a3667-c25a-4c3c-8ba2-5f5d6910e339>`__ (updates every hour).
       - Check out `Thomas's dashboard <https://charts.mongodb.com/charts-coronavirus-dashboard-yamfx/public/dashboards/4b328ffa-ba5d-435e-af11-b39fc974e47a>`__.
 
    Too Long, Didn’t Read
