@@ -24,8 +24,10 @@ This small python script scans the blog posts:
 - meta-description (max size 155 characters),
 - type,
 - level,
-- include directive with non existing content,
-- links with the correct number of underscores.
+- "include" directives with non existing content,
+- links with the correct number of underscores,
+- check "home" and "learn" featured pages are in snooty.toml,
+- check all the blog posts in snooty.toml exist.
 
 ## Use it
 
@@ -156,15 +158,15 @@ List of the Twitter warnings:
 
 List of the Meta Description warnings:
 
-meta-description is too long (155 characters max) - need to remove 49 characters   =>  /article/enterprise-operator-kubernetes-openshift.txt
-meta-description is too long (155 characters max) - need to remove 99 characters   =>  /how-to/cidr-subnet-selection-atlas.txt              
-meta-description is too long (155 characters max) - need to remove 215 characters  =>  /how-to/attribute-pattern.txt                        
-meta-description is too long (155 characters max) - need to remove 68 characters   =>  /how-to/stitch-shell.txt                             
-meta-description is too long (155 characters max) - need to remove 11 characters   =>  /how-to/transactions-c-dotnet.txt                    
-meta-description is too long (155 characters max) - need to remove 56 characters   =>  /how-to/stitch-authentication-triggers.txt           
-meta-description is too long (155 characters max) - need to remove 215 characters  =>  /how-to/polymorphic-pattern.txt                      
-meta-description is too long (155 characters max) - need to remove 44 characters   =>  /quickstart/python-acid-transactions.txt             
-meta-description is too long (155 characters max) - need to remove 132 characters  =>  /quickstart/python-change-streams.txt                
+=> meta-description is too long (155 characters max) - need to remove 49 characters   =>  /article/enterprise-operator-kubernetes-openshift.txt
+=> meta-description is too long (155 characters max) - need to remove 99 characters   =>  /how-to/cidr-subnet-selection-atlas.txt              
+=> meta-description is too long (155 characters max) - need to remove 215 characters  =>  /how-to/attribute-pattern.txt                        
+=> meta-description is too long (155 characters max) - need to remove 68 characters   =>  /how-to/stitch-shell.txt                             
+=> meta-description is too long (155 characters max) - need to remove 11 characters   =>  /how-to/transactions-c-dotnet.txt                    
+=> meta-description is too long (155 characters max) - need to remove 56 characters   =>  /how-to/stitch-authentication-triggers.txt           
+=> meta-description is too long (155 characters max) - need to remove 215 characters  =>  /how-to/polymorphic-pattern.txt                      
+=> meta-description is too long (155 characters max) - need to remove 44 characters   =>  /quickstart/python-acid-transactions.txt             
+=> meta-description is too long (155 characters max) - need to remove 132 characters  =>  /quickstart/python-change-streams.txt                
 
 List of the og warnings:
 

@@ -23,44 +23,23 @@ def read_list_in_directive(file, directive):
         return {'file': file, 'array': array}
 
 
-def read_twitter_directive(file):
+def read_directive(file, directive):
     with open(file.path, encoding="utf-8") as f:
-        reading_twitter = False
+        reading_directive = False
         empty_lines = 1
         array = []
         description = ''
         for line in f.readlines():
             line_stripped = line.strip()
-            if '.. twitter::' in line:
-                reading_twitter = True
-            if reading_twitter and '' is line_stripped and empty_lines <= 0:
+            if directive in line:
+                reading_directive = True
+            if reading_directive and '' is line_stripped and empty_lines <= 0:
                 return {'file': file, 'array': array, 'description': description}
-            if reading_twitter and '' is not line_stripped and empty_lines == 1:
+            if reading_directive and '' is not line_stripped and empty_lines == 1:
                 array.append(line_stripped)
-            if reading_twitter and '' is line_stripped:
+            if reading_directive and '' is line_stripped:
                 empty_lines -= 1
-            if reading_twitter and '' is not line_stripped and empty_lines == 0:
-                description = line_stripped
-        return {'file': file, 'array': array, 'description': description}
-
-
-def read_og_directive(file):
-    with open(file.path, encoding="utf-8") as f:
-        reading_og = False
-        empty_lines = 1
-        array = []
-        description = ''
-        for line in f.readlines():
-            line_stripped = line.strip()
-            if '.. og::' in line:
-                reading_og = True
-            if reading_og and '' is line_stripped and empty_lines <= 0:
-                return {'file': file, 'array': array, 'description': description}
-            if reading_og and '' is not line_stripped and empty_lines == 1:
-                array.append(line_stripped)
-            if reading_og and '' is line_stripped:
-                empty_lines -= 1
-            if reading_og and '' is not line_stripped and empty_lines == 0:
+            if reading_directive and '' is not line_stripped and empty_lines == 0:
                 description = line_stripped
         return {'file': file, 'array': array, 'description': description}
 
@@ -105,7 +84,6 @@ def read_links(file):
     with open(file.path, encoding="utf-8") as f:
         for line in f.readlines():
             if re.match(r".*>`_[^_].*", line):
-                print("Salut ?")
                 return {'file': file, 'link_found': True}
         return {'file': file, 'link_found': False}
 
@@ -182,7 +160,7 @@ def check_meta_description(files):
         if length_desc == 0:
             output.append(['=> Description is empty.', file_path])
         if length_desc > 155:
-            output.append(['meta-description is too long (155 characters max) - need to remove ' + str(length_desc - 155) + ' characters', file_path])
+            output.append(['=> meta-description is too long (155 characters max) - need to remove ' + str(length_desc - 155) + ' characters', file_path])
     print_if_necessary_style_columns(output)
 
 
@@ -229,9 +207,13 @@ def print_if_necessary_style_columns(output):
     width_col_2 = 0
     for i in range(len(output)):
         width_col_1 = max(width_col_1, len(output[i][0]))
-        width_col_2 = max(width_col_2, len(output[i][1]))
+        if len(output[i]) > 1:
+            width_col_2 = max(width_col_2, len(output[i][1]))
     for i in range(len(output)):
-        print(output[i][0].ljust(width_col_1), " => ", output[i][1].ljust(width_col_2))
+        if len(output[i]) > 1:
+            print(output[i][0].ljust(width_col_1), " => ", output[i][1].ljust(width_col_2))
+        else:
+            print(output[i][0].ljust(width_col_1))
 
 
 def scan_images(file):
@@ -270,6 +252,49 @@ def check_thing_not_found(things, all_images, images_used):
     print_if_necessary(output)
 
 
+def check_snooty(blog_posts):
+    blog_posts = list(map(lambda b: b.path.replace('../source', '').replace('.txt', ''), blog_posts))
+    output = [['\nList of errors in snooty.toml.\n']]
+    with open('../snooty.toml', encoding="utf-8") as f:
+        home = ''
+        learn = ''
+        reading_page_groups = False
+        page_groups = []
+        for line in f.read().splitlines():
+            line = line.strip()
+            if line.startswith('"home"'):
+                home = line
+            if line.startswith('"learn"'):
+                learn = line
+            if line == '[page_groups]':
+                reading_page_groups = True
+            if reading_page_groups and line == '':
+                reading_page_groups = False
+            if reading_page_groups and line != '[page_groups]':
+                page_groups.append(line)
+
+        if home == '':
+            output.append(['=> ERROR: Featured articles for the "home" page are missing in "snooty.toml".'])
+        else:
+            check_blogs_exist(blog_posts, home, output)
+        if learn == '':
+            output.append(['=> ERROR: Featured articles for the "learn" page are missing in "snooty.toml".'])
+        else:
+            check_blogs_exist(blog_posts, learn, output)
+        for line in page_groups:
+            check_blogs_exist(blog_posts, line, output)
+        print_if_necessary_style_columns(output)
+
+
+def check_blogs_exist(existing_blog_posts, line, output):
+    split = line.split('=')
+    snooty_part = split[0]
+    blog_posts_in_line = eval(split[1])
+    imaginary_blog_posts = set(blog_posts_in_line) - set(existing_blog_posts)
+    for blog in imaginary_blog_posts:
+        output.append(['=> This blog post does not exist in ' + snooty_part, blog])
+
+
 with open('tags.txt', encoding="utf-8") as f:
     valid_tags = f.read().splitlines()
 with open('products.txt', encoding="utf-8") as f:
@@ -304,20 +329,21 @@ for file in blog_posts:
     file_tags.append(read_list_in_directive(file, '.. tags::'))
     file_products.append(read_list_in_directive(file, '.. products::'))
     file_languages.append(read_list_in_directive(file, '.. languages::'))
-    file_twitter.append(read_twitter_directive(file))
+    file_twitter.append(read_directive(file, '.. twitter::'))
+    file_og.append(read_directive(file, '.. og::'))
     file_meta_description.append(read_meta_description_directive(file))
     file_links.append(read_links(file))
-    file_og.append(read_og_directive(file))
     file_type.append(read_type_directive(file))
     file_level.append(read_level_directive(file))
 
+check_snooty(blog_posts)
 check_for_invalid_elements(file_tags, valid_tags, 'tag')
 check_for_invalid_elements(file_products, valid_products, 'product')
 check_for_invalid_elements(file_languages, valid_languages, 'language')
 check_twitter(file_twitter)
+check_og(file_og)
 check_meta_description(file_meta_description)
 check_links(file_links)
-check_og(file_og)
 check_type(file_type)
 check_level(file_level)
 
