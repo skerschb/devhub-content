@@ -6,15 +6,22 @@
 
 .. meta-description::
 
-   Over the course of this blog post series, we'll take a look at twelve common Schema Design Patterns that work well in MongoDB. We hope this series will establish a common methodology and vocabulary you can use when designing schemas. Leveraging these patterns allows for the use of "building blocks" in schema planning, resulting in more methodology being used than art.
+   Over the course of this blog post series, we'll take a look at twelve common Schema Design Patterns that work well in MongoDB.
 
 .. twitter::
    :site: @mongodb
    :creator: @kenwalger
    :title: Building with Patterns: The Attribute Pattern
    :image: /images/social/twitter/twitter-mdb-developer.png
+   :image-alt: MongoDB Developers
 
    Learn about the Attribute Schema Design pattern in MongoDB.
+
+.. og::
+   :url: https://developer.mongodb.com/how-to/bucket-pattern/
+   :title: Building with Patterns: The Bucket Pattern
+   :image: /images/social/open-graph/og-mdb-developer.png
+   :type: article
 
 .. ---------------------------------------------------------------
 .. ARTICLE METADATA FIELDS (TO POPULATE FILTERS AND ARTICLE PAGE)
